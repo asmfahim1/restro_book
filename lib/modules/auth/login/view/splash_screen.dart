@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restro_book/core/utils/asset_path.dart';
@@ -13,36 +14,15 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
-/*  late Animation<double> animation;
-  late AnimationController controller;*/
-
-/*  String? obtainedIpAddress;
-  Future getValidationData() async{
-    final SharedPreferences preferences = await SharedPreferences.getInstance();
-    var savedIp = preferences.getString('ipAddress');
-    setState(() {
-      obtainedIpAddress = savedIp;
-    });
-  }*/
-
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-/*    controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 3),
-    )..forward();
-    animation = CurvedAnimation(parent: controller, curve: Curves.linear);*/
     Timer(const Duration(seconds: 2), () {
-      Get.to(() => LoginScreen());
+      Get.to(() => const LoginScreen());
     });
-    /*getValidationData().whenComplete(() async{
-      Timer(const Duration(seconds: 3), () {
-        Get.to(() => obtainedIpAddress == null ? const ServerSetupScreen() : const LoginScreen());
-      });
-    });*/
   }
 
   @override
@@ -56,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: MediaQuery.of(context).size.height / 8,
+              height: MediaQuery.of(context).size.height / 12,
               width: MediaQuery.of(context).size.width / 1.5,
               child: Image.asset(appIconImage),
             ),

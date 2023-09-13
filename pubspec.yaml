@@ -11,8 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
+
   cupertino_icons: ^1.0.2
   bot_toast: ^4.0.4
   intl: ^0.18.0
@@ -28,7 +27,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.2
+  #this line is added for localization
+  flutter_localizations:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
   very_good_analysis: ^5.0.0+1
 
 dependency_overrides:
@@ -36,11 +39,8 @@ dependency_overrides:
 
 flutter:
 
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
-  generate: true
   uses-material-design: true
+  generate: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
