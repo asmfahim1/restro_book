@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'colors.dart';
 
 class TextStyles {
@@ -28,7 +29,7 @@ class TextStyles {
     fontSize: 12,
   );
 
-  static final title11 = regular16.copyWith(
+  static final title11 = title32.copyWith(
     fontSize: 11,
   );
 }

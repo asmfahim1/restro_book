@@ -8,15 +8,15 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery.of(context).size.height,
+          height: size.height,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(loginBackgroundImage),
               fit: BoxFit.cover,
-              opacity: 0.6,
             ),
           ),
           child: Padding(
@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
                   height: 100,
                 ),
                 TextWidget(
-                  'Welcome to restro_book',
+                  'Welcome to RESTRO BOOKING',
                   style: TextStyles.title22.copyWith(color: whiteColor),
                 ),
                 const SizedBoxHeight20(),

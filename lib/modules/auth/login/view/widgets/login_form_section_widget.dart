@@ -26,39 +26,49 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
   final FocusNode _passwordFocus = FocusNode();
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Form(
       key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBoxHeight20(),
-          _textFields(),
-          const SizedBox(
-            height: 15,
-          ),
-          const SizedBoxHeight20(),
-          _loginButton(),
-          const SizedBoxHeight20(),
-          _socialLogin(),
-          const SizedBoxHeight20(),
-          GestureDetector(
-            onTap: () {
-              //go to registration page
-              Get.toNamed(AppRoutes.registrationPage);
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextWidget('Don\'t have an account?',
-                    style: TextStyles.title16.copyWith(color: blackColor)),
-                TextWidget(
-                  'Sign Up',
-                  style: TextStyles.title16.copyWith(color: whiteColor),
-                ),
-              ],
+      child: Container(
+        height: size.height / 2.2,
+        width: size.width,
+        padding: EdgeInsets.symmetric(horizontal: 5),
+        decoration: BoxDecoration(
+          color: whiteColor.withOpacity(0.7),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBoxHeight20(),
+            _textFields(),
+            const SizedBox(
+              height: 15,
             ),
-          ),
-        ],
+            const SizedBoxHeight20(),
+            _loginButton(),
+            const SizedBoxHeight20(),
+            _socialLogin(),
+            const SizedBoxHeight20(),
+            GestureDetector(
+              onTap: () {
+                //go to registration page
+                Get.toNamed(AppRoutes.registrationPage);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextWidget('Don\'t have an account?',
+                      style: TextStyles.title16.copyWith(color: blackColor)),
+                  TextWidget(
+                    'Sign Up',
+                    style: TextStyles.title16.copyWith(color: primaryColor),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -102,12 +112,14 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
   }
 
   Widget _loginButton() {
+    Size size = MediaQuery.of(context).size;
     return CommonButton(
-      btnHeight: MediaQuery.of(context).size.width / 20,
-      width: MediaQuery.of(context).size.width / 1.6,
+      btnHeight: size.height / 20,
+      width: size.width / 1.6,
       buttonTitle: 'Login',
       onTap: () {
         //login method will call
+        Get.toNamed(AppRoutes.navBarScreen);
       },
     );
   }
@@ -142,7 +154,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
       onTap: callBack,
       child: Container(
         height: 60,
-        width: MediaQuery.sizeOf(context).width / 2 - 30,
+        width: MediaQuery.sizeOf(context).width / 2.1 - 30,
         decoration: BoxDecoration(
           color: silverGrayColor,
           borderRadius: BorderRadius.circular(4),

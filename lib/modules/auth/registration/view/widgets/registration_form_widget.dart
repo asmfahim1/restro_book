@@ -25,19 +25,28 @@ class _RegistrationFormSectionWidgetState
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBoxHeight20(),
-          _textFields(),
-          const SizedBox(
-            height: 15,
-          ),
-          const SizedBoxHeight20(),
-          _registrationButton(),
-          const SizedBoxHeight20(),
-          const SizedBoxHeight20(),
-        ],
+      child: Container(
+        height: MediaQuery.of(context).size.height / 1.9,
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(horizontal: 5),
+        decoration: BoxDecoration(
+          color: whiteColor.withOpacity(0.7),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBoxHeight20(),
+            _textFields(),
+            const SizedBox(
+              height: 15,
+            ),
+            const SizedBoxHeight20(),
+            _registrationButton(),
+            const SizedBoxHeight20(),
+            const SizedBoxHeight20(),
+          ],
+        ),
       ),
     );
   }
