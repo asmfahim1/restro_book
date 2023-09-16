@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-class LoginController extends GetxController {
-  final TextEditingController name = TextEditingController();
+class RegistrationController extends GetxController {
+  final TextEditingController userName = TextEditingController();
+  final TextEditingController phone = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
   final RxBool _passwordVisible = false.obs;

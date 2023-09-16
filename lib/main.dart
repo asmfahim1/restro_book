@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:restro_book/core/utils/colors.dart';
-import 'package:restro_book/modules/auth/login/view/splash_screen.dart';
-import 'core/utils/app_version.dart';
-import 'core/utils/pref_helper.dart';
 //localization
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'modules/auth/login/view/login_screen.dart';
-export 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:restro_book/core/utils/app_routes.dart';
+import 'package:restro_book/core/utils/colors.dart';
+
+import 'core/utils/app_version.dart';
+import 'core/utils/pref_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,10 +52,12 @@ class MyApp extends StatelessWidget {
         primaryColor: primaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         colorScheme: ThemeData().colorScheme.copyWith(
-          secondary: secondaryColor,
-        ),
+              secondary: secondaryColor,
+            ),
       ),
-      home: const SplashScreen(),
+      //home: const SplashScreen(),
+      initialRoute: AppRoutes.splashScreen,
+      getPages: AppRoutes.routes,
     );
   }
 }

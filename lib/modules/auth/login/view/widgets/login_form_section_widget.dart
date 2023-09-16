@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/modules/auth/login/controller/login_controller.dart';
+
 import '../../../../../core/utils/asset_path.dart';
 import '../../../../../core/utils/colors.dart';
 import '../../../../../core/utils/styles.dart';
@@ -19,72 +21,88 @@ class LoginFormSectionWidget extends StatefulWidget {
 }
 
 class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
+  final login = Get.put(LoginController());
   final _formKey = GlobalKey<FormState>();
   final FocusNode _passwordFocus = FocusNode();
   @override
   Widget build(BuildContext context) {
-    final login = Get.put(LoginController());
+    Size size = MediaQuery.of(context).size;
     return Form(
       key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBoxHeight20(),
-          _textFields(login),
-          const SizedBox(
-            height: 15,
-          ),
-          const SizedBoxHeight20(),
-          _loginButton(login),
-          const SizedBoxHeight20(),
-          _socialLogin(),
-          const SizedBoxHeight20(),
-          GestureDetector(
-            onTap: () {
-              //go to registration page
-              // Get.toNamed(AppRoutes.homePage);
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextWidget('Don\'t have an account?', style: TextStyles.title16.copyWith(color: blackColor)),
-                TextWidget('Sign Up', style: TextStyles.title16.copyWith(color: whiteColor),),
-              ],
+      child: Container(
+        height: size.height / 2.2,
+        width: size.width,
+        padding: EdgeInsets.symmetric(horizontal: 5),
+        decoration: BoxDecoration(
+          color: whiteColor.withOpacity(0.7),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBoxHeight20(),
+            _textFields(),
+            const SizedBox(
+              height: 15,
             ),
-          ),
-        ],
+            const SizedBoxHeight20(),
+            _loginButton(),
+            const SizedBoxHeight20(),
+            _socialLogin(),
+            const SizedBoxHeight20(),
+            GestureDetector(
+              onTap: () {
+                //go to registration page
+                Get.toNamed(AppRoutes.registrationPage);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextWidget('Don\'t have an account?',
+                      style: TextStyles.title16.copyWith(color: blackColor)),
+                  TextWidget(
+                    'Sign Up',
+                    style: TextStyles.title16.copyWith(color: primaryColor),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _textFields(LoginController loginController) {
+  Widget _textFields() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CommonTextField(
           hintText: 'Email',
           validator: Validator().nullFieldValidate,
-          controller: loginController.email,
+          controller: login.email,
           onFieldSubmitted: (v) {
             FocusScope.of(context).requestFocus(_passwordFocus);
           },
         ),
         const SizedBoxHeight20(),
-        Obx((){
+        Obx(() {
           return CommonTextField(
             validator: Validator().nullFieldValidate,
             hintText: 'Password',
             focusNode: _passwordFocus,
-            controller: loginController.password,
-            obSecure: !loginController.passwordVisible,
+            controller: login.password,
+            obSecure: !login.passwordVisible,
             onFieldSubmitted: (v) {
               //login method will call
             },
             suffixIcon: IconButton(
               color: blackColor,
-              icon: loginController.passwordVisible ? const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
+              icon: login.passwordVisible
+                  ? const Icon(Icons.visibility)
+                  : const Icon(Icons.visibility_off),
               onPressed: () {
-                loginController.passwordVisible = !loginController.passwordVisible;
+                login.passwordVisible = !login.passwordVisible;
               },
             ),
           );
@@ -93,13 +111,15 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
     );
   }
 
-  Widget _loginButton(LoginController loginController) {
+  Widget _loginButton() {
+    Size size = MediaQuery.of(context).size;
     return CommonButton(
-      btnHeight: 50,
-      width: MediaQuery.of(context).size.width / 1.6,
+      btnHeight: size.height / 20,
+      width: size.width / 1.6,
       buttonTitle: 'Login',
       onTap: () {
         //login method will call
+        Get.toNamed(AppRoutes.navBarScreen);
       },
     );
   }
@@ -118,7 +138,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
         ),
         _socialItem(
           title: 'Google',
-          iconPath: googleIconPath,
+          iconPath: facebookIconPath,
           callBack: () {},
         ),
       ],
@@ -134,7 +154,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
       onTap: callBack,
       child: Container(
         height: 60,
-        width: MediaQuery.sizeOf(context).width / 2 - 30,
+        width: MediaQuery.sizeOf(context).width / 2.1 - 30,
         decoration: BoxDecoration(
           color: silverGrayColor,
           borderRadius: BorderRadius.circular(4),

@@ -1,9 +1,10 @@
 import 'dart:developer' as darttools show log;
+
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart' show AppLocalizations;
-import 'package:restro_book/core/utils/pref_helper.dart';
-//import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:intl/intl.dart';
+import 'package:restro_book/core/utils/pref_helper.dart';
 
 import '../../constant/constant_key.dart';
 
@@ -70,7 +71,7 @@ extension StringFormat on String {
 extension Context on BuildContext {
 //this extention is for localization
 //its a shorter version of AppLocalizations
-  AppLocalizations get loc => AppLocalizations.of(this);
+  AppLocalizations? get loc => AppLocalizations.of(this);
 
   //get media query
   MediaQueryData get mediaQuery => MediaQuery.of(this);
@@ -99,7 +100,7 @@ extension Context on BuildContext {
 extension validationExtention on String {
   //Check email is valid or not
   bool get isValidEmail => RegExp(
-      r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+          r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
       .hasMatch(this);
 
   //check mobile number contain special character or not
@@ -142,13 +143,13 @@ extension VersionCheck on String {
 
 extension WidgetExtention on Widget {
   Widget centerCircularProgress({Color? progressColor}) => Center(
-    child: Container(
-      //using adaptive we can easily show platfrom base indicator
-      child: CircularProgressIndicator.adaptive(
-        backgroundColor: progressColor,
-      ),
-    ),
-  );
+        child: Container(
+          //using adaptive we can easily show platfrom base indicator
+          child: CircularProgressIndicator.adaptive(
+            backgroundColor: progressColor,
+          ),
+        ),
+      );
 }
 
 extension Log on Object {
@@ -175,15 +176,15 @@ extension FormattedYearMonthDate on String? {
 
 //This extention sum the value from List<Map<String,dynamic>>
 extension StringToDoubleFoldExtention<T extends List<Map<String, dynamic>>>
-on T {
+    on T {
   String? get listOfMapStringSum => this
-      .map((e) => double.tryParse(e.values.first?.toString() ?? ""))
-      .toList()
-      .fold("0", (previous, current) {
-    var sum = double.parse(previous?.toString() ?? "0") +
-        double.parse(current?.toString() ?? "0");
-    return sum.toString().parseToDouble().toStringAsFixed(3);
-  });
+          .map((e) => double.tryParse(e.values.first?.toString() ?? ""))
+          .toList()
+          .fold("0", (previous, current) {
+        var sum = double.parse(previous?.toString() ?? "0") +
+            double.parse(current?.toString() ?? "0");
+        return sum.toString().parseToDouble().toStringAsFixed(3);
+      });
 }
 
 //It will capitalize the first letter of the String.
@@ -199,4 +200,3 @@ extension CapitalizeExtention on String {
 extension LastPathComponent on String {
   String get lastPathComponent => this.split('/').last.replaceAll("_", "");
 }
-
