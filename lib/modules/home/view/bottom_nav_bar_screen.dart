@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:restro_book/modules/home/controller/home_controller.dart';
 
 import '../../../core/utils/colors.dart';
+import '../../search/view/search_screen.dart';
 import 'home_screen.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   HomeController home = Get.put(HomeController());
   final List _tabs = [
     const HomeScreen(),
-    const SizedBox(),
+    const SearchScreen(),
     const SizedBox(),
     const SizedBox(),
     const SizedBox(),

@@ -47,7 +47,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               height: size.height / 24,
               width: size.width / 2.4,
               decoration: BoxDecoration(
-                border: Border.all(color: blackColor),
+                border: Border.all(color: strokeColor),
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Row(
@@ -71,7 +71,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               child: Container(
                 height: size.height / 24,
                 decoration: BoxDecoration(
-                  border: Border.all(color: blackColor),
+                  border: Border.all(color: strokeColor),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Row(
