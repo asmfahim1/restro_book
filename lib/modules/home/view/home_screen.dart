@@ -36,7 +36,6 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _buildBody() {
-    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         _topSectionWidget(),
@@ -48,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _topSectionWidget() {
     Size size = MediaQuery.of(context).size;
     return Container(
-      margin: const EdgeInsets.only(top: 45),
+      margin: const EdgeInsets.only(top: 30),
       height: size.height / 20,
       width: size.width,
       padding: leftRightPadding15,
