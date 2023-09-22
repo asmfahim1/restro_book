@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen>
     Size size = MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.only(top: 30),
-      height: size.height / 20,
+      height: size.height / 22,
       width: size.width,
       padding: leftRightPadding15,
       child: Row(

@@ -99,7 +99,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _availableLunchWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.5,
+      height: size.height / 2.3,
       titleOfTheList: 'Available for lunch',
       onTap: () {},
       listItemLength: 5,
@@ -120,7 +120,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _outdoorDiningWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.5,
+      height: size.height / 2.3,
       titleOfTheList: 'Outdoor Dining',
       onTap: () {},
       listItemLength: 5,
@@ -141,7 +141,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _newToRestroBookingWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.5,
+      height: size.height / 2.3,
       titleOfTheList: 'New to Restro Booking',
       onTap: () {},
       listItemLength: 5,
@@ -162,7 +162,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _featuredRestaurantsWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.5,
+      height: size.height / 2.3,
       titleOfTheList: 'Featured restaurants',
       onTap: () {},
       listItemLength: 5,
@@ -183,7 +183,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _recentlyViewedWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 3,
+      height: size.height / 2.7,
       titleOfTheList: 'Recently viewed',
       isViewNeeded: false,
       onTap: () {},
@@ -200,7 +200,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _happyOursWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.5,
+      height: size.height / 2.3,
       titleOfTheList: 'Happy Hours',
       isViewNeeded: false,
       onTap: () {},
@@ -222,7 +222,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _availableForBrunchWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.5,
+      height: size.height / 2.3,
       titleOfTheList: 'Available for brunch',
       onTap: () {},
       listItemLength: 5,
@@ -243,7 +243,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _getInspiredWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 3,
+      height: size.height / 2.7,
       titleOfTheList: 'Get inspired',
       isViewNeeded: false,
       onTap: () {},
@@ -269,7 +269,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _exploreAreaWidget() {
     Size size = MediaQuery.of(context).size;
     return ExploreAresSectionWidget(
-      height: size.height / 10,
+      height: size.height / 8,
       title: 'Explore the area',
       viewAllOnTap: () {},
       itemLength: 6,

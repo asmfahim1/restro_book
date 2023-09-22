@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/asset_path.dart';
+import 'package:restro_book/core/utils/const.dart';
+import 'package:restro_book/core/widgets/exports.dart';
+import 'package:restro_book/modules/search/view/widgets/filter_container_widget.dart';
+import 'package:restro_book/modules/search/view/widgets/filter_section_widget.dart';
 import 'package:restro_book/modules/search/view/widgets/search_screen_appbar_widget.dart';
 
 import '../../../core/utils/colors.dart';
@@ -21,41 +26,60 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _buildBody() {
+
+    Size size = MediaQuery.of(context).size;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          height: 40,
-          decoration: BoxDecoration(color: Colors.white, boxShadow: const [
-            BoxShadow(offset: Offset(0, 0), blurRadius: 5, color: strokeColor)
-          ]),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.search_sharp,
-                size: 20,
-                color: Colors.grey.shade600,
-              ),
-              SizedBox(
-                width: 5,
-              ),
-              Expanded(
-                child: TextField(
-                  onChanged: (value) {},
-                  decoration: InputDecoration(
-                      hintText: "Search Dhanmondi",
-                      hintStyle:
-                          TextStyle(color: Colors.grey.shade600, fontSize: 15),
-                      enabledBorder: InputBorder.none,
-                      focusedBorder: InputBorder.none),
-                ),
-              ),
-            ],
-          ),
-        )
+        _searchContainerWidget(),
+        const FilterSectionWidget()
+
       ],
+    );
+  }
+
+  Widget _searchContainerWidget(){
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      height: size.height / 15,
+      decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+        BoxShadow(offset: Offset(0, 0), blurRadius: 5, color: strokeColor)
+      ]),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.search_sharp,
+            size: 20,
+            color: Colors.grey.shade600,
+          ),
+          const SizedBox(
+            width: 5,
+          ),
+          Expanded(
+            child: TextField(
+              onChanged: (value) {},
+              decoration: InputDecoration(
+                  hintText: "Search Dhanmondi",
+                  hintStyle:
+                  TextStyle(color: Colors.grey.shade600, fontSize: 15),
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none),
+            ),
+          ),
+          Spacer(),
+          InkWell(
+            onTap: (){},
+            child: Image.asset(
+              searchLocationImagePath,
+              height: size.height / 26,
+              width: size.width / 16,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

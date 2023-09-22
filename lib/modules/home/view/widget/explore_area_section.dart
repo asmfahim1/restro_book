@@ -59,7 +59,7 @@ class ExploreAresSectionWidget extends StatelessWidget {
                         width: size.width / 3.5,
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(5),
                             border: Border.all(color: strokeColor)),
                         alignment: Alignment.center,
                         child: TextWidget(

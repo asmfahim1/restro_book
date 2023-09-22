@@ -67,7 +67,7 @@ class GetStartedScreen extends StatelessWidget {
                     border: Border(
                       top: BorderSide(
                         color: blackColor,
-                        width: 1.2,
+                        width: 1.1,
                       ),
                     ),
                   ),

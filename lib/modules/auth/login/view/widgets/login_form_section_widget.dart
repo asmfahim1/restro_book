@@ -30,7 +30,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
     return Form(
       key: _formKey,
       child: Container(
-        height: size.height / 2.2,
+        height: size.height / 1.9,
         width: size.width,
         padding: EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
@@ -59,7 +59,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextWidget('Don\'t have an account?',
-                      style: TextStyles.title16.copyWith(color: blackColor)),
+                      style: TextStyles.title16.copyWith(color: whiteColor)),
                   TextWidget(
                     'Sign Up',
                     style: TextStyles.title16.copyWith(color: primaryColor),
