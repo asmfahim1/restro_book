@@ -15,23 +15,21 @@ class ReservationBarScreen extends StatefulWidget {
 class _ReservationBarScreenState extends State<ReservationBarScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            _locationTimeWidget(),
-            _availableLunchWidget(),
-            _outdoorDiningWidget(),
-            _newToRestroBookingWidget(),
-            _featuredRestaurantsWidget(),
-            _recentlyViewedWidget(),
-            _happyOursWidget(),
-            _availableForBrunchWidget(),
-            _getInspiredWidget(),
-            _browseByCuisineWidget(),
-            _exploreAreaWidget(),
-          ],
-        ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _locationTimeWidget(),
+          _availableLunchWidget(),
+          _outdoorDiningWidget(),
+          _newToRestroBookingWidget(),
+          _featuredRestaurantsWidget(),
+          _recentlyViewedWidget(),
+          _happyOursWidget(),
+          _availableForBrunchWidget(),
+          _getInspiredWidget(),
+          _browseByCuisineWidget(),
+          _exploreAreaWidget(),
+        ],
       ),
     );
   }
@@ -99,14 +97,14 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _availableLunchWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.3,
+      height: size.height / 2.2,
       titleOfTheList: 'Available for lunch',
       onTap: () {},
-      listItemLength: 5,
+      listItemLength: 10,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 26,
+      timeContainerHeight: size.height / 22,
       timeContainerWidth: size.width / 4.8,
       startTime: '11:30 AM',
       startPts: '+ 326 pts',
@@ -120,14 +118,14 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _outdoorDiningWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.3,
+      height: size.height / 2.2,
       titleOfTheList: 'Outdoor Dining',
       onTap: () {},
       listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 26,
+      timeContainerHeight: size.height / 22,
       timeContainerWidth: size.width / 4.8,
       startTime: '11:30 AM',
       startPts: '+ 500 pts',
@@ -141,14 +139,14 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _newToRestroBookingWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.3,
+      height: size.height / 2.2,
       titleOfTheList: 'New to Restro Booking',
       onTap: () {},
       listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 26,
+      timeContainerHeight: size.height / 22,
       timeContainerWidth: size.width / 4.8,
       startTime: '11:30 AM',
       startPts: '+ 359 pts',
@@ -162,14 +160,14 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _featuredRestaurantsWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.3,
+      height: size.height / 2.2,
       titleOfTheList: 'Featured restaurants',
       onTap: () {},
       listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 26,
+      timeContainerHeight: size.height / 22,
       timeContainerWidth: size.width / 4.8,
       startTime: '11:30 AM',
       startPts: '+ 258 pts',
@@ -183,7 +181,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _recentlyViewedWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.7,
+      height: size.height / 2.6,
       titleOfTheList: 'Recently viewed',
       isViewNeeded: false,
       onTap: () {},
@@ -200,7 +198,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _happyOursWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.3,
+      height: size.height / 2.2,
       titleOfTheList: 'Happy Hours',
       isViewNeeded: false,
       onTap: () {},
@@ -208,7 +206,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 26,
+      timeContainerHeight: size.height / 22,
       timeContainerWidth: size.width / 4.8,
       startTime: '11:30 AM',
       startPts: '+ 147 pts',
@@ -222,14 +220,14 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _availableForBrunchWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.3,
+      height: size.height / 2.2,
       titleOfTheList: 'Available for brunch',
       onTap: () {},
       listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 26,
+      timeContainerHeight: size.height / 22,
       timeContainerWidth: size.width / 4.8,
       startTime: '11:30 AM',
       startPts: '+ 654 pts',
@@ -243,7 +241,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _getInspiredWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.7,
+      height: size.height / 2.6,
       titleOfTheList: 'Get inspired',
       isViewNeeded: false,
       onTap: () {},

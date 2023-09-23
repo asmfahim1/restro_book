@@ -149,9 +149,7 @@ class TitleWithListViewWidget extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              const SizedBox(
-                                height: 10,
-                              ),
+                              const SizedBoxHeight20(),
                               timeWithTitle
                                   ? Row(
                                       mainAxisAlignment:

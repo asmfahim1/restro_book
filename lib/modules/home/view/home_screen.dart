@@ -97,28 +97,28 @@ class _HomeScreenState extends State<HomeScreen>
               Tab(
                 child: TextWidget(
                   "Reservations",
-                  style: TextStyles.regular14
-                      .copyWith(fontWeight: FontWeight.bold),
+                  style: TextStyles.regular12
+                      .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
                 ),
               ),
               Tab(
                 child: TextWidget(
                   "Experiences",
-                  style: TextStyles.regular14
-                      .copyWith(fontWeight: FontWeight.bold),
+                  style: TextStyles.regular12
+                      .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
                 ),
               ),
               Tab(
                 child: TextWidget(
                   "Delivery & Takeout",
-                  style: TextStyles.regular14
-                      .copyWith(fontWeight: FontWeight.bold),
+                  style: TextStyles.regular12
+                      .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
                 ),
               ),
             ],
           ),
         ),
-        Container(
+        SizedBox(
           height: size.height / 1.38,
           width: size.width,
           child: TabBarView(
