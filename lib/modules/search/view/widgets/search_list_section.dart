@@ -14,30 +14,29 @@ class _SearchListSectionWidgetState extends State<SearchListSectionWidget> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SizedBox(
-      width: size.width,
-      child: ListView.builder(
-          itemCount: 100,
-          itemBuilder: (_, index) {
-            return Container(
-              height: size.height / 3.3,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  border: Border(
-                      bottom: BorderSide(color: strokeColor)
-                  )
-              ),
-              child: Row(
-                children: [
-                  _listViewLeftSection(),
-                  _listViewRightSection(),
-                ],
-              ),
-            );
-          }),
-    );
+    return ListView.builder(
+      shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: 100,
+        itemBuilder: (_, index) {
+          return Container(
+            height: size.height / 3.3,
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            decoration: const BoxDecoration(
+                color: Colors.white,
+                border: Border(
+                    bottom: BorderSide(color: strokeColor)
+                )
+            ),
+            child: Row(
+              children: [
+                _listViewLeftSection(),
+                _listViewRightSection(),
+              ],
+            ),
+          );
+        });
   }
 
   Widget _listViewLeftSection(){

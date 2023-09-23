@@ -17,6 +17,7 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
       height: size.height / 12,
       padding: const EdgeInsets.only(left: 10),
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,

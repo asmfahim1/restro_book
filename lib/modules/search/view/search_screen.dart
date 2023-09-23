@@ -30,9 +30,16 @@ class _SearchScreenState extends State<SearchScreen> {
       children: [
         _searchContainerWidget(),
         const FilterSectionWidget(),
-        _nearbyRestaurantsWidget(),
-        const Expanded(
-          child: SearchListSectionWidget(),
+        Expanded(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              children: [
+                _nearbyRestaurantsWidget(),
+                const SearchListSectionWidget()
+              ],
+            ),
+          ),
         )
       ],
     );
