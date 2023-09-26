@@ -16,7 +16,7 @@ class _SearchListSectionWidgetState extends State<SearchListSectionWidget> {
     Size size = MediaQuery.of(context).size;
     return ListView.builder(
       shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: 100,
         itemBuilder: (_, index) {
           return Container(

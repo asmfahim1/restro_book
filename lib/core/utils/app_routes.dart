@@ -3,9 +3,10 @@ import 'package:restro_book/modules/auth/login/view/get_started_screen.dart';
 import 'package:restro_book/modules/auth/registration/view/registration_screen.dart';
 import 'package:restro_book/modules/home/view/bottom_nav_bar_screen.dart';
 import 'package:restro_book/modules/home/view/home_screen.dart';
-
+import 'package:restro_book/modules/search/view/search_details_screen.dart';
 import '../../modules/auth/login/view/login_screen.dart';
 import '../../modules/auth/login/view/splash_screen.dart';
+import '../../modules/search/view/search_screen.dart';
 
 class AppRoutes {
   static const splashScreen = '/splash_screen';
@@ -17,6 +18,8 @@ class AppRoutes {
   static const registrationPage = '/registration_page';
 
   static const homePage = '/home_page';
+  static const searchScreen = '/search_page';
+  static const searchDetailsScreen = '/search_details_page';
 
   static List<GetPage> routes = [
     GetPage(
@@ -43,5 +46,13 @@ class AppRoutes {
         name: homePage,
         transition: Transition.noTransition,
         page: () => const HomeScreen()),
+    GetPage(
+        name: searchScreen,
+        transition: Transition.noTransition,
+        page: () => const SearchScreen()),
+    GetPage(
+        name: searchDetailsScreen,
+        transition: Transition.noTransition,
+        page: () => const SearchScreenDetails()),
   ];
 }
