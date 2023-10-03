@@ -74,15 +74,13 @@ class TitleWithListViewWidget extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              margin: const EdgeInsets.only(left: 15),
               child: ListView.builder(
                   itemCount: listItemLength,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (_, index) {
                     return Container(
                       width: size.width / 1.4,
-                      margin:
-                          const EdgeInsets.only(right: 20, top: 10, bottom: 10),
+                      margin: const EdgeInsets.only(left: 15,right: 20, top: 10, bottom: 10),
                       decoration: BoxDecoration(
                         color: whiteColor,
                         borderRadius: const BorderRadius.all(
@@ -102,7 +100,12 @@ class TitleWithListViewWidget extends StatelessWidget {
                           Container(
                             height: size.height / 5.5,
                             width: size.width,
-                            color: darkGrayColor,
+                            decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(reservationImagePath,),
+                                    fit: BoxFit.cover
+                                )
+                            ),
                           ),
                           Column(
                             children: [

@@ -15,21 +15,23 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
     Size size = MediaQuery.of(context).size;
     return Container(
       height: size.height / 12,
-      padding: const EdgeInsets.only(left: 10),
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            _allFilterWidget(),
-            _cuisineFilterWidget(),
-            _settingFilterWidget(),
-            _priceFilterWidget(),
-            _neighborhoodFilterWidget(),
-            _offersFilterWidget(),
-            _specialFeaturesFilterWidget(),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              _allFilterWidget(),
+              _cuisineFilterWidget(),
+              _settingFilterWidget(),
+              _priceFilterWidget(),
+              _neighborhoodFilterWidget(),
+              _offersFilterWidget(),
+              _specialFeaturesFilterWidget(),
+            ],
+          ),
         ),
       ),
     );

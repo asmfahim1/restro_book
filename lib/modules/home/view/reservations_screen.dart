@@ -42,8 +42,8 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
         child: Row(
           children: [
             Container(
-              height: size.height / 24,
-              width: size.width / 2.4,
+              height: size.height / 22,
+              width: size.width / 2.5,
               decoration: BoxDecoration(
                 border: Border.all(color: strokeColor),
                 borderRadius: BorderRadius.circular(30),
@@ -53,39 +53,38 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
                 children: [
                   const Icon(
                     Icons.person_outline_rounded,
-                    size: 16,
+                    size: 14,
                   ),
                   TextWidget(
                     '2 . today at 12:00 PM',
-                    style: TextStyles.title32.copyWith(fontSize: 12),
+                    style: TextStyles.title32.copyWith(fontSize: 11),
                   ),
                 ],
               ),
             ),
             const SizedBox(
-              width: 20,
+              width: 10,
             ),
-            Expanded(
-              child: Container(
-                height: size.height / 24,
-                decoration: BoxDecoration(
-                  border: Border.all(color: strokeColor),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const Icon(
-                      Icons.location_on_outlined,
-                      size: 16,
-                    ),
-                    TextWidget(
-                      overflow: TextOverflow.ellipsis,
-                      'Matuail Katherpool Dhaka',
-                      style: TextStyles.title32.copyWith(fontSize: 12),
-                    ),
-                  ],
-                ),
+            Container(
+              height: size.height / 22,
+              width: size.width / 2.2,
+              decoration: BoxDecoration(
+                border: Border.all(color: strokeColor),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  const Icon(
+                    Icons.location_on_outlined,
+                    size: 14,
+                  ),
+                  TextWidget(
+                    overflow: TextOverflow.ellipsis,
+                    'Matuail Katherpool Dhaka',
+                    style: TextStyles.title32.copyWith(fontSize: 11),
+                  ),
+                ],
               ),
             ),
           ],

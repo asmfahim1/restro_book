@@ -4,7 +4,6 @@ import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/modules/search/view/widgets/filter_section_widget.dart';
-import 'package:restro_book/modules/search/view/widgets/search_list_section.dart';
 import 'package:restro_book/modules/search/view/widgets/search_screen_appbar_widget.dart';
 
 import '../../../core/widgets/sized_box_height_10.dart';

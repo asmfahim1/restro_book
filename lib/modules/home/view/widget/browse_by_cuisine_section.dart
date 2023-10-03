@@ -13,7 +13,7 @@ class BrowseByCuisineSectionWidget extends StatelessWidget {
     required this.title,
     required this.viewAllOnTap,
     required this.itemLength,
-    this.imagePath = restroBookImagePath,
+    this.imagePath = reservationCircleImagePath,
     required this.categoryName,
     Key? key,
   }) : super(key: key);
