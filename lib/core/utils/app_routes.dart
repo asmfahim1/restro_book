@@ -6,6 +6,7 @@ import 'package:restro_book/modules/home/view/home_screen.dart';
 import 'package:restro_book/modules/search/view/search_details_screen.dart';
 import '../../modules/auth/login/view/login_screen.dart';
 import '../../modules/auth/login/view/splash_screen.dart';
+import '../../modules/saved/view/saved_screen.dart';
 import '../../modules/search/view/search_screen.dart';
 
 class AppRoutes {
@@ -20,6 +21,7 @@ class AppRoutes {
   static const homePage = '/home_page';
   static const searchScreen = '/search_page';
   static const searchDetailsScreen = '/search_details_page';
+  static const savedScreen = '/saved_page';
 
   static List<GetPage> routes = [
     GetPage(
@@ -54,5 +56,9 @@ class AppRoutes {
         name: searchDetailsScreen,
         transition: Transition.noTransition,
         page: () => const SearchScreenDetails()),
+    GetPage(
+        name: savedScreen,
+        transition: Transition.noTransition,
+        page: () => const SavedScreen()),
   ];
 }
