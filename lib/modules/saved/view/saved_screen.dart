@@ -7,10 +7,11 @@ class SavedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('Saved screen build');
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: whiteColor,
-      appBar: CommonAppbar(),
+      appBar: const CommonAppbar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
@@ -31,10 +32,10 @@ class SavedScreen extends StatelessWidget {
                         width: 30,
                         color: greenColor,
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       TextWidget('(+852)', style: TextStyles.regular16,),
-                      SizedBox(width: 2,),
-                      Icon(Icons.arrow_drop_down, size: 30, color: strokeColor,)
+                      const SizedBox(width: 2,),
+                      const Icon(Icons.arrow_drop_down, size: 30, color: strokeColor,)
                     ],
                   ),
                 ),
@@ -50,18 +51,16 @@ class SavedScreen extends StatelessWidget {
                         width: 1.2
                       )
                         ),
-                    child: Expanded(
-                      child: TextField(
-                        onChanged: (value) {},
-                        decoration: InputDecoration(
-                            hintText: "Phone",
-                            hintStyle:
-                            TextStyles.regular16.copyWith(color: Colors.grey.shade600, fontSize: 17),
-                            enabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                        ),
-                        keyboardType: TextInputType.number,
+                    child: TextField(
+                      onChanged: (value) {},
+                      decoration: InputDecoration(
+                          hintText: "Phone",
+                          hintStyle:
+                          TextStyles.regular16.copyWith(color: Colors.grey.shade600, fontSize: 17),
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
                       ),
+                      keyboardType: TextInputType.number,
                     ),
                   ),
                 )

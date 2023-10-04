@@ -15,6 +15,7 @@ class ReservationBarScreen extends StatefulWidget {
 class _ReservationBarScreenState extends State<ReservationBarScreen> {
   @override
   Widget build(BuildContext context) {
+    print('Reservation screen build');
     return SingleChildScrollView(
       child: Column(
         children: [

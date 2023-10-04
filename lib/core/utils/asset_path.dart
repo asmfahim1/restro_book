@@ -8,5 +8,5 @@ const searchLocationImagePath = 'assets/images/location_image.png';
 const filterImagePath = 'assets/images/filter_image.png';
 const defaultFoodImagePath = 'assets/images/food_image.png';
 const featuredImagePath = 'assets/images/featured_1.JPG';
-const reservationImagePath = 'assets/images/featured_4.jpg';
+const reservationImagePath = 'assets/images/featured_4.JPG';
 const reservationCircleImagePath = 'assets/images/featured_3.jpg';

@@ -12,10 +12,10 @@ class SearchScreenDetails extends StatefulWidget {
 
 class _SearchScreenDetailsState extends State<SearchScreenDetails> {
   List<String> assets = [
-    'assets/images/img1.png',
-    'assets/images/img2.png',
-    'assets/images/img4.png',
-    'assets/images/img5.png'
+    'assets/images/featured_1.JPG',
+    'assets/images/featured_2.JPG',
+    'assets/images/featured_3.JPG',
+    'assets/images/featured_4.JPG'
   ];
   int currentIndex = 0;
   @override
@@ -29,7 +29,7 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails> {
             pinned: true,
             floating: false,
             flexibleSpace: FlexibleSpaceBar(
-                title: TextWidget('Flexible Spacebar', style: TextStyles.title16,), //Text
+                title: TextWidget('Flexible Spacebar', style: TextStyles.title22,), //Text
                 background: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: PageView.builder(
@@ -64,13 +64,22 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails> {
                               )
                             ],
                           ),
+                          Positioned(
+                            left: 10,
+                              bottom: 10,
+                              child: Container(
+                                height: 100,
+                                width: size.width,
+                                color: Colors.red,
+                              ),
+                          )
                         ],
                       );
                     },
                   ),
                 ),
             ), //FlexibleSpaceBar
-            expandedHeight: 300,
+            expandedHeight: 450,
             backgroundColor: whiteColor,
             leading: IconButton(
               icon: const Icon(Icons.arrow_back_outlined),

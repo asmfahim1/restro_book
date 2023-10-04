@@ -15,6 +15,7 @@ class ExperiencesBarScreen extends StatefulWidget {
 class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
   @override
   Widget build(BuildContext context) {
+    print('Experience screen build');
     return Column(
       children: [
         _locationTimeWidget(),
