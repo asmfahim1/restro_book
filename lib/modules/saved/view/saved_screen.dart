@@ -24,7 +24,7 @@ class SavedScreen extends StatelessWidget {
               children: [
                 SizedBox(
                   height: size.height / 12,
-                  width: size.width / 3,
+                  width: size.width / 3.2,
                   child: Row(
                     children: [
                       Container(
