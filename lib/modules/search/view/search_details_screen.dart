@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:restro_book/core/utils/asset_path.dart';
-import 'package:restro_book/core/utils/colors.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 
@@ -19,7 +17,7 @@ class SearchScreenDetails extends StatelessWidget {
             elevation: 0,
             pinned: true,
             stretch: true,
-            leading: Icon(Icons.arrow_back_outlined, color: primaryColor,),
+            leading: const Icon(Icons.arrow_back_outlined, color: primaryColor,),
             actions: const [
               Padding(padding: EdgeInsets.symmetric(horizontal: 10), child: Icon(Icons.bookmark_outline_outlined, color: primaryColor,),),
               Padding(padding: EdgeInsets.symmetric(horizontal: 10), child: Icon(Icons.share, color: primaryColor),),
@@ -31,7 +29,7 @@ class SearchScreenDetails extends StatelessWidget {
             ),
           ),
           SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               childAspectRatio: 2,
             ),
