@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:restro_book/core/utils/colors.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 

@@ -12,82 +12,84 @@ class SavedScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: const CommonAppbar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _titleWidget(),
-            _titleDescriptionWidget(),
-            const SizedBoxHeight20(),
-            Row(
-              children: [
-                SizedBox(
-                  height: size.height / 12,
-                  width: size.width / 3,
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 20,
-                        width: 30,
-                        color: greenColor,
-                      ),
-                      const SizedBox(width: 10,),
-                      TextWidget('(+852)', style: TextStyles.regular16,),
-                      const SizedBox(width: 2,),
-                      const Icon(Icons.arrow_drop_down, size: 30, color: strokeColor,)
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _titleWidget(),
+              _titleDescriptionWidget(),
+              const SizedBoxHeight20(),
+              Row(
+                children: [
+                  SizedBox(
                     height: size.height / 12,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                      border: Border.all(
-                        color: strokeColor,
-                        width: 1.2
-                      )
+                    width: size.width / 3.2,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 20,
+                          width: 30,
+                          color: greenColor,
                         ),
-                    child: TextField(
-                      onChanged: (value) {},
-                      decoration: InputDecoration(
-                          hintText: "Phone",
-                          hintStyle:
-                          TextStyles.regular16.copyWith(color: Colors.grey.shade600, fontSize: 17),
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                      ),
-                      keyboardType: TextInputType.number,
+                        const SizedBox(width: 10,),
+                        TextWidget('(+852)', style: TextStyles.regular16,),
+                        const SizedBox(width: 2,),
+                        const Icon(Icons.arrow_drop_down, size: 30, color: strokeColor,)
+                      ],
                     ),
                   ),
-                )
-              ],
-            ),
-            const SizedBoxHeight20(),
-            TextWidget('You will receive a text message to verify your account. Message & data rates may apply.'),
-            const SizedBoxHeight20(),
-            Container(
-              height: size.height / 12,
-              width: size.width,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade400,
-                  borderRadius: BorderRadius.circular(6),
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                      height: size.height / 12,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                        border: Border.all(
+                          color: strokeColor,
+                          width: 1.2
+                        )
+                          ),
+                      child: TextField(
+                        onChanged: (value) {},
+                        decoration: InputDecoration(
+                            hintText: "Phone",
+                            hintStyle:
+                            TextStyles.regular16.copyWith(color: Colors.grey.shade600, fontSize: 17),
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                        ),
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                  )
+                ],
               ),
-              child: TextWidget('Continue', style: TextStyles.title16.copyWith(color: darkGrayColor),),
-            ),
-            const SizedBoxHeight20(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextWidget('Use email instead', style: TextStyles.regular14.copyWith(color: primaryColor),),
-              ],
-            )
+              const SizedBoxHeight20(),
+              TextWidget('You will receive a text message to verify your account. Message & data rates may apply.'),
+              const SizedBoxHeight20(),
+              Container(
+                height: size.height / 12,
+                width: size.width,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade400,
+                    borderRadius: BorderRadius.circular(6),
+                ),
+                child: TextWidget('Continue', style: TextStyles.title16.copyWith(color: darkGrayColor),),
+              ),
+              const SizedBoxHeight20(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextWidget('Use email instead', style: TextStyles.regular14.copyWith(color: primaryColor),),
+                ],
+              )
 
-          ],
+            ],
+          ),
         ),
       ),
     );

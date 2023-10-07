@@ -134,12 +134,11 @@ class _SearchScreenState extends State<SearchScreen> {
         Container(
           height: size.height / 6.5,
           width: size.width / 3.8,
-          padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: strokeColor,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Image.asset(defaultFoodImagePath, height: 70,width: 70,),
+          child: Image.asset(searchedFeatureImagePath, fit: BoxFit.cover,),
         )
       ],
     );
