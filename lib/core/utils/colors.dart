@@ -16,6 +16,7 @@ const profileContactColor = Color(0xFFFAFAFC);
 const contactEditIconColor = Color(0xFFCBC7D7);
 const iconPrimaryColor = Color(0xFF241E36);
 const blueColor = Colors.blue;
+const cyanColor = Colors.cyan;
 const blueBlackColor = Color(0xFF241E36);
 const orangeColor = Colors.orange;
 const greenColor = Colors.green;

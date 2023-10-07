@@ -186,8 +186,8 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
                     child: Container(
                       alignment: Alignment.center,
                       child: Container(
-                        height: size.height / 12,
-                        width: 100,
+                        height: size.height / 14,
+                        width: size.width / 5,
                         clipBehavior: Clip.hardEdge,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
@@ -230,7 +230,7 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
   Widget _viewAllBtn(){
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height / 12,
+      height: size.height / 14,
       width: size.width,
       alignment: Alignment.center,
       margin: EdgeInsets.all(10),

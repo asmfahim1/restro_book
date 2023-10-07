@@ -13,8 +13,8 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height / 12,
+    return SizedBox(
+      height: size.height / 16,
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
@@ -92,7 +92,7 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
   Widget _specialFeaturesFilterWidget(){
     Size size = MediaQuery.of(context).size;
     return FilterContainerWidget(
-      width: size.width / 2.8,
+      width: size.width / 2.6,
       isTextNeeded: true,
       filterName: 'Special Features',
     );
