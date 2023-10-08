@@ -87,7 +87,7 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails> {
             ), //IconButton
             actions: <Widget>[
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: IconButton(
                   icon: const Icon(Icons.bookmark_outline_outlined),
                   tooltip: 'Comment Icon',
@@ -95,7 +95,7 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails> {
                 ),
               ), //IconButton
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: IconButton(
                   icon: const Icon(Icons.share_outlined),
                   tooltip: 'Setting Icon',

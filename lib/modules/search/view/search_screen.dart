@@ -54,7 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: 100,
+        itemCount: 20,
         itemBuilder: (_, index) {
           return InkWell(
             onTap: (){
@@ -63,7 +63,7 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Container(
               height: size.height / 3.3,
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              margin: const EdgeInsets.symmetric(vertical: 5),
               decoration: const BoxDecoration(
                   color: Colors.white,
                   border: Border(
@@ -73,7 +73,7 @@ class _SearchScreenState extends State<SearchScreen> {
               child: Row(
                 children: [
                   _listViewLeftSection(),
-                  _listViewRightSection(),
+                  Expanded(child: _listViewRightSection()),
                 ],
               ),
             ),
@@ -121,23 +121,24 @@ class _SearchScreenState extends State<SearchScreen> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          height: size.height / 30,
+          height: size.height / 32,
           width: size.width / 6,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: strokeColor.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(6),
           ),
-          child: TextWidget('Promoted', style: TextStyles.regular12,),
+          child: TextWidget('Promoted', style: TextStyles.regular12.copyWith(fontSize: 11),),
         ),
         const SizedBox(height: 5,),
         Container(
-          height: size.height / 6.5,
-          width: size.width / 3.8,
+          height: size.height / 8,
+          width: size.width,
           decoration: BoxDecoration(
             color: strokeColor,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(10),
           ),
+          clipBehavior: Clip.hardEdge,
           child: Image.asset(searchedFeatureImagePath, fit: BoxFit.cover,),
         )
       ],
@@ -150,7 +151,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return Column(
       children: [
         Container(
-          height: size.height / 20,
+          height: size.height / 30,
           width: size.width / 5.5,
           alignment: Alignment.center,
           margin: const EdgeInsets.only(right: 10),
@@ -167,7 +168,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
         Container(
-          height: size.height / 28,
+          height: size.height / 32,
           width: size.width / 5.5,
           alignment: Alignment.center,
           margin: const EdgeInsets.only(right: 10),

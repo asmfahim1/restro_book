@@ -9,13 +9,13 @@ class NearbyRestaurantContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height / 16,
+      height: size.height / 20,
       width: size.width,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       alignment: Alignment.centerLeft,
       child: TextWidget(
         '176 Restaurants nearby',
-        style: TextStyles.title16.copyWith(fontSize: 13),
+        style: TextStyles.title16.copyWith(fontSize: 12),
       ),
     );
   }
