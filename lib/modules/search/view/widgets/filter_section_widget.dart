@@ -92,7 +92,7 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
   Widget _specialFeaturesFilterWidget(){
     Size size = MediaQuery.of(context).size;
     return FilterContainerWidget(
-      width: size.width / 2.8,
+      width: size.width / 2.6,
       isTextNeeded: true,
       filterName: 'Special Features',
     );

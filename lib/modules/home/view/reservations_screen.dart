@@ -15,7 +15,6 @@ class ReservationBarScreen extends StatefulWidget {
 class _ReservationBarScreenState extends State<ReservationBarScreen> {
   @override
   Widget build(BuildContext context) {
-    print('Reservation screen build');
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -54,7 +53,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
                 children: [
                   const Icon(
                     Icons.person_outline_rounded,
-                    size: 14,
+                    size: 12,
                   ),
                   TextWidget(
                     '2 . today at 12:00 PM',
@@ -118,7 +117,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _outdoorDiningWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.2,
+      height: size.height / 2.25,
       titleOfTheList: 'Outdoor Dining',
       onTap: () {},
       listItemLength: 5,
@@ -139,7 +138,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _newToRestroBookingWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.2,
+      height: size.height / 2.25,
       titleOfTheList: 'New to Restro Booking',
       onTap: () {},
       listItemLength: 5,
@@ -160,7 +159,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _featuredRestaurantsWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.2,
+      height: size.height / 2.25,
       titleOfTheList: 'Featured restaurants',
       onTap: () {},
       listItemLength: 5,
@@ -198,7 +197,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _happyOursWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.2,
+      height: size.height / 2.25,
       titleOfTheList: 'Happy Hours',
       isViewNeeded: false,
       onTap: () {},
@@ -220,7 +219,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _availableForBrunchWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.2,
+      height: size.height / 2.25,
       titleOfTheList: 'Available for brunch',
       onTap: () {},
       listItemLength: 5,
