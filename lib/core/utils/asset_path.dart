@@ -16,3 +16,4 @@ const defaultFoodImagePath = 'assets/images/food_image.png';
 const featuredImagePath = 'assets/images/featured_1.JPG';
 const reservationImagePath = 'assets/images/featured_4.JPG';
 const reservationCircleImagePath = 'assets/images/featured_3.jpg';
+const restaurantLocationImagePath = 'assets/images/locationImage.png';
