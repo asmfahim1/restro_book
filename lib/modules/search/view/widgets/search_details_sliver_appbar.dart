@@ -66,7 +66,9 @@ class SearchDetailsSliverAppBar extends StatelessWidget {
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_outlined, color: redColor,),
         tooltip: 'Menu',
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ), //IconButton
       actions: <Widget>[
         Padding(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/modules/home/view/widget/browse_by_cuisine_section.dart';
@@ -99,6 +101,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
       height: size.height / 2.25,
       titleOfTheList: 'Available for lunch',
       onTap: () {},
+      tapForDetails: () {
+        Get.toNamed(AppRoutes.searchDetailsScreen);
+      },
       listItemLength: 10,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
@@ -120,6 +125,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
       height: size.height / 2.25,
       titleOfTheList: 'Outdoor Dining',
       onTap: () {},
+      tapForDetails: () {
+        Get.toNamed(AppRoutes.searchDetailsScreen);
+      },
       listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
@@ -141,6 +149,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
       height: size.height / 2.25,
       titleOfTheList: 'New to Restro Booking',
       onTap: () {},
+      tapForDetails: () {
+        Get.toNamed(AppRoutes.searchDetailsScreen);
+      },
       listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
@@ -162,6 +173,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
       height: size.height / 2.25,
       titleOfTheList: 'Featured restaurants',
       onTap: () {},
+      tapForDetails: () {
+        Get.toNamed(AppRoutes.searchDetailsScreen);
+      },
       listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
@@ -184,6 +198,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
       titleOfTheList: 'Recently viewed',
       isViewNeeded: false,
       onTap: () {},
+      tapForDetails: () {
+        Get.toNamed(AppRoutes.searchDetailsScreen);
+      },
       listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
@@ -201,6 +218,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
       titleOfTheList: 'Happy Hours',
       isViewNeeded: false,
       onTap: () {},
+      tapForDetails: () {
+        Get.toNamed(AppRoutes.searchDetailsScreen);
+      },
       listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
@@ -222,6 +242,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
       height: size.height / 2.25,
       titleOfTheList: 'Available for brunch',
       onTap: () {},
+      tapForDetails: () {
+        Get.toNamed(AppRoutes.searchDetailsScreen);
+      },
       listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
@@ -244,6 +267,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
       titleOfTheList: 'Get inspired',
       isViewNeeded: false,
       onTap: () {},
+      tapForDetails: () {
+        Get.toNamed(AppRoutes.searchDetailsScreen);
+      },
       listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
