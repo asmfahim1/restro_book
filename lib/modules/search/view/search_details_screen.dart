@@ -3,7 +3,6 @@ import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/core/widgets/sized_box_height_10.dart';
 import 'package:restro_book/modules/search/view/widgets/search_details_sliver_appbar.dart';
 import 'package:restro_book/modules/search/view/widgets/tabbar_widget.dart';
-
 import '../../../core/utils/exports.dart';
 
 class SearchScreenDetails extends StatefulWidget {
@@ -28,21 +27,21 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         body: CustomScrollView(
-      slivers: <Widget>[
-        const SearchDetailsSliverAppBar(),
-        SliverToBoxAdapter(
-          child: Column(
-            children: [
-              _reservationSectionWidget(),
-              _deliveryTakeoutSectionWidget(),
-              _menuSectionWidget(),
-              _reviewSectionWidget(),
-              _detailsSectionWidget(),
-            ],
-          ),
-        ), //SliverList
-      ], //<Widget>[]
-    ));
+          slivers: <Widget>[
+            const SearchDetailsSliverAppBar(),
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  _reservationSectionWidget(),
+                  _deliveryTakeoutSectionWidget(),
+                  _menuSectionWidget(),
+                  _reviewSectionWidget(),
+                  _detailsSectionWidget(),
+                ],
+              ),
+            ), //SliverList
+          ], //<Widget>[]
+        ));
   }
 
   Widget _reservationSectionWidget() {
@@ -53,8 +52,8 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
           height: size.height / 16,
           decoration: const BoxDecoration(
               border: Border(
-            bottom: BorderSide(color: strokeColor),
-          )),
+                bottom: BorderSide(color: strokeColor),
+              )),
           child: TabBar(
             controller: _tabController,
             isScrollable: true,
@@ -62,7 +61,7 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
             unselectedLabelColor: darkGrayColor,
             indicatorColor: primaryColor,
             tabs: List.generate(5, (index) {
-              return const TabWidget();
+              return TabWidget(indexNo: index,);
             }),
           ),
         ),
@@ -336,7 +335,7 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
                       margin: const EdgeInsets.only(left: 15),
                       decoration: const BoxDecoration(
                           border:
-                              Border(bottom: BorderSide(color: strokeColor))),
+                          Border(bottom: BorderSide(color: strokeColor))),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -418,7 +417,7 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
   Widget _reviewSectionWidget() {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 1.68,
+      height: size.height * 1.7,
       width: size.width,
       padding: const EdgeInsets.only(left: 15, right: 15),
       child: Column(
@@ -455,9 +454,9 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
                             itemBuilder: (_, index) {
                               return (index + 1 <= 4)
                                   ? const Icon(Icons.star,
-                                      size: 30, color: primaryColor)
+                                  size: 30, color: primaryColor)
                                   : const Icon(Icons.star,
-                                      size: 30, color: strokeColor);
+                                  size: 30, color: strokeColor);
                             },
                           ))
                     ],
@@ -501,8 +500,8 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
                                   children: [
                                     Container(
                                       width: ((size.width / 2.7) /
-                                              5 *
-                                              reversedIndex.toDouble() -
+                                          5 *
+                                          reversedIndex.toDouble() -
                                           2),
                                       color: primaryColor,
                                     ),
@@ -594,7 +593,7 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
                         physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (_, index) {
                           return Container(
-                            height: size.height / 2.6,
+                            height: size.height / 2.5,
                             width: size.width,
                             padding: const EdgeInsets.symmetric(vertical: 5),
                             decoration: const BoxDecoration(
@@ -619,7 +618,7 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
                                     ),
                                     Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         TextWidget(
                                           'JohnN',
@@ -671,9 +670,9 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
                                       itemBuilder: (_, index) {
                                         return (index + 1 <= 3)
                                             ? const Icon(Icons.star,
-                                                size: 15, color: primaryColor)
+                                            size: 15, color: primaryColor)
                                             : const Icon(Icons.star,
-                                                size: 15, color: strokeColor);
+                                            size: 15, color: strokeColor);
                                       },
                                     )),
                                 const SizedBoxHeight10(),
@@ -793,7 +792,7 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
                             subtitle: 'Surface sanitized after every meal'),
                         _titleDescription(
                             subtitle:
-                                'Digital, disposable or sanitized menu provided'),
+                            'Digital, disposable or sanitized menu provided'),
                         _titleDescription(
                             subtitle: 'Common area deep cleaned-daily'),
                         _titleDescription(
@@ -888,7 +887,7 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
               style: TextStyles.regular16,
             ),
             SizedBox(
-              width: size.width / 1.3,
+                width: size.width / 1.3,
                 child: TextWidget(subTitle, style: TextStyles.regular14)),
           ],
         ),
