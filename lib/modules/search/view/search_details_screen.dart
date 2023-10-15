@@ -714,8 +714,9 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
 
   Widget _detailsSectionWidget() {
     Size size = MediaQuery.of(context).size;
-    return SizedBox(
+    return Container(
       width: size.width,
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
