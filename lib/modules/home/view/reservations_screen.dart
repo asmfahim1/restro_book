@@ -95,40 +95,75 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
     );
   }
 
+  Widget _commonTitleWidget(
+      {
+        required VoidCallback onTap,
+        required String titleOfTheList,
+        bool isViewNeeded = true,
+}){
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: leftRightPadding15,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TextWidget(
+              titleOfTheList,
+              style: TextStyles.title16,
+            ),
+            isViewNeeded
+                ? TextWidget(
+                    'VIEW ALL',
+                    style:
+                    TextStyles.title16.copyWith(color: primaryColor),
+                  )
+                : Container(),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _availableLunchWidget() {
     Size size = MediaQuery.of(context).size;
-    return TitleWithListViewWidget(
+    return Container(
       height: size.height / 2.25,
-      titleOfTheList: 'Available for lunch',
-      onTap: () {},
-      tapForDetails: () {
-        Get.toNamed(AppRoutes.searchDetailsScreen);
-      },
-      listItemLength: 10,
-      restaurantName: 'Nusr Et Steakehouse N...',
-      restaurantCategory: 'Steakehouse',
-      restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 28,
-      timeContainerWidth: size.width / 5,
-      startTime: '11:30 AM',
-      startPts: '+ 326 pts',
-      midTime: '12:30 PM',
-      midPts: 'Experience',
-      endTime: '01:00 PM',
-      endPts: '+ 750 pts',
+      width: size.width,
+      child: Column(
+        children: [
+          _commonTitleWidget(titleOfTheList: 'Ávailable for lunch', onTap: () {}),
+          Expanded(
+            child: ListView.builder(
+              itemCount: restaurantList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final restaurant = restaurantList[index];
+                return TitleWithListViewWidget(
+                  imageUrl: restaurant['restaurantName'].toString(),
+                  restaurantName: restaurant['restaurantName'].toString(),
+                  restaurantCategory: restaurant['restaurantCategory'].toString(),
+                  restaurantRate: restaurant['restaurantRate'].toString(),
+                  timeContainerHeight: size.height / 28,
+                  timeContainerWidth: size.width / 5,
+                  startTime: '11:30 AM',
+                  startPts: '+ 326 pts',
+                  midTime: '12:30 PM',
+                  midPts: 'Experience',
+                  endTime: '01:00 PM',
+                  endPts: '+ 750 pts',
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _outdoorDiningWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.25,
-      titleOfTheList: 'Outdoor Dining',
-      onTap: () {},
-      tapForDetails: () {
-        Get.toNamed(AppRoutes.searchDetailsScreen);
-      },
-      listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
@@ -146,13 +181,6 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _newToRestroBookingWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.25,
-      titleOfTheList: 'New to Restro Booking',
-      onTap: () {},
-      tapForDetails: () {
-        Get.toNamed(AppRoutes.searchDetailsScreen);
-      },
-      listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
@@ -170,13 +198,6 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _featuredRestaurantsWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.25,
-      titleOfTheList: 'Featured restaurants',
-      onTap: () {},
-      tapForDetails: () {
-        Get.toNamed(AppRoutes.searchDetailsScreen);
-      },
-      listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
@@ -194,14 +215,6 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _recentlyViewedWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.6,
-      titleOfTheList: 'Recently viewed',
-      isViewNeeded: false,
-      onTap: () {},
-      tapForDetails: () {
-        Get.toNamed(AppRoutes.searchDetailsScreen);
-      },
-      listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
@@ -214,14 +227,6 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _happyOursWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.25,
-      titleOfTheList: 'Happy Hours',
-      isViewNeeded: false,
-      onTap: () {},
-      tapForDetails: () {
-        Get.toNamed(AppRoutes.searchDetailsScreen);
-      },
-      listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
@@ -239,13 +244,6 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _availableForBrunchWidget() {
     Size size = MediaQuery.of(context).size;
     return TitleWithListViewWidget(
-      height: size.height / 2.25,
-      titleOfTheList: 'Available for brunch',
-      onTap: () {},
-      tapForDetails: () {
-        Get.toNamed(AppRoutes.searchDetailsScreen);
-      },
-      listItemLength: 5,
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
@@ -262,15 +260,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
 
   Widget _getInspiredWidget() {
     Size size = MediaQuery.of(context).size;
-    return TitleWithListViewWidget(
-      height: size.height / 2.6,
-      titleOfTheList: 'Get inspired',
-      isViewNeeded: false,
-      onTap: () {},
-      tapForDetails: () {
-        Get.toNamed(AppRoutes.searchDetailsScreen);
-      },
-      listItemLength: 5,
+    return const TitleWithListViewWidget(
       restaurantName: 'Nusr Et Steakehouse N...',
       restaurantCategory: 'Steakehouse',
       restaurantRate: '4.6(2716)',
