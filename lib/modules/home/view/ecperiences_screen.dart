@@ -99,11 +99,6 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
     return ExperieneFeaturedWidget(
       titleOfTheList: 'Featured',
       onTap: () {},
-      listItemLength: 10,
-      restaurantName: 'Chef\'s Counter Tasting',
-      restaurantCategory: '3rd Cuisin',
-      price: '\$ 185.00',
-      resLocation: 'Bernal Heights, San Fransisco',
     );
   }
 

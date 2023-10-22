@@ -54,8 +54,9 @@ class _SearchScreenState extends State<SearchScreen> {
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: 20,
+        itemCount: restaurantList.length,
         itemBuilder: (_, index) {
+          final restaurants = restaurantList[index];
           return InkWell(
             onTap: (){
               Get.toNamed(AppRoutes.searchDetailsScreen);
@@ -72,8 +73,15 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               child: Row(
                 children: [
-                  _listViewLeftSection(),
-                  Expanded(child: _listViewRightSection()),
+                  _listViewLeftSection(
+                      restaurants['restaurantName'].toString(),
+                      restaurants['restaurantRate'].toString(),
+                      restaurants['restaurantMap'].toString(),
+                      restaurants['restaurantCategory'].toString(),
+                      restaurants['restaurantDiningStyle'].toString(),
+                      restaurants['restaurantPriceUnit'].toString(),
+                  ),
+                  Expanded(child: _listViewRightSection(restaurants['restaurantImage'].toString())),
                 ],
               ),
             ),
@@ -81,26 +89,27 @@ class _SearchScreenState extends State<SearchScreen> {
         });
   }
 
-  Widget _listViewLeftSection(){
+  Widget _listViewLeftSection(String title, String review, String category, String location, String seatingStyle, String priceUnit){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextWidget('STK - San Francisco',
+        TextWidget(
+            title,
             style: TextStyles.title16),
         Row(
           children: [
             const Icon(Icons.star, size: 16, color: primaryColor,),
-            TextWidget(' 754 reviews', style: TextStyles.regular14),
+            TextWidget('$review reviews', style: TextStyles.regular14),
           ],
         ),
         TextWidget(
-            '0.3 mi ∙ Financial District / Embassidor...',
+            '0.3 mi ∙ $location',
             style: TextStyles.regular12),
-        TextWidget('\$\$\$\$ ∙ Steakehouse',
+        TextWidget('$priceUnit ∙ $category',
             style: TextStyles.regular12),
         const SizedBoxHeight10(),
-        TextWidget('Seating: standard, outdoor',
+        TextWidget('Seating: $seatingStyle',
             style: TextStyles.regular12),
         const SizedBoxHeight10(),
         Row(
@@ -114,7 +123,7 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Widget _listViewRightSection(){
+  Widget _listViewRightSection(String imageUrl){
     Size size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -139,7 +148,7 @@ class _SearchScreenState extends State<SearchScreen> {
             borderRadius: BorderRadius.circular(10),
           ),
           clipBehavior: Clip.hardEdge,
-          child: Image.asset(searchedFeatureImagePath, fit: BoxFit.cover,),
+          child: Image.asset(imageUrl.isEmpty ? searchedFeatureImagePath : imageUrl, fit: BoxFit.cover,),
         )
       ],
     );

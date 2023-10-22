@@ -6,21 +6,11 @@ class ExperieneFeaturedWidget extends StatelessWidget {
   final String titleOfTheList;
   final bool isViewNeeded;
   final VoidCallback onTap;
-  final int listItemLength;
-  final String restaurantName;
-  final String restaurantCategory;
-  final String price;
-  final String resLocation;
   const ExperieneFeaturedWidget(
       {
         required this.titleOfTheList,
         this.isViewNeeded = true,
         required this.onTap,
-        required this.listItemLength,
-        required this.restaurantName,
-        required this.restaurantCategory,
-        required this.price,
-        required this.resLocation,
         Key? key})
       : super(key: key);
 
@@ -57,9 +47,10 @@ class ExperieneFeaturedWidget extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: listItemLength,
+                itemCount: restaurantList.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_, index) {
+                  final restaurant = restaurantList[index];
                   return Container(
                     width: size.width / 1.02,
                     margin: const EdgeInsets.only(left: 15,right: 10, top: 10, bottom: 10),
@@ -82,9 +73,9 @@ class ExperieneFeaturedWidget extends StatelessWidget {
                         Container(
                           height: size.height / 3.8,
                           width: size.width,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage(featuredImagePath,),
+                                image: AssetImage(restaurant['restaurantImage'].toString()),
                               fit: BoxFit.cover
                             )
                           ),
@@ -95,13 +86,13 @@ class ExperieneFeaturedWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               TextWidget(
-                                restaurantName,
+                                restaurant['restaurantName'].toString(),
                                 style: TextStyles.title16.copyWith(color: blackColor),
                               ),
                               Row(
                                 children: [
                                   TextWidget(
-                                    restaurantCategory,
+                                    restaurant['restaurantCategory'].toString(),
                                     style: TextStyles.regular12,
                                   ),
                                   const SizedBox(
@@ -119,13 +110,13 @@ class ExperieneFeaturedWidget extends StatelessWidget {
                                     width: 5,
                                   ),
                                   TextWidget(
-                                    price,
+                                    restaurant['restaurantPriceRang'].toString(),
                                     style: TextStyles.regular12,
                                   ),
                                 ],
                               ),
                               TextWidget(
-                                resLocation,
+                                restaurant['restaurantMap'].toString(),
                                 style: TextStyles.regular12,
                               ),
                               SizedBox(
@@ -141,7 +132,12 @@ class ExperieneFeaturedWidget extends StatelessWidget {
                               ),
                               SizedBox(
                                 width: size.width,
-                                child: TextWidget('Our most luxurious tasting menu, Take a journey with us as we celebrate our local farmers, finishing boats, as well as flavors from around the globe as ...', style: TextStyles.regular12,),
+                                child: TextWidget(
+                                  restaurant['restaurantBio'].toString(),
+                                  style: TextStyles.regular12,
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                             ],
                           ),

@@ -19,6 +19,7 @@ class SearchDetailsSliverAppBar extends StatelessWidget {
       snap: false,
       pinned: true,
       floating: false,
+      elevation: 0,
       flexibleSpace: FlexibleSpaceBar(
         title: TextWidget('STK -San Fransisco', style: TextStyles.title16,), //Text
         background: SizedBox(

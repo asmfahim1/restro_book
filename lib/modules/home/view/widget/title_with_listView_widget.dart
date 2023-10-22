@@ -18,7 +18,7 @@ class TitleWithListViewWidget extends StatelessWidget {
   final String endPts;
   const TitleWithListViewWidget(
       {
-      this.imageUrl = reservationImagePath,
+      required this.imageUrl,
       required this.restaurantName,
       this.restaurantCategory = 'Steakhouse',
       this.restaurantRate = '4.6',
@@ -61,7 +61,7 @@ class TitleWithListViewWidget extends StatelessWidget {
             width: size.width,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(imageUrl),
+                    image: AssetImage(imageUrl.isEmpty ? reservationImagePath : imageUrl),
                     fit: BoxFit.cover
                 )
             ),

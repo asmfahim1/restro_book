@@ -40,6 +40,9 @@ final restaurantList =[
   {
     "restaurantID": "01",
     "restaurantName": "STK - NYC - Midtown",
+    "restaurantImage": "assets/images/featured_1.JPG",
+    "restaurantCategory": "Brazilian",
+    "restaurantRate": "4.6 (2383)",
     "restaurantBio": "STK artfully blends two concepts into one—the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
     "restaurantMap": "Q248+2X New York, USA",
     "restaurantMetro": "Midtown West",
@@ -58,12 +61,15 @@ final restaurantList =[
     "restaurantCatering": "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
     "restaurantPrivatePartyFacilitie": "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
     "restaurantPrivatePartyContact": "NYC Events Team: (646) 666-4510",
-    "restaurantPriceRang": "\$31 to \$50",
+    "restaurantPriceRang": "\$40 to \$55",
     "restaurantPriceUnit": "\$",
   },
   {
     "restaurantID": "02",
-    "restaurantName": "STK - NYC - Midtown",
+    "restaurantName": "STK - San Fransisco",
+    "restaurantImage": "assets/images/featured_2.JPG",
+    "restaurantCategory": "Steakhouse",
+    "restaurantRate": "4.4 (2254)",
     "restaurantBio": "STK artfully blends two concepts into one—the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
     "restaurantMap": "Q248+2X New York, USA",
     "restaurantMetro": "Midtown West",
@@ -87,7 +93,10 @@ final restaurantList =[
   },
   {
     "restaurantID": "03",
-    "restaurantName": "STK - NYC - Midtown",
+    "restaurantName": "54 Mint",
+    "restaurantImage": "assets/images/featured_3.JPG",
+    "restaurantCategory": "Chinese",
+    "restaurantRate": "4.8 (2127)",
     "restaurantBio": "STK artfully blends two concepts into one—the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
     "restaurantMap": "Q248+2X New York, USA",
     "restaurantMetro": "Midtown West",
@@ -106,12 +115,15 @@ final restaurantList =[
     "restaurantCatering": "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
     "restaurantPrivatePartyFacilitie": "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
     "restaurantPrivatePartyContact": "NYC Events Team: (646) 666-4510",
-    "restaurantPriceRang": "\$31 to \$50",
+    "restaurantPriceRang": "\$20 to \$33",
     "restaurantPriceUnit": "\$\$",
   },
   {
     "restaurantID": "04",
-    "restaurantName": "STK - NYC - Midtown",
+    "restaurantName": "Haute Quarter Grill",
+    "restaurantImage": "assets/images/featured_4.JPG",
+    "restaurantCategory": "Peruvian",
+    "restaurantRate": "4.6 (2164)",
     "restaurantBio": "STK artfully blends two concepts into one—the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
     "restaurantMap": "Q248+2X New York, USA",
     "restaurantMetro": "Midtown West",
@@ -130,12 +142,39 @@ final restaurantList =[
     "restaurantCatering": "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
     "restaurantPrivatePartyFacilitie": "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
     "restaurantPrivatePartyContact": "NYC Events Team: (646) 666-4510",
-    "restaurantPriceRang": "\$31 to \$50",
+    "restaurantPriceRang": "\$39 to \$75",
+    "restaurantPriceUnit": "\$\$\$",
+  },
+  {
+    "restaurantID": "04",
+    "restaurantName": "Jen's Restaurant",
+    "restaurantImage": "assets/images/food_image.png",
+    "restaurantCategory": "American",
+    "restaurantRate": "4.1 (2125)",
+    "restaurantBio": "STK artfully blends two concepts into one—the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
+    "restaurantMap": "Q248+2X New York, USA",
+    "restaurantMetro": "Midtown West",
+    "restaurantAddress": "1114 Avenue of the Americas, New York, NY 10036",
+    "restaurantOperations": " ",
+    "restaurantCuisines": "Steakhouse, American, Contemporary American",
+    "restaurantDiningStyle": "Casual Elegant",
+    "restaurantDressCode": "Smart Casual",
+    "restaurantParking": "Available in the area.",
+    "restaurantPublictransit": "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
+    "restaurantPayment": "Cash, AMEX, Discover, Mastercard, Visa",
+    "restaurantChefs": "Andrew Del Vecchio",
+    "restaurantAdditionalTags": "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
+    "restaurantWebsite": "https://stksteakhouse.com/venues/nyc-midtown/",
+    "restaurantPhone": "(646) 624-2455",
+    "restaurantCatering": "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
+    "restaurantPrivatePartyFacilitie": "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
+    "restaurantPrivatePartyContact": "NYC Events Team: (646) 666-4510",
+    "restaurantPriceRang": "\$39 to \$75",
     "restaurantPriceUnit": "\$\$\$",
   }
 ];
 
-final restauranMenu = [
+final restaurantMenu = [
   {
     "restaurantID": "01",
     "restauranMenuDetails": [
@@ -425,6 +464,19 @@ final restaurantCousins = [
   "Barbecue",
   "Bistro",
   "Mexican"
+];
+
+final exploreAres = [
+  "Marin",
+  "Napa",
+  "Palo Alto",
+  "Walnut Creek",
+  "SOMA",
+  "Mariana / Cow Hollow / Presidio",
+  "Financial District / Embarcadero",
+  "Oakland",
+  "Downtown / Union Square",
+  "Burlingame",
 ];
 
 final restaurantExperiences = [

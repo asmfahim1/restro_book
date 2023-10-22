@@ -26,15 +26,16 @@ class _RegistrationFormSectionWidgetState
     return Form(
       key: _formKey,
       child: Container(
-        height: MediaQuery.of(context).size.height / 1.9,
+        height: MediaQuery.of(context).size.height / 1.6,
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(horizontal: 5),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           color: whiteColor.withOpacity(0.7),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBoxHeight20(),
             _textFields(),
