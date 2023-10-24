@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/modules/home/view/widget/browse_by_cuisine_section.dart';
