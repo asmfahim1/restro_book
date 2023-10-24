@@ -71,7 +71,7 @@ class ExperieneFeaturedWidget extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          height: size.height / 3.8,
+                          height: size.height / 3.5,
                           width: size.width,
                           decoration: BoxDecoration(
                             image: DecorationImage(
@@ -135,7 +135,7 @@ class ExperieneFeaturedWidget extends StatelessWidget {
                                 child: TextWidget(
                                   restaurant['restaurantBio'].toString(),
                                   style: TextStyles.regular12,
-                                  maxLines: 3,
+                                  maxLines: 4,
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),

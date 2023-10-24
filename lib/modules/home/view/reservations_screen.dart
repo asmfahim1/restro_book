@@ -423,7 +423,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _exploreAreaWidget() {
     Size size = MediaQuery.of(context).size;
     return ExploreAresSectionWidget(
-      height: size.height / 8,
+      height: size.height / 10,
       title: 'Explore the area',
       viewAllOnTap: () {},
     );

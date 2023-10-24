@@ -18,9 +18,11 @@ class SearchDetailsSliverAppBar extends StatelessWidget {
     return SliverAppBar(
       snap: false,
       pinned: true,
-      floating: false,
+      floating: true,
       elevation: 0,
       flexibleSpace: FlexibleSpaceBar(
+        collapseMode: CollapseMode.pin,
+        stretchModes: const [StretchMode.zoomBackground],
         title: TextWidget('STK -San Fransisco', style: TextStyles.title16,), //Text
         background: SizedBox(
           width: MediaQuery.of(context).size.width,

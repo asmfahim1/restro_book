@@ -61,7 +61,7 @@ class BrowseByCuisineSectionWidget extends StatelessWidget {
                         children: [
                           Expanded(
                             child: CircleAvatar(
-                              radius: 45,
+                              radius: 40,
                               backgroundImage: AssetImage(
                                 imagePath,
                               ),

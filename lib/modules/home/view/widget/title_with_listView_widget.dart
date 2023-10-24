@@ -57,7 +57,7 @@ class TitleWithListViewWidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: size.height / 6,
+            height: size.height / 4.5,
             width: size.width,
             decoration: BoxDecoration(
                 image: DecorationImage(

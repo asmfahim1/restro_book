@@ -33,10 +33,10 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails>
                 ];
               },
               body: ScrollableListTabView(
-                  tabHeight: 50,
+                  tabHeight: 45,
                   bodyAnimationDuration: const Duration(milliseconds: 800),
-                  tabAnimationCurve: Curves.ease,
-                  tabAnimationDuration: const Duration(milliseconds: 150),
+                  tabAnimationCurve: Curves.linear,
+                  tabAnimationDuration: const Duration(milliseconds: 500),
                   style: TextStyles.regular16,
                   tabs: [
                     ScrollableListTab(
