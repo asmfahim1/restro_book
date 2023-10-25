@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:restro_book/modules/home/controller/home_controller.dart';
 
 import '../../../core/utils/colors.dart';
+import '../../saved/view/saved_screen.dart';
 import '../../search/view/search_screen.dart';
 import 'home_screen.dart';
 
@@ -18,7 +19,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   final List _tabs = [
     const HomeScreen(),
     const SearchScreen(),
-    const SizedBox(),
+    const SavedScreen(),
     const SizedBox(),
     const SizedBox(),
   ];

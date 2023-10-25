@@ -18,11 +18,11 @@ dependencies:
   image_picker: ^1.0.1
   shared_preferences: ^2.0.18
   connectivity_plus: ^3.0.3
-  flutter_screenutil: ^5.6.1
   package_info_plus: ^3.0.3
   flutter_svg: ^1.1.6
   google_fonts: ^4.0.4
   get: ^4.6.5
+  scrollable_list_tabview: ^0.2.0-nullsafety
 
 dev_dependencies:
   flutter_test:

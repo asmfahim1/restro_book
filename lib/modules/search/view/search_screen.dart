@@ -4,9 +4,9 @@ import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/modules/search/view/widgets/filter_section_widget.dart';
-import 'package:restro_book/modules/search/view/widgets/search_list_section.dart';
+import 'package:restro_book/modules/search/view/widgets/nearby_restaurant_container_widget.dart';
+import 'package:restro_book/modules/search/view/widgets/search_field_widget.dart';
 import 'package:restro_book/modules/search/view/widgets/search_screen_appbar_widget.dart';
-
 import '../../../core/widgets/sized_box_height_10.dart';
 
 
@@ -20,6 +20,7 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
+    print('Search screen build');
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: const SearchScreenAppBarWidget(),
@@ -28,18 +29,17 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _buildBody() {
-    Size size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _searchContainerWidget(),
+        const SearchFieldWidget(),
         const FilterSectionWidget(),
         Expanded(
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
-                _nearbyRestaurantsWidget(),
+                const NearbyRestaurantContainerWidget(),
                 _searchListSectionWidget()
               ],
             ),
@@ -49,72 +49,14 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Widget _searchContainerWidget() {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      height: size.height / 15,
-      decoration: const BoxDecoration(color: Colors.white, boxShadow: [
-        BoxShadow(offset: Offset(0, 0), blurRadius: 5, color: strokeColor)
-      ]),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.search_sharp,
-            size: 20,
-            color: Colors.grey.shade600,
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-          Expanded(
-            child: TextField(
-              onChanged: (value) {},
-              decoration: InputDecoration(
-                  hintText: "Search Dhanmondi",
-                  hintStyle:
-                      TextStyle(color: Colors.grey.shade600, fontSize: 15),
-                  enabledBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none),
-            ),
-          ),
-          const Spacer(),
-          InkWell(
-            onTap: () {},
-            child: Image.asset(
-              searchLocationImagePath,
-              height: size.height / 26,
-              width: size.width / 16,
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _nearbyRestaurantsWidget(){
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height / 16,
-      width: size.width,
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      alignment: Alignment.centerLeft,
-      child: TextWidget(
-        '176 Restaurants nearby',
-        style: TextStyles.title16.copyWith(fontSize: 13),
-      ),
-    );
-  }
-
   Widget _searchListSectionWidget() {
     Size size = MediaQuery.of(context).size;
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: 100,
+        itemCount: restaurantList.length,
         itemBuilder: (_, index) {
+          final restaurants = restaurantList[index];
           return InkWell(
             onTap: (){
               Get.toNamed(AppRoutes.searchDetailsScreen);
@@ -122,7 +64,7 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Container(
               height: size.height / 3.3,
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              margin: const EdgeInsets.symmetric(vertical: 5),
               decoration: const BoxDecoration(
                   color: Colors.white,
                   border: Border(
@@ -131,8 +73,15 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               child: Row(
                 children: [
-                  _listViewLeftSection(),
-                  _listViewRightSection(),
+                  _listViewLeftSection(
+                      restaurants['restaurantName'].toString(),
+                      restaurants['restaurantRate'].toString(),
+                      restaurants['restaurantMap'].toString(),
+                      restaurants['restaurantCategory'].toString(),
+                      restaurants['restaurantDiningStyle'].toString(),
+                      restaurants['restaurantPriceUnit'].toString(),
+                  ),
+                  Expanded(child: _listViewRightSection(restaurants['restaurantImage'].toString())),
                 ],
               ),
             ),
@@ -140,27 +89,27 @@ class _SearchScreenState extends State<SearchScreen> {
         });
   }
 
-  Widget _listViewLeftSection(){
+  Widget _listViewLeftSection(String title, String review, String category, String location, String seatingStyle, String priceUnit){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextWidget('STK - San Francisco',
+        TextWidget(
+            title,
             style: TextStyles.title16),
         Row(
           children: [
-            const Icon(Icons.star, size: 14, color: primaryColor,),
-            TextWidget(' 754 reviews',
-                style: TextStyles.regular14),
+            const Icon(Icons.star, size: 16, color: primaryColor,),
+            TextWidget('$review reviews', style: TextStyles.regular14),
           ],
         ),
         TextWidget(
-            '0.3 mi ∙ Financial District / Embassidor...',
+            '0.3 mi ∙ $location',
             style: TextStyles.regular12),
-        TextWidget('\$\$\$\$ ∙ Steakehouse',
+        TextWidget('$priceUnit ∙ $category',
             style: TextStyles.regular12),
         const SizedBoxHeight10(),
-        TextWidget('Seating: standard, outdoor',
+        TextWidget('Seating: $seatingStyle',
             style: TextStyles.regular12),
         const SizedBoxHeight10(),
         Row(
@@ -174,32 +123,32 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Widget _listViewRightSection(){
+  Widget _listViewRightSection(String imageUrl){
     Size size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          height: size.height / 30,
+          height: size.height / 32,
           width: size.width / 6,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: strokeColor.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(6),
           ),
-          child: TextWidget('Promoted', style: TextStyles.regular12,),
+          child: TextWidget('Promoted', style: TextStyles.regular12.copyWith(fontSize: 11),),
         ),
         const SizedBox(height: 5,),
         Container(
-          height: size.height / 6.5,
-          width: size.width / 3.8,
-          padding: const EdgeInsets.all(20),
+          height: size.height / 8,
+          width: size.width,
           decoration: BoxDecoration(
             color: strokeColor,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(10),
           ),
-          child: Image.asset(defaultFoodImagePath, height: 70,width: 70,),
+          clipBehavior: Clip.hardEdge,
+          child: Image.asset(imageUrl.isEmpty ? searchedFeatureImagePath : imageUrl, fit: BoxFit.cover,),
         )
       ],
     );
@@ -211,7 +160,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return Column(
       children: [
         Container(
-          height: size.height / 20,
+          height: size.height / 30,
           width: size.width / 5.5,
           alignment: Alignment.center,
           margin: const EdgeInsets.only(right: 10),
@@ -228,7 +177,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
         Container(
-          height: size.height / 28,
+          height: size.height / 32,
           width: size.width / 5.5,
           alignment: Alignment.center,
           margin: const EdgeInsets.only(right: 10),

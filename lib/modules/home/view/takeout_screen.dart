@@ -7,9 +7,10 @@ class TakeoutBarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('Reservation screen build');
     return Scaffold(
       body: Center(
-        child: TextWidget('Takeout'),
+        child: TextWidget('Coming soon...'),
       ),
     );
   }

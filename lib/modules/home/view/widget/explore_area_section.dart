@@ -7,14 +7,10 @@ class ExploreAresSectionWidget extends StatelessWidget {
   final double height;
   final String title;
   final VoidCallback viewAllOnTap;
-  final int itemLength;
-  final String areaName;
   const ExploreAresSectionWidget(
       {required this.height,
       required this.title,
       required this.viewAllOnTap,
-      required this.itemLength,
-      required this.areaName,
       Key? key})
       : super(key: key);
 
@@ -24,7 +20,7 @@ class ExploreAresSectionWidget extends StatelessWidget {
     return Container(
       height: height,
       width: size.width,
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [
           InkWell(
@@ -48,22 +44,23 @@ class ExploreAresSectionWidget extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              margin: const EdgeInsets.only(left: 15, top: 10, bottom: 10),
+              margin: const EdgeInsets.only(top: 10, bottom: 10),
               child: ListView.builder(
-                  itemCount: 4,
+                  itemCount: exploreAres.length,
                   scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
                   itemBuilder: (_, index) {
+                   final explore = exploreAres[index];
                     return Padding(
-                      padding: const EdgeInsets.only(right: 15),
+                      padding: const EdgeInsets.only(left: 15, right: 10),
                       child: Container(
-                        width: size.width / 3.5,
-                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(color: strokeColor)),
                         alignment: Alignment.center,
                         child: TextWidget(
-                          areaName,
+                          explore,
                           style: TextStyles.title11,
                         ),
                       ),

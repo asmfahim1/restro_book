@@ -13,7 +13,7 @@ class BrowseByCuisineSectionWidget extends StatelessWidget {
     required this.title,
     required this.viewAllOnTap,
     required this.itemLength,
-    this.imagePath = restroBookImagePath,
+    this.imagePath = featuredImagePath,
     required this.categoryName,
     Key? key,
   }) : super(key: key);
@@ -48,21 +48,27 @@ class BrowseByCuisineSectionWidget extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              margin: const EdgeInsets.only(left: 15, top: 10, bottom: 10),
+              margin: const EdgeInsets.only(top: 10, bottom: 10),
               child: ListView.builder(
-                  itemCount: itemLength,
+                  itemCount: restaurantCousins.length,
                   scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
                   itemBuilder: (_, index) {
+                    final cuisines = restaurantCousins[index];
                     return Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.only(left: 15, right: 10),
                       child: Column(
                         children: [
-                          CircleAvatar(
-                            radius: 45,
-                            child: Image.asset(imagePath),
+                          Expanded(
+                            child: CircleAvatar(
+                              radius: 40,
+                              backgroundImage: AssetImage(
+                                imagePath,
+                              ),
+                            ),
                           ),
                           TextWidget(
-                            categoryName,
+                            cuisines,
                             style: TextStyles.title32.copyWith(fontSize: 13),
                           )
                         ],

@@ -42,8 +42,8 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
         child: Row(
           children: [
             Container(
-              height: size.height / 24,
-              width: size.width / 2.4,
+              height: size.height / 22,
+              width: size.width / 2.5,
               decoration: BoxDecoration(
                 border: Border.all(color: strokeColor),
                 borderRadius: BorderRadius.circular(30),
@@ -53,39 +53,38 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
                 children: [
                   const Icon(
                     Icons.person_outline_rounded,
-                    size: 16,
+                    size: 12,
                   ),
                   TextWidget(
                     '2 . today at 12:00 PM',
-                    style: TextStyles.title32.copyWith(fontSize: 12),
+                    style: TextStyles.title32.copyWith(fontSize: 11),
                   ),
                 ],
               ),
             ),
             const SizedBox(
-              width: 20,
+              width: 10,
             ),
-            Expanded(
-              child: Container(
-                height: size.height / 24,
-                decoration: BoxDecoration(
-                  border: Border.all(color: strokeColor),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const Icon(
-                      Icons.location_on_outlined,
-                      size: 16,
-                    ),
-                    TextWidget(
-                      overflow: TextOverflow.ellipsis,
-                      'Matuail Katherpool Dhaka',
-                      style: TextStyles.title32.copyWith(fontSize: 12),
-                    ),
-                  ],
-                ),
+            Container(
+              height: size.height / 22,
+              width: size.width / 2.2,
+              decoration: BoxDecoration(
+                border: Border.all(color: strokeColor),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  const Icon(
+                    Icons.location_on_outlined,
+                    size: 12,
+                  ),
+                  TextWidget(
+                    overflow: TextOverflow.ellipsis,
+                    'Matuail Katherpool Dhaka',
+                    style: TextStyles.title32.copyWith(fontSize: 11),
+                  ),
+                ],
               ),
             ),
           ],
@@ -94,164 +93,321 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
     );
   }
 
+  Widget _commonTitleWidget(
+      {
+        required VoidCallback onTap,
+        required String titleOfTheList,
+        bool isViewNeeded = true,
+}){
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: leftRightPadding15,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TextWidget(
+              titleOfTheList,
+              style: TextStyles.title16,
+            ),
+            isViewNeeded
+                ? TextWidget(
+                    'VIEW ALL',
+                    style:
+                    TextStyles.title16.copyWith(color: primaryColor),
+                  )
+                : Container(),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _availableLunchWidget() {
     Size size = MediaQuery.of(context).size;
-    return TitleWithListViewWidget(
-      height: size.height / 2.2,
-      titleOfTheList: 'Available for lunch',
-      onTap: () {},
-      listItemLength: 10,
-      restaurantName: 'Nusr Et Steakehouse N...',
-      restaurantCategory: 'Steakehouse',
-      restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 22,
-      timeContainerWidth: size.width / 4.8,
-      startTime: '11:30 AM',
-      startPts: '+ 326 pts',
-      midTime: '12:30 PM',
-      midPts: 'Experience',
-      endTime: '01:00 PM',
-      endPts: '+ 750 pts',
+    return SizedBox(
+      height: size.height / 2.25,
+      width: size.width,
+      child: Column(
+        children: [
+          _commonTitleWidget(titleOfTheList: 'Available for lunch', onTap: () {}),
+          Expanded(
+            child: ListView.builder(
+              itemCount: restaurantList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final restaurant = restaurantList[restaurantList.length - 1 - index];
+                return TitleWithListViewWidget(
+                  imageUrl: restaurant['restaurantImage'].toString(),
+                  restaurantName: restaurant['restaurantName'].toString(),
+                  restaurantCategory: restaurant['restaurantCategory'].toString(),
+                  restaurantRate: restaurant['restaurantRate'].toString(),
+                  timeContainerHeight: size.height / 28,
+                  timeContainerWidth: size.width / 5,
+                  startTime: '11:30 AM',
+                  startPts: '+ 326 pts',
+                  midTime: '12:30 PM',
+                  midPts: 'Experience',
+                  endTime: '01:00 PM',
+                  endPts: '+ 750 pts',
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _outdoorDiningWidget() {
     Size size = MediaQuery.of(context).size;
-    return TitleWithListViewWidget(
-      height: size.height / 2.2,
-      titleOfTheList: 'Outdoor Dining',
-      onTap: () {},
-      listItemLength: 5,
-      restaurantName: 'Nusr Et Steakehouse N...',
-      restaurantCategory: 'Steakehouse',
-      restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 22,
-      timeContainerWidth: size.width / 4.8,
-      startTime: '11:30 AM',
-      startPts: '+ 500 pts',
-      midTime: '12:30 PM',
-      midPts: 'Experience',
-      endTime: '01:00 PM',
-      endPts: '+ 123 pts',
+    return SizedBox(
+      height: size.height / 2.25,
+      width: size.width,
+      child: Column(
+        children: [
+          _commonTitleWidget(titleOfTheList: 'Outdoor Dining', onTap: () {}),
+          Expanded(
+            child: ListView.builder(
+              itemCount: restaurantList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final restaurant = restaurantList[index];
+                return TitleWithListViewWidget(
+                  imageUrl: restaurant['restaurantImage'].toString(),
+                  restaurantName: restaurant['restaurantName'].toString(),
+                  restaurantCategory: restaurant['restaurantCategory'].toString(),
+                  restaurantRate: restaurant['restaurantRate'].toString(),
+                  timeContainerHeight: size.height / 28,
+                  timeContainerWidth: size.width / 5,
+                  startTime: '11:30 AM',
+                  startPts: '+ 326 pts',
+                  midTime: '12:30 PM',
+                  midPts: 'Experience',
+                  endTime: '01:00 PM',
+                  endPts: '+ 750 pts',
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _newToRestroBookingWidget() {
     Size size = MediaQuery.of(context).size;
-    return TitleWithListViewWidget(
-      height: size.height / 2.2,
-      titleOfTheList: 'New to Restro Booking',
-      onTap: () {},
-      listItemLength: 5,
-      restaurantName: 'Nusr Et Steakehouse N...',
-      restaurantCategory: 'Steakehouse',
-      restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 22,
-      timeContainerWidth: size.width / 4.8,
-      startTime: '11:30 AM',
-      startPts: '+ 359 pts',
-      midTime: '12:30 PM',
-      midPts: 'Experience',
-      endTime: '01:00 PM',
-      endPts: '+ 987 pts',
+    return SizedBox(
+      height: size.height / 2.25,
+      width: size.width,
+      child: Column(
+        children: [
+          _commonTitleWidget(titleOfTheList: 'New To Restrobooking', onTap: () {}),
+          Expanded(
+            child: ListView.builder(
+              itemCount: restaurantList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final restaurant = restaurantList[restaurantList.length - 1 - index];
+                return TitleWithListViewWidget(
+                  imageUrl: restaurant['restaurantImage'].toString(),
+                  restaurantName: restaurant['restaurantName'].toString(),
+                  restaurantCategory: restaurant['restaurantCategory'].toString(),
+                  restaurantRate: restaurant['restaurantRate'].toString(),
+                  timeContainerHeight: size.height / 28,
+                  timeContainerWidth: size.width / 5,
+                  startTime: '11:30 AM',
+                  startPts: '+ 326 pts',
+                  midTime: '12:30 PM',
+                  midPts: 'Experience',
+                  endTime: '01:00 PM',
+                  endPts: '+ 750 pts',
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _featuredRestaurantsWidget() {
     Size size = MediaQuery.of(context).size;
-    return TitleWithListViewWidget(
-      height: size.height / 2.2,
-      titleOfTheList: 'Featured restaurants',
-      onTap: () {},
-      listItemLength: 5,
-      restaurantName: 'Nusr Et Steakehouse N...',
-      restaurantCategory: 'Steakehouse',
-      restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 22,
-      timeContainerWidth: size.width / 4.8,
-      startTime: '11:30 AM',
-      startPts: '+ 258 pts',
-      midTime: '12:30 PM',
-      midPts: 'Experience',
-      endTime: '01:00 PM',
-      endPts: '+ 741 pts',
+    return SizedBox(
+      height: size.height / 2.25,
+      width: size.width,
+      child: Column(
+        children: [
+          _commonTitleWidget(titleOfTheList: 'Featured Restaurant', onTap: () {}),
+          Expanded(
+            child: ListView.builder(
+              itemCount: restaurantList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final restaurant = restaurantList[index];
+                return TitleWithListViewWidget(
+                  imageUrl: restaurant['restaurantImage'].toString(),
+                  restaurantName: restaurant['restaurantName'].toString(),
+                  restaurantCategory: restaurant['restaurantCategory'].toString(),
+                  restaurantRate: restaurant['restaurantRate'].toString(),
+                  timeContainerHeight: size.height / 28,
+                  timeContainerWidth: size.width / 5,
+                  startTime: '11:30 AM',
+                  startPts: '+ 326 pts',
+                  midTime: '12:30 PM',
+                  midPts: 'Experience',
+                  endTime: '01:00 PM',
+                  endPts: '+ 750 pts',
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _recentlyViewedWidget() {
     Size size = MediaQuery.of(context).size;
-    return TitleWithListViewWidget(
-      height: size.height / 2.6,
-      titleOfTheList: 'Recently viewed',
-      isViewNeeded: false,
-      onTap: () {},
-      listItemLength: 5,
-      restaurantName: 'Nusr Et Steakehouse N...',
-      restaurantCategory: 'Steakehouse',
-      restaurantRate: '4.6(2716)',
-      timeWithTitle: false,
-      timeContainerHeight: 0,
-      timeContainerWidth: 0,
+    return SizedBox(
+      height: size.height / 2.25,
+      width: size.width,
+      child: Column(
+        children: [
+          _commonTitleWidget(titleOfTheList: 'Recently Viewed', onTap: () {}, isViewNeeded: false),
+          Expanded(
+            child: ListView.builder(
+              itemCount: restaurantList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final restaurant = restaurantList[restaurantList.length - 1 - index];
+                return TitleWithListViewWidget(
+                  imageUrl: restaurant['restaurantImage'].toString(),
+                  restaurantName: restaurant['restaurantName'].toString(),
+                  restaurantCategory: restaurant['restaurantCategory'].toString(),
+                  restaurantRate: restaurant['restaurantRate'].toString(),
+                  timeContainerHeight: size.height / 28,
+                  timeContainerWidth: size.width / 5,
+                  startTime: '11:30 AM',
+                  startPts: '+ 326 pts',
+                  midTime: '12:30 PM',
+                  midPts: 'Experience',
+                  endTime: '01:00 PM',
+                  endPts: '+ 750 pts',
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _happyOursWidget() {
     Size size = MediaQuery.of(context).size;
-    return TitleWithListViewWidget(
-      height: size.height / 2.2,
-      titleOfTheList: 'Happy Hours',
-      isViewNeeded: false,
-      onTap: () {},
-      listItemLength: 5,
-      restaurantName: 'Nusr Et Steakehouse N...',
-      restaurantCategory: 'Steakehouse',
-      restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 22,
-      timeContainerWidth: size.width / 4.8,
-      startTime: '11:30 AM',
-      startPts: '+ 147 pts',
-      midTime: '12:30 PM',
-      midPts: 'Experience',
-      endTime: '01:00 PM',
-      endPts: '+ 258 pts',
+    return SizedBox(
+      height: size.height / 2.25,
+      width: size.width,
+      child: Column(
+        children: [
+          _commonTitleWidget(titleOfTheList: 'Happy Hours', onTap: () {}),
+          Expanded(
+            child: ListView.builder(
+              itemCount: restaurantList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final restaurant = restaurantList[index];
+                return TitleWithListViewWidget(
+                  imageUrl: restaurant['restaurantImage'].toString(),
+                  restaurantName: restaurant['restaurantName'].toString(),
+                  restaurantCategory: restaurant['restaurantCategory'].toString(),
+                  restaurantRate: restaurant['restaurantRate'].toString(),
+                  timeContainerHeight: size.height / 28,
+                  timeContainerWidth: size.width / 5,
+                  startTime: '11:30 AM',
+                  startPts: '+ 326 pts',
+                  midTime: '12:30 PM',
+                  midPts: 'Experience',
+                  endTime: '01:00 PM',
+                  endPts: '+ 750 pts',
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _availableForBrunchWidget() {
     Size size = MediaQuery.of(context).size;
-    return TitleWithListViewWidget(
-      height: size.height / 2.2,
-      titleOfTheList: 'Available for brunch',
-      onTap: () {},
-      listItemLength: 5,
-      restaurantName: 'Nusr Et Steakehouse N...',
-      restaurantCategory: 'Steakehouse',
-      restaurantRate: '4.6(2716)',
-      timeContainerHeight: size.height / 22,
-      timeContainerWidth: size.width / 4.8,
-      startTime: '11:30 AM',
-      startPts: '+ 654 pts',
-      midTime: '12:30 PM',
-      midPts: 'Experience',
-      endTime: '01:00 PM',
-      endPts: '+ 895 pts',
+    return SizedBox(
+      height: size.height / 2.25,
+      width: size.width,
+      child: Column(
+        children: [
+          _commonTitleWidget(titleOfTheList: 'Available for brunch', onTap: () {}),
+          Expanded(
+            child: ListView.builder(
+              itemCount: restaurantList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final restaurant = restaurantList[restaurantList.length - 1 - index];
+                return TitleWithListViewWidget(
+                  imageUrl: restaurant['restaurantImage'].toString(),
+                  restaurantName: restaurant['restaurantName'].toString(),
+                  restaurantCategory: restaurant['restaurantCategory'].toString(),
+                  restaurantRate: restaurant['restaurantRate'].toString(),
+                  timeContainerHeight: size.height / 28,
+                  timeContainerWidth: size.width / 5,
+                  startTime: '11:30 AM',
+                  startPts: '+ 326 pts',
+                  midTime: '12:30 PM',
+                  midPts: 'Experience',
+                  endTime: '01:00 PM',
+                  endPts: '+ 750 pts',
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _getInspiredWidget() {
     Size size = MediaQuery.of(context).size;
-    return TitleWithListViewWidget(
-      height: size.height / 2.6,
-      titleOfTheList: 'Get inspired',
-      isViewNeeded: false,
-      onTap: () {},
-      listItemLength: 5,
-      restaurantName: 'Nusr Et Steakehouse N...',
-      restaurantCategory: 'Steakehouse',
-      restaurantRate: '4.6(2716)',
-      timeWithTitle: false,
-      timeContainerHeight: 0,
-      timeContainerWidth: 0,
+    return SizedBox(
+      height: size.height / 2.25,
+      width: size.width,
+      child: Column(
+        children: [
+          _commonTitleWidget(titleOfTheList: 'Get inspired', onTap: () {}, isViewNeeded: false),
+          Expanded(
+            child: ListView.builder(
+              itemCount: restaurantList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final restaurant = restaurantList[restaurantList.length - 1 - index];
+                return TitleWithListViewWidget(
+                  imageUrl: restaurant['restaurantImage'].toString(),
+                  restaurantName: restaurant['restaurantName'].toString(),
+                  restaurantCategory: restaurant['restaurantCategory'].toString(),
+                  restaurantRate: restaurant['restaurantRate'].toString(),
+                  timeContainerHeight: size.height / 28,
+                  timeContainerWidth: size.width / 5,
+                  startTime: '11:30 AM',
+                  startPts: '+ 326 pts',
+                  midTime: '12:30 PM',
+                  midPts: 'Experience',
+                  endTime: '01:00 PM',
+                  endPts: '+ 750 pts',
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -267,11 +423,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   Widget _exploreAreaWidget() {
     Size size = MediaQuery.of(context).size;
     return ExploreAresSectionWidget(
-      height: size.height / 8,
+      height: size.height / 10,
       title: 'Explore the area',
       viewAllOnTap: () {},
-      itemLength: 6,
-      areaName: 'Upper East side',
     );
   }
 }

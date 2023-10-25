@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    print('Home screen build');
     return Scaffold(
       backgroundColor: whiteColor,
       body: _buildBody(),
@@ -119,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ),
         SizedBox(
-          height: size.height / 1.38,
+          height: size.height / 1.356,
           width: size.width,
           child: TabBarView(
             controller: home.tabController,

@@ -18,9 +18,9 @@ class FilterContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height / 20,
+      height: size.height / 24,
       width: width,
-      margin: EdgeInsets.only(right: 10),
+      margin: EdgeInsets.only(right: 5),
       alignment: Alignment.center,
       decoration: BoxDecoration(
         border: Border.all(color: strokeColor),

@@ -32,13 +32,14 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
       child: Container(
         height: size.height / 1.9,
         width: size.width,
-        padding: EdgeInsets.symmetric(horizontal: 5),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           color: whiteColor.withOpacity(0.7),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBoxHeight20(),
             _textFields(),
@@ -154,7 +155,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
       onTap: callBack,
       child: Container(
         height: 60,
-        width: MediaQuery.sizeOf(context).width / 2.1 - 30,
+        width: MediaQuery.sizeOf(context).width / 2.2 - 30,
         decoration: BoxDecoration(
           color: silverGrayColor,
           borderRadius: BorderRadius.circular(4),
@@ -174,7 +175,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
               ),
               TextWidget(
                 title,
-                style: TextStyles.regular16,
+                style: TextStyles.regular14,
               )
             ],
           ),

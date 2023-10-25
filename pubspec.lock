@@ -187,14 +187,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.16"
-  flutter_screenutil:
-    dependency: "direct main"
-    description:
-      name: flutter_screenutil
-      sha256: "8cf100b8e4973dc570b6415a2090b0bfaa8756ad333db46939efc3e774ee100d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.9.0"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -485,6 +477,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.6"
+  scrollable_list_tabview:
+    dependency: "direct main"
+    description:
+      name: scrollable_list_tabview
+      sha256: dd3c34abb8739cc35b0cc34a3b99591a1943dbf3999cc2467d5346888530feaa
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0-nullsafety"
+  scrollable_positioned_list:
+    dependency: transitive
+    description:
+      name: scrollable_positioned_list
+      sha256: "9566352ab9ba05794ee6c8864f154afba5d36c5637d0e3e32c615ba4ceb92772"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.3"
   shared_preferences:
     dependency: "direct main"
     description:
