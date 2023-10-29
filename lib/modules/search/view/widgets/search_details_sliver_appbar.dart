@@ -81,16 +81,32 @@ class SearchDetailsSliverAppBar extends StatelessWidget {
             tooltip: 'Comment Icon',
             onPressed: () {},
           ),
-        ), //IconButton
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
-          child: IconButton(
-            icon: const Icon(Icons.share_outlined, color: redColor,),
-            tooltip: 'Setting Icon',
-            onPressed: () {},
-          ),
-        ), //IconButton
-      ],//<Widget>[]
+        )
+      ],
     );
   }
 }
+
+/*
+class _SliverTabBarDelegate extends SliverPersistentHeaderDelegate {
+  final TabBar child;
+
+  _SliverTabBarDelegate({required this.child});
+
+  @override
+  double get minExtent => child.preferredSize.height;
+
+  @override
+  double get maxExtent => child.preferredSize.height;
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return child;
+  }
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
+  }
+}
+*/

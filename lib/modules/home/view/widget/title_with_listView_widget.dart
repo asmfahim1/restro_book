@@ -7,6 +7,7 @@ class TitleWithListViewWidget extends StatelessWidget {
   final String restaurantName;
   final String restaurantCategory;
   final String restaurantRate;
+  final VoidCallback onTap;
   final bool timeWithTitle;
   final double timeContainerHeight;
   final double timeContainerWidth;
@@ -20,6 +21,7 @@ class TitleWithListViewWidget extends StatelessWidget {
       {
       required this.imageUrl,
       required this.restaurantName,
+      required this.onTap,
       this.restaurantCategory = 'Steakhouse',
       this.restaurantRate = '4.6',
       this.timeWithTitle = true,
@@ -37,107 +39,110 @@ class TitleWithListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width / 1.2,
-      margin: const EdgeInsets.only(left: 15,right: 10, top: 10, bottom: 10),
-      decoration: BoxDecoration(
-        color: whiteColor,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(10),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.shade400,
-            blurRadius: 3.0,
-            offset: const Offset(0, 1),
-          )
-        ],
-      ),
-      clipBehavior: Clip.hardEdge,
-      child: Column(
-        children: [
-          Container(
-            height: size.height / 4.5,
-            width: size.width,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(imageUrl.isEmpty ? reservationImagePath : imageUrl),
-                    fit: BoxFit.cover
-                )
-            ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: size.width / 1.2,
+        margin: const EdgeInsets.only(left: 15,right: 10, top: 10, bottom: 10),
+        decoration: BoxDecoration(
+          color: whiteColor,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(10),
           ),
-          Column(
-            children: [
-              Padding(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 5),
-                child: Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
-                  children: [
-                    TextWidget(
-                      restaurantName,
-                      style: TextStyles.title16,
-                    ),
-                    const Icon(
-                      Icons.bookmark_border,
-                      size: 20,
-                      color: primaryColor,
-                    ),
-                  ],
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade400,
+              blurRadius: 3.0,
+              offset: const Offset(0, 1),
+            )
+          ],
+        ),
+        clipBehavior: Clip.hardEdge,
+        child: Column(
+          children: [
+            Container(
+              height: size.height / 4.5,
+              width: size.width,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(imageUrl.isEmpty ? reservationImagePath : imageUrl),
+                      fit: BoxFit.cover
+                  )
+              ),
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding:
+                  const EdgeInsets.symmetric(horizontal: 5),
+                  child: Row(
+                    mainAxisAlignment:
+                    MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextWidget(
+                        restaurantName,
+                        style: TextStyles.title16,
+                      ),
+                      const Icon(
+                        Icons.bookmark_border,
+                        size: 20,
+                        color: primaryColor,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Padding(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 5),
-                child: Row(
-                  children: [
-                    TextWidget(
-                      '\$\$\$\$ . $restaurantCategory . ',
-                      style: TextStyles.regular12,
-                    ),
-                    const Icon(
-                      Icons.star,
-                      size: 12,
-                      color: primaryColor,
-                    ),
-                    TextWidget(
-                      restaurantRate,
-                      style: TextStyles.regular12,
-                    ),
-                  ],
+                const SizedBox(
+                  height: 5,
                 ),
-              ),
-              const SizedBoxHeight20(),
-              timeWithTitle
-                  ? Row(
-                mainAxisAlignment:
-                MainAxisAlignment.spaceEvenly,
-                children: [
-                  _timeContainerWithTitle(
-                    time: startTime,
-                    color: strokeColor,
-                    title: startPts,
+                Padding(
+                  padding:
+                  const EdgeInsets.symmetric(horizontal: 5),
+                  child: Row(
+                    children: [
+                      TextWidget(
+                        '\$\$\$\$ . $restaurantCategory . ',
+                        style: TextStyles.regular12,
+                      ),
+                      const Icon(
+                        Icons.star,
+                        size: 12,
+                        color: primaryColor,
+                      ),
+                      TextWidget(
+                        restaurantRate,
+                        style: TextStyles.regular12,
+                      ),
+                    ],
                   ),
-                  _timeContainerWithTitle(
-                    time: midTime,
-                    color: primaryColor,
-                    title: midPts,
-                  ),
-                  _timeContainerWithTitle(
-                    time: endTime,
-                    color: primaryColor,
-                    title: endPts,
-                  ),
-                ],
-              )
-                  : Container(),
-            ],
-          )
-        ],
+                ),
+                const SizedBoxHeight20(),
+                timeWithTitle
+                    ? Row(
+                      mainAxisAlignment:
+                      MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _timeContainerWithTitle(
+                          time: startTime,
+                          color: strokeColor,
+                          title: startPts,
+                        ),
+                        _timeContainerWithTitle(
+                          time: midTime,
+                          color: primaryColor,
+                          title: midPts,
+                        ),
+                        _timeContainerWithTitle(
+                          time: endTime,
+                          color: primaryColor,
+                          title: endPts,
+                        ),
+                      ],
+                    )
+                    : Container(),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

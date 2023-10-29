@@ -8,11 +8,14 @@ class SearchFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       height: size.height / 15,
-      decoration: const BoxDecoration(color: Colors.white, boxShadow: [
-        BoxShadow(offset: Offset(0, 0), blurRadius: 5, color: strokeColor)
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
+          boxShadow: [
+            BoxShadow(offset: Offset(0, 0), blurRadius: 4, color: strokeColor)
       ]),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
