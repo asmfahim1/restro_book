@@ -8,4 +8,11 @@ class Urls {
   static String resendVerificationCode = '';
   static String verifyPasswordUrl = '';
   static String resendCodeUrl = '';
+
+  ///Shared Preferences
+  static const String storedToken = 'token';
+  static const String storedUserType = 'user_type';
+
+  //Password
+  static const String storedPassword = 'password';
 }

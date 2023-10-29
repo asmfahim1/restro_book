@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
+import 'package:get/get.dart';
 import 'package:restro_book/modules/home/view/widget/browse_by_cuisine_section.dart';
 import 'package:restro_book/modules/home/view/widget/explore_area_section.dart';
 import 'package:restro_book/modules/home/view/widget/title_with_listView_widget.dart';
+import 'package:restro_book/modules/search/view/search_details_screen.dart';
 
 class ReservationBarScreen extends StatefulWidget {
   const ReservationBarScreen({Key? key}) : super(key: key);
@@ -138,6 +140,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
                 return TitleWithListViewWidget(
+                  onTap: (){
+                    Get.to(()=> SearchScreenDetails());
+                  },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -173,7 +178,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[index];
-                return TitleWithListViewWidget(
+                return TitleWithListViewWidget(onTap: (){
+                  Get.to(()=> SearchScreenDetails());
+                },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -209,7 +216,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
-                return TitleWithListViewWidget(
+                return TitleWithListViewWidget(onTap: (){
+                  Get.to(()=> SearchScreenDetails());
+                },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -245,7 +254,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[index];
-                return TitleWithListViewWidget(
+                return TitleWithListViewWidget(onTap: (){
+                  Get.to(()=> SearchScreenDetails());
+                },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -281,7 +292,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
-                return TitleWithListViewWidget(
+                return TitleWithListViewWidget(onTap: (){
+                  Get.to(()=> SearchScreenDetails());
+                },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -317,7 +330,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[index];
-                return TitleWithListViewWidget(
+                return TitleWithListViewWidget(onTap: (){
+                  Get.to(()=> SearchScreenDetails());
+                },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -353,7 +368,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
-                return TitleWithListViewWidget(
+                return TitleWithListViewWidget(onTap: (){
+                  Get.to(()=> SearchScreenDetails());
+                },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -389,7 +406,9 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
-                return TitleWithListViewWidget(
+                return TitleWithListViewWidget(onTap: (){
+                  Get.to(()=> SearchScreenDetails());
+                },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
