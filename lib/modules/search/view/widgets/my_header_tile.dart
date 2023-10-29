@@ -26,7 +26,7 @@ class MyHeaderTitle extends SliverPersistentHeaderDelegate{
         alignment: Alignment.centerLeft,
         child: TextWidget(
           title,
-          style: TextStyles.regular14,
+          style: TextStyles.title16,
         ),
       ),
     );

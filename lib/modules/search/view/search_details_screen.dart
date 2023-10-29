@@ -126,14 +126,14 @@ class _FlexibleSpaceBarHeader extends StatelessWidget {
                         Positioned(
                           left: size.width / 3,
                           right: size.width / 3,
-                          bottom: 20,
+                          bottom: 5,
                           child: Container(
                             height: 30,
                             width: 50,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
-                                color: Colors.black54),
+                                color: Colors.black45),
                             child: TextWidget(
                               'See all 405 photos',
                               style: TextStyles.regular12

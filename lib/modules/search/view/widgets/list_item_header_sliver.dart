@@ -4,6 +4,7 @@ import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/modules/search/controller/search_controller.dart';
 import 'package:restro_book/modules/search/model/my_header.dart';
 import 'package:restro_book/modules/search/view/widgets/get_box_offset.dart';
+import 'package:restro_book/modules/search/view/widgets/tabbar_widget.dart';
 
 
 class ListItemHeaderSliver extends StatelessWidget {
@@ -22,10 +23,10 @@ class ListItemHeaderSliver extends StatelessWidget {
       child: NotificationListener<ScrollNotification>(
         onNotification: ((notification) => true),
         child: SingleChildScrollView(
-          padding: EdgeInsets.only(right: size.width - (itemOffsets[itemOffsets.length - 1] - itemOffsets[itemOffsets.length - 2]),),
+          //padding: EdgeInsets.only(right: size.width - (itemOffsets[itemOffsets.length - 1] - itemOffsets[itemOffsets.length - 2]),),
           controller: controller.scrollControllerCategoryHeader,
           scrollDirection: Axis.horizontal,
-          //physics: const NeverScrollableScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: ValueListenableBuilder(
             valueListenable: controller.headerNotifier,
             builder: (_, MyHeader? snapshot, __) {
@@ -40,14 +41,14 @@ class ListItemHeaderSliver extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                              color: index == snapshot!.index ? primaryColor : null,
-                              borderRadius: BorderRadius.circular(12)
+                                color: index == snapshot!.index ? primaryColor : null,
+                                borderRadius: BorderRadius.circular(12)
                             ),
                             child: TextWidget(
                               controller.listOfCategories[index],
                               style: TextStyles.title16.copyWith(
-                                fontSize: 14,
-                                color: index == snapshot.index ? whiteColor : blackColor
+                                  fontSize: 14,
+                                  color: index == snapshot.index ? whiteColor : blackColor
                               ),
                             ),
                           ),
@@ -61,3 +62,7 @@ class ListItemHeaderSliver extends StatelessWidget {
     );
   }
 }
+
+
+
+/*return TabWidget(indexNo: index,);*/
