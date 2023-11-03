@@ -3,6 +3,7 @@ import 'package:restro_book/modules/auth/login/view/get_started_screen.dart';
 import 'package:restro_book/modules/auth/registration/view/registration_screen.dart';
 import 'package:restro_book/modules/home/view/bottom_nav_bar_screen.dart';
 import 'package:restro_book/modules/home/view/home_screen.dart';
+import 'package:restro_book/modules/search/view/res_details_screen.dart';
 import 'package:restro_book/modules/search/view/search_details_screen.dart';
 import '../../modules/auth/login/view/login_screen.dart';
 import '../../modules/auth/login/view/splash_screen.dart';
@@ -19,6 +20,7 @@ class AppRoutes {
   static const registrationPage = '/registration_page';
 
   static const homePage = '/home_page';
+  static const resDetailsScreen = '/restaurant_details_page';
   static const searchScreen = '/search_page';
   static const searchDetailsScreen = '/search_details_page';
   static const savedScreen = '/saved_page';
@@ -56,6 +58,10 @@ class AppRoutes {
         name: searchDetailsScreen,
         transition: Transition.noTransition,
         page: () => const SearchScreenDetails()),
+    GetPage(
+        name: resDetailsScreen,
+        transition: Transition.noTransition,
+        page: () => const RestaurantDetailsScreen()),
     GetPage(
         name: savedScreen,
         transition: Transition.noTransition,
