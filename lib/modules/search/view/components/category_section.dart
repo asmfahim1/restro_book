@@ -23,7 +23,7 @@ class CategorySection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildSectionTileHeader(context,controller),
-          SliverBodyItems(categoryIndex: controller.listCategory[index].category),
+          SliverBodyItems(categoryIndex: controller.listCategory[index].category, controller: controller,),
         ],
       ),
     );

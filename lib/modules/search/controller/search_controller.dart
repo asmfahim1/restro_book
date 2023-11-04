@@ -8,6 +8,8 @@ import '../model/my_header.dart';
 
 class SearchFieldController extends GetxController {
   RxBool showShadow = false.obs;
+  final RxInt _noOfMember = 1.obs;
+  final RxInt _selectedMemberIndex = 0.obs;
 
   void updateShadow(double offset) {
     if (offset > 0) {
@@ -119,6 +121,15 @@ class SearchFieldController extends GetxController {
     }
   }
 
+  set noOfMember(int value){
+    _noOfMember.value = value;
+    update();
+  }
+
+  void setSelectedMember(int index) {
+    _selectedMemberIndex.value = index;
+  }
+
   @override
   void onClose() {
     super.onClose();
@@ -141,4 +152,7 @@ class SearchFieldController extends GetxController {
       });
     }
   }
+
+  int get noOfMember =>  _noOfMember.value;
+  int get selectedMemberIndex => _selectedMemberIndex.value;
 }

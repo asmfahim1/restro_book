@@ -1,22 +1,78 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/core/widgets/sized_box_height_10.dart';
+import '../../controller/search_controller.dart';
 
 class SliverBodyItems extends StatelessWidget {
   final String categoryIndex;
-  const SliverBodyItems({Key? key, required this.categoryIndex}) : super(key: key);
+  final SearchFieldController controller;
+  const SliverBodyItems(
+      {Key? key, required this.categoryIndex, required this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    if(categoryIndex == 'Reservation'){
+    if (categoryIndex == 'Reservation') {
       return Container(
-        height: size.height / 3.8,
+        height: size.height / 3.6,
         width: size.width,
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: Column(
           children: [
+            GestureDetector(
+              onTap: () {
+                Get.bottomSheet(BottomSheet(
+                    backgroundColor: Colors.transparent,
+                    onClosing: () {},
+                    builder: (context) {
+                      return _showDateTimeBottomSheet(size, controller);
+                    }));
+              },
+              child: Container(
+                height: size.height / 25,
+                width: size.width / 2.2,
+                decoration: BoxDecoration(
+                  border: Border.all(color: strokeColor),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.person_outline_rounded,
+                      size: 14,
+                    ),
+                    TextWidget(
+                      ' 2',
+                      style: TextStyles.regular12
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                      height: 4,
+                      width: 4,
+                      decoration: const BoxDecoration(
+                          color: blackColor, shape: BoxShape.circle),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    TextWidget(
+                      '7:30 PM Tonight',
+                      style: TextStyles.regular12
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 15),
               child: Row(
@@ -45,31 +101,41 @@ class SliverBodyItems extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true, // Set this to true
                       itemBuilder: (_, index) {
-                        return Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Container(
-                            width: size.width / 4.2,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: primaryColor,
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(
-                                  Icons.table_restaurant_rounded,
-                                  size: 12,
-                                  color: whiteColor,
-                                ),
-                                TextWidget(
-                                  ' 11.30 AM',
-                                  style: TextStyles.title32.copyWith(
-                                    fontSize: 12,
+                        return GestureDetector(
+                          onTap: (){
+                            Get.bottomSheet(BottomSheet(
+                                backgroundColor: Colors.transparent,
+                                onClosing: () {},
+                                builder: (context) {
+                                  return _showSeatingOptionBottomSheet(size, controller);
+                                }));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Container(
+                              width: size.width / 4.2,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: primaryColor,
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.table_restaurant_rounded,
+                                    size: 12,
                                     color: whiteColor,
                                   ),
-                                ),
-                              ],
+                                  TextWidget(
+                                    ' 11.30 AM',
+                                    style: TextStyles.title32.copyWith(
+                                      fontSize: 12,
+                                      color: whiteColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );
@@ -128,7 +194,7 @@ class SliverBodyItems extends StatelessWidget {
           ],
         ),
       );
-    }else if(categoryIndex == 'Delivery & Takeout'){
+    } else if (categoryIndex == 'Delivery & Takeout') {
       return Container(
         height: size.height / 4.3,
         width: size.width,
@@ -214,7 +280,7 @@ class SliverBodyItems extends StatelessWidget {
           ],
         ),
       );
-    }else if(categoryIndex == 'Menu'){
+    } else if (categoryIndex == 'Menu') {
       return Container(
         height: size.height / 1.8,
         width: size.width,
@@ -249,7 +315,7 @@ class SliverBodyItems extends StatelessWidget {
                         margin: const EdgeInsets.only(left: 15),
                         decoration: const BoxDecoration(
                             border:
-                            Border(bottom: BorderSide(color: strokeColor))),
+                                Border(bottom: BorderSide(color: strokeColor))),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -312,7 +378,7 @@ class SliverBodyItems extends StatelessWidget {
           ],
         ),
       );
-    }else if(categoryIndex == 'Reviews'){
+    } else if (categoryIndex == 'Reviews') {
       return Container(
         height: size.height * 1.32,
         width: size.width,
@@ -347,9 +413,9 @@ class SliverBodyItems extends StatelessWidget {
                               itemBuilder: (_, index) {
                                 return (index + 1 <= 4)
                                     ? const Icon(Icons.star,
-                                    size: 20, color: primaryColor)
+                                        size: 20, color: primaryColor)
                                     : const Icon(Icons.star,
-                                    size: 20, color: strokeColor);
+                                        size: 20, color: strokeColor);
                               },
                             ))
                       ],
@@ -393,8 +459,8 @@ class SliverBodyItems extends StatelessWidget {
                                     children: [
                                       Container(
                                         width: ((size.width / 2.7) /
-                                            5 *
-                                            reversedIndex.toDouble() -
+                                                5 *
+                                                reversedIndex.toDouble() -
                                             2),
                                         color: primaryColor,
                                       ),
@@ -513,7 +579,7 @@ class SliverBodyItems extends StatelessWidget {
                                       ),
                                       Column(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           TextWidget(
                                             'JohnN',
@@ -524,7 +590,8 @@ class SliverBodyItems extends StatelessWidget {
                                               TextWidget(
                                                 'San Fransisco',
                                                 style: TextStyles.regular12
-                                                    .copyWith(color: strokeColor),
+                                                    .copyWith(
+                                                        color: strokeColor),
                                               ),
                                               const SizedBox(
                                                 width: 8,
@@ -542,7 +609,8 @@ class SliverBodyItems extends StatelessWidget {
                                               TextWidget(
                                                 '8 reviews',
                                                 style: TextStyles.regular12
-                                                    .copyWith(color: strokeColor),
+                                                    .copyWith(
+                                                        color: strokeColor),
                                               ),
                                             ],
                                           )
@@ -555,7 +623,9 @@ class SliverBodyItems extends StatelessWidget {
                                       )
                                     ],
                                   ),
-                                  const SizedBox(height: 5,),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
                                   SizedBox(
                                       height: size.height / 30,
                                       width: size.width,
@@ -565,9 +635,9 @@ class SliverBodyItems extends StatelessWidget {
                                         itemBuilder: (_, index) {
                                           return (index + 1 <= 3)
                                               ? const Icon(Icons.star,
-                                              size: 15, color: primaryColor)
+                                                  size: 15, color: primaryColor)
                                               : const Icon(Icons.star,
-                                              size: 15, color: strokeColor);
+                                                  size: 15, color: strokeColor);
                                         },
                                       )),
                                   const SizedBoxHeight10(),
@@ -590,7 +660,7 @@ class SliverBodyItems extends StatelessWidget {
           ],
         ),
       );
-    }else if(categoryIndex == 'Details'){
+    } else if (categoryIndex == 'Details') {
       return Container(
         width: size.width,
         margin: const EdgeInsets.symmetric(vertical: 5),
@@ -663,38 +733,31 @@ class SliverBodyItems extends StatelessWidget {
                             'Safety information',
                             style: TextStyles.regular16,
                           ),
-                          _titleDescription(
-                            context,
+                          _titleDescription(context,
                               subtitle: 'Surface sanitized after every meal'),
-                          _titleDescription(
-                              context,
+                          _titleDescription(context,
                               subtitle:
-                              'Digital, disposable or sanitized menu provided'),
-                          _titleDescription(
-                              context,
+                                  'Digital, disposable or sanitized menu provided'),
+                          _titleDescription(context,
                               subtitle: 'Common area deep cleaned-daily'),
-                          _titleDescription(
-                              context,
+                          _titleDescription(context,
                               subtitle: 'Contactless payment available'),
-                          _titleDescription(
-                              context,
-                              subtitle: 'Sick staff prohibited in the workplace'),
+                          _titleDescription(context,
+                              subtitle:
+                                  'Sick staff prohibited in the workplace'),
                         ],
                       ),
                     ],
                   ),
                   const SizedBoxHeight10(),
-                  _additionalInfoSection(
-                      context,
-                      Icons.phone_enabled_outlined, 'Phone', '(415)375-8094'),
+                  _additionalInfoSection(context, Icons.phone_enabled_outlined,
+                      'Phone', '(415)375-8094'),
+                  const SizedBoxHeight10(),
+                  _additionalInfoSection(context, Icons.price_change_outlined,
+                      'Price', '\$50 and over'),
                   const SizedBoxHeight10(),
                   _additionalInfoSection(
-                      context,
-                      Icons.price_change_outlined, 'Price', '\$50 and over'),
-                  const SizedBoxHeight10(),
-                  _additionalInfoSection(
-                      context,
-                      Icons.restaurant, 'Cuisine', 'Steakhouse'),
+                      context, Icons.restaurant, 'Cuisine', 'Steakhouse'),
                   const SizedBoxHeight10(),
                   _additionalInfoSection(
                       context,
@@ -702,24 +765,22 @@ class SliverBodyItems extends StatelessWidget {
                       'Hours of operation',
                       'Brunch\nSat, Sun 10:00 am - 3:00 pm\nLunch\nMon-Fri, Sun 10:00 am - 3:00 pm\nDinner\nMon-Fri, Sun 10:00 am - 3:00 pm\nHappy Hour\nMon-Fri, Sun 10:00 am - 3:00 pm'),
                   const SizedBoxHeight10(),
-                  _additionalInfoSection(
-                      context,Icons.payment, 'Payment options',
-                      'AMEX, Discover, Mastercard, Visa'),
+                  _additionalInfoSection(context, Icons.payment,
+                      'Payment options', 'AMEX, Discover, Mastercard, Visa'),
                   const SizedBoxHeight10(),
                   _additionalInfoSection(
-                      context,
-                      Icons.local_parking_outlined, 'Parking', 'None'),
+                      context, Icons.local_parking_outlined, 'Parking', 'None'),
                   const SizedBoxHeight10(),
-                  _additionalInfoSection(
-                      context,Icons.person_outline_outlined,
+                  _additionalInfoSection(context, Icons.person_outline_outlined,
                       'Dress code', 'Business casual'),
                   const SizedBoxHeight10(),
-                  _additionalInfoSection(
-                      context,Icons.accessibility,
+                  _additionalInfoSection(context, Icons.accessibility,
                       'Accessibility and inclusion', 'Wheelchair Access'),
                   const SizedBoxHeight10(),
                   _additionalInfoSection(
-                      context,Icons.description_sharp, 'Description',
+                      context,
+                      Icons.description_sharp,
+                      'Description',
                       'STK Steakhouse is "not your daddy\'s steakhouse," offering a high-energy dining experience that artfully combines the superior quality of a traditiona steakhouse with a Vibe Dining atmosphere unlike any other. Delectable cuisine, upscale cocktails and an elevated Happu Hour, along with an in-house DJ and chic decor, all come togather to offer a memorable fine dining experience that keeps guests enjoying their evening from drinks to dinner to late night. STK\'s menu features reimagined classic American cuisine for lunch, brunch and dinner with unique local flair infused into each location\'s menu.'),
                 ],
               ),
@@ -727,9 +788,207 @@ class SliverBodyItems extends StatelessWidget {
           ],
         ),
       );
-    }else{
+    } else {
       return Container();
     }
+  }
+
+  Widget _showDateTimeBottomSheet(Size size, SearchFieldController controller){
+    return Container(
+      height: size.height / .9,
+      decoration: const BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          )),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 15.0),
+            child: TextWidget(
+              'Party Size',
+              style: TextStyles.title16,
+            ),
+          ),
+          const SizedBoxHeight10(),
+          SizedBox(
+            height: 50,
+            child: ListView.builder(
+                itemCount: 20,
+                scrollDirection: Axis.horizontal,
+                physics: BouncingScrollPhysics(),
+                itemBuilder: (_, index) {
+                  return Padding(
+                    padding:
+                    const EdgeInsets.only(left: 15.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        controller.setSelectedMember(index);
+                        print(
+                            'The selected Member is : ${controller.noOfMember + index}');
+                      },
+                      child: Obx(() {
+                        final isSelected =
+                            controller.selectedMemberIndex ==
+                                index;
+                        final containerColor = isSelected
+                            ? primaryColor
+                            : strokeColor;
+                        return Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: containerColor,
+                                width: isSelected ? 2 : 1,
+                              ),
+                              shape: BoxShape.circle),
+                          alignment: Alignment.center,
+                          child: TextWidget(
+                            '${controller.noOfMember + index}',
+                            style: TextStyles.title16,
+                          ),
+                        );
+                      }),
+                    ),
+                  );
+                }),
+          ),
+          const SizedBoxHeight10(),
+          Padding(
+            padding: const EdgeInsets.only(left: 15.0),
+            child: TextWidget(
+              'Date and Time',
+              style: TextStyles.title16,
+            ),
+          ),
+          const SizedBoxHeight10(),
+          SizedBox(
+            height: 250,
+            child: CupertinoDatePicker(
+                mode: CupertinoDatePickerMode.dateAndTime,
+                onDateTimeChanged: (date) {
+                  final formattedDate =
+                  DateFormat('E, MMM d h:mm a')
+                      .format(date);
+                  print(
+                      'The picked date and Time is: $formattedDate');
+                }),
+          ),
+          _doneButton(size, controller)
+        ],
+      ),
+    );
+  }
+
+  Widget _doneButton(Size size, SearchFieldController controller){
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: CommonButton(
+        width: size.width,
+        buttonTitle: 'Done',
+        onTap: (){
+          Get.back();
+        },
+
+      ),
+    );
+  }
+
+  Widget _showSeatingOptionBottomSheet(Size size, SearchFieldController controller){
+    return Container(
+      height: size.height / 2.5,
+      padding: const EdgeInsets.only(left: 15.0, right: 15, top: 10),
+      decoration: const BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          )),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextWidget(
+            'Select your seating option',
+            style: TextStyles.title16,
+          ),
+          const SizedBoxHeight20(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextWidget('Standard', style: TextStyles.title16,),
+              Container(
+                height: size.height / 32,
+                width: size.width / 5.5,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: strokeColor.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: TextWidget('Unavailable', style: TextStyles.regular12.copyWith(fontSize: 10,fontWeight: FontWeight.bold, color: primaryColor),),
+              ),
+            ],
+          ),
+          Divider(color: strokeColor,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextWidget('Bar', style: TextStyles.title16,),
+              Container(
+                height: size.height / 32,
+                width: size.width / 5.5,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: strokeColor.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: TextWidget('Unavailable', style: TextStyles.regular12.copyWith(fontSize: 10,fontWeight: FontWeight.bold, color: primaryColor),),
+              ),
+            ],
+          ),
+          Divider(color: strokeColor,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextWidget('Counter', style: TextStyles.title16,),
+              Container(
+                height: size.height / 32,
+                width: size.width / 5.5,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: strokeColor.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: TextWidget('Unavailable', style: TextStyles.regular12.copyWith(fontSize: 10,fontWeight: FontWeight.bold, color: primaryColor),),
+              ),
+            ],
+          ),
+          Divider(color: strokeColor,),
+          const SizedBoxHeight20(),
+          _cancelSeatingButton(size, controller)
+        ],
+      ),
+    );
+  }
+
+  Widget _cancelSeatingButton(Size size, SearchFieldController controller){
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: CommonButton(
+        width: size.width,
+        buttonTitle: 'Cancel',
+        buttonTextColor: blackColor,
+        buttonColor: whiteColor,
+        onTap: (){
+          Get.back();
+        },
+
+      ),
+    );
   }
 
   Widget _viewFullAvailabilityBtn(BuildContext context) {
@@ -783,7 +1042,8 @@ class SliverBodyItems extends StatelessWidget {
     );
   }
 
-  Widget _titleDescription(BuildContext context,{
+  Widget _titleDescription(
+    BuildContext context, {
     required String subtitle,
     Color? color = blackColor,
   }) {
@@ -801,15 +1061,15 @@ class SliverBodyItems extends StatelessWidget {
           width: size.width / 1.5,
           child: TextWidget(
             subtitle,
-            style: TextStyles.regular14
-                .copyWith(color: color ?? blackColor),
+            style: TextStyles.regular14.copyWith(color: color ?? blackColor),
           ),
         ),
       ],
     );
   }
 
-  Widget _additionalInfoSection(BuildContext context, IconData icon, String title, String subTitle) {
+  Widget _additionalInfoSection(
+      BuildContext context, IconData icon, String title, String subTitle) {
     Size size = MediaQuery.of(context).size;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -837,4 +1097,7 @@ class SliverBodyItems extends StatelessWidget {
       ],
     );
   }
+
+
 }
+

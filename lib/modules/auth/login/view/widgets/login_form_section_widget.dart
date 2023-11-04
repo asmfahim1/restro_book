@@ -115,7 +115,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
   Widget _loginButton() {
     Size size = MediaQuery.of(context).size;
     return CommonButton(
-      btnHeight: size.height / 20,
+      height: size.height / 20,
       width: size.width / 1.6,
       buttonTitle: 'Login',
       onTap: () {

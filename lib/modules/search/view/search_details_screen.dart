@@ -69,6 +69,7 @@ class _SearchScreenDetailsState extends State<SearchScreenDetails> {
                       SliverToBoxAdapter(
                         child: SliverBodyItems(
                           categoryIndex: searchController.listCategory[i].category,
+                          controller: searchController,
                         ),
                       ),
                     ]

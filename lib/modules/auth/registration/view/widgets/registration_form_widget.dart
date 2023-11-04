@@ -111,7 +111,7 @@ class _RegistrationFormSectionWidgetState
 
   Widget _registrationButton() {
     return CommonButton(
-      btnHeight: MediaQuery.of(context).size.width / 20,
+      height: MediaQuery.of(context).size.width / 20,
       width: MediaQuery.of(context).size.width / 1.6,
       buttonTitle: 'Registration',
       onTap: () {

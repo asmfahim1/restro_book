@@ -16,7 +16,7 @@ class CommonButton extends StatelessWidget {
     this.fontWeight = FontWeight.w500,
     this.buttonColor,
     this.leadingIcon,
-    this.trailingIcon, required btnHeight,
+    this.trailingIcon,
   }) : super(key: key);
 
   final String buttonTitle;
@@ -41,6 +41,7 @@ class CommonButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: buttonColor ?? Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(borderRadius),
+          border: Border.all(color: strokeColor)
         ),
         child: Center(
           child: Row(
