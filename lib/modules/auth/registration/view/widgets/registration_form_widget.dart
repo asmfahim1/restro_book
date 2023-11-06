@@ -110,11 +110,12 @@ class _RegistrationFormSectionWidgetState
   }
 
   Widget _registrationButton() {
+    Size size = MediaQuery.of(context).size;
     return CommonButton(
-      height: MediaQuery.of(context).size.width / 20,
-      width: MediaQuery.of(context).size.width / 1.6,
+      height: size.height / 18,
+      width: size.width / 1.6,
       buttonTitle: 'Registration',
-      onTap: () {
+      onPressed: () {
         //login method will call
         Get.offAllNamed(AppRoutes.loginPage);
       },

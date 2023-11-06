@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/core/widgets/sized_box_height_10.dart';
@@ -909,7 +910,7 @@ class SliverBodyItems extends StatelessWidget {
       child: CommonButton(
         width: size.width,
         buttonTitle: 'Done',
-        onTap: (){
+        onPressed: (){
           Get.back();
         },
 
@@ -964,40 +965,46 @@ class SliverBodyItems extends StatelessWidget {
       shrinkWrap: true, // Set shrinkWrap to true
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (_, index) {
-        return Container(
-          height: size.height / 14,
-          decoration: const BoxDecoration(
-            border: Border(
-              bottom: BorderSide(color: strokeColor),
-            ),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextWidget(
-                seatingOption[index]["title"]!,
-                style: TextStyles.title16,
+        return InkWell(
+          onTap: (){
+            Get.back();
+            Get.toNamed(AppRoutes.bookingConfirmScreen);
+          },
+          child: Container(
+            height: size.height / 14,
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: strokeColor),
               ),
-              seatingOption[index]["subTitle"]! != " "
-                    ? Container(
-                        height: size.height / 32,
-                        width: size.width / 5.5,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: strokeColor.withOpacity(0.3),
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: TextWidget(
-                          seatingOption[index]["subTitle"]!,
-                          style: TextStyles.regular12.copyWith(
-                            fontSize: 10,
-                            fontWeight: FontWeight.bold,
-                            color: primaryColor,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextWidget(
+                  seatingOption[index]["title"]!,
+                  style: TextStyles.title16,
+                ),
+                seatingOption[index]["subTitle"]! != " "
+                      ? Container(
+                          height: size.height / 32,
+                          width: size.width / 5.5,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: strokeColor.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(6),
                           ),
-                        ),
-                      )
-                    : Container(),
-            ],
+                          child: TextWidget(
+                            seatingOption[index]["subTitle"]!,
+                            style: TextStyles.regular12.copyWith(
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                              color: primaryColor,
+                            ),
+                          ),
+                        )
+                      : Container(),
+              ],
+            ),
           ),
         );
       },
@@ -1012,7 +1019,7 @@ class SliverBodyItems extends StatelessWidget {
         buttonTitle: 'Cancel',
         buttonTextColor: blackColor,
         buttonColor: whiteColor,
-        onTap: (){
+        onPressed: (){
           Get.back();
         },
 

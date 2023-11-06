@@ -10,6 +10,18 @@ class SearchFieldController extends GetxController {
   RxBool showShadow = false.obs;
   final RxInt _noOfMember = 1.obs;
   final RxInt _selectedMemberIndex = 0.obs;
+  final RxBool _switchActive1 = false.obs;
+  final RxBool _switchActive2 = false.obs;
+  ///booking_confirm_screen
+  TextEditingController specialRequestController = TextEditingController();
+
+  set switchActive1(bool value) {
+    _switchActive1.value = value;
+  }
+
+  set switchActive2(bool value) {
+    _switchActive2.value = value;
+  }
 
   void updateShadow(double offset) {
     if (offset > 0) {
@@ -155,4 +167,6 @@ class SearchFieldController extends GetxController {
 
   int get noOfMember =>  _noOfMember.value;
   int get selectedMemberIndex => _selectedMemberIndex.value;
+  bool get switchActive1 => _switchActive1.value;
+  bool get switchActive2 => _switchActive2.value;
 }

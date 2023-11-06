@@ -3,6 +3,7 @@ import 'package:restro_book/modules/auth/login/view/get_started_screen.dart';
 import 'package:restro_book/modules/auth/registration/view/registration_screen.dart';
 import 'package:restro_book/modules/home/view/bottom_nav_bar_screen.dart';
 import 'package:restro_book/modules/home/view/home_screen.dart';
+import 'package:restro_book/modules/search/view/booking_confirmation_screen.dart';
 import 'package:restro_book/modules/search/view/res_details_screen.dart';
 import 'package:restro_book/modules/search/view/search_details_screen.dart';
 import '../../modules/auth/login/view/login_screen.dart';
@@ -23,6 +24,7 @@ class AppRoutes {
   static const resDetailsScreen = '/restaurant_details_page';
   static const searchScreen = '/search_page';
   static const searchDetailsScreen = '/search_details_page';
+  static const bookingConfirmScreen = '/booking_confirm_page';
   static const savedScreen = '/saved_page';
 
   static List<GetPage> routes = [
@@ -62,6 +64,10 @@ class AppRoutes {
         name: resDetailsScreen,
         transition: Transition.noTransition,
         page: () => const RestaurantDetailsScreen()),
+    GetPage(
+        name: bookingConfirmScreen,
+        transition: Transition.noTransition,
+        page: () => const BookingConfirmScreen()),
     GetPage(
         name: savedScreen,
         transition: Transition.noTransition,
