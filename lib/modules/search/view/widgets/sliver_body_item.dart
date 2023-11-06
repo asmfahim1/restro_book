@@ -19,23 +19,26 @@ class SliverBodyItems extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     if (categoryIndex == 'Reservation') {
       return Container(
-        height: size.height / 3.6,
+        height: size.height / 3.4,
         width: size.width,
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: Column(
           children: [
             GestureDetector(
               onTap: () {
-                Get.bottomSheet(BottomSheet(
+                showModalBottomSheet<dynamic>(
+                    context: context,
+                    isScrollControlled: true,
+                    enableDrag: false,
                     backgroundColor: Colors.transparent,
-                    onClosing: () {},
-                    builder: (context) {
-                      return _showDateTimeBottomSheet(size, controller);
-                    }));
+                    builder: (context){
+                  return _showDateTimeBottomSheet(size, controller);
+                });
               },
               child: Container(
                 height: size.height / 25,
-                width: size.width / 2.2,
+                width: size.width / 2.3,
+                margin: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   border: Border.all(color: strokeColor),
                   borderRadius: BorderRadius.circular(30),
@@ -103,12 +106,14 @@ class SliverBodyItems extends StatelessWidget {
                       itemBuilder: (_, index) {
                         return GestureDetector(
                           onTap: (){
-                            Get.bottomSheet(BottomSheet(
+                            showModalBottomSheet<dynamic>(
+                                context: context,
+                                isScrollControlled: true,
+                                enableDrag: false,
                                 backgroundColor: Colors.transparent,
-                                onClosing: () {},
-                                builder: (context) {
-                                  return _showSeatingOptionBottomSheet(size, controller);
-                                }));
+                                builder: (context){
+                              return _showSeatingOptionBottomSheet(size, controller);
+                            });
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(left: 15),
@@ -793,97 +798,111 @@ class SliverBodyItems extends StatelessWidget {
     }
   }
 
+  ///reservation category
   Widget _showDateTimeBottomSheet(Size size, SearchFieldController controller){
-    return Container(
-      height: size.height / .9,
-      decoration: const BoxDecoration(
-          color: whiteColor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
-          )),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0),
-            child: TextWidget(
-              'Party Size',
-              style: TextStyles.title16,
+    DateTime initialDateTime = DateTime.now();
+    int initialMinute = initialDateTime.minute;
+    if (initialDateTime.minute % 5 != 0) {
+      initialMinute = initialDateTime.minute - initialDateTime.minute % 15 + 15;
+    }
+    return DraggableScrollableSheet(
+        initialChildSize: 0.55,
+        minChildSize: 0.5,
+        maxChildSize: 0.7,
+        builder: (_,dragController){
+          return Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
+              ),
             ),
-          ),
-          const SizedBoxHeight10(),
-          SizedBox(
-            height: 50,
-            child: ListView.builder(
-                itemCount: 20,
-                scrollDirection: Axis.horizontal,
-                physics: BouncingScrollPhysics(),
-                itemBuilder: (_, index) {
-                  return Padding(
-                    padding:
-                    const EdgeInsets.only(left: 15.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        controller.setSelectedMember(index);
-                        print(
-                            'The selected Member is : ${controller.noOfMember + index}');
-                      },
-                      child: Obx(() {
-                        final isSelected =
-                            controller.selectedMemberIndex ==
-                                index;
-                        final containerColor = isSelected
-                            ? primaryColor
-                            : strokeColor;
-                        return Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                color: containerColor,
-                                width: isSelected ? 2 : 1,
-                              ),
-                              shape: BoxShape.circle),
-                          alignment: Alignment.center,
-                          child: TextWidget(
-                            '${controller.noOfMember + index}',
-                            style: TextStyles.title16,
+            child: ListView(
+              controller: dragController,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 15.0, top: 10),
+                  child: TextWidget(
+                    'Party Size',
+                    style: TextStyles.title16,
+                  ),
+                ),
+                const SizedBoxHeight10(),
+                SizedBox(
+                  height: 50,
+                  child: ListView.builder(
+                      itemCount: 20,
+                      scrollDirection: Axis.horizontal,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (_, index) {
+                        return Padding(
+                          padding:
+                          const EdgeInsets.only(left: 15.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              controller.setSelectedMember(index);
+                              print(
+                                  'The selected Member is : ${controller.noOfMember + index}');
+                            },
+                            child: Obx(() {
+                              final isSelected =
+                                  controller.selectedMemberIndex ==
+                                      index;
+                              final containerColor = isSelected
+                                  ? primaryColor
+                                  : strokeColor;
+
+                              return Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: containerColor,
+                                      width: isSelected ? 2 : 1,
+                                    ),
+                                    shape: BoxShape.circle),
+                                alignment: Alignment.center,
+                                child: TextWidget(
+                                  '${controller.noOfMember + index}',
+                                  style: TextStyles.title16,
+                                ),
+                              );
+                            }),
                           ),
                         );
                       }),
-                    ),
-                  );
-                }),
-          ),
-          const SizedBoxHeight10(),
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0),
-            child: TextWidget(
-              'Date and Time',
-              style: TextStyles.title16,
+                ),
+                const SizedBoxHeight10(),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: TextWidget(
+                    'Date and Time',
+                    style: TextStyles.title16,
+                  ),
+                ),
+                const SizedBoxHeight10(),
+                SizedBox(
+                  height: size.height / 3.4,
+                  child: CupertinoDatePicker(
+                      initialDateTime: DateTime(initialDateTime.year, initialDateTime.month, initialDateTime.day, initialDateTime.hour, initialMinute),
+                      minuteInterval: 15,
+                      mode: CupertinoDatePickerMode.dateAndTime,
+                      onDateTimeChanged: (date) {
+                        final formattedDate =
+                        DateFormat('E, MMM d h:mm a')
+                            .format(date);
+                        print(
+                            'The picked date and Time is: $formattedDate');
+                      }),
+                ),
+                Expanded(child: _doneButton(size, controller))
+              ],
             ),
-          ),
-          const SizedBoxHeight10(),
-          SizedBox(
-            height: 250,
-            child: CupertinoDatePicker(
-                mode: CupertinoDatePickerMode.dateAndTime,
-                onDateTimeChanged: (date) {
-                  final formattedDate =
-                  DateFormat('E, MMM d h:mm a')
-                      .format(date);
-                  print(
-                      'The picked date and Time is: $formattedDate');
-                }),
-          ),
-          _doneButton(size, controller)
-        ],
-      ),
-    );
+          );
+        });
   }
-
+  ///reservation category
   Widget _doneButton(Size size, SearchFieldController controller){
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -897,84 +916,94 @@ class SliverBodyItems extends StatelessWidget {
       ),
     );
   }
-
+  ///reservation category
   Widget _showSeatingOptionBottomSheet(Size size, SearchFieldController controller){
-    return Container(
-      height: size.height / 2.5,
-      padding: const EdgeInsets.only(left: 15.0, right: 15, top: 10),
-      decoration: const BoxDecoration(
-          color: whiteColor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
-          )),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextWidget(
-            'Select your seating option',
-            style: TextStyles.title16,
-          ),
-          const SizedBoxHeight20(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextWidget('Standard', style: TextStyles.title16,),
-              Container(
-                height: size.height / 32,
-                width: size.width / 5.5,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: strokeColor.withOpacity(0.3),
-                  borderRadius: BorderRadius.circular(6),
+    return DraggableScrollableSheet(
+        initialChildSize: 0.7,
+        minChildSize: 0.5,
+        maxChildSize: 0.7,
+        builder: (_,dragController){
+          return Container(
+            height: size.height / 2.5,
+            padding: const EdgeInsets.all(15),
+            decoration: const BoxDecoration(
+                color: whiteColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                )),
+            child: ListView(
+              controller: dragController,
+              children: [
+                TextWidget(
+                  'Select your seating option',
+                  style: TextStyles.title16,
                 ),
-                child: TextWidget('Unavailable', style: TextStyles.regular12.copyWith(fontSize: 10,fontWeight: FontWeight.bold, color: primaryColor),),
-              ),
-            ],
-          ),
-          Divider(color: strokeColor,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextWidget('Bar', style: TextStyles.title16,),
-              Container(
-                height: size.height / 32,
-                width: size.width / 5.5,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: strokeColor.withOpacity(0.3),
-                  borderRadius: BorderRadius.circular(6),
+                const SizedBoxHeight20(),
+                SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: Column(
+                    children: [
+                      _seatingListsWidget(size),
+                    ],
+                  ),
                 ),
-                child: TextWidget('Unavailable', style: TextStyles.regular12.copyWith(fontSize: 10,fontWeight: FontWeight.bold, color: primaryColor),),
-              ),
-            ],
-          ),
-          Divider(color: strokeColor,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextWidget('Counter', style: TextStyles.title16,),
-              Container(
-                height: size.height / 32,
-                width: size.width / 5.5,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: strokeColor.withOpacity(0.3),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: TextWidget('Unavailable', style: TextStyles.regular12.copyWith(fontSize: 10,fontWeight: FontWeight.bold, color: primaryColor),),
-              ),
-            ],
-          ),
-          Divider(color: strokeColor,),
-          const SizedBoxHeight20(),
-          _cancelSeatingButton(size, controller)
-        ],
-      ),
+                const SizedBoxHeight20(),
+                _cancelSeatingButton(size, controller)
+              ],
+            ),
+          );
+        }
     );
   }
 
+  ///reservation category
+  Widget _seatingListsWidget(Size size){
+    return ListView.builder(
+      itemCount: seatingOption.length,
+      shrinkWrap: true, // Set shrinkWrap to true
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (_, index) {
+        return Container(
+          height: size.height / 14,
+          decoration: const BoxDecoration(
+            border: Border(
+              bottom: BorderSide(color: strokeColor),
+            ),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextWidget(
+                seatingOption[index]["title"]!,
+                style: TextStyles.title16,
+              ),
+              seatingOption[index]["subTitle"]! != " "
+                    ? Container(
+                        height: size.height / 32,
+                        width: size.width / 5.5,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: strokeColor.withOpacity(0.3),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: TextWidget(
+                          seatingOption[index]["subTitle"]!,
+                          style: TextStyles.regular12.copyWith(
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                            color: primaryColor,
+                          ),
+                        ),
+                      )
+                    : Container(),
+            ],
+          ),
+        );
+      },
+    );
+  }
+  ///reservation category
   Widget _cancelSeatingButton(Size size, SearchFieldController controller){
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -990,7 +1019,7 @@ class SliverBodyItems extends StatelessWidget {
       ),
     );
   }
-
+  ///reservation category
   Widget _viewFullAvailabilityBtn(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
@@ -1007,7 +1036,7 @@ class SliverBodyItems extends StatelessWidget {
       ),
     );
   }
-
+  ///menu category
   Widget _seeFullMenuBtn(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
@@ -1024,7 +1053,7 @@ class SliverBodyItems extends StatelessWidget {
       ),
     );
   }
-
+  ///review category
   Widget _seeAllReviewsBtn(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
@@ -1041,7 +1070,7 @@ class SliverBodyItems extends StatelessWidget {
       ),
     );
   }
-
+  ///details category
   Widget _titleDescription(
     BuildContext context, {
     required String subtitle,
@@ -1067,7 +1096,7 @@ class SliverBodyItems extends StatelessWidget {
       ],
     );
   }
-
+  ///details category
   Widget _additionalInfoSection(
       BuildContext context, IconData icon, String title, String subTitle) {
     Size size = MediaQuery.of(context).size;

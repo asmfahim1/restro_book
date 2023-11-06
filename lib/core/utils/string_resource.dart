@@ -821,3 +821,30 @@ final userInfo = [
   }
 ];
 
+final seatingOption = [
+  {
+    "title": "Standard",
+    "subTitle": " "
+  },
+  {
+    "title": "Bar",
+    "subTitle": "Unavailable"
+  },
+  {
+    "title": "Counter",
+    "subTitle": "Unavailable"
+  },
+  {
+    "title": "High top",
+    "subTitle": " "
+  },
+  {
+    "title": "Outdoor",
+    "subTitle": "Unavailable"
+  },
+  {
+    "title": "Other",
+    "subTitle": "Select"
+  },
+];
+
