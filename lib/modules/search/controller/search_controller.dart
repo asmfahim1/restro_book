@@ -14,6 +14,7 @@ class SearchFieldController extends GetxController {
   final RxBool _switchActive2 = false.obs;
   ///booking_confirm_screen
   TextEditingController specialRequestController = TextEditingController();
+  ScrollController scrollController = ScrollController();
 
   set switchActive1(bool value) {
     _switchActive1.value = value;
@@ -140,6 +141,8 @@ class SearchFieldController extends GetxController {
 
   void setSelectedMember(int index) {
     _selectedMemberIndex.value = index;
+    scrollController.animateTo((index) * 65, duration: Duration(milliseconds: 800), curve: Curves.bounceOut);
+    update();
   }
 
   @override

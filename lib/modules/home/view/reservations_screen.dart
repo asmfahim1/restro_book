@@ -17,6 +17,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
       child: Column(
         children: [
           _locationTimeWidget(),

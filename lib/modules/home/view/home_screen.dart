@@ -30,66 +30,17 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     print('Home screen build');
+
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: whiteColor,
-      body: _buildBody(),
-    );
-  }
-
-  Widget _buildBody() {
-    return Column(
-      children: [
-        _topSectionWidget(),
-        _bodySectionWidget(),
-      ],
-    );
-  }
-
-  Widget _topSectionWidget() {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      margin: const EdgeInsets.only(top: 30),
-      height: size.height / 22,
-      width: size.width,
-      padding: leftRightPadding15,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      appBar: PreferredSize(preferredSize:  Size.fromHeight(size.height * .149),
+      child: Column(
         children: [
-          TextWidget(
-            'Good morning, Fahim',
-            style: TextStyles.title20,
-          ),
-          const CircleAvatar(
-            backgroundColor: strokeColor,
-            radius: 15,
-            child: Icon(
-              Icons.person_outline_rounded,
-              color: darkGrayColor,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _bodySectionWidget() {
-    Size size = MediaQuery.of(context).size;
-    return Column(
-      children: [
-        Container(
-          height: size.height / 16,
-          width: size.width,
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
-                color: Colors.grey.withOpacity(0.5),
-                width: 1.2,
-              ),
-            ),
-          ),
-          child: TabBar(
+          _topSectionWidget(),
+          TabBar(
             controller: home.tabController,
-            isScrollable: false,
+            //isScrollable: false,
             labelColor: primaryColor,
             unselectedLabelColor: darkGrayColor,
             indicatorColor: primaryColor,
@@ -118,20 +69,54 @@ class _HomeScreenState extends State<HomeScreen>
               ),
             ],
           ),
-        ),
-        SizedBox(
-          height: size.height / 1.356,
-          width: size.width,
-          child: TabBarView(
-            controller: home.tabController,
-            children: const [
-              ReservationBarScreen(),
-              ExperiencesBarScreen(),
-              TakeoutBarScreen(),
-            ],
-          ),
-        )
-      ],
+        ],
+      ),
+      ),
+      body: _buildBody(),
     );
+  }
+
+  Widget _buildBody() {
+    return _bodySectionWidget();
+  }
+
+  Widget _topSectionWidget() {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      margin: const EdgeInsets.only(top: 30),
+      height: size.height * .05,
+      width: size.width,
+      padding: leftRightPadding15,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextWidget(
+            'Good morning, Fahim',
+            style: TextStyles.title20,
+          ),
+          const CircleAvatar(
+            backgroundColor: strokeColor,
+            radius: 15,
+            child: Icon(
+              Icons.person_outline_rounded,
+              color: darkGrayColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _bodySectionWidget() {
+    Size size = MediaQuery.of(context).size;
+    return TabBarView(
+      physics: NeverScrollableScrollPhysics(),
+          controller: home.tabController,
+          children: const [
+            ReservationBarScreen(),
+            ExperiencesBarScreen(),
+            TakeoutBarScreen(),
+          ],
+        );
   }
 }

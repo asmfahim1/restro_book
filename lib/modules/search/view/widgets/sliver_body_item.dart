@@ -14,7 +14,6 @@ class SliverBodyItems extends StatelessWidget {
   const SliverBodyItems(
       {Key? key, required this.categoryIndex, required this.controller})
       : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -429,27 +428,26 @@ class SliverBodyItems extends StatelessWidget {
                   ),
                   Expanded(
                     child: Container(
-                      height: size.height,
-                      width: size.width / 2.5,
-                      alignment: Alignment.center,
+                      height: 100,
+                      // width: size.width * 0.4,
+                      // alignment: Alignment.st,
+
+                      color: Colors.red,
                       child: ListView.builder(
                           itemCount: 5,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
+                          // shrinkWrap: true,
+                          // physics: const NeverScrollableScrollPhysics(),
+                          padding: EdgeInsets.zero,
                           itemBuilder: (_, index) {
                             int reversedIndex = 5 - index;
                             return Row(
                               children: [
-                                Container(
-                                    height: size.height / 35,
-                                    width: size.width / 18,
-                                    alignment: Alignment.centerRight,
-                                    child: TextWidget(
-                                      reversedIndex.toString(),
-                                      style: TextStyles.regular14,
-                                    )),
+                                TextWidget(
+                                  reversedIndex.toString(),
+                                  style: TextStyles.regular14,
+                                ),
                                 const SizedBox(
-                                  width: 5,
+                                  width: 8,
                                 ),
                                 Container(
                                   height: size.height / 120,
@@ -803,7 +801,7 @@ class SliverBodyItems extends StatelessWidget {
   Widget _showDateTimeBottomSheet(Size size, SearchFieldController controller){
     DateTime initialDateTime = DateTime.now();
     int initialMinute = initialDateTime.minute;
-    if (initialDateTime.minute % 5 != 0) {
+    if (initialDateTime.minute % 15 != 0) {
       initialMinute = initialDateTime.minute - initialDateTime.minute % 15 + 15;
     }
     return DraggableScrollableSheet(
@@ -819,8 +817,7 @@ class SliverBodyItems extends StatelessWidget {
                 topRight: Radius.circular(20.0),
               ),
             ),
-            child: ListView(
-              controller: dragController,
+            child: Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 15.0, top: 10),
@@ -836,25 +833,25 @@ class SliverBodyItems extends StatelessWidget {
                       itemCount: 20,
                       scrollDirection: Axis.horizontal,
                       physics: const BouncingScrollPhysics(),
+                      controller: controller.scrollController,
                       itemBuilder: (_, index) {
                         return Padding(
                           padding:
                           const EdgeInsets.only(left: 15.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              controller.setSelectedMember(index);
-                              print(
-                                  'The selected Member is : ${controller.noOfMember + index}');
-                            },
-                            child: Obx(() {
-                              final isSelected =
-                                  controller.selectedMemberIndex ==
-                                      index;
-                              final containerColor = isSelected
-                                  ? primaryColor
-                                  : strokeColor;
-
-                              return Container(
+                          child: Obx((){
+                            final isSelected =
+                                controller.selectedMemberIndex ==
+                                    index;
+                            final containerColor = isSelected
+                                ? primaryColor
+                                : strokeColor;
+                            return GestureDetector(
+                              onTap: () {
+                                controller.setSelectedMember(index);
+                                print('The selected Member is : ${controller.noOfMember + index}');
+                                print('Scroll position : ${controller.scrollController.position}');
+                              },
+                              child: Container(
                                 height: 50,
                                 width: 50,
                                 decoration: BoxDecoration(
@@ -868,9 +865,9 @@ class SliverBodyItems extends StatelessWidget {
                                   '${controller.noOfMember + index}',
                                   style: TextStyles.title16,
                                 ),
-                              );
-                            }),
-                          ),
+                              ),
+                            );
+                          }),
                         );
                       }),
                 ),
