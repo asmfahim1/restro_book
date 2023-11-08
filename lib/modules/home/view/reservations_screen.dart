@@ -269,7 +269,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
                 final restaurant = restaurantList[index];
                 return TitleWithListViewWidget(
                   onTap: (){
-                    Get.toNamed(AppRoutes.getResDetailsScreen('110302$restaurant',restaurant['restaurantName'].toString()));
+                    Get.toNamed(AppRoutes.getResDetailsScreen(restaurant['restaurantName'].toString(), '110302$restaurant'));
                   },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
@@ -308,7 +308,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
                 return TitleWithListViewWidget(
                   onTap: (){
-                    Get.toNamed(AppRoutes.getResDetailsScreen('110302$restaurant',restaurant['restaurantName'].toString()));
+                    Get.toNamed(AppRoutes.getResDetailsScreen(restaurant['restaurantName'].toString(), '110302$restaurant'));
                   },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
@@ -347,7 +347,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
                 final restaurant = restaurantList[index];
                 return TitleWithListViewWidget(
                   onTap: (){
-                    Get.toNamed(AppRoutes.getResDetailsScreen('110302$restaurant',restaurant['restaurantName'].toString()));
+                    Get.toNamed(AppRoutes.getResDetailsScreen(restaurant['restaurantName'].toString(), '110302$restaurant'));
                   },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
@@ -386,7 +386,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
                 return TitleWithListViewWidget(
                   onTap: (){
-                    Get.toNamed(AppRoutes.getResDetailsScreen('110302$restaurant',restaurant['restaurantName'].toString()));
+                    Get.toNamed(AppRoutes.getResDetailsScreen(restaurant['restaurantName'].toString(), '110302$restaurant'));
                   },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
@@ -425,7 +425,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
                 return TitleWithListViewWidget(
                   onTap: (){
-                    Get.toNamed(AppRoutes.getResDetailsScreen('110302$restaurant',restaurant['restaurantName'].toString()));
+                    Get.toNamed(AppRoutes.getResDetailsScreen(restaurant['restaurantName'].toString(), '110302$restaurant'));
                   },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
