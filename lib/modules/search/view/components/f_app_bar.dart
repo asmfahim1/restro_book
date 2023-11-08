@@ -10,6 +10,7 @@ import 'res_name_with_description.dart';
 import 'f_icon_button.dart';
 
 class FAppBar extends SliverAppBar{
+  final String resName;
   final BuildContext context;
   final bool isCollapsed;
   final double expandedHeight;
@@ -20,7 +21,9 @@ class FAppBar extends SliverAppBar{
   final void Function(bool isCollapsed) onCollapsed;
   final void Function(int index) onTap;
 
-  FAppBar({
+  const FAppBar({
+    super.key,
+    required this.resName,
     required this.context,
     required this.isCollapsed,
     required this.expandedHeight,
@@ -69,7 +72,7 @@ class FAppBar extends SliverAppBar{
     return AnimatedOpacity(
       opacity: isCollapsed ? 0 : 1,
       duration: const Duration(milliseconds: 300),
-      child: TextWidget('STK - San Fransisco', style: TextStyles.title16,),
+      child: TextWidget(resName, style: TextStyles.title16,),
     );
   }
 
@@ -98,7 +101,6 @@ class FAppBar extends SliverAppBar{
 
   @override
   Widget? get flexibleSpace {
-    Size size = MediaQuery.of(context).size;
     List<String> assets = [
       'assets/images/featured_2.JPG',
       'assets/images/featured_1.JPG',
@@ -165,8 +167,8 @@ class FAppBar extends SliverAppBar{
                   },
                 ),
               ),
-              const ResNameWithDesc(
-                title: 'STK - San Fransisco',
+              ResNameWithDesc(
+                title: resName,
               ),
             ],
           ),

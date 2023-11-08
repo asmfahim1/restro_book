@@ -6,12 +6,16 @@ import 'package:restro_book/modules/search/view/widgets/sliver_body_item.dart';
 
 class CategorySection extends StatelessWidget {
   final int index;
+  final String resName;
+  final String resId;
   final SearchFieldController controller;
 
   const CategorySection({
     Key? key,
     required this.index,
     required this.controller,
+    required this.resName,
+    required this.resId,
   }) : super(key: key);
 
   @override
@@ -24,7 +28,7 @@ class CategorySection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildSectionTileHeader(context,controller),
-          SliverBodyItems(categoryIndex: controller.listCategory[index].category, controller: controller,),
+          SliverBodyItems(categoryIndex: controller.listCategory[index].category, controller: controller, resName: resName, resId: resId,),
         ],
       ),
     );

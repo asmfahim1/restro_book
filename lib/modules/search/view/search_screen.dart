@@ -58,7 +58,7 @@ class _SearchScreenState extends State<SearchScreen> {
           final restaurants = restaurantList[index];
           return InkWell(
             onTap: (){
-              Get.toNamed(AppRoutes.resDetailsScreen);
+              Get.toNamed(AppRoutes.getResDetailsScreen(restaurants['restaurantName']!.toString(), restaurants['restaurantID']!.toString()));
             },
             child: Container(
               height: Dimensions.height100 + Dimensions.height80,

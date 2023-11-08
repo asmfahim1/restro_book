@@ -11,9 +11,11 @@ import '../../controller/search_controller.dart';
 
 class SliverBodyItems extends StatelessWidget {
   final String categoryIndex;
+  final String resName;
+  final String resId;
   final SearchFieldController controller;
   const SliverBodyItems(
-      {Key? key, required this.categoryIndex, required this.controller})
+      {Key? key, required this.categoryIndex, required this.controller, required this.resName, required this.resId})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -50,11 +52,11 @@ class SliverBodyItems extends StatelessWidget {
                       Icons.person_outline_rounded,
                       size: 14,
                     ),
-                    TextWidget(
-                      ' 2',
+                    Obx(() => TextWidget(
+                      ' ${controller.noOfMember}',
                       style: TextStyles.regular12
                           .copyWith(fontWeight: FontWeight.bold),
-                    ),
+                    ),),
                     const SizedBox(
                       width: 5,
                     ),
@@ -851,7 +853,7 @@ class SliverBodyItems extends StatelessWidget {
                               shape: BoxShape.circle),
                           alignment: Alignment.center,
                           child: TextWidget(
-                            '${controller.noOfMember + index}',
+                            '${index + 1}',
                             style: TextStyles.title16,
                           ),
                         ),
@@ -881,6 +883,9 @@ class SliverBodyItems extends StatelessWidget {
                       .format(date);
                   print(
                       'The picked date and Time is: $formattedDate');
+                  controller.dateTime = date;
+                  print(
+                      'The picked date and Time is: ${controller.dateTime}');
                 }),
           ),
           _doneButton(controller)
@@ -925,7 +930,7 @@ class SliverBodyItems extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
-                _seatingListsWidget(),
+                _seatingListsWidget(controller),
               ],
             ),
           ),
@@ -937,7 +942,7 @@ class SliverBodyItems extends StatelessWidget {
   }
 
   ///reservation category
-  Widget _seatingListsWidget(){
+  Widget _seatingListsWidget(SearchFieldController controller){
     return ListView.builder(
       itemCount: seatingOption.length,
       shrinkWrap: true, // Set shrinkWrap to true
@@ -946,7 +951,7 @@ class SliverBodyItems extends StatelessWidget {
         return InkWell(
           onTap: (){
             Get.back();
-            Get.toNamed(AppRoutes.bookingConfirmScreen);
+            Get.toNamed(AppRoutes.getBookingConfirmScreen(resId, resName, controller.noOfMember.toString(), controller.dateTime));
           },
           child: Container(
             height: Dimensions.height50,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
@@ -7,7 +8,6 @@ import 'package:restro_book/core/widgets/sized_box_height_10.dart';
 import 'package:restro_book/modules/home/view/widget/browse_by_cuisine_section.dart';
 import 'package:restro_book/modules/home/view/widget/explore_area_section.dart';
 import 'package:restro_book/modules/home/view/widget/title_with_listView_widget.dart';
-import 'package:restro_book/modules/search/view/res_details_screen.dart';
 
 class ReservationBarScreen extends StatefulWidget {
   const ReservationBarScreen({Key? key}) : super(key: key);
@@ -152,7 +152,7 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
                 return TitleWithListViewWidget(
                   onTap: (){
-                    Get.to(()=> const RestaurantDetailsScreen());
+                    Get.toNamed(AppRoutes.getResDetailsScreen(restaurant['restaurantName'].toString(), '110302$restaurant'));
                   },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
@@ -189,9 +189,10 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[index];
-                return TitleWithListViewWidget(onTap: (){
-                  Get.to(()=> const RestaurantDetailsScreen());
-                },
+                return TitleWithListViewWidget(
+                  onTap: (){
+                    Get.toNamed(AppRoutes.getResDetailsScreen(restaurant['restaurantName'].toString(), '110302$restaurant'));
+                  },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -227,9 +228,10 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
-                return TitleWithListViewWidget(onTap: (){
-                  Get.to(()=> const RestaurantDetailsScreen());
-                },
+                return TitleWithListViewWidget(
+                  onTap: (){
+                    Get.toNamed(AppRoutes.getResDetailsScreen(restaurant['restaurantName'].toString(), '110302$restaurant'));
+                  },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -265,9 +267,10 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[index];
-                return TitleWithListViewWidget(onTap: (){
-                  Get.to(()=> const RestaurantDetailsScreen());
-                },
+                return TitleWithListViewWidget(
+                  onTap: (){
+                    Get.toNamed(AppRoutes.getResDetailsScreen('110302$restaurant',restaurant['restaurantName'].toString()));
+                  },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -303,9 +306,10 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
-                return TitleWithListViewWidget(onTap: (){
-                  Get.to(()=> const RestaurantDetailsScreen());
-                },
+                return TitleWithListViewWidget(
+                  onTap: (){
+                    Get.toNamed(AppRoutes.getResDetailsScreen('110302$restaurant',restaurant['restaurantName'].toString()));
+                  },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -341,9 +345,10 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[index];
-                return TitleWithListViewWidget(onTap: (){
-                  Get.to(()=> const RestaurantDetailsScreen());
-                },
+                return TitleWithListViewWidget(
+                  onTap: (){
+                    Get.toNamed(AppRoutes.getResDetailsScreen('110302$restaurant',restaurant['restaurantName'].toString()));
+                  },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -379,9 +384,10 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
-                return TitleWithListViewWidget(onTap: (){
-                  Get.to(()=> const RestaurantDetailsScreen());
-                },
+                return TitleWithListViewWidget(
+                  onTap: (){
+                    Get.toNamed(AppRoutes.getResDetailsScreen('110302$restaurant',restaurant['restaurantName'].toString()));
+                  },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),
@@ -417,9 +423,10 @@ class _ReservationBarScreenState extends State<ReservationBarScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final restaurant = restaurantList[restaurantList.length - 1 - index];
-                return TitleWithListViewWidget(onTap: (){
-                  Get.to(()=> const RestaurantDetailsScreen());
-                },
+                return TitleWithListViewWidget(
+                  onTap: (){
+                    Get.toNamed(AppRoutes.getResDetailsScreen('110302$restaurant',restaurant['restaurantName'].toString()));
+                  },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
                   restaurantCategory: restaurant['restaurantCategory'].toString(),

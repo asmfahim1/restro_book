@@ -8,6 +8,7 @@ import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/colors.dart';
 
 import 'core/utils/app_version.dart';
+import 'core/utils/dimensions.dart';
 import 'core/utils/pref_helper.dart';
 
 void main() async {
@@ -22,9 +23,11 @@ void main() async {
   runApp(const MyApp());
 }
 
-/// Make sure you always init shared pref first. It has token and token is need
-/// to make API call
-initServices() async {
+
+Future<void> initServices() async {
+  await Get.putAsync(() async {
+    return Dimensions(); // Initialize Dimensions class
+  });
   await PrefHelper.init();
   await AppVersion.getVersion();
 }
@@ -56,7 +59,7 @@ class MyApp extends StatelessWidget {
             ),
       ),
       //home: const SplashScreen(),
-      initialRoute: AppRoutes.splashScreen,
+      initialRoute: AppRoutes.getSplashPage(),
       getPages: AppRoutes.routes,
     );
   }

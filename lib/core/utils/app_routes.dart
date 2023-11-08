@@ -16,16 +16,34 @@ class AppRoutes {
   static const getStartedScreen = '/get_started_screen';
   static const navBarScreen = '/nav_bar_screen';
 
-  //Auth
   static const loginPage = '/login_page';
   static const registrationPage = '/registration_page';
 
   static const homePage = '/home_page';
   static const resDetailsScreen = '/restaurant_details_page';
   static const searchScreen = '/search_page';
-  static const searchDetailsScreen = '/search_details_page';
+  //static const searchDetailsScreen = '/search_details_page';
   static const bookingConfirmScreen = '/booking_confirm_page';
   static const savedScreen = '/saved_page';
+
+  //best way to justify the parameter is actual indicate the specific route
+  static String getSplashPage() => splashScreen;
+  static String startedScreen() => getStartedScreen;
+  static String getNavBarScreen() => navBarScreen;
+  static String getLoginScreen() => loginPage;
+  static String getRegistrationScreen() => loginPage;
+  static String getHomeScreen() => homePage;
+  static String getResDetailsScreen(String resName, String resId) => '$resDetailsScreen?resName=$resName&resId=$resId';
+  static String getSearchScreen() => searchScreen;
+  // static String getSearchDetailsScreen() => searchDetailsScreen;
+  static String getBookingConfirmScreen(
+    String resId,
+    String resName,
+    String partySize,
+    DateTime reservationTime,
+  ) =>
+      '$bookingConfirmScreen?resId=$resId&resName=$resName&partySize=$partySize&reservationTime=$reservationTime';
+  static String getSavedScreen() => savedScreen;
 
   static List<GetPage> routes = [
     GetPage(
@@ -56,18 +74,33 @@ class AppRoutes {
         name: searchScreen,
         transition: Transition.noTransition,
         page: () => const SearchScreen()),
-    GetPage(
+/*    GetPage(
         name: searchDetailsScreen,
         transition: Transition.noTransition,
-        page: () => const SearchScreenDetails()),
+        page: () => const SearchScreenDetails()),*/
     GetPage(
         name: resDetailsScreen,
         transition: Transition.noTransition,
-        page: () => const RestaurantDetailsScreen()),
+        page: () {
+          var resName = Get.parameters['resName']!;
+          var resId = Get.parameters['resId']!;
+          return RestaurantDetailsScreen(resName: resName, resId: resId,);
+        }),
     GetPage(
         name: bookingConfirmScreen,
         transition: Transition.noTransition,
-        page: () => const BookingConfirmScreen()),
+        page: () {
+          var resName = Get.parameters['resName']!;
+          var resId = Get.parameters['resId']!;
+          var partySize = Get.parameters['partySize']!;
+          var reservationTime = Get.parameters['reservationTime']!;
+          return BookingConfirmScreen(
+            resName: resName,
+            resId: resId,
+            partySize: partySize,
+            reservationTime: DateTime.parse(reservationTime),
+          );
+        }),
     GetPage(
         name: savedScreen,
         transition: Transition.noTransition,

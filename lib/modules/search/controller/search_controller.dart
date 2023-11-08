@@ -12,6 +12,7 @@ class SearchFieldController extends GetxController {
   final RxInt _selectedMemberIndex = 0.obs;
   final RxBool _switchActive1 = false.obs;
   final RxBool _switchActive2 = false.obs;
+  final Rx<DateTime> _dateTime = DateTime.now().obs;
   ///booking_confirm_screen
   TextEditingController specialRequestController = TextEditingController();
   ScrollController scrollController = ScrollController();
@@ -22,6 +23,10 @@ class SearchFieldController extends GetxController {
 
   set switchActive2(bool value) {
     _switchActive2.value = value;
+  }
+
+  set dateTime(DateTime value) {
+    _dateTime.value = value;
   }
 
   void updateShadow(double offset) {
@@ -141,6 +146,8 @@ class SearchFieldController extends GetxController {
 
   void setSelectedMember(int index) {
     _selectedMemberIndex.value = index;
+    noOfMember = index + 1;
+    print('member is : $noOfMember');
     scrollController.animateTo((index) * 65, duration: const Duration(milliseconds: 800), curve: Curves.fastOutSlowIn);
     update();
   }
@@ -172,4 +179,5 @@ class SearchFieldController extends GetxController {
   int get selectedMemberIndex => _selectedMemberIndex.value;
   bool get switchActive1 => _switchActive1.value;
   bool get switchActive2 => _switchActive2.value;
+  DateTime get dateTime => _dateTime.value;
 }

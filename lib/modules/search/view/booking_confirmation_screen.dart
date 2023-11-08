@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:restro_book/core/utils/colors.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/styles.dart';
@@ -11,11 +12,18 @@ import 'package:restro_book/modules/search/view/components/occasion_widget.dart'
 import 'package:restro_book/modules/search/view/components/phone_number_with_country_code_widget.dart';
 
 class BookingConfirmScreen extends StatelessWidget {
-  const BookingConfirmScreen({Key? key}) : super(key: key);
+  final String resId;
+  final String resName;
+  final String partySize;
+  final DateTime reservationTime;
+  const BookingConfirmScreen({Key? key, required this.resName, required this.resId, required this.partySize, required this.reservationTime}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final searchController = Get.find<SearchFieldController>();
+    print('reservation date : $reservationTime');
+    String dateString = DateFormat('E, MMM d').format(reservationTime);
+    String timeString = DateFormat('h : mm a').format(reservationTime);
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: const CommonAppbar(),
@@ -31,11 +39,11 @@ class BookingConfirmScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextWidget(
-                    'La Pizza & La Pasta -Eataly NYC Downtown',
+                    resName,
                     style: TextStyles.title22,
                   ),
                   const SizedBoxHeight10(),
-                  _partyDescriptionWidget(),
+                  _partyDescriptionWidget(dateString, timeString),
                   const SizedBoxHeight20(),
                   _specialRequestWidget(searchController),
                   const SizedBoxHeight20(),
@@ -63,15 +71,15 @@ class BookingConfirmScreen extends StatelessWidget {
     );
   }
 
-  Widget _partyDescriptionWidget(){
+  Widget _partyDescriptionWidget(String dateString, String timeString){
     return Column(
       children: [
         _reservationDetailsWidget(
-            Icons.person_outline_outlined, '3 people'),
+            Icons.person_outline_outlined, partySize),
         _reservationDetailsWidget(
-            Icons.calendar_today_outlined, 'Saturday, Nov 4'),
+            Icons.calendar_today_outlined, dateString),
         _reservationDetailsWidget(
-            Icons.watch_later_outlined, '7:30 PM'),
+            Icons.watch_later_outlined, timeString),
       ],
     );
   }
