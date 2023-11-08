@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/widgets/text_widget.dart';
 import '../utils/colors.dart';
 import '../utils/styles.dart';
@@ -23,7 +24,7 @@ class CommonAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return PreferredSize(
-      preferredSize: const Size.fromHeight(56),
+      preferredSize: Size.fromHeight(Dimensions.screenHeight * .07),
       child: AppBar(
         backgroundColor: whiteColor,
         centerTitle: centerTitle,

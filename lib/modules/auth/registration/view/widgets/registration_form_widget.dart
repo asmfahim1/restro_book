@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restro_book/core/utils/app_routes.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
+import 'package:restro_book/core/widgets/sized_box_height_10.dart';
 import 'package:restro_book/modules/auth/registration/controller/registration_controller.dart';
 
 import '../../../../../core/widgets/common_button.dart';
@@ -26,9 +28,9 @@ class _RegistrationFormSectionWidgetState
     return Form(
       key: _formKey,
       child: Container(
-        height: MediaQuery.of(context).size.height / 1.6,
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        height: Dimensions.heightScreenHalf ,
+        width: Dimensions.screenWidth,
+        padding: leftRightPadding10,
         decoration: BoxDecoration(
           color: whiteColor.withOpacity(0.7),
           borderRadius: BorderRadius.circular(20),
@@ -37,15 +39,12 @@ class _RegistrationFormSectionWidgetState
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBoxHeight20(),
             _textFields(),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: Dimensions.height15,
             ),
             const SizedBoxHeight20(),
             _registrationButton(),
-            const SizedBoxHeight20(),
-            const SizedBoxHeight20(),
           ],
         ),
       ),
@@ -64,7 +63,7 @@ class _RegistrationFormSectionWidgetState
             FocusScope.of(context).requestFocus(_passwordFocus);
           },
         ),
-        const SizedBoxHeight20(),
+        const SizedBoxHeight10(),
         CommonTextField(
           hintText: 'Email address',
           validator: Validator().nullFieldValidate,
@@ -73,7 +72,7 @@ class _RegistrationFormSectionWidgetState
             FocusScope.of(context).requestFocus(_passwordFocus);
           },
         ),
-        const SizedBoxHeight20(),
+        const SizedBoxHeight10(),
         CommonTextField(
           hintText: 'Phone number',
           validator: Validator().nullFieldValidate,
@@ -82,7 +81,7 @@ class _RegistrationFormSectionWidgetState
             FocusScope.of(context).requestFocus(_passwordFocus);
           },
         ),
-        const SizedBoxHeight20(),
+        const SizedBoxHeight10(),
         Obx(() {
           return CommonTextField(
             validator: Validator().nullFieldValidate,
@@ -110,10 +109,9 @@ class _RegistrationFormSectionWidgetState
   }
 
   Widget _registrationButton() {
-    Size size = MediaQuery.of(context).size;
     return CommonButton(
-      height: size.height / 18,
-      width: size.width / 1.6,
+      height: Dimensions.height50,
+      width: Dimensions.width225,
       buttonTitle: 'Registration',
       onPressed: () {
         //login method will call

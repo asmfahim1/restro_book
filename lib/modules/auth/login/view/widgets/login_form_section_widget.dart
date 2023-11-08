@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restro_book/core/utils/app_routes.dart';
+import 'package:restro_book/core/utils/const.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/modules/auth/login/controller/login_controller.dart';
 
 import '../../../../../core/utils/asset_path.dart';
@@ -10,6 +12,7 @@ import '../../../../../core/utils/validator.dart';
 import '../../../../../core/widgets/common_button.dart';
 import '../../../../../core/widgets/common_icon_widget.dart';
 import '../../../../../core/widgets/common_text_field_widget.dart';
+import '../../../../../core/widgets/sized_box_height_10.dart';
 import '../../../../../core/widgets/sized_box_height_20.dart';
 import '../../../../../core/widgets/text_widget.dart';
 
@@ -30,9 +33,9 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
     return Form(
       key: _formKey,
       child: Container(
-        height: size.height / 1.9,
+        height: Dimensions.screenHeight * .45,
         width: size.width,
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: leftRightPadding10,
         decoration: BoxDecoration(
           color: whiteColor.withOpacity(0.7),
           borderRadius: BorderRadius.circular(20),
@@ -43,17 +46,16 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
           children: [
             const SizedBoxHeight20(),
             _textFields(),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: Dimensions.height15,
             ),
             const SizedBoxHeight20(),
             _loginButton(),
             const SizedBoxHeight20(),
             _socialLogin(),
-            const SizedBoxHeight20(),
+            const SizedBoxHeight10(),
             GestureDetector(
               onTap: () {
-                //go to registration page
                 Get.toNamed(AppRoutes.registrationPage);
               },
               child: Row(
@@ -115,7 +117,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
   Widget _loginButton() {
     Size size = MediaQuery.of(context).size;
     return CommonButton(
-      height: size.height / 18,
+      height: Dimensions.height50,
       width: size.width / 1.6,
       buttonTitle: 'Login',
       onPressed: () {
@@ -134,12 +136,12 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
           iconPath: facebookIconPath,
           callBack: () {},
         ),
-        const SizedBox(
-          width: 20,
+        SizedBox(
+          width: Dimensions.width10,
         ),
         _socialItem(
           title: 'Google',
-          iconPath: facebookIconPath,
+          iconPath: googleIconPath,
           callBack: () {},
         ),
       ],
@@ -154,24 +156,24 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
     return InkWell(
       onTap: callBack,
       child: Container(
-        height: 60,
-        width: MediaQuery.sizeOf(context).width / 2.2 - 30,
+        height: Dimensions.height60,
+        width: Dimensions.width135,
         decoration: BoxDecoration(
           color: silverGrayColor,
           borderRadius: BorderRadius.circular(4),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: allPadding10,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CommonIconWidget(
-                iconPath,
-                width: 35,
-                height: 35,
+              CircleAvatar(
+                backgroundColor: whiteColor,
+                backgroundImage: AssetImage(iconPath),
+                radius: 15,
               ),
-              const SizedBox(
-                width: 10,
+              SizedBox(
+                width: Dimensions.width10,
               ),
               TextWidget(
                 title,

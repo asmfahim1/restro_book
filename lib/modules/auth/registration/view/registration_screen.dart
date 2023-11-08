@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/const.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/modules/auth/registration/view/widgets/registration_form_widget.dart';
-
 import '../../../../core/utils/asset_path.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/styles.dart';
@@ -15,7 +16,7 @@ class RegistrationScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery.of(context).size.height,
+          height: Dimensions.screenHeight,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(loginBackgroundImage),
@@ -23,19 +24,16 @@ class RegistrationScreen extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: allPadding20,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 100,
-                ),
                 TextWidget(
-                  'Register',
+                  'Registration for more features',
                   style: TextStyles.title22.copyWith(color: whiteColor),
                 ),
-                SizedBoxHeight20(),
-                RegistrationFormSectionWidget()
+                const SizedBoxHeight20(),
+                const RegistrationFormSectionWidget()
               ],
             ),
           ),

@@ -102,7 +102,7 @@ class SearchFieldController extends GetxController {
 
   void _listenVisibleHeader() {
     if (visibleHeader.value) {
-      headerNotifier.value = MyHeader(visible: false, index: 0);
+      headerNotifier.value = const MyHeader(visible: false, index: 0);
     }
   }
 
@@ -141,7 +141,7 @@ class SearchFieldController extends GetxController {
 
   void setSelectedMember(int index) {
     _selectedMemberIndex.value = index;
-    scrollController.animateTo((index) * 65, duration: Duration(milliseconds: 800), curve: Curves.bounceOut);
+    scrollController.animateTo((index) * 65, duration: const Duration(milliseconds: 800), curve: Curves.fastOutSlowIn);
     update();
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restro_book/core/utils/app_routes.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 
@@ -12,17 +13,16 @@ class GetStartedScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          _topSectionWidget(context),
-          _bottomSectionWidget(context),
+          _topSectionWidget(),
+          _bottomSectionWidget(),
         ],
       ),
     );
   }
 
-  Widget _topSectionWidget(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+  Widget _topSectionWidget() {
     return Container(
-      height: size.height / 2,
+      height: Dimensions.heightScreenHalf,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(restroBookImagePath),
@@ -32,8 +32,7 @@ class GetStartedScreen extends StatelessWidget {
     );
   }
 
-  Widget _bottomSectionWidget(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+  Widget _bottomSectionWidget() {
     return Expanded(
       child: InkWell(
         onTap: () {
@@ -44,7 +43,7 @@ class GetStartedScreen extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: size.height / 2.4,
+                height: Dimensions.heightScreenHalf * .85,
                 padding: allPadding20,
                 child: Column(
                   children: [
@@ -62,12 +61,12 @@ class GetStartedScreen extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  width: size.width,
+                  width: Dimensions.screenWidth,
                   decoration: const BoxDecoration(
                     border: Border(
                       top: BorderSide(
                         color: blackColor,
-                        width: 1.1,
+                        width: 1.2,
                       ),
                     ),
                   ),

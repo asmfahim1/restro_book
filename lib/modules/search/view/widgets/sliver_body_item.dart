@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:restro_book/core/utils/app_routes.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/core/widgets/sized_box_height_10.dart';
@@ -16,11 +17,10 @@ class SliverBodyItems extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     if (categoryIndex == 'Reservation') {
       return Container(
-        height: size.height / 3.4,
-        width: size.width,
+        height: Dimensions.height100 * 2 + Dimensions.height35 ,
+        width: Dimensions.screenWidth,
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: Column(
           children: [
@@ -32,12 +32,12 @@ class SliverBodyItems extends StatelessWidget {
                     enableDrag: false,
                     backgroundColor: Colors.transparent,
                     builder: (context){
-                  return _showDateTimeBottomSheet(size, controller);
+                  return _showDateTimeBottomSheet(controller);
                 });
               },
               child: Container(
-                height: size.height / 25,
-                width: size.width / 2.3,
+                height: Dimensions.height30,
+                width: Dimensions.width135 + Dimensions.width10,
                 margin: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   border: Border.all(color: strokeColor),
@@ -77,12 +77,12 @@ class SliverBodyItems extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 15),
+              padding: const EdgeInsets.only(left: 15, top: 5),
               child: Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.calendar_today_outlined,
-                    size: 12,
+                    size: Dimensions.iconSize12,
                     color: blueColor,
                   ),
                   TextWidget(
@@ -94,7 +94,7 @@ class SliverBodyItems extends StatelessWidget {
             ),
             const SizedBoxHeight10(),
             SizedBox(
-              height: size.height / 24, // Set a fixed height
+              height: Dimensions.height35, // Set a fixed height
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -112,13 +112,13 @@ class SliverBodyItems extends StatelessWidget {
                                 enableDrag: false,
                                 backgroundColor: Colors.transparent,
                                 builder: (context){
-                              return _showSeatingOptionBottomSheet(size, controller);
+                              return _showSeatingOptionBottomSheet(controller);
                             });
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(left: 15),
                             child: Container(
-                              width: size.width / 4.2,
+                              width: Dimensions.width50 + Dimensions.width35,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 color: primaryColor,
@@ -127,9 +127,9 @@ class SliverBodyItems extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Icon(
+                                  Icon(
                                     Icons.table_restaurant_rounded,
-                                    size: 12,
+                                    size: Dimensions.iconSize12,
                                     color: whiteColor,
                                   ),
                                   TextWidget(
@@ -149,8 +149,8 @@ class SliverBodyItems extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 15, right: 10),
                       child: Container(
-                        height: size.height / 24,
-                        width: size.width / 4.2,
+                        height: Dimensions.height35,
+                        width: Dimensions.width50 + Dimensions.width35,
                         decoration: BoxDecoration(
                           color: cyanColor,
                           borderRadius: BorderRadius.circular(5),
@@ -158,9 +158,9 @@ class SliverBodyItems extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.add_alert_outlined,
-                              size: 14,
+                              size: Dimensions.iconSize15,
                               color: whiteColor,
                             ),
                             TextWidget(
@@ -183,9 +183,9 @@ class SliverBodyItems extends StatelessWidget {
               padding: const EdgeInsets.only(left: 15),
               child: Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.table_restaurant_rounded,
-                    size: 12,
+                    size: Dimensions.iconSize12,
                   ),
                   TextWidget(
                     ' Additional seating options',
@@ -195,14 +195,14 @@ class SliverBodyItems extends StatelessWidget {
               ),
             ),
             const SizedBoxHeight10(),
-            _viewFullAvailabilityBtn(context),
+            _viewFullAvailabilityBtn(),
           ],
         ),
       );
     } else if (categoryIndex == 'Delivery & Takeout') {
       return Container(
-        height: size.height / 4.3,
-        width: size.width,
+        height: Dimensions.height100 + Dimensions.height80,
+        width: Dimensions.screenWidth,
         padding: const EdgeInsets.only(left: 15),
         margin: const EdgeInsets.only(bottom: 10),
         child: Column(
@@ -216,8 +216,8 @@ class SliverBodyItems extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  height: size.height / 20,
-                  width: size.width / 3,
+                  height: Dimensions.height40,
+                  width: Dimensions.width35 * 2 + Dimensions.width50,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
                     border: Border.all(
@@ -231,12 +231,12 @@ class SliverBodyItems extends StatelessWidget {
                         .copyWith(color: primaryColor, fontSize: 14),
                   ),
                 ),
-                const SizedBox(
-                  width: 10,
+                SizedBox(
+                  width: Dimensions.width10,
                 ),
                 Container(
-                  height: size.height / 20,
-                  width: size.width / 3,
+                  height: Dimensions.height40,
+                  width: Dimensions.width35 * 2 + Dimensions.width50,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
                     border: Border.all(
@@ -259,8 +259,8 @@ class SliverBodyItems extends StatelessWidget {
             ),
             const SizedBoxHeight10(),
             Container(
-              height: size.height / 20,
-              width: size.width / 3,
+              height: Dimensions.height40,
+              width: Dimensions.width35 * 2 + Dimensions.width50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
@@ -287,8 +287,8 @@ class SliverBodyItems extends StatelessWidget {
       );
     } else if (categoryIndex == 'Menu') {
       return Container(
-        height: size.height / 1.8,
-        width: size.width,
+        height: Dimensions.heightScreenHalf + Dimensions.height45,
+        width: Dimensions.screenWidth,
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -315,7 +315,7 @@ class SliverBodyItems extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (_, index) {
                       return Container(
-                        width: size.width,
+                        width: Dimensions.screenWidth,
                         padding: const EdgeInsets.only(right: 10),
                         margin: const EdgeInsets.only(left: 15),
                         decoration: const BoxDecoration(
@@ -358,8 +358,8 @@ class SliverBodyItems extends StatelessWidget {
                               ],
                             ),
                             Container(
-                              height: size.height / 12,
-                              width: size.width / 4,
+                              height: Dimensions.height60 ,
+                              width: Dimensions.width50 + Dimensions.width35,
                               decoration: BoxDecoration(
                                   color: strokeColor,
                                   borderRadius: BorderRadius.circular(10),
@@ -385,22 +385,22 @@ class SliverBodyItems extends StatelessWidget {
       );
     } else if (categoryIndex == 'Reviews') {
       return Container(
-        height: size.height * 1.32,
-        width: size.width,
+        height: Dimensions.screenHeight * 1.32,
+        width: Dimensions.screenWidth,
         padding: const EdgeInsets.only(left: 15, right: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: size.height / 5,
-              width: size.width,
+              height: Dimensions.height100 + Dimensions.height40,
+              width: Dimensions.screenWidth,
               decoration: const BoxDecoration(
                   border: Border(bottom: BorderSide(color: strokeColor))),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    width: size.width / 2.2,
+                    width: Dimensions.width180 - Dimensions.width20,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -410,8 +410,8 @@ class SliverBodyItems extends StatelessWidget {
                           style: TextStyles.title22,
                         ),
                         SizedBox(
-                            height: size.height / 20,
-                            width: size.width,
+                            height: Dimensions.height40,
+                            width: Dimensions.screenWidth,
                             child: ListView.builder(
                               itemCount: 5,
                               scrollDirection: Axis.horizontal,
@@ -427,62 +427,56 @@ class SliverBodyItems extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      height: 100,
-                      // width: size.width * 0.4,
-                      // alignment: Alignment.st,
-
-                      color: Colors.red,
-                      child: ListView.builder(
-                          itemCount: 5,
-                          // shrinkWrap: true,
-                          // physics: const NeverScrollableScrollPhysics(),
-                          padding: EdgeInsets.zero,
-                          itemBuilder: (_, index) {
-                            int reversedIndex = 5 - index;
-                            return Row(
-                              children: [
-                                TextWidget(
-                                  reversedIndex.toString(),
-                                  style: TextStyles.regular14,
+                    child: ListView.builder(
+                        itemCount: 5,
+                        // shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        //padding: EdgeInsets.zero,
+                        itemBuilder: (_, index) {
+                          int reversedIndex = 5 - index;
+                          return Row(
+                            children: [
+                              TextWidget(
+                                reversedIndex.toString(),
+                                style: TextStyles.regular14,
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              Container(
+                                height: Dimensions.height5,
+                                width: Dimensions.width135,
+                                decoration: BoxDecoration(
+                                  color: whiteColor,
+                                  border: Border.all(color: strokeColor),
+                                  borderRadius: BorderRadius.circular(30),
                                 ),
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                Container(
-                                  height: size.height / 120,
-                                  width: size.width / 2.7,
-                                  decoration: BoxDecoration(
-                                    color: whiteColor,
-                                    border: Border.all(color: strokeColor),
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                  clipBehavior: Clip.hardEdge,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        width: ((size.width / 2.7) /
-                                                5 *
-                                                reversedIndex.toDouble() -
-                                            2),
+                                clipBehavior: Clip.hardEdge,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: ((Dimensions.width135) / 5 * reversedIndex.toDouble() -
+                                          2),
+                                      decoration: BoxDecoration(
                                         color: primaryColor,
+                                        borderRadius: BorderRadius.circular(30),
                                       ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            );
-                          }),
-                    ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          );
+                        }),
                   ),
                 ],
               ),
             ),
             const SizedBoxHeight10(),
             SizedBox(
-              height: size.height / 13,
-              width: size.width,
+              height: Dimensions.height40,
+              width: Dimensions.screenWidth,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -550,15 +544,15 @@ class SliverBodyItems extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(
-                      width: size.width,
+                      width: Dimensions.screenWidth,
                       child: ListView.builder(
                           itemCount: 3,
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (_, index) {
                             return Container(
-                              height: size.height / 3.4,
-                              width: size.width,
+                              height: Dimensions.height275 - Dimensions.height40,
+                              width: Dimensions.screenWidth,
                               padding: const EdgeInsets.symmetric(vertical: 5),
                               margin: const EdgeInsets.only(bottom: 10),
                               decoration: const BoxDecoration(
@@ -631,8 +625,8 @@ class SliverBodyItems extends StatelessWidget {
                                     height: 5,
                                   ),
                                   SizedBox(
-                                      height: size.height / 30,
-                                      width: size.width,
+                                      height: Dimensions.height20 + Dimensions.height5,
+                                      width: Dimensions.screenWidth,
                                       child: ListView.builder(
                                         itemCount: 5,
                                         scrollDirection: Axis.horizontal,
@@ -666,7 +660,7 @@ class SliverBodyItems extends StatelessWidget {
       );
     } else if (categoryIndex == 'Details') {
       return Container(
-        width: size.width,
+        width: Dimensions.screenWidth,
         margin: const EdgeInsets.symmetric(vertical: 5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -689,7 +683,7 @@ class SliverBodyItems extends StatelessWidget {
                         size: 30,
                       ),
                       SizedBox(
-                          width: size.width / 1.6,
+                          width: Dimensions.width225,
                           child: TextWidget(
                             '1 Market St, San Fransisco, CA 94105-1420',
                             style: TextStyles.title16,
@@ -701,8 +695,8 @@ class SliverBodyItems extends StatelessWidget {
             ),
             const SizedBoxHeight10(),
             SizedBox(
-              height: size.height / 5.5,
-              width: size.width,
+              height: Dimensions.height100 + Dimensions.height45,
+              width: Dimensions.screenWidth,
               child: Image.asset(
                 restaurantLocationImagePath,
                 fit: BoxFit.cover,
@@ -798,114 +792,109 @@ class SliverBodyItems extends StatelessWidget {
   }
 
   ///reservation category
-  Widget _showDateTimeBottomSheet(Size size, SearchFieldController controller){
+  Widget _showDateTimeBottomSheet(SearchFieldController controller){
     DateTime initialDateTime = DateTime.now();
     int initialMinute = initialDateTime.minute;
     if (initialDateTime.minute % 15 != 0) {
       initialMinute = initialDateTime.minute - initialDateTime.minute % 15 + 15;
     }
-    return DraggableScrollableSheet(
-        initialChildSize: 0.55,
-        minChildSize: 0.5,
-        maxChildSize: 0.7,
-        builder: (_,dragController){
-          return Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.0),
-                topRight: Radius.circular(20.0),
-              ),
+    return Container(
+      height: Dimensions.heightScreenHalf + Dimensions.height40,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20.0),
+          topRight: Radius.circular(20.0),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 15.0, top: 10),
+            child: TextWidget(
+              'Party Size',
+              style: TextStyles.title16,
             ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0, top: 10),
-                  child: TextWidget(
-                    'Party Size',
-                    style: TextStyles.title16,
-                  ),
-                ),
-                const SizedBoxHeight10(),
-                SizedBox(
-                  height: 50,
-                  child: ListView.builder(
-                      itemCount: 20,
-                      scrollDirection: Axis.horizontal,
-                      physics: const BouncingScrollPhysics(),
-                      controller: controller.scrollController,
-                      itemBuilder: (_, index) {
-                        return Padding(
-                          padding:
-                          const EdgeInsets.only(left: 15.0),
-                          child: Obx((){
-                            final isSelected =
-                                controller.selectedMemberIndex ==
-                                    index;
-                            final containerColor = isSelected
-                                ? primaryColor
-                                : strokeColor;
-                            return GestureDetector(
-                              onTap: () {
-                                controller.setSelectedMember(index);
-                                print('The selected Member is : ${controller.noOfMember + index}');
-                                print('Scroll position : ${controller.scrollController.position}');
-                              },
-                              child: Container(
-                                height: 50,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: containerColor,
-                                      width: isSelected ? 2 : 1,
-                                    ),
-                                    shape: BoxShape.circle),
-                                alignment: Alignment.center,
-                                child: TextWidget(
-                                  '${controller.noOfMember + index}',
-                                  style: TextStyles.title16,
-                                ),
+          ),
+          const SizedBoxHeight10(),
+          SizedBox(
+            height: Dimensions.height50,
+            child: ListView.builder(
+                itemCount: 20,
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                controller: controller.scrollController,
+                itemBuilder: (_, index) {
+                  return Padding(
+                    padding:
+                    const EdgeInsets.only(left: 15.0),
+                    child: Obx((){
+                      final isSelected =
+                          controller.selectedMemberIndex ==
+                              index;
+                      final containerColor = isSelected
+                          ? primaryColor
+                          : strokeColor;
+                      return GestureDetector(
+                        onTap: () {
+                          controller.setSelectedMember(index);
+                        },
+                        child: Container(
+                          height: Dimensions.height50,
+                          width: Dimensions.width50,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: containerColor,
+                                width: isSelected ? 2 : 1,
                               ),
-                            );
-                          }),
-                        );
-                      }),
-                ),
-                const SizedBoxHeight10(),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: TextWidget(
-                    'Date and Time',
-                    style: TextStyles.title16,
-                  ),
-                ),
-                const SizedBoxHeight10(),
-                SizedBox(
-                  height: size.height / 3.4,
-                  child: CupertinoDatePicker(
-                      initialDateTime: DateTime(initialDateTime.year, initialDateTime.month, initialDateTime.day, initialDateTime.hour, initialMinute),
-                      minuteInterval: 15,
-                      mode: CupertinoDatePickerMode.dateAndTime,
-                      onDateTimeChanged: (date) {
-                        final formattedDate =
-                        DateFormat('E, MMM d h:mm a')
-                            .format(date);
-                        print(
-                            'The picked date and Time is: $formattedDate');
-                      }),
-                ),
-                Expanded(child: _doneButton(size, controller))
-              ],
+                              shape: BoxShape.circle),
+                          alignment: Alignment.center,
+                          child: TextWidget(
+                            '${controller.noOfMember + index}',
+                            style: TextStyles.title16,
+                          ),
+                        ),
+                      );
+                    }),
+                  );
+                }),
+          ),
+          const SizedBoxHeight10(),
+          Padding(
+            padding: const EdgeInsets.only(left: 15.0),
+            child: TextWidget(
+              'Date and Time',
+              style: TextStyles.title16,
             ),
-          );
-        });
+          ),
+          const SizedBoxHeight10(),
+          SizedBox(
+            height: Dimensions.height275 - Dimensions.height40,
+            child: CupertinoDatePicker(
+                initialDateTime: DateTime(initialDateTime.year, initialDateTime.month, initialDateTime.day, initialDateTime.hour, initialMinute),
+                minuteInterval: 15,
+                mode: CupertinoDatePickerMode.dateAndTime,
+                onDateTimeChanged: (date) {
+                  final formattedDate =
+                  DateFormat('E, MMM d h:mm a')
+                      .format(date);
+                  print(
+                      'The picked date and Time is: $formattedDate');
+                }),
+          ),
+          _doneButton(controller)
+        ],
+      ),
+    );
   }
   ///reservation category
-  Widget _doneButton(Size size, SearchFieldController controller){
+  Widget _doneButton(SearchFieldController controller){
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10.0),
       child: CommonButton(
-        width: size.width,
+        height: Dimensions.height50,
+        width: Dimensions.screenWidth,
         buttonTitle: 'Done',
         onPressed: (){
           Get.back();
@@ -915,48 +904,40 @@ class SliverBodyItems extends StatelessWidget {
     );
   }
   ///reservation category
-  Widget _showSeatingOptionBottomSheet(Size size, SearchFieldController controller){
-    return DraggableScrollableSheet(
-        initialChildSize: 0.7,
-        minChildSize: 0.5,
-        maxChildSize: 0.7,
-        builder: (_,dragController){
-          return Container(
-            height: size.height / 2.5,
-            padding: const EdgeInsets.all(15),
-            decoration: const BoxDecoration(
-                color: whiteColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
-                )),
-            child: ListView(
-              controller: dragController,
+  Widget _showSeatingOptionBottomSheet(SearchFieldController controller){
+    return Container(
+      height: Dimensions.heightScreenHalf * 1.2,
+      padding: const EdgeInsets.all(15),
+      decoration: const BoxDecoration(
+          color: whiteColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          )),
+      child: Column(
+        children: [
+          TextWidget(
+            'Select your seating option',
+            style: TextStyles.title16,
+          ),
+          const SizedBoxHeight20(),
+          SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
               children: [
-                TextWidget(
-                  'Select your seating option',
-                  style: TextStyles.title16,
-                ),
-                const SizedBoxHeight20(),
-                SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: Column(
-                    children: [
-                      _seatingListsWidget(size),
-                    ],
-                  ),
-                ),
-                const SizedBoxHeight20(),
-                _cancelSeatingButton(size, controller)
+                _seatingListsWidget(),
               ],
             ),
-          );
-        }
+          ),
+          const SizedBoxHeight20(),
+          _cancelSeatingButton(controller),
+        ],
+      ),
     );
   }
 
   ///reservation category
-  Widget _seatingListsWidget(Size size){
+  Widget _seatingListsWidget(){
     return ListView.builder(
       itemCount: seatingOption.length,
       shrinkWrap: true, // Set shrinkWrap to true
@@ -968,7 +949,7 @@ class SliverBodyItems extends StatelessWidget {
             Get.toNamed(AppRoutes.bookingConfirmScreen);
           },
           child: Container(
-            height: size.height / 14,
+            height: Dimensions.height50,
             decoration: const BoxDecoration(
               border: Border(
                 bottom: BorderSide(color: strokeColor),
@@ -983,8 +964,8 @@ class SliverBodyItems extends StatelessWidget {
                 ),
                 seatingOption[index]["subTitle"]! != " "
                       ? Container(
-                          height: size.height / 32,
-                          width: size.width / 5.5,
+                          height: Dimensions.height20 + Dimensions.height5,
+                          width: Dimensions.width50 + Dimensions.width15,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             color: strokeColor.withOpacity(0.3),
@@ -1008,69 +989,65 @@ class SliverBodyItems extends StatelessWidget {
     );
   }
   ///reservation category
-  Widget _cancelSeatingButton(Size size, SearchFieldController controller){
+  Widget _cancelSeatingButton(SearchFieldController controller){
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: CommonButton(
-        width: size.width,
+        width: Dimensions.screenWidth,
         buttonTitle: 'Cancel',
         buttonTextColor: blackColor,
         buttonColor: whiteColor,
         onPressed: (){
           Get.back();
         },
-
       ),
     );
   }
   ///reservation category
-  Widget _viewFullAvailabilityBtn(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height / 16,
-      width: size.width / 1.2,
-      alignment: Alignment.center,
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          border: Border.all(color: strokeColor, width: 1.2)),
-      child: TextWidget(
-        'View full availability',
-        style: TextStyles.title16,
+  Widget _viewFullAvailabilityBtn() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: CommonButton(
+        height: Dimensions.height50,
+        width: Dimensions.screenWidth,
+        buttonTitle: 'View full availability',
+        buttonTextColor: blackColor,
+        buttonColor: whiteColor,
+        onPressed: (){
+          //route to another page
+        },
       ),
     );
   }
   ///menu category
   Widget _seeFullMenuBtn(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height / 16,
-      width: size.width / 1.2,
-      alignment: Alignment.center,
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          border: Border.all(color: strokeColor, width: 1.2)),
-      child: TextWidget(
-        'See full menu',
-        style: TextStyles.title16,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: CommonButton(
+        height: Dimensions.height50,
+        width: Dimensions.screenWidth,
+        buttonTitle: 'See full menu',
+        buttonTextColor: blackColor,
+        buttonColor: whiteColor,
+        onPressed: (){
+          //route to another page
+        },
       ),
     );
   }
   ///review category
   Widget _seeAllReviewsBtn(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height / 16,
-      width: size.width / 1.2,
-      alignment: Alignment.center,
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          border: Border.all(color: strokeColor, width: 1.2)),
-      child: TextWidget(
-        'See all reviews',
-        style: TextStyles.title16,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: CommonButton(
+        height: Dimensions.height50,
+        width: Dimensions.screenWidth,
+        buttonTitle: 'See all reviews',
+        buttonTextColor: blackColor,
+        buttonColor: whiteColor,
+        onPressed: (){
+          //route to another page
+        },
       ),
     );
   }

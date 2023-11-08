@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:restro_book/core/utils/colors.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../../../core/utils/styles.dart';
 import '../../controller/search_controller.dart';
-import 'discount_card.dart';
+import 'res_name_with_description.dart';
 import 'f_icon_button.dart';
 
 class FAppBar extends SliverAppBar{
@@ -29,7 +30,7 @@ class FAppBar extends SliverAppBar{
     required this.onCollapsed,
     required this.onTap,
     required this.tabController,
-  }) : super(elevation: 4.0, pinned: true, forceElevated: true);
+  }) : super(elevation: 1.0, pinned: true, forceElevated: true);
 
   @override
   Color? get backgroundColor => Colors.white;
@@ -65,10 +66,9 @@ class FAppBar extends SliverAppBar{
 
   @override
   Widget? get title {
-    var textTheme = Theme.of(context).textTheme;
     return AnimatedOpacity(
       opacity: isCollapsed ? 0 : 1,
-      duration: const Duration(milliseconds: 250),
+      duration: const Duration(milliseconds: 300),
       child: TextWidget('STK - San Fransisco', style: TextStyles.title16,),
     );
   }
@@ -86,7 +86,7 @@ class FAppBar extends SliverAppBar{
           indicatorColor: primaryColor,
           labelColor: Colors.black,
           unselectedLabelColor: Colors.grey,
-          indicatorWeight: 3.0,
+          indicatorWeight: 2.0,
           tabs: searchCtrl.listCategory.map((e) {
             return Tab(text: e.category);
           }).toList(),
@@ -114,10 +114,10 @@ class FAppBar extends SliverAppBar{
           BoxConstraints constraints,
           ) {
         final top = constraints.constrainHeight();
-        final collapsedHight =
+        final collapsedHeight =
             MediaQuery.of(context).viewPadding.top + kToolbarHeight + 48;
         WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-          onCollapsed(collapsedHight != top);
+          onCollapsed(collapsedHeight != top);
         });
 
         return FlexibleSpaceBar(
@@ -125,7 +125,7 @@ class FAppBar extends SliverAppBar{
           background: Column(
             children: [
               SizedBox(
-                height: 250,
+                height: Dimensions.height100 * 2 + Dimensions.height50,
                 child: PageView.builder(
                   itemCount: assets.length,
                   physics: const BouncingScrollPhysics(),
@@ -141,20 +141,20 @@ class FAppBar extends SliverAppBar{
                               fit: BoxFit.cover,
                             ),
                             Positioned(
-                              left: size.width / 3,
-                              right: size.width / 3,
+                              left: Dimensions.screenWidth * 0.32,
+                              right: Dimensions.screenWidth * 0.32,
                               bottom: 5,
                               child: Container(
-                                height: 30,
-                                width: 50,
+                                height: Dimensions.height30,
+                                width: Dimensions.width50,
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
-                                    color: Colors.black45),
+                                    color: Colors.black38,
+                                ),
                                 child: TextWidget(
                                   'See all 405 photos',
-                                  style: TextStyles.regular12
-                                      .copyWith(color: whiteColor),
+                                  style: TextStyles.regular12.copyWith(color: whiteColor),
                                 ),
                               ),
                             )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/modules/search/controller/search_controller.dart';
 import 'package:restro_book/modules/search/view/widgets/sliver_body_item.dart';
@@ -33,7 +34,7 @@ class CategorySection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 16),
+        SizedBox(height: Dimensions.height10),
         _sectionTitle(context, controller),
       ],
     );

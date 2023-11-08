@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/modules/auth/login/view/widgets/login_form_section_widget.dart';
@@ -8,11 +9,10 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: size.height,
+          height: Dimensions.screenHeight,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(loginBackgroundImage),
@@ -20,13 +20,10 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: allPadding20,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(
-                  height: 100,
-                ),
                 TextWidget(
                   'Welcome to RESTRO BOOKING',
                   style: TextStyles.title22.copyWith(color: whiteColor),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import '../../../../core/widgets/text_widget.dart';
 
@@ -16,9 +17,8 @@ class FilterContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height / 24,
+      height: Dimensions.height30,
       width: width,
       margin: EdgeInsets.only(right: 5),
       alignment: Alignment.center,
@@ -33,16 +33,16 @@ class FilterContainerWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextWidget(filterName, style: TextStyles.regular12,),
-                  const Icon(
+                  Icon(
                     Icons.keyboard_arrow_down_outlined,
-                    size: 20,
+                    size: Dimensions.iconSize15,
                   ),
                 ],
               ),
           )
           : Image.asset(
               filterImagePath,
-              height: size.height / 45,
+              height: Dimensions.height15,
             ),
     );
   }

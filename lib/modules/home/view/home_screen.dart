@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restro_book/core/utils/const.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/styles.dart';
 import 'package:restro_book/modules/home/controller/home_controller.dart';
 import 'package:restro_book/modules/home/view/ecperiences_screen.dart';
@@ -21,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   HomeController home = Get.put(HomeController());
 
+  @override
   void initState() {
     super.initState();
     home.tabController = TabController(length: 3, vsync: this);
@@ -29,18 +31,54 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    print('Home screen build');
-
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: whiteColor,
-      appBar: PreferredSize(preferredSize:  Size.fromHeight(size.height * .149),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(Dimensions.screenHeight * .14875),
+        child: _topSectionWidget(),
+      ),
+      body: _buildBody(),
+    );
+  }
+
+  Widget _buildBody() {
+    return _bodySectionWidget();
+  }
+
+  Widget _topSectionWidget() {
+    return Container(
+      decoration: const BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: strokeColor)
+        ),
+      ),
       child: Column(
         children: [
-          _topSectionWidget(),
+          Container(
+            margin: const EdgeInsets.only(top: 30),
+            height: Dimensions.screenHeight * .05,
+            width: Dimensions.screenWidth,
+            padding: leftRightPadding15,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextWidget(
+                  'Good morning, Fahim',
+                  style: TextStyles.title20,
+                ),
+                const CircleAvatar(
+                  backgroundColor: strokeColor,
+                  radius: 15,
+                  child: Icon(
+                    Icons.person_outline_rounded,
+                    color: darkGrayColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
           TabBar(
             controller: home.tabController,
-            //isScrollable: false,
             labelColor: primaryColor,
             unselectedLabelColor: darkGrayColor,
             indicatorColor: primaryColor,
@@ -71,52 +109,18 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ],
       ),
-      ),
-      body: _buildBody(),
-    );
-  }
-
-  Widget _buildBody() {
-    return _bodySectionWidget();
-  }
-
-  Widget _topSectionWidget() {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      margin: const EdgeInsets.only(top: 30),
-      height: size.height * .05,
-      width: size.width,
-      padding: leftRightPadding15,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          TextWidget(
-            'Good morning, Fahim',
-            style: TextStyles.title20,
-          ),
-          const CircleAvatar(
-            backgroundColor: strokeColor,
-            radius: 15,
-            child: Icon(
-              Icons.person_outline_rounded,
-              color: darkGrayColor,
-            ),
-          ),
-        ],
-      ),
     );
   }
 
   Widget _bodySectionWidget() {
-    Size size = MediaQuery.of(context).size;
     return TabBarView(
-      physics: NeverScrollableScrollPhysics(),
-          controller: home.tabController,
-          children: const [
-            ReservationBarScreen(),
-            ExperiencesBarScreen(),
-            TakeoutBarScreen(),
-          ],
-        );
+      physics: const NeverScrollableScrollPhysics(),
+      controller: home.tabController,
+      children: const [
+        ReservationBarScreen(),
+        ExperiencesBarScreen(),
+        TakeoutBarScreen(),
+      ],
+    );
   }
 }

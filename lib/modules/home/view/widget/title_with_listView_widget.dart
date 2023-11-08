@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
+import 'package:restro_book/core/widgets/sized_box_height_10.dart';
 
 class TitleWithListViewWidget extends StatelessWidget {
   final String imageUrl;
@@ -42,7 +44,7 @@ class TitleWithListViewWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: size.width / 1.2,
+        width: Dimensions.width135 * 2,
         margin: const EdgeInsets.only(left: 15,right: 10, top: 10, bottom: 10),
         decoration: BoxDecoration(
           color: whiteColor,
@@ -61,7 +63,7 @@ class TitleWithListViewWidget extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: size.height / 4.5,
+              height: Dimensions.height100 + Dimensions.height60,
               width: size.width,
               decoration: BoxDecoration(
                   image: DecorationImage(
@@ -73,8 +75,7 @@ class TitleWithListViewWidget extends StatelessWidget {
             Column(
               children: [
                 Padding(
-                  padding:
-                  const EdgeInsets.symmetric(horizontal: 5),
+                  padding: leftRightPadding10,
                   child: Row(
                     mainAxisAlignment:
                     MainAxisAlignment.spaceBetween,
@@ -91,12 +92,8 @@ class TitleWithListViewWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
                 Padding(
-                  padding:
-                  const EdgeInsets.symmetric(horizontal: 5),
+                  padding: leftRightPadding10,
                   child: Row(
                     children: [
                       TextWidget(
@@ -115,28 +112,30 @@ class TitleWithListViewWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBoxHeight20(),
+                SizedBoxHeight10(),
                 timeWithTitle
-                    ? Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceEvenly,
-                      children: [
-                        _timeContainerWithTitle(
-                          time: startTime,
-                          color: strokeColor,
-                          title: startPts,
-                        ),
-                        _timeContainerWithTitle(
-                          time: midTime,
-                          color: primaryColor,
-                          title: midPts,
-                        ),
-                        _timeContainerWithTitle(
-                          time: endTime,
-                          color: primaryColor,
-                          title: endPts,
-                        ),
-                      ],
+                    ? Padding(
+                      padding: leftRightPadding10,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _timeContainerWithTitle(
+                            time: startTime,
+                            color: strokeColor,
+                            title: startPts,
+                          ),
+                          _timeContainerWithTitle(
+                            time: midTime,
+                            color: primaryColor,
+                            title: midPts,
+                          ),
+                          _timeContainerWithTitle(
+                            time: endTime,
+                            color: primaryColor,
+                            title: endPts,
+                          ),
+                        ],
+                      ),
                     )
                     : Container(),
               ],

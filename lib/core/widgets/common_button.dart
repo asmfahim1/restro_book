@@ -33,20 +33,20 @@ class CommonButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
-          side: BorderSide(color: strokeColor),
+          side: const BorderSide(color: strokeColor, width: 1.2),
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         backgroundColor: btnColor,
       ),
         onPressed: onPressed,
-        child: Container(
+        child: SizedBox(
           height: height,
           child: Center(
             child: TextWidget(
               buttonTitle,
               maxLines: 2,
               textAlign: TextAlign.center,
-              style: TextStyles.regular14.copyWith(
+              style: TextStyles.title16.copyWith(
                 color: buttonTextColor ?? whiteColor,
                 fontSize: fontSize,
                 fontWeight: fontWeight,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import '../../../../core/utils/exports.dart';
 
 class SearchFieldWidget extends StatelessWidget {
@@ -6,35 +7,35 @@ class SearchFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      height: size.height / 15,
+      height: Dimensions.height45,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(offset: Offset(0, 0), blurRadius: 4, color: strokeColor)
+          boxShadow: const [
+            BoxShadow(offset: Offset(0, 0), blurRadius: 3, color: strokeColor)
       ]),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(
             Icons.search_sharp,
-            size: 20,
+            size: Dimensions.iconSize20,
             color: Colors.grey.shade600,
           ),
           const SizedBox(
             width: 5,
           ),
-          Expanded(
+          SizedBox(
+            width: Dimensions.width225,
             child: TextField(
               onChanged: (value) {},
               decoration: InputDecoration(
-                  hintText: "Search Dhanmondi",
+                  hintText: "Search San Fransisco",
                   hintStyle:
-                  TextStyle(color: Colors.grey.shade600, fontSize: 15),
+                  TextStyle(color: Colors.grey.shade600, fontSize: 16),
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none),
             ),
@@ -44,8 +45,8 @@ class SearchFieldWidget extends StatelessWidget {
             onTap: () {},
             child: Image.asset(
               searchLocationImagePath,
-              height: size.height / 26,
-              width: size.width / 16,
+              height: Dimensions.height30,
+              width: Dimensions.width10 * 2,
             ),
           )
         ],

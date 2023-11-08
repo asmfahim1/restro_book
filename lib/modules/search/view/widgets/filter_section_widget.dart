@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restro_book/core/utils/colors.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'filter_container_widget.dart';
 
 class FilterSectionWidget extends StatefulWidget {
@@ -12,9 +13,8 @@ class FilterSectionWidget extends StatefulWidget {
 class _FilterSectionWidgetState extends State<FilterSectionWidget> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height / 16,
+      height: Dimensions.height35,
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
@@ -38,61 +38,59 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
   }
 
   Widget _allFilterWidget(){
-    Size size = MediaQuery.of(context).size;
     return FilterContainerWidget(
-      width: size.width / 7.5,
+      width: Dimensions.width50,
     );
   }
 
   Widget _cuisineFilterWidget(){
-    Size size = MediaQuery.of(context).size;
     return FilterContainerWidget(
-      width: size.width / 4,
+      width: Dimensions.width35 * 2 + Dimensions.width15,
       isTextNeeded: true,
       filterName: 'Cuisine',
     );
   }
 
   Widget _settingFilterWidget(){
-    Size size = MediaQuery.of(context).size;
+
     return FilterContainerWidget(
-      width: size.width / 4,
+      width: Dimensions.width35 * 2 + Dimensions.width15,
       isTextNeeded: true,
       filterName: 'Setting',
     );
   }
 
   Widget _priceFilterWidget(){
-    Size size = MediaQuery.of(context).size;
+
     return FilterContainerWidget(
-      width: size.width / 4.8,
+      width: Dimensions.width35 * 2,
       isTextNeeded: true,
       filterName: 'Price',
     );
   }
 
   Widget _neighborhoodFilterWidget(){
-    Size size = MediaQuery.of(context).size;
+
     return FilterContainerWidget(
-      width: size.width / 2.8,
+      width: Dimensions.width135,
       isTextNeeded: true,
       filterName: 'Neighborhoods',
     );
   }
 
   Widget _offersFilterWidget(){
-    Size size = MediaQuery.of(context).size;
+    
     return FilterContainerWidget(
-      width: size.width / 4.6,
+      width: Dimensions.width35 * 2 + Dimensions.width10,
       isTextNeeded: true,
       filterName: 'Offers',
     );
   }
 
   Widget _specialFeaturesFilterWidget(){
-    Size size = MediaQuery.of(context).size;
+    
     return FilterContainerWidget(
-      width: size.width / 2.6,
+        width: Dimensions.width135,
       isTextNeeded: true,
       filterName: 'Special Features',
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 
 import '../../../../core/utils/exports.dart';
@@ -18,23 +19,24 @@ class SearchScreenAppBarWidget extends StatelessWidget
         backgroundColor: whiteColor,
         centerTitle: true,
         title: Container(
-          height: size.height / 24,
-          width: size.width / 2.4,
+          height: Dimensions.height30,
+          width: Dimensions.width135 + Dimensions.width15,
           decoration: BoxDecoration(
             border: Border.all(color: strokeColor),
             borderRadius: BorderRadius.circular(30),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
+              Icon(
                 Icons.person_outline_rounded,
-                size: 16,
+                size: Dimensions.iconSize15,
                 color: blackColor,
               ),
+              SizedBox(width: 5,),
               TextWidget(
                 '2 . today at 12:00 PM',
-                style: TextStyles.title32.copyWith(fontSize: 12),
+                style: TextStyles.regular12.copyWith(fontWeight: FontWeight.bold, color: blackColor),
               ),
             ],
           ),

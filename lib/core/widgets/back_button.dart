@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import '../utils/colors.dart';
 import 'common_icon_widget.dart';
 
@@ -11,14 +12,14 @@ class BackButtonWidget extends StatelessWidget {
       onTap: (){
         Navigator.pop(context);
       },
-      child: const SizedBox(
-        height: 56,
-        width: 56,
+      child: SizedBox(
+        height: Dimensions.height50 + Dimensions.height5,
+        width: Dimensions.width50 + 5,
         child: Center(
           child: SizedBox(
-            width: 25,
-            height: 25,
-            child: Icon(Icons.arrow_back_outlined, color: primaryColor,),
+            width: Dimensions.width15 + Dimensions.width10,
+            height: Dimensions.height20 + Dimensions.height10,
+            child: const Icon(Icons.arrow_back_outlined, color: primaryColor,),
           ),
         ),
       ),

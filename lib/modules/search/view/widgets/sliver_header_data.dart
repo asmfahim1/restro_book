@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import '../../../../core/utils/exports.dart';
 
@@ -14,7 +15,7 @@ class SliverHeaderData extends StatelessWidget {
         Row(
           children: [
             SizedBox(
-              height: size.height / 40,
+              height: Dimensions.height20,
               width: size.width / 4,
               child: ListView.builder(
                 itemCount: 5,
@@ -59,7 +60,7 @@ class SliverHeaderData extends StatelessWidget {
           children: [
             const Icon(Icons.location_on_outlined, size: 14,),
             const SizedBox(width: 5,),
-            TextWidget('1 Market St, San Fransisco, CA, 941051420 '),
+            TextWidget('1 Market St, San Fransisco, CA, 941051420 ', style: TextStyles.regular12,),
           ],
         )
       ],

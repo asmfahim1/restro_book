@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:restro_book/core/utils/colors.dart';
+import 'package:restro_book/core/utils/const.dart';
 import 'package:restro_book/core/widgets/exports.dart';
+import 'package:restro_book/core/widgets/sized_box_height_10.dart';
 import 'package:restro_book/modules/home/view/widget/experience_featured_widget.dart';
+import '../../../core/utils/dimensions.dart';
 import '../../../core/utils/styles.dart';
 import '../../../core/widgets/text_widget.dart';
 
@@ -15,7 +18,6 @@ class ExperiencesBarScreen extends StatefulWidget {
 class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
   @override
   Widget build(BuildContext context) {
-    print('Experience screen build');
     return Column(
       children: [
         _locationTimeWidget(),
@@ -26,6 +28,7 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
               children: [
                 _featuredWidget(),
                 _upcomingTitle(),
+                const SizedBoxHeight10(),
                 _upcomingListWidget(),
                 _viewAllBtn(),
               ],
@@ -37,54 +40,59 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
   }
 
   Widget _locationTimeWidget() {
-    Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SingleChildScrollView(
         child: Row(
           children: [
             Container(
-              height: size.height / 22,
-              width: size.width / 8.6,
+              height: Dimensions.height30,
+              width: Dimensions.width35 + Dimensions.width10,
               decoration: BoxDecoration(
                 border: Border.all(color: strokeColor),
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.person_outline_rounded,
-                    size: 14,
+                    size: Dimensions.iconSize15,
+                  ),
+                  const SizedBox(
+                    width: 5,
                   ),
                   TextWidget(
                     '2',
-                    style: TextStyles.title32.copyWith(fontSize: 11),
+                    style: TextStyles.regular12.copyWith(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
             ),
-            const SizedBox(
-              width: 10,
+            SizedBox(
+              width: Dimensions.width10,
             ),
             Container(
-              height: size.height / 22,
-              width: size.width / 2.8,
+              height: Dimensions.height30,
+              width: Dimensions.width135 - 5,
               decoration: BoxDecoration(
                 border: Border.all(color: strokeColor),
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.location_on_outlined,
-                    size: 14,
+                    size: Dimensions.iconSize15,
+                  ),
+                  const SizedBox(
+                    width: 5,
                   ),
                   TextWidget(
                     overflow: TextOverflow.ellipsis,
-                    'Matuail Katherpool',
-                    style: TextStyles.title32.copyWith(fontSize: 11),
+                    'Noe Valley',
+                    style: TextStyles.regular12.copyWith(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -96,18 +104,17 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
   }
 
   Widget _featuredWidget() {
-    return ExperieneFeaturedWidget(
+    return ExperienceFeaturedWidget(
       titleOfTheList: 'Featured',
       onTap: () {},
     );
   }
 
-  Widget _upcomingTitle(){
-    Size size = MediaQuery.of(context).size;
+  Widget _upcomingTitle() {
     return Container(
-      height: size.height / 16,
-      width: size.width,
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      height: Dimensions.height40,
+      width: Dimensions.screenWidth,
+      padding: leftRightPadding15,
       alignment: Alignment.centerLeft,
       child: TextWidget(
         'Upcoming',
@@ -116,31 +123,30 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
     );
   }
 
-  Widget _upcomingListWidget(){
-    Size size = MediaQuery.of(context).size;
+  Widget _upcomingListWidget() {
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: 5,
         itemBuilder: (_, index) {
           return Container(
-            height: size.height / 5,
+            height: Dimensions.height100 + Dimensions.height20,
             margin: const EdgeInsets.only(top: 5, bottom: 5, left: 15),
             decoration: const BoxDecoration(
                 color: Colors.white,
-                border: Border(
-                    bottom: BorderSide(color: strokeColor)
-                )
-            ),
+                border: Border(bottom: BorderSide(color: strokeColor))),
             child: Row(
               children: [
                 InkWell(
-                  onTap: (){},
+                  onTap: () {},
                   child: SizedBox(
-                    width: size.width / 1.6,
+                    width: Dimensions.width225,
                     child: Column(
                       children: [
-                        TextWidget('Petite Omakase for Tuesday through Thursday', style: TextStyles.title16,),
+                        TextWidget(
+                          'Petite Omakase for Tuesday through Thursday',
+                          style: TextStyles.title16,
+                        ),
                         Row(
                           children: [
                             TextWidget(
@@ -154,9 +160,7 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
                               height: 5,
                               width: 5,
                               decoration: const BoxDecoration(
-                                  color: strokeColor,
-                                  shape: BoxShape.circle
-                              ),
+                                  color: Colors.black54, shape: BoxShape.circle),
                             ),
                             const SizedBox(
                               width: 5,
@@ -177,39 +181,45 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
                 ),
                 Expanded(
                   child: InkWell(
-                    onTap: (){},
+                    onTap: () {},
                     child: Container(
                       alignment: Alignment.center,
                       child: Container(
-                        height: size.height / 14,
-                        width: size.width / 5,
+                        height: Dimensions.height50,
+                        width: Dimensions.width35 * 2 + Dimensions.width10,
                         clipBehavior: Clip.hardEdge,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.shade400,
-                              blurRadius: 3.0,
-                              offset: const Offset(0, 1),
+                              blurRadius: 1.0,
+                              offset: const Offset(0, 0),
                             )
                           ],
                         ),
                         child: Column(
                           children: [
                             Container(
-                              height: size.height / 28,
+                              height: Dimensions.height20,
                               color: primaryColor,
                               alignment: Alignment.center,
-                              child: TextWidget('Oct', style: TextStyles.title16.copyWith(color: whiteColor),),
+                              child: TextWidget(
+                                'Oct',
+                                style: TextStyles.regular14.copyWith(fontWeight: FontWeight.bold)
+                                    .copyWith(color: whiteColor),
+                              ),
                             ),
                             Expanded(
-                                child: Container(
-                                  color: whiteColor,
-                                  alignment: Alignment.center,
-                                  child: TextWidget('3', style: TextStyles.title20,),
+                              child: Container(
+                                color: whiteColor,
+                                alignment: Alignment.center,
+                                child: TextWidget(
+                                  '22',
+                                  style: TextStyles.title20,
                                 ),
+                              ),
                             )
-
                           ],
                         ),
                       ),
@@ -222,21 +232,19 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
         });
   }
 
-  Widget _viewAllBtn(){
-    Size size = MediaQuery.of(context).size;
+  Widget _viewAllBtn() {
     return Container(
-      height: size.height / 14,
-      width: size.width,
+      height: Dimensions.height50,
+      width: Dimensions.screenWidth,
       alignment: Alignment.center,
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6),
-        border: Border.all(
-          color: strokeColor,
-          width: 1.2
-        )
+          borderRadius: BorderRadius.circular(6),
+          border: Border.all(color: strokeColor, width: 1.2)),
+      child: TextWidget(
+        'View all',
+        style: TextStyles.title16,
       ),
-      child: TextWidget('View all', style: TextStyles.title16,),
     );
   }
 }

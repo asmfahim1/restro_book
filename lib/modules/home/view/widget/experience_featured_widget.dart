@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 
-class ExperieneFeaturedWidget extends StatelessWidget {
+class ExperienceFeaturedWidget extends StatelessWidget {
   final String titleOfTheList;
   final bool isViewNeeded;
   final VoidCallback onTap;
-  const ExperieneFeaturedWidget(
+  const ExperienceFeaturedWidget(
       {
         required this.titleOfTheList,
         this.isViewNeeded = true,
@@ -16,10 +17,9 @@ class ExperieneFeaturedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height / 1.6,
-      width: size.width,
+      height: Dimensions.heightScreenHalf ,
+      width: Dimensions.screenWidth,
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [
@@ -52,7 +52,7 @@ class ExperieneFeaturedWidget extends StatelessWidget {
                 itemBuilder: (_, index) {
                   final restaurant = restaurantList[index];
                   return Container(
-                    width: size.width / 1.02,
+                    width: Dimensions.width180 * 2 - Dimensions.width10,
                     margin: const EdgeInsets.only(left: 15,right: 10, top: 10, bottom: 10),
                     decoration: BoxDecoration(
                       color: whiteColor,
@@ -71,8 +71,8 @@ class ExperieneFeaturedWidget extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          height: size.height / 3.5,
-                          width: size.width,
+                          height: Dimensions.height100 + Dimensions.height70,
+                          width: Dimensions.screenWidth,
                           decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage(restaurant['restaurantImage'].toString()),
@@ -102,7 +102,7 @@ class ExperieneFeaturedWidget extends StatelessWidget {
                                     height: 5,
                                     width: 5,
                                     decoration: const BoxDecoration(
-                                      color: strokeColor,
+                                      color: Colors.black54,
                                       shape: BoxShape.circle
                                     ),
                                   ),
@@ -120,8 +120,8 @@ class ExperieneFeaturedWidget extends StatelessWidget {
                                 style: TextStyles.regular12,
                               ),
                               SizedBox(
-                                height: size.height / 20,
-                                width: size.width,
+                                height: Dimensions.height30,
+                                width: Dimensions.screenWidth,
                                 child: Row(
                                   children: [
                                     const Icon(Icons.calendar_today_outlined, size: 16,),
@@ -131,11 +131,11 @@ class ExperieneFeaturedWidget extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                width: size.width,
+                                width: Dimensions.screenWidth,
                                 child: TextWidget(
                                   restaurant['restaurantBio'].toString(),
                                   style: TextStyles.regular12,
-                                  maxLines: 4,
+                                  maxLines: 3,
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),

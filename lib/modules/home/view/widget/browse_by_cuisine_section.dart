@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 
 import '../../../../core/utils/exports.dart';
@@ -20,11 +21,10 @@ class BrowseByCuisineSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height / 4.4,
-      width: size.width,
-      margin: EdgeInsets.symmetric(vertical: 10),
+      height: Dimensions.height100 + Dimensions.height35,
+      width: Dimensions.screenWidth,
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [
           InkWell(
@@ -48,7 +48,7 @@ class BrowseByCuisineSectionWidget extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              margin: const EdgeInsets.only(top: 10, bottom: 10),
+              margin: const EdgeInsets.symmetric(vertical: 10),
               child: ListView.builder(
                   itemCount: restaurantCousins.length,
                   scrollDirection: Axis.horizontal,
@@ -61,7 +61,7 @@ class BrowseByCuisineSectionWidget extends StatelessWidget {
                         children: [
                           Expanded(
                             child: CircleAvatar(
-                              radius: 40,
+                              radius: Dimensions.radius20 + Dimensions.radius12 + Dimensions.radius4,
                               backgroundImage: AssetImage(
                                 imagePath,
                               ),
@@ -69,7 +69,7 @@ class BrowseByCuisineSectionWidget extends StatelessWidget {
                           ),
                           TextWidget(
                             cuisines,
-                            style: TextStyles.title32.copyWith(fontSize: 13),
+                            style: TextStyles.regular12.copyWith(fontWeight: FontWeight.bold),
                           )
                         ],
                       ),

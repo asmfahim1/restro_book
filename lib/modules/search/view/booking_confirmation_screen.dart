@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:restro_book/core/utils/colors.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/styles.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/core/widgets/sized_box_height_10.dart';
 import 'package:restro_book/modules/search/controller/search_controller.dart';
-import 'package:restro_book/modules/search/view/components/custom_switch.dart';
 import 'package:restro_book/modules/search/view/components/epanded_text_field_widget.dart';
 import 'package:get/get.dart';
 import 'package:restro_book/modules/search/view/components/occasion_widget.dart';
@@ -16,18 +16,17 @@ class BookingConfirmScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final searchController = Get.find<SearchFieldController>();
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: const CommonAppbar(),
       body: ListView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Container(
-            height: size.height / 1.25,
+            height: Dimensions.heightScreenHalf * 1.6,
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -57,7 +56,7 @@ class BookingConfirmScreen extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.all(8),
-            child: _reserveButton(size),
+            child: _reserveButton(),
           ),
         ],
       ),
@@ -111,7 +110,7 @@ class BookingConfirmScreen extends StatelessWidget {
   }
 
   Widget _phoneWithCountryCodeWidget(){
-    return TitleWithPhoneNumberAndCountryCodeWidget(title: 'What\'s your number?');
+    return const TitleWithPhoneNumberAndCountryCodeWidget(title: 'What\'s your number?');
   }
 
   Widget _reservationUpdateWidget(SearchFieldController controller){
@@ -126,17 +125,18 @@ class BookingConfirmScreen extends StatelessWidget {
               style: TextStyles.title16,
             ),
             Obx((){
-              return CustomSwitch(
-                onTap: () {
+              return Switch(
+                activeColor: primaryColor,
+                inactiveTrackColor: strokeColor,
+                value: controller.switchActive1,
+                onChanged: (bool value) {
                   controller.switchActive1 = !controller.switchActive1;
                 },
-                containerColor:
-                controller.switchActive1 ? primaryColor : strokeColor,
               );
             }),
           ],
         ),
-        SizedBoxHeight10(),
+        const SizedBoxHeight10(),
         TextWidget(
           'Get reservation reminders and wait list status updates.',
           style: TextStyles.regular12,
@@ -161,17 +161,18 @@ class BookingConfirmScreen extends StatelessWidget {
               style: TextStyles.title16,
             ),
             Obx((){
-              return CustomSwitch(
-                onTap: () {
+              return Switch(
+                activeColor: primaryColor,
+                inactiveTrackColor: strokeColor,
+                value: controller.switchActive2,
+                onChanged: (bool value) {
                   controller.switchActive2 = !controller.switchActive2;
                 },
-                containerColor:
-                controller.switchActive2 ? primaryColor : strokeColor,
               );
             }),
           ],
         ),
-        SizedBoxHeight10(),
+        const SizedBoxHeight10(),
         TextWidget(
           'Sign me up to receive dining offers and news from this restaurant by email.',
           style: TextStyles.regular12,
@@ -195,12 +196,19 @@ class BookingConfirmScreen extends StatelessWidget {
     );
   }
 
-  Widget _reserveButton(Size size) {
-    return CommonButton(
-      height: size.height / 15,
-      onPressed: () {},
-      buttonTitle: 'Reserve',
-      fontWeight: FontWeight.bold,
+  Widget _reserveButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: CommonButton(
+        height: Dimensions.height50,
+        width: Dimensions.screenWidth,
+        buttonTitle: 'Reserve',
+        buttonTextColor: whiteColor,
+        buttonColor: primaryColor,
+        onPressed: (){
+          //route to another page
+        },
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restro_book/core/utils/app_routes.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/modules/search/view/widgets/filter_section_widget.dart';
@@ -20,7 +21,6 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
-    print('Search screen build');
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: const SearchScreenAppBarWidget(),
@@ -50,7 +50,6 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _searchListSectionWidget() {
-    Size size = MediaQuery.of(context).size;
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
@@ -62,7 +61,7 @@ class _SearchScreenState extends State<SearchScreen> {
               Get.toNamed(AppRoutes.resDetailsScreen);
             },
             child: Container(
-              height: size.height / 3.3,
+              height: Dimensions.height100 + Dimensions.height80,
               padding: const EdgeInsets.symmetric(horizontal: 10),
               margin: const EdgeInsets.symmetric(vertical: 5),
               decoration: const BoxDecoration(
@@ -99,7 +98,7 @@ class _SearchScreenState extends State<SearchScreen> {
             style: TextStyles.title16),
         Row(
           children: [
-            const Icon(Icons.star, size: 16, color: primaryColor,),
+            Icon(Icons.star, size: Dimensions.iconSize15, color: primaryColor,),
             TextWidget('$review reviews', style: TextStyles.regular14),
           ],
         ),
@@ -124,25 +123,24 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _listViewRightSection(String imageUrl){
-    Size size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          height: size.height / 32,
-          width: size.width / 6,
+          height: Dimensions.height20,
+          width: Dimensions.width50 + Dimensions.width10,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: strokeColor.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(6),
+            color: Colors.grey.withOpacity(0.2),
+            borderRadius: BorderRadius.circular(4),
           ),
           child: TextWidget('Promoted', style: TextStyles.regular12.copyWith(fontSize: 11),),
         ),
         const SizedBox(height: 5,),
         Container(
-          height: size.height / 8,
-          width: size.width,
+          height: Dimensions.height100 - Dimensions.height20,
+          width: Dimensions.screenWidth,
           decoration: BoxDecoration(
             color: strokeColor,
             borderRadius: BorderRadius.circular(10),
@@ -156,12 +154,11 @@ class _SearchScreenState extends State<SearchScreen> {
 
 
   Widget _timeContainerWidget(){
-    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Container(
-          height: size.height / 30,
-          width: size.width / 5.5,
+          height: Dimensions.height20,
+          width: Dimensions.width50 + Dimensions.width15,
           alignment: Alignment.center,
           margin: const EdgeInsets.only(right: 10),
           decoration: const BoxDecoration(
@@ -177,8 +174,8 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
         Container(
-          height: size.height / 32,
-          width: size.width / 5.5,
+          height: Dimensions.height20,
+          width: Dimensions.width50 + Dimensions.width15,
           alignment: Alignment.center,
           margin: const EdgeInsets.only(right: 10),
           decoration: BoxDecoration(

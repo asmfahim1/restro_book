@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rect_getter/rect_getter.dart';
 import 'package:restro_book/core/utils/colors.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:get/get.dart';
 import '../controller/search_controller.dart';
@@ -22,7 +23,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> with 
   late AutoScrollController scrollController;
   late TabController tabController;
 
-  final double expandedHeight = 400.0;
+  final double expandedHeight = Dimensions.height300 + Dimensions.height60;
   final double collapsedHeight = kToolbarHeight;
 
   final listViewKey = RectGetter.createGlobalKey();

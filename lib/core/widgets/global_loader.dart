@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restro_book/core/utils/dimensions.dart';
 
 class GlobalLoader extends StatelessWidget {
   const GlobalLoader({Key? key, this.text = 'Loading...'}) : super(key: key);
@@ -10,7 +11,7 @@ class GlobalLoader extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         const  CircularProgressIndicator.adaptive(),
-        const SizedBox(width: 10),
+        SizedBox(width: Dimensions.width10),
         Text(text ?? '')
       ],
     );

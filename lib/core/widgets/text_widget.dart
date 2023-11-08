@@ -19,7 +19,7 @@ class TextWidget extends Text {
     data,
     key: key,
     strutStyle: strutStyle,
-    textAlign: textAlign,
+    textAlign: TextAlign.justify,
     textDirection: textDirection,
     locale: locale,
     softWrap: softWrap,
