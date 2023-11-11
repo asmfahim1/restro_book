@@ -4,9 +4,9 @@ import 'package:restro_book/core/utils/const.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/styles.dart';
 import 'package:restro_book/modules/home/controller/home_controller.dart';
-import 'package:restro_book/modules/home/view/ecperiences_screen.dart';
-import 'package:restro_book/modules/home/view/reservations_screen.dart';
-import 'package:restro_book/modules/home/view/takeout_screen.dart';
+import 'package:restro_book/modules/home/view/%20reservation_screen/reservations_screen.dart';
+import 'package:restro_book/modules/home/view/experience_screen/ecperiences_screen.dart';
+import 'package:restro_book/modules/home/view/takeout_screen/takeout_screen.dart';
 
 import '../../../../core/utils/colors.dart';
 import '../../../../core/widgets/text_widget.dart';
@@ -48,9 +48,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _topSectionWidget() {
     return Container(
       decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: strokeColor)
-        ),
+        border: Border(bottom: BorderSide(color: strokeColor)),
       ),
       child: Column(
         children: [
@@ -116,10 +114,10 @@ class _HomeScreenState extends State<HomeScreen>
     return TabBarView(
       physics: const NeverScrollableScrollPhysics(),
       controller: home.tabController,
-      children: const [
+      children: [
         ReservationBarScreen(),
-        ExperiencesBarScreen(),
-        TakeoutBarScreen(),
+        const ExperiencesBarScreen(),
+        const TakeoutBarScreen(),
       ],
     );
   }

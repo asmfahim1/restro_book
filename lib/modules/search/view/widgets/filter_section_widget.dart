@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restro_book/core/utils/colors.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
+
 import 'filter_container_widget.dart';
 
 class FilterSectionWidget extends StatefulWidget {
@@ -37,13 +37,13 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
     );
   }
 
-  Widget _allFilterWidget(){
+  Widget _allFilterWidget() {
     return FilterContainerWidget(
       width: Dimensions.width50,
     );
   }
 
-  Widget _cuisineFilterWidget(){
+  Widget _cuisineFilterWidget() {
     return FilterContainerWidget(
       width: Dimensions.width35 * 2 + Dimensions.width15,
       isTextNeeded: true,
@@ -51,8 +51,7 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
     );
   }
 
-  Widget _settingFilterWidget(){
-
+  Widget _settingFilterWidget() {
     return FilterContainerWidget(
       width: Dimensions.width35 * 2 + Dimensions.width15,
       isTextNeeded: true,
@@ -60,8 +59,7 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
     );
   }
 
-  Widget _priceFilterWidget(){
-
+  Widget _priceFilterWidget() {
     return FilterContainerWidget(
       width: Dimensions.width35 * 2,
       isTextNeeded: true,
@@ -69,8 +67,7 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
     );
   }
 
-  Widget _neighborhoodFilterWidget(){
-
+  Widget _neighborhoodFilterWidget() {
     return FilterContainerWidget(
       width: Dimensions.width135,
       isTextNeeded: true,
@@ -78,8 +75,7 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
     );
   }
 
-  Widget _offersFilterWidget(){
-    
+  Widget _offersFilterWidget() {
     return FilterContainerWidget(
       width: Dimensions.width35 * 2 + Dimensions.width10,
       isTextNeeded: true,
@@ -87,10 +83,9 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
     );
   }
 
-  Widget _specialFeaturesFilterWidget(){
-    
+  Widget _specialFeaturesFilterWidget() {
     return FilterContainerWidget(
-        width: Dimensions.width135,
+      width: Dimensions.width135,
       isTextNeeded: true,
       filterName: 'Special Features',
     );

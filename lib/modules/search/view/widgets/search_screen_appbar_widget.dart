@@ -12,12 +12,12 @@ class SearchScreenAppBarWidget extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return PreferredSize(
       preferredSize: const Size.fromHeight(56),
       child: AppBar(
         backgroundColor: whiteColor,
         centerTitle: true,
+        automaticallyImplyLeading: false,
         title: Container(
           height: Dimensions.height30,
           width: Dimensions.width135 + Dimensions.width15,
@@ -33,10 +33,13 @@ class SearchScreenAppBarWidget extends StatelessWidget
                 size: Dimensions.iconSize15,
                 color: blackColor,
               ),
-              SizedBox(width: 5,),
+              const SizedBox(
+                width: 5,
+              ),
               TextWidget(
                 '2 . today at 12:00 PM',
-                style: TextStyles.regular12.copyWith(fontWeight: FontWeight.bold, color: blackColor),
+                style: TextStyles.regular12
+                    .copyWith(fontWeight: FontWeight.bold, color: blackColor),
               ),
             ],
           ),

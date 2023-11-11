@@ -1,11 +1,12 @@
 import 'package:get/get.dart';
 import 'package:restro_book/modules/auth/login/view/get_started_screen.dart';
 import 'package:restro_book/modules/auth/registration/view/registration_screen.dart';
+import 'package:restro_book/modules/home/view/%20reservation_screen/view_all_restaurants.dart';
 import 'package:restro_book/modules/home/view/bottom_nav_bar_screen.dart';
 import 'package:restro_book/modules/home/view/home_screen.dart';
-import 'package:restro_book/modules/search/view/booking_confirmation_screen.dart';
-import 'package:restro_book/modules/search/view/res_details_screen.dart';
-import 'package:restro_book/modules/search/view/search_details_screen.dart';
+import 'package:restro_book/modules/home/view/restaurant_details_screen/booking_confirmation_screen.dart';
+import 'package:restro_book/modules/home/view/restaurant_details_screen/res_details_screen.dart';
+
 import '../../modules/auth/login/view/login_screen.dart';
 import '../../modules/auth/login/view/splash_screen.dart';
 import '../../modules/saved/view/saved_screen.dart';
@@ -21,6 +22,7 @@ class AppRoutes {
 
   static const homePage = '/home_page';
   static const resDetailsScreen = '/restaurant_details_page';
+  static const viewAllRestaurants = '/view_all_restaurants_page';
   static const searchScreen = '/search_page';
   //static const searchDetailsScreen = '/search_details_page';
   static const bookingConfirmScreen = '/booking_confirm_page';
@@ -33,7 +35,8 @@ class AppRoutes {
   static String getLoginScreen() => loginPage;
   static String getRegistrationScreen() => loginPage;
   static String getHomeScreen() => homePage;
-  static String getResDetailsScreen(String resName, String resId) => '$resDetailsScreen?resName=$resName&resId=$resId';
+  static String getResDetailsScreen(String resName, String resId) =>
+      '$resDetailsScreen?resName=$resName&resId=$resId';
   static String getSearchScreen() => searchScreen;
   // static String getSearchDetailsScreen() => searchDetailsScreen;
   static String getBookingConfirmScreen(
@@ -43,6 +46,7 @@ class AppRoutes {
     DateTime reservationTime,
   ) =>
       '$bookingConfirmScreen?resId=$resId&resName=$resName&partySize=$partySize&reservationTime=$reservationTime';
+  static String getViewAllScreen() => viewAllRestaurants;
   static String getSavedScreen() => savedScreen;
 
   static List<GetPage> routes = [
@@ -71,6 +75,10 @@ class AppRoutes {
         transition: Transition.noTransition,
         page: () => const HomeScreen()),
     GetPage(
+        name: viewAllRestaurants,
+        transition: Transition.noTransition,
+        page: () => const ViewAllRestaurantsScreen()),
+    GetPage(
         name: searchScreen,
         transition: Transition.noTransition,
         page: () => const SearchScreen()),
@@ -84,7 +92,10 @@ class AppRoutes {
         page: () {
           var resName = Get.parameters['resName']!;
           var resId = Get.parameters['resId']!;
-          return RestaurantDetailsScreen(resName: resName, resId: resId,);
+          return RestaurantDetailsScreen(
+            resName: resName,
+            resId: resId,
+          );
         }),
     GetPage(
         name: bookingConfirmScreen,

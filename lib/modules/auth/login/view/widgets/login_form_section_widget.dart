@@ -10,7 +10,6 @@ import '../../../../../core/utils/colors.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/utils/validator.dart';
 import '../../../../../core/widgets/common_button.dart';
-import '../../../../../core/widgets/common_icon_widget.dart';
 import '../../../../../core/widgets/common_text_field_widget.dart';
 import '../../../../../core/widgets/sized_box_height_10.dart';
 import '../../../../../core/widgets/sized_box_height_20.dart';
@@ -115,14 +114,13 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
   }
 
   Widget _loginButton() {
-    Size size = MediaQuery.of(context).size;
     return CommonButton(
       height: Dimensions.height50,
-      width: size.width / 1.6,
+      width: Dimensions.width225,
       buttonTitle: 'Login',
       onPressed: () {
         //login method will call
-        Get.toNamed(AppRoutes.navBarScreen);
+        Get.toNamed(AppRoutes.getNavBarScreen());
       },
     );
   }

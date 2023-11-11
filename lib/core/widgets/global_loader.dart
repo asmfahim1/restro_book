@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
+import 'package:restro_book/core/widgets/exports.dart';
 
 class GlobalLoader extends StatelessWidget {
   const GlobalLoader({Key? key, this.text = 'Loading...'}) : super(key: key);
@@ -7,13 +8,17 @@ class GlobalLoader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        const  CircularProgressIndicator.adaptive(),
-        SizedBox(width: Dimensions.width10),
-        Text(text ?? '')
-      ],
+    return Container(
+      height: Dimensions.screenHeight * .65,
+      color: Colors.transparent,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const CircularProgressIndicator.adaptive(),
+          SizedBox(height: Dimensions.height15),
+          TextWidget(text ?? '')
+        ],
+      ),
     );
   }
 }
