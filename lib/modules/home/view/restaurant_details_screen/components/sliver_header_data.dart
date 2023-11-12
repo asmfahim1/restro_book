@@ -17,7 +17,7 @@ class SliverHeaderData extends StatelessWidget {
           children: [
             SizedBox(
               height: Dimensions.height20,
-              width: size.width / 4,
+              width: Dimensions.screenWidth * .25,
               child: ListView.builder(
                 itemCount: 5,
                 scrollDirection: Axis.horizontal,
