@@ -130,7 +130,7 @@ class FAppBar extends SliverAppBar {
           background: Column(
             children: [
               SizedBox(
-                height: Dimensions.height100 * 2 + Dimensions.height50,
+                height: Dimensions.height100 * 3,
                 child: PageView.builder(
                   itemCount: assets.length,
                   physics: const BouncingScrollPhysics(),
