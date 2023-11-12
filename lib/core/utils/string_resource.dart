@@ -9,7 +9,7 @@ final religions = [
   'Others',
 ];
 
-final categories = ['Reservation','Dining & Takeout','Menu','Reviews','Details'];
+final categories = ['Reservation','Delivery & Takeout','Menu','Reviews','Details'];
 
 final ages = [
   '18',
