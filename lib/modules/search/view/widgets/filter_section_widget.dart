@@ -85,7 +85,7 @@ class _FilterSectionWidgetState extends State<FilterSectionWidget> {
 
   Widget _specialFeaturesFilterWidget() {
     return FilterContainerWidget(
-      width: Dimensions.width135,
+      width: Dimensions.width135 + Dimensions.width10,
       isTextNeeded: true,
       filterName: 'Special Features',
     );
