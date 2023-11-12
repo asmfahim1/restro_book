@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
@@ -273,16 +274,18 @@ class ReservationBarScreen extends StatelessWidget {
   Widget _browseByCuisineWidget() {
     return BrowseByCuisineSectionWidget(
       title: 'Browse by cuisine',
-      viewAllOnTap: () {},
-      itemLength: 10,
-      categoryName: 'American',
+      viewAllOnTap: () {
+        Get.toNamed(AppRoutes.getViewAllCuisineScreen());
+      },
     );
   }
 
   Widget _exploreAreaWidget() {
     return ExploreAresSectionWidget(
       title: 'Explore the area',
-      viewAllOnTap: () {},
+      viewAllOnTap: () {
+        Get.toNamed(AppRoutes.getViewAllAreaScreen());
+      },
     );
   }
 }

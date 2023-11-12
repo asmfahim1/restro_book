@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:restro_book/modules/auth/login/view/get_started_screen.dart';
 import 'package:restro_book/modules/auth/registration/view/registration_screen.dart';
+import 'package:restro_book/modules/home/view/%20reservation_screen/view_all_area_screen.dart';
+import 'package:restro_book/modules/home/view/%20reservation_screen/view_all_cuisine_screen.dart';
 import 'package:restro_book/modules/home/view/%20reservation_screen/view_all_restaurants.dart';
 import 'package:restro_book/modules/home/view/bottom_nav_bar_screen.dart';
 import 'package:restro_book/modules/home/view/home_screen.dart';
@@ -23,6 +25,8 @@ class AppRoutes {
   static const homePage = '/home_page';
   static const resDetailsScreen = '/restaurant_details_page';
   static const viewAllRestaurants = '/view_all_restaurants_page';
+  static const viewAllCuisines = '/view_all_cuisines_page';
+  static const viewAllArea = '/view_all_area_page';
   static const searchScreen = '/search_page';
   //static const searchDetailsScreen = '/search_details_page';
   static const bookingConfirmScreen = '/booking_confirm_page';
@@ -47,6 +51,8 @@ class AppRoutes {
   ) =>
       '$bookingConfirmScreen?resId=$resId&resName=$resName&partySize=$partySize&reservationTime=$reservationTime';
   static String getViewAllScreen() => viewAllRestaurants;
+  static String getViewAllCuisineScreen() => viewAllCuisines;
+  static String getViewAllAreaScreen() => viewAllArea;
   static String getSavedScreen() => savedScreen;
 
   static List<GetPage> routes = [
@@ -78,6 +84,14 @@ class AppRoutes {
         name: viewAllRestaurants,
         transition: Transition.noTransition,
         page: () => const ViewAllRestaurantsScreen()),
+    GetPage(
+        name: viewAllCuisines,
+        transition: Transition.noTransition,
+        page: () => const ViewAllCuisineScreen()),
+    GetPage(
+        name: viewAllArea,
+        transition: Transition.noTransition,
+        page: () => const ViewAllAreaScreen()),
     GetPage(
         name: searchScreen,
         transition: Transition.noTransition,

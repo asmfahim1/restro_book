@@ -28,7 +28,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen>
   late AutoScrollController scrollController;
   late TabController tabController;
 
-  final double expandedHeight = Dimensions.heightScreenHalf * .82;
+  final double expandedHeight = Dimensions.heightScreenHalf;
   final double collapsedHeight = kToolbarHeight;
 
   final listViewKey = RectGetter.createGlobalKey();

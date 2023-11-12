@@ -22,8 +22,8 @@ class SliverHeaderData extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_, index) {
                   return (index + 1 <= 4)
-                      ? const Icon(Icons.star, size: 14, color: primaryColor)
-                      : const Icon(Icons.star, size: 14, color: strokeColor);
+                      ? const Icon(Icons.star, size: 16, color: primaryColor)
+                      : const Icon(Icons.star, size: 16, color: strokeColor);
                 },
               ),
             ),
@@ -38,7 +38,7 @@ class SliverHeaderData extends StatelessWidget {
                 ),
                 TextWidget(
                   '803 reviews ',
-                  style: TextStyles.regular12,
+                  style: TextStyles.regular16,
                 ),
               ],
             )
@@ -57,7 +57,7 @@ class SliverHeaderData extends StatelessWidget {
                 ),
                 TextWidget(
                   '\$50 and over ',
-                  style: TextStyles.regular12,
+                  style: TextStyles.regular16,
                 ),
               ],
             ),
@@ -72,7 +72,7 @@ class SliverHeaderData extends StatelessWidget {
                 ),
                 TextWidget(
                   'Steakhouse ',
-                  style: TextStyles.regular12,
+                  style: TextStyles.regular16,
                 ),
               ],
             )
@@ -89,7 +89,7 @@ class SliverHeaderData extends StatelessWidget {
             ),
             TextWidget(
               '1 Market St, San Fransisco, CA, 941051420 ',
-              style: TextStyles.regular12,
+              style: TextStyles.regular16,
             ),
           ],
         )

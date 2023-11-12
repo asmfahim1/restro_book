@@ -17,7 +17,7 @@ class ResNameWithDesc extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(
         horizontal: 16.0,
-        vertical: 10,
+        vertical: 5,
       ),
       decoration: BoxDecoration(
         color: whiteColor,

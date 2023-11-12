@@ -7,15 +7,11 @@ import '../../../../../core/utils/exports.dart';
 class BrowseByCuisineSectionWidget extends StatelessWidget {
   final String title;
   final VoidCallback viewAllOnTap;
-  final int itemLength;
   final String imagePath;
-  final String categoryName;
   const BrowseByCuisineSectionWidget({
     required this.title,
     required this.viewAllOnTap,
-    required this.itemLength,
     this.imagePath = featuredImagePath,
-    required this.categoryName,
     Key? key,
   }) : super(key: key);
 
@@ -61,7 +57,9 @@ class BrowseByCuisineSectionWidget extends StatelessWidget {
                         children: [
                           Expanded(
                             child: CircleAvatar(
-                              radius: Dimensions.radius20 + Dimensions.radius12 + Dimensions.radius4,
+                              radius: Dimensions.radius20 +
+                                  Dimensions.radius12 +
+                                  Dimensions.radius4,
                               backgroundImage: AssetImage(
                                 imagePath,
                               ),
@@ -69,7 +67,8 @@ class BrowseByCuisineSectionWidget extends StatelessWidget {
                           ),
                           TextWidget(
                             cuisines,
-                            style: TextStyles.regular12.copyWith(fontWeight: FontWeight.bold),
+                            style: TextStyles.regular12
+                                .copyWith(fontWeight: FontWeight.bold),
                           )
                         ],
                       ),

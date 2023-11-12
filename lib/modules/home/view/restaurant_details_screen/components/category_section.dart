@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
+import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/modules/home/controller/reservation_controller.dart';
 import 'package:restro_book/modules/home/view/restaurant_details_screen/components/sliver_body_item.dart';
 
@@ -55,7 +56,7 @@ class CategorySection extends StatelessWidget {
       padding: const EdgeInsets.only(left: 15),
       child: Row(
         children: [
-          Text(
+          TextWidget(
             controller.listOfCategories[index],
             style: TextStyles.title16,
             //strutStyle: Helper.buildStrutStyle(_textTheme(context).headline6),

@@ -299,9 +299,9 @@ class SliverBodyItems extends StatelessWidget {
       );
     } else if (categoryIndex == 'Menu') {
       return Container(
-        height: Dimensions.heightScreenHalf + Dimensions.height45,
+        height: Dimensions.heightScreenHalf + Dimensions.height50,
         width: Dimensions.screenWidth,
-        padding: const EdgeInsets.symmetric(vertical: 5),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -325,6 +325,7 @@ class SliverBodyItems extends StatelessWidget {
                     itemCount: 3,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.only(top: 10),
                     itemBuilder: (_, index) {
                       return Container(
                         width: Dimensions.screenWidth,
@@ -443,20 +444,21 @@ class SliverBodyItems extends StatelessWidget {
                         itemCount: 5,
                         // shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        //padding: EdgeInsets.zero,
+                        padding: const EdgeInsets.only(top: 20),
                         itemBuilder: (_, index) {
                           int reversedIndex = 5 - index;
                           return Row(
                             children: [
                               TextWidget(
                                 reversedIndex.toString(),
-                                style: TextStyles.regular14,
+                                style:
+                                    TextStyles.title32.copyWith(fontSize: 14),
                               ),
                               const SizedBox(
                                 width: 8,
                               ),
                               Container(
-                                height: Dimensions.height5,
+                                height: 7,
                                 width: Dimensions.width135,
                                 decoration: BoxDecoration(
                                   color: whiteColor,
@@ -489,7 +491,7 @@ class SliverBodyItems extends StatelessWidget {
             ),
             const SizedBoxHeight10(),
             SizedBox(
-              height: Dimensions.height40,
+              height: Dimensions.height50,
               width: Dimensions.screenWidth,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -563,6 +565,7 @@ class SliverBodyItems extends StatelessWidget {
                           itemCount: 3,
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
+                          padding: const EdgeInsets.only(top: 10),
                           itemBuilder: (_, index) {
                             return Container(
                               height:
