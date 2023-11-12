@@ -23,7 +23,7 @@ class ExploreAresSectionWidget extends StatelessWidget {
       child: Column(
         children: [
           InkWell(
-            onTap: () {},
+            onTap: viewAllOnTap,
             child: Padding(
               padding: leftRightPadding15,
               child: Row(
