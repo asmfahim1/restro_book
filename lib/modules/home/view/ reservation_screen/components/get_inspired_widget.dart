@@ -40,6 +40,7 @@ class GetInspiredWidget extends StatelessWidget {
                   restaurantCategory:
                       restaurant['restaurantCategory'].toString(),
                   restaurantRate: restaurant['restaurantRate'].toString(),
+                  timeWithTitle: false,
                   timeContainerHeight: Dimensions.height20 + Dimensions.height5,
                   timeContainerWidth: Dimensions.width50 + Dimensions.width20,
                   startTime: '11:30 AM',
