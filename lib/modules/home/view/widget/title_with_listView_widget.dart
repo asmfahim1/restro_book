@@ -16,9 +16,9 @@ class TitleWithListViewWidget extends StatelessWidget {
   final String startTime;
   final String midTime;
   final String endTime;
-  final String startPts;
+ /* final String startPts;
   final String midPts;
-  final String endPts;
+  final String endPts;*/
   const TitleWithListViewWidget(
       {
       required this.imageUrl,
@@ -32,9 +32,9 @@ class TitleWithListViewWidget extends StatelessWidget {
       this.startTime = '00:00 AM',
       this.midTime = '00:00 AM',
       this.endTime = '00:00 AM',
-      this.startPts = '123',
+      /*this.startPts = '123',
       this.midPts = '123',
-      this.endPts = '123',
+      this.endPts = '123',*/
       Key? key})
       : super(key: key);
 
@@ -122,17 +122,17 @@ class TitleWithListViewWidget extends StatelessWidget {
                           _timeContainerWithTitle(
                             time: startTime,
                             color: strokeColor,
-                            title: startPts,
+                            //title: startPts,
                           ),
                           _timeContainerWithTitle(
                             time: midTime,
                             color: primaryColor,
-                            title: midPts,
+                            //title: midPts,
                           ),
                           _timeContainerWithTitle(
                             time: endTime,
                             color: primaryColor,
-                            title: endPts,
+                            //title: endPts,
                           ),
                         ],
                       ),
@@ -149,7 +149,7 @@ class TitleWithListViewWidget extends StatelessWidget {
   Widget _timeContainerWithTitle({
     required String time,
     required Color color,
-    required String title,
+    //required String title,
   }) {
     return Column(
       children: [
@@ -164,10 +164,10 @@ class TitleWithListViewWidget extends StatelessWidget {
             style: TextStyles.title32.copyWith(fontSize: 12, color: whiteColor),
           ),
         ),
-        TextWidget(
+        /*TextWidget(
           title,
           style: TextStyles.title11.copyWith(color: primaryColor),
-        )
+        )*/
       ],
     );
   }
