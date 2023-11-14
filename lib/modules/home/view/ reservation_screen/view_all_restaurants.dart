@@ -12,25 +12,23 @@ class ViewAllRestaurantsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
+      backgroundColor: whiteColor,
+      appBar: AppBar(
         backgroundColor: whiteColor,
-        appBar: AppBar(
-          backgroundColor: whiteColor,
-          centerTitle: true,
-          leading: IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: const Icon(
-                Icons.arrow_back_outlined,
-                color: primaryColor,
-              )),
-          title: _appBar(),
-          elevation: 1,
-        ),
-        body: _buildBody(),
+        centerTitle: true,
+        leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(
+              Icons.arrow_back_outlined,
+              color: primaryColor,
+            )),
+        title: _appBar(),
+        elevation: 1,
       ),
+      body: _buildBody(),
     );
   }
 
