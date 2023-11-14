@@ -12,19 +12,17 @@ class SavedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: whiteColor,
-        appBar: AppBar(
-          backgroundColor: primaryColor,
-          //automaticallyImplyLeading: false,
-          title: TextWidget(
-            'Saved restaurants',
-            style: TextStyles.title20.copyWith(color: whiteColor),
-          ),
+    return Scaffold(
+      backgroundColor: whiteColor,
+      appBar: AppBar(
+        backgroundColor: primaryColor,
+        //automaticallyImplyLeading: false,
+        title: TextWidget(
+          'Saved restaurants',
+          style: TextStyles.title20.copyWith(color: whiteColor),
         ),
-        body: _buildBody(),
       ),
+      body: _buildBody(),
     );
   }
 
