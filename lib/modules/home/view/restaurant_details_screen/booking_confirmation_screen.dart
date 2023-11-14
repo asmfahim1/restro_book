@@ -70,7 +70,7 @@ class BookingConfirmScreen extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.all(8),
-            child: _reserveButton(),
+            child: _reserveButton(context),
           ),
         ],
       ),
@@ -222,7 +222,7 @@ class BookingConfirmScreen extends StatelessWidget {
     );
   }
 
-  Widget _reserveButton() {
+  Widget _reserveButton(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: CommonButton(
@@ -233,6 +233,7 @@ class BookingConfirmScreen extends StatelessWidget {
         buttonColor: primaryColor,
         onPressed: () {
           //route to another page
+          reservationController.reserveTable(context);
         },
       ),
     );

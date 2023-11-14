@@ -8,6 +8,9 @@ import 'package:restro_book/modules/home/view/bottom_nav_bar_screen.dart';
 import 'package:restro_book/modules/home/view/home_screen.dart';
 import 'package:restro_book/modules/home/view/restaurant_details_screen/booking_confirmation_screen.dart';
 import 'package:restro_book/modules/home/view/restaurant_details_screen/res_details_screen.dart';
+import 'package:restro_book/modules/home/view/restaurant_details_screen/see_all_reviews_screen.dart';
+import 'package:restro_book/modules/home/view/restaurant_details_screen/see_full_menu_screen.dart';
+import 'package:restro_book/modules/home/view/restaurant_details_screen/view_full_availability_screen.dart';
 
 import '../../modules/auth/login/view/login_screen.dart';
 import '../../modules/auth/login/view/splash_screen.dart';
@@ -24,6 +27,9 @@ class AppRoutes {
 
   static const homePage = '/home_page';
   static const resDetailsScreen = '/restaurant_details_page';
+  static const viewFullAvailability = '/view_full_availability_page';
+  static const seeFullMenu = '/see_full_menu_page';
+  static const seeAllReviews = '/see_all_reviews_page';
   static const viewAllRestaurants = '/view_all_restaurants_page';
   static const viewAllCuisines = '/view_all_cuisines_page';
   static const viewAllArea = '/view_all_area_page';
@@ -41,6 +47,12 @@ class AppRoutes {
   static String getHomeScreen() => homePage;
   static String getResDetailsScreen(String resName, String resId) =>
       '$resDetailsScreen?resName=$resName&resId=$resId';
+  static String getViewFullAvailabilityScreen(String resId, String resName) =>
+      '$viewFullAvailability?resId=$resId&resName=$resName';
+  static String getSeeFullMenuScreen(String resId, String resName) =>
+      '$seeFullMenu?resId=$resId&resName=$resName';
+  static String getSeeAllReviewsScreen(String resId, String resName) =>
+      '$seeAllReviews?resId=$resId&resName=$resName';
   static String getSearchScreen() => searchScreen;
   // static String getSearchDetailsScreen() => searchDetailsScreen;
   static String getBookingConfirmScreen(
@@ -107,6 +119,39 @@ class AppRoutes {
           var resName = Get.parameters['resName']!;
           var resId = Get.parameters['resId']!;
           return RestaurantDetailsScreen(
+            resName: resName,
+            resId: resId,
+          );
+        }),
+    GetPage(
+        name: viewFullAvailability,
+        transition: Transition.noTransition,
+        page: () {
+          var resName = Get.parameters['resName']!;
+          var resId = Get.parameters['resId']!;
+          return ViewFullAvailabilityScreen(
+            resName: resName,
+            resId: resId,
+          );
+        }),
+    GetPage(
+        name: seeFullMenu,
+        transition: Transition.noTransition,
+        page: () {
+          var resName = Get.parameters['resName']!;
+          var resId = Get.parameters['resId']!;
+          return SeeFullMenuScreen(
+            resName: resName,
+            resId: resId,
+          );
+        }),
+    GetPage(
+        name: seeAllReviews,
+        transition: Transition.noTransition,
+        page: () {
+          var resName = Get.parameters['resName']!;
+          var resId = Get.parameters['resId']!;
+          return SeeAllReviewsScreen(
             resName: resName,
             resId: resId,
           );

@@ -114,10 +114,10 @@ class _HomeScreenState extends State<HomeScreen>
     return TabBarView(
       physics: const NeverScrollableScrollPhysics(),
       controller: home.tabController,
-      children: [
+      children: const [
         ReservationBarScreen(),
-        const ExperiencesBarScreen(),
-        const TakeoutBarScreen(),
+        ExperiencesBarScreen(),
+        TakeoutBarScreen(),
       ],
     );
   }

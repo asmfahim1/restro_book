@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
+import 'package:restro_book/core/utils/restaurant_resources.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 
 class ExperienceFeaturedWidget extends StatelessWidget {
@@ -8,17 +9,16 @@ class ExperienceFeaturedWidget extends StatelessWidget {
   final bool isViewNeeded;
   final VoidCallback onTap;
   const ExperienceFeaturedWidget(
-      {
-        required this.titleOfTheList,
-        this.isViewNeeded = true,
-        required this.onTap,
-        Key? key})
+      {required this.titleOfTheList,
+      this.isViewNeeded = true,
+      required this.onTap,
+      Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimensions.heightScreenHalf ,
+      height: Dimensions.heightScreenHalf,
       width: Dimensions.screenWidth,
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -36,10 +36,10 @@ class ExperienceFeaturedWidget extends StatelessWidget {
                   ),
                   isViewNeeded
                       ? TextWidget(
-                    'VIEW ALL',
-                    style:
-                    TextStyles.title16.copyWith(color: primaryColor),
-                  )
+                          'VIEW ALL',
+                          style:
+                              TextStyles.title16.copyWith(color: primaryColor),
+                        )
                       : Container(),
                 ],
               ),
@@ -47,13 +47,14 @@ class ExperienceFeaturedWidget extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: restaurantList.length,
+                itemCount: featuredRestaurantList.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_, index) {
-                  final restaurant = restaurantList[index];
+                  final restaurant = featuredRestaurantList[index];
                   return Container(
                     width: Dimensions.width180 * 2 - Dimensions.width10,
-                    margin: const EdgeInsets.only(left: 15,right: 10, top: 10, bottom: 10),
+                    margin: const EdgeInsets.only(
+                        left: 15, right: 10, top: 10, bottom: 10),
                     decoration: BoxDecoration(
                       color: whiteColor,
                       borderRadius: const BorderRadius.all(
@@ -74,20 +75,21 @@ class ExperienceFeaturedWidget extends StatelessWidget {
                           height: Dimensions.height100 + Dimensions.height70,
                           width: Dimensions.screenWidth,
                           decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(restaurant['restaurantImage'].toString()),
-                              fit: BoxFit.cover
-                            )
-                          ),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      restaurant['restaurantImage'].toString()),
+                                  fit: BoxFit.cover)),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 10, top: 7, right: 10),
+                          padding: const EdgeInsets.only(
+                              left: 10, top: 7, right: 10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               TextWidget(
                                 restaurant['restaurantName'].toString(),
-                                style: TextStyles.title16.copyWith(color: blackColor),
+                                style: TextStyles.title16
+                                    .copyWith(color: blackColor),
                               ),
                               Row(
                                 children: [
@@ -103,14 +105,15 @@ class ExperienceFeaturedWidget extends StatelessWidget {
                                     width: 5,
                                     decoration: const BoxDecoration(
                                       color: Colors.black54,
-                                      shape: BoxShape.circle
+                                      shape: BoxShape.circle,
                                     ),
                                   ),
                                   const SizedBox(
                                     width: 5,
                                   ),
                                   TextWidget(
-                                    restaurant['restaurantPriceRang'].toString(),
+                                    restaurant['restaurantPriceRang']
+                                        .toString(),
                                     style: TextStyles.regular12,
                                   ),
                                 ],
@@ -124,9 +127,17 @@ class ExperienceFeaturedWidget extends StatelessWidget {
                                 width: Dimensions.screenWidth,
                                 child: Row(
                                   children: [
-                                    const Icon(Icons.calendar_today_outlined, size: 16,),
-                                    const SizedBox(width: 10,),
-                                    TextWidget('Tue, Oct 3', style: TextStyles.regular16,)
+                                    const Icon(
+                                      Icons.calendar_today_outlined,
+                                      size: 16,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    TextWidget(
+                                      'Tue, Oct 3',
+                                      style: TextStyles.regular16,
+                                    )
                                   ],
                                 ),
                               ),

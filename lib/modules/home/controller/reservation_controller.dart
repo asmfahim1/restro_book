@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restro_book/core/utils/string_resource.dart';
+import 'package:restro_book/modules/home/view/%20reservation_screen/components/special_alert_dialogue.dart';
 
 class ReservationController extends GetxController {
   final RxInt _noOfMember = 2.obs;
@@ -50,6 +51,19 @@ class ReservationController extends GetxController {
         duration: const Duration(milliseconds: 800),
         curve: Curves.fastOutSlowIn);
     update();
+  }
+
+  Future<void> reserveTable(BuildContext context) async {
+    if (context.mounted) {
+      showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => const SpecialAlert(
+          headTitle: "Successful!",
+          message: "Table booked successfully",
+          btnText: "Ok",
+        ),
+      );
+    }
   }
 
   int get noOfMember => _noOfMember.value;

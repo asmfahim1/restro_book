@@ -928,7 +928,7 @@ class SliverBodyItems extends StatelessWidget {
   ///reservation category
   Widget _showSeatingOptionBottomSheet(ReservationController controller) {
     return Container(
-      height: Dimensions.heightScreenHalf * 1.2,
+      height: Dimensions.heightScreenHalf * 1.3,
       padding: const EdgeInsets.all(15),
       decoration: const BoxDecoration(
           color: whiteColor,
@@ -972,7 +972,7 @@ class SliverBodyItems extends StatelessWidget {
                 controller.noOfMember.toString(), controller.dateTime));
           },
           child: Container(
-            height: Dimensions.height50,
+            height: Dimensions.height60,
             decoration: const BoxDecoration(
               border: Border(
                 bottom: BorderSide(color: strokeColor),
@@ -1040,6 +1040,9 @@ class SliverBodyItems extends StatelessWidget {
         buttonColor: whiteColor,
         onPressed: () {
           //route to another page
+          Get.toNamed(
+            AppRoutes.getViewFullAvailabilityScreen(resId, resName),
+          );
         },
       ),
     );
@@ -1057,6 +1060,9 @@ class SliverBodyItems extends StatelessWidget {
         buttonColor: whiteColor,
         onPressed: () {
           //route to another page
+          Get.toNamed(
+            AppRoutes.getSeeFullMenuScreen(resId, resName),
+          );
         },
       ),
     );
@@ -1074,6 +1080,9 @@ class SliverBodyItems extends StatelessWidget {
         buttonColor: whiteColor,
         onPressed: () {
           //route to another page
+          Get.toNamed(
+            AppRoutes.getSeeAllReviewsScreen(resId, resName),
+          );
         },
       ),
     );

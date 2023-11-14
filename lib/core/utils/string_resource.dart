@@ -645,3 +645,9 @@ final seatingOption = [
   {"title": "Outdoor", "subTitle": "Unavailable"},
   {"title": "Other", "subTitle": "Select"},
 ];
+
+final sortReviewsBy = [
+  {"title": "Most recent", "marked": "Yes"},
+  {"title": "Highest rated", "marked": "No"},
+  {"title": "Lowest rated", "marked": "No"},
+];
