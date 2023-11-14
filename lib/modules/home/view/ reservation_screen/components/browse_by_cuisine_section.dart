@@ -36,7 +36,8 @@ class BrowseByCuisineSectionWidget extends StatelessWidget {
                   ),
                   TextWidget(
                     'VIEW ALL',
-                    style: TextStyles.title16.copyWith(color: primaryColor),
+                    style: TextStyles.title16
+                        .copyWith(color: primaryColor, fontSize: 12),
                   )
                 ],
               ),

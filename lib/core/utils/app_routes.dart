@@ -129,6 +129,6 @@ class AppRoutes {
     GetPage(
         name: savedScreen,
         transition: Transition.noTransition,
-        page: () => const SavedScreen()),
+        page: () => SavedScreen()),
   ];
 }

@@ -8,23 +8,26 @@ class ViewAllAreaScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-        leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: const Icon(
-              Icons.arrow_back_outlined,
-              color: whiteColor,
-            )),
-        title: TextWidget(
-          'Explore the area',
-          style: TextStyles.title20.copyWith(color: whiteColor),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: whiteColor,
+        appBar: AppBar(
+          backgroundColor: primaryColor,
+          leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(
+                Icons.arrow_back_outlined,
+                color: whiteColor,
+              )),
+          title: TextWidget(
+            'Explore the area',
+            style: TextStyles.title20.copyWith(color: whiteColor),
+          ),
         ),
+        body: _listOfArea(),
       ),
-      body: _listOfArea(),
     );
   }
 

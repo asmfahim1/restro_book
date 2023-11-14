@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:restro_book/core/utils/string_resource.dart';
 
 class ReservationController extends GetxController {
-  final RxInt _noOfMember = 1.obs;
+  final RxInt _noOfMember = 2.obs;
   final RxInt _selectedMemberIndex = 0.obs;
   final RxBool _switchActive1 = false.obs;
   final RxBool _switchActive2 = false.obs;

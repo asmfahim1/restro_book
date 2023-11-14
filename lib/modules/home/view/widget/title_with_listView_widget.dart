@@ -5,6 +5,7 @@ import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/core/widgets/sized_box_height_10.dart';
 
 class TitleWithListViewWidget extends StatelessWidget {
+  final Widget? bookMarkButton;
   final String imageUrl;
   final String restaurantName;
   final String restaurantCategory;
@@ -16,11 +17,11 @@ class TitleWithListViewWidget extends StatelessWidget {
   final String startTime;
   final String midTime;
   final String endTime;
-  final String startPts;
+  /* final String startPts;
   final String midPts;
-  final String endPts;
+  final String endPts;*/
   const TitleWithListViewWidget(
-      {
+      {this.bookMarkButton,
       required this.imageUrl,
       required this.restaurantName,
       required this.onTap,
@@ -32,9 +33,9 @@ class TitleWithListViewWidget extends StatelessWidget {
       this.startTime = '00:00 AM',
       this.midTime = '00:00 AM',
       this.endTime = '00:00 AM',
-      this.startPts = '123',
+      /*this.startPts = '123',
       this.midPts = '123',
-      this.endPts = '123',
+      this.endPts = '123',*/
       Key? key})
       : super(key: key);
 
@@ -45,7 +46,7 @@ class TitleWithListViewWidget extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: Dimensions.width135 * 2,
-        margin: const EdgeInsets.only(left: 15,right: 10, top: 10, bottom: 10),
+        margin: const EdgeInsets.only(left: 15, right: 10, top: 10, bottom: 10),
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: const BorderRadius.all(
@@ -67,28 +68,22 @@ class TitleWithListViewWidget extends StatelessWidget {
               width: size.width,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(imageUrl.isEmpty ? reservationImagePath : imageUrl),
-                      fit: BoxFit.cover
-                  )
-              ),
+                      image: AssetImage(
+                          imageUrl.isEmpty ? reservationImagePath : imageUrl),
+                      fit: BoxFit.cover)),
             ),
             Column(
               children: [
                 Padding(
                   padding: leftRightPadding10,
                   child: Row(
-                    mainAxisAlignment:
-                    MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       TextWidget(
                         restaurantName,
                         style: TextStyles.title16,
                       ),
-                      const Icon(
-                        Icons.bookmark_border,
-                        size: 20,
-                        color: primaryColor,
-                      ),
+                      bookMarkButton!,
                     ],
                   ),
                 ),
@@ -112,31 +107,31 @@ class TitleWithListViewWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBoxHeight10(),
+                const SizedBoxHeight10(),
                 timeWithTitle
                     ? Padding(
-                      padding: leftRightPadding10,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _timeContainerWithTitle(
-                            time: startTime,
-                            color: strokeColor,
-                            title: startPts,
-                          ),
-                          _timeContainerWithTitle(
-                            time: midTime,
-                            color: primaryColor,
-                            title: midPts,
-                          ),
-                          _timeContainerWithTitle(
-                            time: endTime,
-                            color: primaryColor,
-                            title: endPts,
-                          ),
-                        ],
-                      ),
-                    )
+                        padding: leftRightPadding10,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            _timeContainerWithTitle(
+                              time: startTime,
+                              color: strokeColor,
+                              //title: startPts,
+                            ),
+                            _timeContainerWithTitle(
+                              time: midTime,
+                              color: primaryColor,
+                              //title: midPts,
+                            ),
+                            _timeContainerWithTitle(
+                              time: endTime,
+                              color: primaryColor,
+                              //title: endPts,
+                            ),
+                          ],
+                        ),
+                      )
                     : Container(),
               ],
             )
@@ -149,7 +144,7 @@ class TitleWithListViewWidget extends StatelessWidget {
   Widget _timeContainerWithTitle({
     required String time,
     required Color color,
-    required String title,
+    //required String title,
   }) {
     return Column(
       children: [
@@ -164,10 +159,10 @@ class TitleWithListViewWidget extends StatelessWidget {
             style: TextStyles.title32.copyWith(fontSize: 12, color: whiteColor),
           ),
         ),
-        TextWidget(
+        /*TextWidget(
           title,
           style: TextStyles.title11.copyWith(color: primaryColor),
-        )
+        )*/
       ],
     );
   }

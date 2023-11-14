@@ -9,7 +9,13 @@ final religions = [
   'Others',
 ];
 
-final categories = ['Reservation','Delivery & Takeout','Menu','Reviews','Details'];
+final categories = [
+  'Reservation',
+  'Delivery & Takeout',
+  'Menu',
+  'Reviews',
+  'Details'
+];
 
 final ages = [
   '18',
@@ -38,14 +44,15 @@ final languages = [
   'Hindi',
 ];
 
-final restaurantList =[
+final restaurantList = [
   {
     "restaurantID": "01",
     "restaurantName": "STK - NYC - Midtown",
     "restaurantImage": "assets/images/featured_1.JPG",
     "restaurantCategory": "Brazilian",
     "restaurantRate": "4.6 (2383)",
-    "restaurantBio": "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
+    "restaurantBio":
+        "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
     "restaurantMap": "Q248+2X New York, USA",
     "restaurantMetro": "Midtown West",
     "restaurantAddress": "1114 Avenue of the Americas, New York, NY 10036",
@@ -54,14 +61,18 @@ final restaurantList =[
     "restaurantDiningStyle": "Casual Elegant",
     "restaurantDressCode": "Smart Casual",
     "restaurantParking": "Available in the area.",
-    "restaurantPublictransit": "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
+    "restaurantPublictransit":
+        "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
     "restaurantPayment": "Cash, AMEX, Discover, Mastercard, Visa",
     "restaurantChefs": "Andrew Del Vecchio",
-    "restaurantAdditionalTags": "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
+    "restaurantAdditionalTags":
+        "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
     "restaurantWebsite": "https://stksteakhouse.com/venues/nyc-midtown/",
     "restaurantPhone": "(646) 624-2455",
-    "restaurantCatering": "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
-    "restaurantPrivatePartyFacilitie": "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
+    "restaurantCatering":
+        "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
+    "restaurantPrivatePartyFacilitie":
+        "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
     "restaurantPrivatePartyContact": "NYC Events Team: (646) 666-4510",
     "restaurantPriceRang": "\$40 to \$55",
     "restaurantPriceUnit": "\$",
@@ -72,7 +83,8 @@ final restaurantList =[
     "restaurantImage": "assets/images/featured_2.JPG",
     "restaurantCategory": "Steakhouse",
     "restaurantRate": "4.4 (2254)",
-    "restaurantBio": "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
+    "restaurantBio":
+        "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
     "restaurantMap": "Q248+2X New York, USA",
     "restaurantMetro": "Midtown West",
     "restaurantAddress": "1114 Avenue of the Americas, New York, NY 10036",
@@ -81,14 +93,18 @@ final restaurantList =[
     "restaurantDiningStyle": "Casual Elegant",
     "restaurantDressCode": "Smart Casual",
     "restaurantParking": "Available in the area.",
-    "restaurantPublictransit": "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
+    "restaurantPublictransit":
+        "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
     "restaurantPayment": "Cash, AMEX, Discover, Mastercard, Visa",
     "restaurantChefs": "Andrew Del Vecchio",
-    "restaurantAdditionalTags": "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
+    "restaurantAdditionalTags":
+        "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
     "restaurantWebsite": "https://stksteakhouse.com/venues/nyc-midtown/",
     "restaurantPhone": "(646) 624-2455",
-    "restaurantCatering": "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
-    "restaurantPrivatePartyFacilitie": "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
+    "restaurantCatering":
+        "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
+    "restaurantPrivatePartyFacilitie":
+        "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
     "restaurantPrivatePartyContact": "NYC Events Team: (646) 666-4510",
     "restaurantPriceRang": "\$31 to \$50",
     "restaurantPriceUnit": "\$\$\$",
@@ -99,7 +115,8 @@ final restaurantList =[
     "restaurantImage": "assets/images/featured_3.JPG",
     "restaurantCategory": "Chinese",
     "restaurantRate": "4.8 (2127)",
-    "restaurantBio": "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
+    "restaurantBio":
+        "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
     "restaurantMap": "Q248+2X New York, USA",
     "restaurantMetro": "Midtown West",
     "restaurantAddress": "1114 Avenue of the Americas, New York, NY 10036",
@@ -108,14 +125,18 @@ final restaurantList =[
     "restaurantDiningStyle": "Casual Elegant",
     "restaurantDressCode": "Smart Casual",
     "restaurantParking": "Available in the area.",
-    "restaurantPublictransit": "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
+    "restaurantPublictransit":
+        "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
     "restaurantPayment": "Cash, AMEX, Discover, Mastercard, Visa",
     "restaurantChefs": "Andrew Del Vecchio",
-    "restaurantAdditionalTags": "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
+    "restaurantAdditionalTags":
+        "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
     "restaurantWebsite": "https://stksteakhouse.com/venues/nyc-midtown/",
     "restaurantPhone": "(646) 624-2455",
-    "restaurantCatering": "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
-    "restaurantPrivatePartyFacilitie": "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
+    "restaurantCatering":
+        "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
+    "restaurantPrivatePartyFacilitie":
+        "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
     "restaurantPrivatePartyContact": "NYC Events Team: (646) 666-4510",
     "restaurantPriceRang": "\$20 to \$33",
     "restaurantPriceUnit": "\$\$",
@@ -126,7 +147,8 @@ final restaurantList =[
     "restaurantImage": "assets/images/featured_4.JPG",
     "restaurantCategory": "Peruvian",
     "restaurantRate": "4.6 (2164)",
-    "restaurantBio": "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
+    "restaurantBio":
+        "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
     "restaurantMap": "Q248+2X New York, USA",
     "restaurantMetro": "Midtown West",
     "restaurantAddress": "1114 Avenue of the Americas, New York, NY 10036",
@@ -135,25 +157,30 @@ final restaurantList =[
     "restaurantDiningStyle": "Casual Elegant",
     "restaurantDressCode": "Smart Casual",
     "restaurantParking": "Available in the area.",
-    "restaurantPublictransit": "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
+    "restaurantPublictransit":
+        "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
     "restaurantPayment": "Cash, AMEX, Discover, Mastercard, Visa",
     "restaurantChefs": "Andrew Del Vecchio",
-    "restaurantAdditionalTags": "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
+    "restaurantAdditionalTags":
+        "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
     "restaurantWebsite": "https://stksteakhouse.com/venues/nyc-midtown/",
     "restaurantPhone": "(646) 624-2455",
-    "restaurantCatering": "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
-    "restaurantPrivatePartyFacilitie": "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
+    "restaurantCatering":
+        "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
+    "restaurantPrivatePartyFacilitie":
+        "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
     "restaurantPrivatePartyContact": "NYC Events Team: (646) 666-4510",
     "restaurantPriceRang": "\$39 to \$75",
     "restaurantPriceUnit": "\$\$\$",
   },
   {
-    "restaurantID": "04",
+    "restaurantID": "05",
     "restaurantName": "Jen's Restaurant",
     "restaurantImage": "assets/images/food_image.png",
     "restaurantCategory": "American",
     "restaurantRate": "4.1 (2125)",
-    "restaurantBio": "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
+    "restaurantBio":
+        "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium and large cuts of meat, as well as naturally raised options and market fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
     "restaurantMap": "Q248+2X New York, USA",
     "restaurantMetro": "Midtown West",
     "restaurantAddress": "1114 Avenue of the Americas, New York, NY 10036",
@@ -162,21 +189,23 @@ final restaurantList =[
     "restaurantDiningStyle": "Casual Elegant",
     "restaurantDressCode": "Smart Casual",
     "restaurantParking": "Available in the area.",
-    "restaurantPublictransit": "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
+    "restaurantPublictransit":
+        "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
     "restaurantPayment": "Cash, AMEX, Discover, Mastercard, Visa",
     "restaurantChefs": "Andrew Del Vecchio",
-    "restaurantAdditionalTags": "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
+    "restaurantAdditionalTags":
+        "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
     "restaurantWebsite": "https://stksteakhouse.com/venues/nyc-midtown/",
     "restaurantPhone": "(646) 624-2455",
-    "restaurantCatering": "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
-    "restaurantPrivatePartyFacilitie": "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
+    "restaurantCatering":
+        "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
+    "restaurantPrivatePartyFacilitie":
+        "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
     "restaurantPrivatePartyContact": "NYC Events Team: (646) 666-4510",
     "restaurantPriceRang": "\$39 to \$75",
     "restaurantPriceUnit": "\$\$\$",
   }
 ];
-
-
 
 final restaurantCousins = [
   "Steakhouse",
@@ -224,31 +253,37 @@ final restaurantExperiences = [
         "expName": "Business Lunch",
         "expCost": "\$40.00 per person",
         "expSchedule": "Multiple dates available",
-        "expDescription": "Come and join us for lunch with our new business set menu designed to accommodate quick business meetings as well as lunch breaks and giving you a full taste experience from our à la carte menu with a glass of house wine. 2 courses \$40 menu priced per person with a discretionary 12.5% service charge added to the bill. Available Tuesday - Friday | 11:00 am - 4:00 pm",
-        "expPhoto": "https://resizer.otstatic.com/v2/photos/xlarge/1/51607521.jpg"
+        "expDescription":
+            "Come and join us for lunch with our new business set menu designed to accommodate quick business meetings as well as lunch breaks and giving you a full taste experience from our à la carte menu with a glass of house wine. 2 courses \$40 menu priced per person with a discretionary 12.5% service charge added to the bill. Available Tuesday - Friday | 11:00 am - 4:00 pm",
+        "expPhoto":
+            "https://resizer.otstatic.com/v2/photos/xlarge/1/51607521.jpg"
       },
       {
         "expName": "2 Plates Pre-Theatre Menu",
         "expCost": "\$48.00 per person",
         "expSchedule": "Multiple dates available",
-        "expDescription": "Start the evening at Bantof before catching a show at one of the nearby playhouses. Choose 2 plates from a variety of dishes of the Michelin star Chef Asimakis curated menu. Join us, in Bantof curated space, in the heart of Soho, in a lifted atmosphere surrounded by art and learn more about the artist. Set menu is priced per person with a discretionary 12.5% service charge added to the bill. Available Tuesday - Saturday | 4 pm - 6 pm",
-        "expPhoto": "https://resizer.otstatic.com/v2/photos/xlarge/2/50893839.jpg"
+        "expDescription":
+            "Start the evening at Bantof before catching a show at one of the nearby playhouses. Choose 2 plates from a variety of dishes of the Michelin star Chef Asimakis curated menu. Join us, in Bantof curated space, in the heart of Soho, in a lifted atmosphere surrounded by art and learn more about the artist. Set menu is priced per person with a discretionary 12.5% service charge added to the bill. Available Tuesday - Saturday | 4 pm - 6 pm",
+        "expPhoto":
+            "https://resizer.otstatic.com/v2/photos/xlarge/2/50893839.jpg"
       },
       {
         "expName": "Bottomless Brunch",
         "expCost": "\$48.00 per person",
         "expSchedule": "Multiple dates available",
-        "expDescription": "Bottomless brunch in the heart of Soho with free-flowing prosecco with one starter and one main for £40 per person. Start your weekend off right with this stylish brunch in Soho. Giving you high-end cultural vibes, Bantof comes decked out in sleek furnishings with imaginative artwork and a menu of delicious European sharing dishes from Michelin chef Asimakis Chaniotis. Available for 90-minutes Friday and Saturday noon to 3:30 pm, priced per person with a discretionary 12.5% service charge added to the bill.",
-        "expPhoto": "https://resizer.otstatic.com/v2/photos/xlarge/2/50893839.jpg"
+        "expDescription":
+            "Bottomless brunch in the heart of Soho with free-flowing prosecco with one starter and one main for £40 per person. Start your weekend off right with this stylish brunch in Soho. Giving you high-end cultural vibes, Bantof comes decked out in sleek furnishings with imaginative artwork and a menu of delicious European sharing dishes from Michelin chef Asimakis Chaniotis. Available for 90-minutes Friday and Saturday noon to 3:30 pm, priced per person with a discretionary 12.5% service charge added to the bill.",
+        "expPhoto":
+            "https://resizer.otstatic.com/v2/photos/xlarge/2/50893839.jpg"
       }
     ]
   }
-
 ];
 
 final restaurantDetails = {
   "restaurantName": "STK - NYC - Midtown",
-  "restaurantBio": "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium, and large cuts of meat, as well as naturally raised options and market-fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
+  "restaurantBio":
+      "STK artfully blends two concepts into on the modern steakhouse and a chic lounge. A large central lounge area is furnished with creamy leather banquettes and textured crocodile tiles, and is surrounded by an elevated dining room for more formal dining. Theatrical lights illuminate each table, while a DJ creates an energetic vibe throughout the entire space. STK Midtown is located in Midtown Manhattan, just steps from the bustling Theatre District. STK Midtown includes an outdoor patio and separate bar during summer months. As anticipated, steak is the main attraction. With a chic and modern mindset, STK offers small, medium, and large cuts of meat, as well as naturally raised options and market-fresh fish entrees. Aside from steak, signature items include Parmesan Truffle Fries; Lil’ BRGs; Crispy Lobster Tail; Sweet Corn Pudding; and Jumbo Lump Crab Salad. STK follows all local guides for Health and Safety procedures.",
   "restaurantMap": "Q248+2X New York, USA",
   "restaurantMetro": "Midtown West",
   "restaurantAddress": "1114 Avenue of the Americas, New York, NY 10036",
@@ -257,38 +292,46 @@ final restaurantDetails = {
   "restaurantDiningStyle": "Casual Elegant",
   "restaurantDressCode": "Smart Casual",
   "restaurantParking": "Available in the area.",
-  "restaurantPublictransit": "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
+  "restaurantPublictransit":
+      "B, D, F, M & 7 trains to the Bryant Park. A, C, E, 1, 2, 3, Q, R, N, S trains to Times Square.",
   "restaurantPayment": "Cash, AMEX, Discover, Mastercard, Visa",
   "restaurantChefs": "Andrew Del Vecchio",
-  "restaurantAdditionalTags": "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
+  "restaurantAdditionalTags":
+      "Banquet, Bar/Lounge, Beer, Cafe, Cocktails, Corkage Fee, Counter Seating, Dancing, Delivery, Entertainment, Full Bar, Happy Hour, Indoor Fireplace, Late Night, Patio/Outdoor Dining, Private Room, Takeout, Weekend Brunch, Wheelchair Access, Wine",
   "restaurantWebsite": "https://stksteakhouse.com/venues/nyc-midtown/",
   "restaurantPhone": "(646) 624-2455",
-  "restaurantCatering": "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
-  "restaurantPrivatePartyFacilitie": "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
+  "restaurantCatering":
+      "Catering available through EZ Cater at: https://www.ezcater.com/catering/stk-steakhouse-new-york",
+  "restaurantPrivatePartyFacilitie":
+      "Private Suites: Misty Aires: 14ppl max Ophelia Flame: 14ppl max Combined Misty & Ophelia Flame room: 32ppl Champagne Bar: 50ppl",
   "restaurantPrivatePartyContact": "NYC Events Team: (646) 666-4510",
   "restaurantPriceRange": "\$31 to \$50",
   "restaurantPriceUnit": "\$",
-  "restaurantBannerPhotos": "https://resizer.otstatic.com/v2/photos/xlarge/2/47150910.webp",
+  "restaurantBannerPhotos":
+      "https://resizer.otstatic.com/v2/photos/xlarge/2/47150910.webp",
   "restaurantExperience": [
     {
       "ExpName": "Business Lunch",
       "ExpCost": "\$40.00 per person",
       "ExpSchedule": "Multiple dates available",
-      "ExpDescription": "Come and join us for lunch with our new business set menu designed to accommodate quick business meetings as well as lunch breaks and give you a full taste experience from our à la carte menu with a glass of house wine. 2 courses \$40 menu priced per person with a discretionary 12.5% service charge added to the bill. Available Tuesday - Friday | 11:00 am - 4:00 pm",
+      "ExpDescription":
+          "Come and join us for lunch with our new business set menu designed to accommodate quick business meetings as well as lunch breaks and give you a full taste experience from our à la carte menu with a glass of house wine. 2 courses \$40 menu priced per person with a discretionary 12.5% service charge added to the bill. Available Tuesday - Friday | 11:00 am - 4:00 pm",
       "ExpPhoto": "https://resizer.otstatic.com/v2/photos/xlarge/1/51607521.jpg"
     },
     {
       "ExpName": "2 Plates Pre-Theatre Menu",
       "ExpCost": "\$48.00 per person",
       "ExpSchedule": "Multiple dates available",
-      "ExpDescription": "Start the evening at Bantof before catching a show at one of the nearby playhouses. Choose 2 plates from a variety of dishes of the Michelin star Chef Asimakis curated menu. Join us, in Bantof curated space, in the heart of Soho, in a lifted atmosphere surrounded by art and learn more about the artist. Set menu is priced per person with a discretionary 12.5% service charge added to the bill. Available Tuesday - Saturday | 4 pm - 6 pm",
+      "ExpDescription":
+          "Start the evening at Bantof before catching a show at one of the nearby playhouses. Choose 2 plates from a variety of dishes of the Michelin star Chef Asimakis curated menu. Join us, in Bantof curated space, in the heart of Soho, in a lifted atmosphere surrounded by art and learn more about the artist. Set menu is priced per person with a discretionary 12.5% service charge added to the bill. Available Tuesday - Saturday | 4 pm - 6 pm",
       "ExpPhoto": "https://resizer.otstatic.com/v2/photos/xlarge/2/50893839.jpg"
     },
     {
       "ExpName": "Bottomless Brunch",
       "ExpCost": "\$48.00 per person",
       "ExpSchedule": "Multiple dates available",
-      "ExpDescription": "Bottomless brunch in the heart of Soho with free-flowing prosecco with one starter and one main for £40 per person. Start your weekend off right with this stylish brunch in Soho. Giving you high-end cultural vibes, Bantof comes decked out in sleek furnishings with imaginative artwork and a menu of delicious European sharing dishes from Michelin chef Asimakis Chaniotis. Available for 90 minutes Friday and Saturday noon to 3:30 pm, priced per person with a discretionary 12.5% service charge added to the bill.",
+      "ExpDescription":
+          "Bottomless brunch in the heart of Soho with free-flowing prosecco with one starter and one main for £40 per person. Start your weekend off right with this stylish brunch in Soho. Giving you high-end cultural vibes, Bantof comes decked out in sleek furnishings with imaginative artwork and a menu of delicious European sharing dishes from Michelin chef Asimakis Chaniotis. Available for 90 minutes Friday and Saturday noon to 3:30 pm, priced per person with a discretionary 12.5% service charge added to the bill.",
       "ExpPhoto": "https://resizer.otstatic.com/v2/photos/xlarge/2/50893839.jpg"
     }
   ],
@@ -296,21 +339,25 @@ final restaurantDetails = {
     {
       "PopDishName": "Steak Frites",
       "PopDishMenu": "8oz ribeye - french fries - choice of sauce",
-      "PopDishPhotoURL": "https://resizer.otstatic.com/v2/photos/wide-large/1/42327049.jpg",
+      "PopDishPhotoURL":
+          "https://resizer.otstatic.com/v2/photos/wide-large/1/42327049.jpg",
       "popDisComments": [
         {
           "disuserRatings": "4.0",
-          "disuserComments": "The food is excellent but if you are looking for a traditional NY steakhouse, this is not it. It’s a more upscale hip version where steak is not the only star on the menu. That being said. We had the Porterhouse medium rare and it was excellent. The sides were very good as well. Best if someone else is paying. Just saying.",
+          "disuserComments":
+              "The food is excellent but if you are looking for a traditional NY steakhouse, this is not it. It’s a more upscale hip version where steak is not the only star on the menu. That being said. We had the Porterhouse medium rare and it was excellent. The sides were very good as well. Best if someone else is paying. Just saying.",
           "disuserCommentsDate": "Aug 31, 2023"
         },
         {
           "disuserRatings": "4.0",
-          "disuserComments": "Very good steak…not great. Reasonable prices for New York City…but not elsewhere. Very good ambiance. A great place to go out to eat before you go out.",
+          "disuserComments":
+              "Very good steak…not great. Reasonable prices for New York City…but not elsewhere. Very good ambiance. A great place to go out to eat before you go out.",
           "disuserCommentsDate": "Jul 23, 2023"
         },
         {
           "disuserRatings": "4.5",
-          "disuserComments": "Great steak house. Just I felt like the A/C was off",
+          "disuserComments":
+              "Great steak house. Just I felt like the A/C was off",
           "disuserCommentsDate": "Jun 23, 2023"
         }
       ]
@@ -318,21 +365,25 @@ final restaurantDetails = {
     {
       "PopDishName": "Jalapeño Pickled Shrimp Cocktail",
       "PopDishMenu": "4 prawns - cocktail sauce - lemon",
-      "PopDishPhotoURL": "https://resizer.otstatic.com/v2/photos/wide-large/1/42327049.jpg",
+      "PopDishPhotoURL":
+          "https://resizer.otstatic.com/v2/photos/wide-large/1/42327049.jpg",
       "popDisComments": [
         {
           "disuserRatings": "4.0",
-          "disuserComments": "The food is excellent but if you are looking for a traditional NY steakhouse, this is not it. It’s a more upscale hip version where steak is not the only star on the menu. That being said. We had the Porterhouse medium rare and it was excellent. The sides were very good as well. Best if someone else is paying. Just saying.",
+          "disuserComments":
+              "The food is excellent but if you are looking for a traditional NY steakhouse, this is not it. It’s a more upscale hip version where steak is not the only star on the menu. That being said. We had the Porterhouse medium rare and it was excellent. The sides were very good as well. Best if someone else is paying. Just saying.",
           "disuserCommentsDate": "Aug 31, 2023"
         },
         {
           "disuserRatings": "4.0",
-          "disuserComments": "Very good steak…not great. Reasonable prices for New York City…but not elsewhere. Very good ambiance. A great place to go out to eat before you go out.",
+          "disuserComments":
+              "Very good steak…not great. Reasonable prices for New York City…but not elsewhere. Very good ambiance. A great place to go out to eat before you go out.",
           "disuserCommentsDate": "Jul 23, 2023"
         },
         {
           "disuserRatings": "4.5",
-          "disuserComments": "Great steak house. Just I felt like the A/C was off",
+          "disuserComments":
+              "Great steak house. Just I felt like the A/C was off",
           "disuserCommentsDate": "Jun 23, 2023"
         }
       ]
@@ -340,16 +391,19 @@ final restaurantDetails = {
     {
       "PopDishName": "Tuna Tartare Tacos",
       "PopDishMenu": "hass avocado - taro shell - soy-honey emulsion",
-      "PopDishPhotoURL": "https://resizer.otstatic.com/v2/photos/wide-large/1/46890750.jpg",
+      "PopDishPhotoURL":
+          "https://resizer.otstatic.com/v2/photos/wide-large/1/46890750.jpg",
       "popDisComments": [
         {
           "disuserRatings": "4.0",
-          "disuserComments": "The food is excellent but if you are looking for a traditional NY steakhouse, this is not it. It’s a more upscale hip version where steak is not the only star on the menu. That being said. We had the Porterhouse medium rare and it was excellent. The sides were very good as well. Best if someone else is paying. Just saying.",
+          "disuserComments":
+              "The food is excellent but if you are looking for a traditional NY steakhouse, this is not it. It’s a more upscale hip version where steak is not the only star on the menu. That being said. We had the Porterhouse medium rare and it was excellent. The sides were very good as well. Best if someone else is paying. Just saying.",
           "disuserCommentsDate": "Aug 31, 2023"
         },
         {
           "disuserRatings": "4.0",
-          "disuserComments": "Very good steak…not great. Reasonable prices for New York City…but not elsewhere. Very good ambiance. A great place to go out to eat before you go out.",
+          "disuserComments":
+              "Very good steak…not great. Reasonable prices for New York City…but not elsewhere. Very good ambiance. A great place to go out to eat before you go out.",
           "disuserCommentsDate": "Jul 23, 2023"
         }
       ]
@@ -362,22 +416,26 @@ final restaurantDetails = {
         {
           "menuitemName": "Baby Gem Caesar",
           "menuitemPrice": "\$25.00",
-          "menuitemDesc": "parmigiano reggiano - lemon black pepper emulsion - herb crouton"
+          "menuitemDesc":
+              "parmigiano reggiano - lemon black pepper emulsion - herb crouton"
         },
         {
           "menuitemName": "Crispy Calamari",
           "menuitemPrice": "\$25.00",
-          "menuitemDesc": "basil - shishito peppers - roasted garlic & lime aioli - Asian chili sauce"
+          "menuitemDesc":
+              "basil - shishito peppers - roasted garlic & lime aioli - Asian chili sauce"
         },
         {
           "menuitemName": "Blue Iceberg",
           "menuitemPrice": "\$25.00",
-          "menuitemDesc": "parmigiano reggiano - lemon black pepper emulsion - herb crouton"
+          "menuitemDesc":
+              "parmigiano reggiano - lemon black pepper emulsion - herb crouton"
         },
         {
           "menuitemName": "Lil' Brgs*",
           "menuitemPrice": "\$25.00",
-          "menuitemDesc": "basil - shishito peppers - roasted garlic & lime aioli - Asian chili sauce"
+          "menuitemDesc":
+              "basil - shishito peppers - roasted garlic & lime aioli - Asian chili sauce"
         }
       ]
     },
@@ -387,12 +445,14 @@ final restaurantDetails = {
         {
           "menuitemName": "Filet*",
           "menuitemPrice": "\$25.00",
-          "menuitemDesc": "sweet corn pudding, mashed potatoes, crispy Brussels sprouts"
+          "menuitemDesc":
+              "sweet corn pudding, mashed potatoes, crispy Brussels sprouts"
         },
         {
           "menuitemName": "Wagyu Burger & Fries",
           "menuitemPrice": "\$25.00",
-          "menuitemDesc": "7oz beef patty - American cheese - lettuce - tomato - onion - special sauce - fries"
+          "menuitemDesc":
+              "7oz beef patty - American cheese - lettuce - tomato - onion - special sauce - fries"
         }
       ]
     },
@@ -402,12 +462,14 @@ final restaurantDetails = {
         {
           "menuitemName": "Baby Gem Caesar*",
           "menuitemPrice": "\$25.00",
-          "menuitemDesc": "parmigiano reggiano - lemon black pepper emulsion - herb crouton"
+          "menuitemDesc":
+              "parmigiano reggiano - lemon black pepper emulsion - herb crouton"
         },
         {
           "menuitemName": "Crispy Calamari",
           "menuitemPrice": "\$25.00",
-          "menuitemDesc": "basil - shishito peppers - roasted garlic & lime aioli - Asian chili sauce"
+          "menuitemDesc":
+              "basil - shishito peppers - roasted garlic & lime aioli - Asian chili sauce"
         }
       ]
     },
@@ -422,22 +484,26 @@ final restaurantDetails = {
         {
           "menuitemName": "Cucumber Stiletto",
           "menuitemPrice": "",
-          "menuitemDesc": "Grey Goose Le Citron Vodka - St~Germain - muddled cucumber - mint"
+          "menuitemDesc":
+              "Grey Goose Le Citron Vodka - St~Germain - muddled cucumber - mint"
         },
         {
           "menuitemName": "Spiced Watermelon",
           "menuitemPrice": "",
-          "menuitemDesc": "Patrón Silver Tequila - St~Germain - wtrmln wtr - fresh lime - jalapeño"
+          "menuitemDesc":
+              "Patrón Silver Tequila - St~Germain - wtrmln wtr - fresh lime - jalapeño"
         },
         {
           "menuitemName": "Not Your Daddy's Old Fashioned",
           "menuitemPrice": "",
-          "menuitemDesc": "Woodford Reserve Bourbon - Angostura - bitters - brown sugar - vanilla bean"
+          "menuitemDesc":
+              "Woodford Reserve Bourbon - Angostura - bitters - brown sugar - vanilla bean"
         },
         {
           "menuitemName": "Strawberry Cobbler",
           "menuitemPrice": "",
-          "menuitemDesc": "Belvedere Vodka - muddled strawberry - graham cracker crust"
+          "menuitemDesc":
+              "Belvedere Vodka - muddled strawberry - graham cracker crust"
         }
       ]
     }
@@ -454,14 +520,17 @@ final restaurantDetails = {
           "reviewCustomerFood": "5",
           "reviewCustomerService": "5",
           "reviewCustomerAmbience": "5",
-          "reviewCustomerDescription": "Everyone and my overall experience was excellent. Thank you",
+          "reviewCustomerDescription":
+              "Everyone and my overall experience was excellent. Thank you",
           "reviewCustomerDate": "Sep 02, 2023",
           "reviewCustomerPhotos": [
             {
-              "reviewCustomerPhotosURL": "https://resizer.otstatic.com/v2/photos/xlarge/1/54873590.jpg"
+              "reviewCustomerPhotosURL":
+                  "https://resizer.otstatic.com/v2/photos/xlarge/1/54873590.jpg"
             },
             {
-              "reviewCustomerPhotosURL": "https://resizer.otstatic.com/v2/photos/xlarge/1/54873608.jpg"
+              "reviewCustomerPhotosURL":
+                  "https://resizer.otstatic.com/v2/photos/xlarge/1/54873608.jpg"
             }
           ]
         },
@@ -470,17 +539,21 @@ final restaurantDetails = {
           "reviewCustomerFood": "5",
           "reviewCustomerService": "5",
           "reviewCustomerAmbience": "5",
-          "reviewCustomerDescription": "Reggie was amazing! He knew the menu well and was so personable and fun! Definitely made my experience here a great one. Also the DJ was 10/10 amazing! I will be back!",
+          "reviewCustomerDescription":
+              "Reggie was amazing! He knew the menu well and was so personable and fun! Definitely made my experience here a great one. Also the DJ was 10/10 amazing! I will be back!",
           "reviewCustomerDate": "Aug 28, 2023",
           "reviewCustomerPhotos": [
             {
-              "reviewCustomerPhotosURL": "https://resizer.otstatic.com/v2/photos/xlarge/1/54797361.jpg"
+              "reviewCustomerPhotosURL":
+                  "https://resizer.otstatic.com/v2/photos/xlarge/1/54797361.jpg"
             },
             {
-              "reviewCustomerPhotosURL": "https://resizer.otstatic.com/v2/photos/xlarge/1/54797366.jpg"
+              "reviewCustomerPhotosURL":
+                  "https://resizer.otstatic.com/v2/photos/xlarge/1/54797366.jpg"
             },
             {
-              "reviewCustomerPhotosURL": "https://resizer.otstatic.com/v2/photos/xlarge/1/54797367.jpg"
+              "reviewCustomerPhotosURL":
+                  "https://resizer.otstatic.com/v2/photos/xlarge/1/54797367.jpg"
             }
           ]
         },
@@ -489,14 +562,17 @@ final restaurantDetails = {
           "reviewCustomerFood": "4",
           "reviewCustomerService": "3",
           "reviewCustomerAmbience": "2",
-          "reviewCustomerDescription": "Overpriced for what I got noisy, food was not worth \$",
+          "reviewCustomerDescription":
+              "Overpriced for what I got noisy, food was not worth \$",
           "reviewCustomerDate": "Aug 03, 2023",
           "reviewCustomerPhotos": [
             {
-              "reviewCustomerPhotosURL": "https://resizer.otstatic.com/v2/photos/xlarge/1/54657394.jpg"
+              "reviewCustomerPhotosURL":
+                  "https://resizer.otstatic.com/v2/photos/xlarge/1/54657394.jpg"
             },
             {
-              "reviewCustomerPhotosURL": "https://resizer.otstatic.com/v2/photos/xlarge/1/54657412.jpg"
+              "reviewCustomerPhotosURL":
+                  "https://resizer.otstatic.com/v2/photos/xlarge/1/54657412.jpg"
             }
           ]
         },
@@ -505,14 +581,17 @@ final restaurantDetails = {
           "reviewCustomerFood": "5",
           "reviewCustomerService": "4",
           "reviewCustomerAmbience": "4",
-          "reviewCustomerDescription": "Food was classy, presented well and delish! Loved it!",
+          "reviewCustomerDescription":
+              "Food was classy, presented well and delish! Loved it!",
           "reviewCustomerDate": "Jul 03, 2023",
           "reviewCustomerPhotos": [
             {
-              "reviewCustomerPhotosURL": "https://resizer.otstatic.com/v2/photos/xlarge/1/54104219.jpg"
+              "reviewCustomerPhotosURL":
+                  "https://resizer.otstatic.com/v2/photos/xlarge/1/54104219.jpg"
             },
             {
-              "reviewCustomerPhotosURL": "https://resizer.otstatic.com/v2/photos/xlarge/1/54104218.jpg"
+              "reviewCustomerPhotosURL":
+                  "https://resizer.otstatic.com/v2/photos/xlarge/1/54104218.jpg"
             }
           ]
         }
@@ -522,7 +601,8 @@ final restaurantDetails = {
   "restaurantSafetyPrecautions": [
     {
       "safetyprecautionName": "Cleaning & sanitizing",
-      "safetyprecautionDetails": "Surfaces sanitized between seatings | Digital, disposable or sanitized menu provided | Sealed or wrapped utensils used | Common areas deep-cleaned daily | Contactless payment available"
+      "safetyprecautionDetails":
+          "Surfaces sanitized between seatings | Digital, disposable or sanitized menu provided | Sealed or wrapped utensils used | Common areas deep-cleaned daily | Contactless payment available"
     },
     {
       "safetyprecautionName": "Protective equipment",
@@ -530,7 +610,8 @@ final restaurantDetails = {
     },
     {
       "safetyprecautionName": "Screening",
-      "safetyprecautionDetails": "Sick staff prohibited in the workplace | Staff temperature check required | Contact tracing information collected"
+      "safetyprecautionDetails":
+          "Sick staff prohibited in the workplace | Staff temperature check required | Contact tracing information collected"
     }
   ]
 };
@@ -557,29 +638,10 @@ final userInfo = [
 ];
 
 final seatingOption = [
-  {
-    "title": "Standard",
-    "subTitle": " "
-  },
-  {
-    "title": "Bar",
-    "subTitle": "Unavailable"
-  },
-  {
-    "title": "Counter",
-    "subTitle": "Unavailable"
-  },
-  {
-    "title": "High top",
-    "subTitle": " "
-  },
-  {
-    "title": "Outdoor",
-    "subTitle": "Unavailable"
-  },
-  {
-    "title": "Other",
-    "subTitle": "Select"
-  },
+  {"title": "Standard", "subTitle": " "},
+  {"title": "Bar", "subTitle": "Unavailable"},
+  {"title": "Counter", "subTitle": "Unavailable"},
+  {"title": "High top", "subTitle": " "},
+  {"title": "Outdoor", "subTitle": "Unavailable"},
+  {"title": "Other", "subTitle": "Select"},
 ];
-

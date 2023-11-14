@@ -19,7 +19,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   final List _tabs = [
     const HomeScreen(),
     const SearchScreen(),
-    const SavedScreen(),
+    SavedScreen(),
     const SizedBox(),
     const SizedBox(),
   ];
@@ -27,6 +27,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
       body: SafeArea(
         child: GetBuilder<HomeController>(
           builder: (controller) {

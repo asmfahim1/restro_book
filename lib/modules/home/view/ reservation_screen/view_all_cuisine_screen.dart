@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 
@@ -9,23 +8,26 @@ class ViewAllCuisineScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-        leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: const Icon(
-              Icons.arrow_back_outlined,
-              color: whiteColor,
-            )),
-        title: TextWidget(
-          'Browse by cuisine',
-          style: TextStyles.title20.copyWith(color: whiteColor),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: whiteColor,
+        appBar: AppBar(
+          backgroundColor: primaryColor,
+          leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(
+                Icons.arrow_back_outlined,
+                color: whiteColor,
+              )),
+          title: TextWidget(
+            'Browse by cuisine',
+            style: TextStyles.title20.copyWith(color: whiteColor),
+          ),
         ),
+        body: _listOfCuisines(),
       ),
-      body: _listOfCuisines(),
     );
   }
 
@@ -33,15 +35,45 @@ class ViewAllCuisineScreen extends StatelessWidget {
     return Container(
       padding: leftRightPadding15,
       child: GridView.builder(
-        itemCount:
-            restaurantCousins.length, // Replace with your actual item count
+        itemCount: restaurantCousins.length,
+        physics: BouncingScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15.0,
-            mainAxisSpacing: 15.0,
-            childAspectRatio: 0.75),
+            crossAxisCount: 3,
+            crossAxisSpacing: 10.0,
+            mainAxisSpacing: 10.0,
+            childAspectRatio: .7),
         itemBuilder: (context, index) {
-          return Card(
+          return Container(
+            margin: EdgeInsets.only(top: 15),
+            child: Column(
+              children: [
+                // Image with 70% height
+                const CircleAvatar(
+                  radius: 45,
+                  backgroundImage:
+                      AssetImage('assets/images/recently_viewed_4.jpg'),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextWidget(
+                  restaurantCousins[index],
+                  overflow:
+                      TextOverflow.ellipsis, // Replace with your actual name
+                  style: TextStyles.title16.copyWith(
+                    fontSize: 14.0,
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+/*Card(
             elevation: 2,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(6.0),
@@ -76,9 +108,4 @@ class ViewAllCuisineScreen extends StatelessWidget {
                 ),
               ],
             ),
-          );
-        },
-      ),
-    );
-  }
-}
+          )*/

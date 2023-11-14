@@ -127,7 +127,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
 
   Widget _socialLogin() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         _socialItem(
           title: 'Facebook',

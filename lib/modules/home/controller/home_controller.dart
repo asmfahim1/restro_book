@@ -3,16 +3,19 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:restro_book/core/utils/extensions.dart';
+import 'package:restro_book/modules/home/model/save_data_model.dart';
 
 class HomeController extends GetxController {
   final RxBool gettingLocation = false.obs;
-  final RxInt _noOfMember = 1.obs;
+  final RxInt _noOfMember = 2.obs;
   final RxInt _selectedMemberIndex = 0.obs;
   final Rx<DateTime> _dateTime = DateTime.now().obs;
   final RxString _myLocation = ''.obs;
   final RxString _myLatitude = ''.obs;
   final RxString _myLongitude = ''.obs;
   ScrollController scrollController = ScrollController();
+  RxList<SavedRestaurantModel> selectedList = <SavedRestaurantModel>[].obs;
+  RxList<SavedRestaurantModel> savedList = <SavedRestaurantModel>[].obs;
 
   int tabIndex = 3;
   late TabController tabController;
@@ -98,6 +101,32 @@ class HomeController extends GetxController {
     Placemark address = placeMark[0];
     myLocation = '${address.subLocality}, ${address.locality}';
     "My current address is : $placeMark".log();
+  }
+
+  void addToSavedList(Map<String, dynamic> item) {
+    SavedRestaurantModel savedRestaurantModel = SavedRestaurantModel(
+      resId: item['restaurantID'],
+      restaurantName: item['restaurantName'],
+      restaurantImage: item['restaurantImage'],
+      restaurantCategory: item['restaurantCategory'],
+      restaurantMap: item['restaurantMap'],
+      restaurantRate: item['restaurantRate'],
+      restaurantDiningStyle: item['restaurantDiningStyle'],
+      restaurantPriceUnit: item['restaurantPriceUnit'],
+    );
+    // Check if the savedList already contains an item with the same id
+    bool isAlreadySaved = savedList
+        .any((savedItem) => savedRestaurantModel.resId == savedItem.resId);
+    print('already saved? : $isAlreadySaved');
+    if (isAlreadySaved) {
+      savedList.removeWhere(
+          (savedItem) => savedRestaurantModel.resId == savedItem.resId);
+
+      print('Saved List after remove the existing rest: ${savedList.length}');
+    } else {
+      savedList.add(savedRestaurantModel);
+      print('Saved List after add the new rest: ${savedList.length}');
+    }
   }
 
   int get currentIndex => _currentIndex.value;

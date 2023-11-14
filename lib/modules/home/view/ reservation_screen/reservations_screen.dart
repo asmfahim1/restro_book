@@ -36,19 +36,31 @@ class ReservationBarScreen extends StatelessWidget {
                 children: [
                   _locationTimeWidget(context, homeController),
                   const SizedBoxHeight10(),
-                  AvailableForCurrentTimeWidget(),
+                  AvailableForCurrentTimeWidget(
+                    homeController: homeController,
+                  ),
                   const SizedBoxHeight10(),
-                  const OutDoorDiningWidget(),
+                  OutDoorDiningWidget(
+                    homeController: homeController,
+                  ),
                   const SizedBoxHeight10(),
-                  const NewToRestroBookingWidget(),
+                  NewToRestroBookingWidget(
+                    homeController: homeController,
+                  ),
                   const SizedBoxHeight10(),
-                  const FeaturedRestaurantsWidget(),
+                  FeaturedRestaurantsWidget(
+                    homeController: homeController,
+                  ),
                   const SizedBoxHeight10(),
                   const RecentlyViewedRestaurantsWidget(),
                   const SizedBoxHeight10(),
-                  const HappyHourWidget(),
+                  HappyHourWidget(
+                    homeController: homeController,
+                  ),
                   const SizedBoxHeight10(),
-                  const AvailableForBrunchWidget(),
+                  AvailableForBrunchWidget(
+                    homeController: homeController,
+                  ),
                   const SizedBoxHeight10(),
                   const GetInspiredWidget(),
                   _browseByCuisineWidget(),
@@ -78,7 +90,7 @@ class ReservationBarScreen extends StatelessWidget {
               },
               child: Container(
                 height: Dimensions.height30,
-                width: Dimensions.screenWidth * 0.45,
+                width: Dimensions.width35 + Dimensions.width10,
                 decoration: BoxDecoration(
                   border: Border.all(color: strokeColor),
                   borderRadius: BorderRadius.circular(30),
@@ -97,7 +109,7 @@ class ReservationBarScreen extends StatelessWidget {
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
                     ),
-                    const SizedBox(
+                    /*const SizedBox(
                       width: 5,
                     ),
                     Container(
@@ -116,7 +128,7 @@ class ReservationBarScreen extends StatelessWidget {
                         style: TextStyles.regular12
                             .copyWith(fontWeight: FontWeight.bold),
                       );
-                    }),
+                    }),*/
                   ],
                 ),
               ),

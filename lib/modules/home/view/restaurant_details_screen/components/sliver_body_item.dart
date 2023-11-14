@@ -43,7 +43,7 @@ class SliverBodyItems extends StatelessWidget {
               },
               child: Container(
                 height: Dimensions.height30,
-                width: Dimensions.width135 + Dimensions.width20,
+                width: Dimensions.width180 - Dimensions.width20,
                 margin: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   border: Border.all(color: strokeColor),

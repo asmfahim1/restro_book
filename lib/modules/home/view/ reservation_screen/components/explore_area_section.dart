@@ -8,10 +8,7 @@ class ExploreAresSectionWidget extends StatelessWidget {
   final String title;
   final VoidCallback viewAllOnTap;
   const ExploreAresSectionWidget(
-      {
-      required this.title,
-      required this.viewAllOnTap,
-      Key? key})
+      {required this.title, required this.viewAllOnTap, Key? key})
       : super(key: key);
 
   @override
@@ -35,7 +32,8 @@ class ExploreAresSectionWidget extends StatelessWidget {
                   ),
                   TextWidget(
                     'VIEW ALL',
-                    style: TextStyles.title16.copyWith(color: primaryColor),
+                    style: TextStyles.title16
+                        .copyWith(color: primaryColor, fontSize: 12),
                   )
                 ],
               ),
@@ -49,7 +47,7 @@ class ExploreAresSectionWidget extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (_, index) {
-                   final explore = exploreAres[index];
+                    final explore = exploreAres[index];
                     return Container(
                       margin: const EdgeInsets.only(left: 15),
                       padding: const EdgeInsets.symmetric(horizontal: 10),
