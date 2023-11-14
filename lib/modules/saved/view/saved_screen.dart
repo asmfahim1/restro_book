@@ -16,7 +16,7 @@ class SavedScreen extends StatelessWidget {
       backgroundColor: whiteColor,
       appBar: AppBar(
         backgroundColor: primaryColor,
-        //automaticallyImplyLeading: false,
+        automaticallyImplyLeading: false,
         title: TextWidget(
           'Saved restaurants',
           style: TextStyles.title20.copyWith(color: whiteColor),
