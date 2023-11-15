@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:restro_book/modules/history/view/history_screen.dart';
 import 'package:restro_book/modules/home/controller/home_controller.dart';
+import 'package:restro_book/modules/notification/view/notification_screen.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../saved/view/saved_screen.dart';
@@ -20,8 +22,8 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     const HomeScreen(),
     const SearchScreen(),
     SavedScreen(),
-    const SizedBox(),
-    const SizedBox(),
+    const HistoryScreen(),
+    const NotificationScreen(),
   ];
 
   @override

@@ -115,8 +115,8 @@ class SavedScreen extends StatelessWidget {
           height: 5,
         ),
         Container(
-          height: Dimensions.height100,
-          width: Dimensions.width135,
+          height: Dimensions.height70,
+          width: Dimensions.width35 * 2,
           decoration: BoxDecoration(
             color: strokeColor,
             borderRadius: BorderRadius.circular(10),

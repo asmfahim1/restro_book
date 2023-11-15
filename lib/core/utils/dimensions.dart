@@ -16,21 +16,21 @@ class Dimensions {
   static double margin15 = screenHeight * (15 / screenHeight);
 
   //height ratio
-  static double height5 = screenHeight * (5/screenHeight);
-  static double height10 = screenHeight * (10/screenHeight);
-  static double height15 = screenHeight * (15/screenHeight);
-  static double height20 = screenHeight * (20/screenHeight);
-  static double height30 = screenHeight * (30/screenHeight);
-  static double height35 = screenHeight * (35/screenHeight);
-  static double height40 = screenHeight * (40/screenHeight);
-  static double height45 = screenHeight * (45/screenHeight);
-  static double height50 = screenHeight * (50/screenHeight);
-  static double height60 = screenHeight * (60/screenHeight);
-  static double height70 = screenHeight * (70/screenHeight);
-  static double height80 = screenHeight * (80/screenHeight);
-  static double height100 = screenHeight * (100/screenHeight);
-  static double height275 = screenHeight * (275/screenHeight);
-  static double height300 = screenHeight * (300/screenHeight);
+  static double height5 = screenHeight * (5 / screenHeight);
+  static double height10 = screenHeight * (10 / screenHeight);
+  static double height15 = screenHeight * (15 / screenHeight);
+  static double height20 = screenHeight * (20 / screenHeight);
+  static double height30 = screenHeight * (30 / screenHeight);
+  static double height35 = screenHeight * (35 / screenHeight);
+  static double height40 = screenHeight * (40 / screenHeight);
+  static double height45 = screenHeight * (45 / screenHeight);
+  static double height50 = screenHeight * (50 / screenHeight);
+  static double height60 = screenHeight * (60 / screenHeight);
+  static double height70 = screenHeight * (70 / screenHeight);
+  static double height80 = screenHeight * (80 / screenHeight);
+  static double height100 = screenHeight * (100 / screenHeight);
+  static double height275 = screenHeight * (275 / screenHeight);
+  static double height300 = screenHeight * (300 / screenHeight);
   static double heightScreenHalf = screenHeight * 0.5;
 
   //width ratio
@@ -39,12 +39,13 @@ class Dimensions {
   static double width20 = screenWidth * (20 / screenWidth);
   static double width35 = screenWidth * (35 / screenWidth);
   static double width50 = screenWidth * (50 / screenWidth);
+  static double width100 = screenWidth * (100 / screenWidth);
   static double width135 = screenWidth * (135 / screenWidth);
   static double width145 = screenWidth * (145 / screenWidth);
   static double width180 = screenWidth * (180 / screenWidth);
   static double width200 = screenWidth * (200 / screenWidth);
   static double width225 = screenWidth * (225 / screenWidth);
-  static double widthScreenHalf = screenWidth  * 0.5;
+  static double widthScreenHalf = screenWidth * 0.5;
 
   //font ratio
   static double font10 = screenHeight * (10 / screenHeight);
@@ -63,13 +64,10 @@ class Dimensions {
   static double radius12 = screenHeight * (12 / screenHeight);
   static double radius20 = screenHeight * (20 / screenHeight);
 
-
   //icon ratio
   static double iconSize12 = screenHeight * (12 / screenHeight);
   static double iconSize15 = screenHeight * (15 / screenHeight);
   static double iconSize20 = screenHeight * (20 / screenHeight);
   static double iconSize25 = screenHeight * (25 / screenHeight);
   static double iconSize30 = screenHeight * (30 / screenHeight);
-
-
 }

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:restro_book/modules/auth/login/view/get_started_screen.dart';
 import 'package:restro_book/modules/auth/registration/view/registration_screen.dart';
+import 'package:restro_book/modules/history/view/history_screen.dart';
 import 'package:restro_book/modules/home/view/%20reservation_screen/view_all_area_screen.dart';
 import 'package:restro_book/modules/home/view/%20reservation_screen/view_all_cuisine_screen.dart';
 import 'package:restro_book/modules/home/view/%20reservation_screen/view_all_restaurants.dart';
@@ -11,6 +12,8 @@ import 'package:restro_book/modules/home/view/restaurant_details_screen/res_deta
 import 'package:restro_book/modules/home/view/restaurant_details_screen/see_all_reviews_screen.dart';
 import 'package:restro_book/modules/home/view/restaurant_details_screen/see_full_menu_screen.dart';
 import 'package:restro_book/modules/home/view/restaurant_details_screen/view_full_availability_screen.dart';
+import 'package:restro_book/modules/profile/view/account_settings_screen.dart';
+import 'package:restro_book/modules/profile/view/profile_screen.dart';
 
 import '../../modules/auth/login/view/login_screen.dart';
 import '../../modules/auth/login/view/splash_screen.dart';
@@ -34,9 +37,11 @@ class AppRoutes {
   static const viewAllCuisines = '/view_all_cuisines_page';
   static const viewAllArea = '/view_all_area_page';
   static const searchScreen = '/search_page';
-  //static const searchDetailsScreen = '/search_details_page';
   static const bookingConfirmScreen = '/booking_confirm_page';
   static const savedScreen = '/saved_page';
+  static const profileScreen = '/profile_page';
+  static const accountSettingScreen = '/account_setting_page';
+  static const historyScreen = '/history_page';
 
   //best way to justify the parameter is actual indicate the specific route
   static String getSplashPage() => splashScreen;
@@ -66,114 +71,144 @@ class AppRoutes {
   static String getViewAllCuisineScreen() => viewAllCuisines;
   static String getViewAllAreaScreen() => viewAllArea;
   static String getSavedScreen() => savedScreen;
+  static String getProfileScreen() => profileScreen;
+  static String getAccountSetting() => accountSettingScreen;
+  static String getHistoryScreen() => historyScreen;
 
   static List<GetPage> routes = [
     GetPage(
-        name: splashScreen,
-        transition: Transition.cupertino,
-        page: () => const SplashScreen()),
+      name: splashScreen,
+      transition: Transition.cupertino,
+      page: () => const SplashScreen(),
+    ),
     GetPage(
-        name: getStartedScreen,
-        transition: Transition.cupertino,
-        page: () => const GetStartedScreen()),
+      name: getStartedScreen,
+      transition: Transition.cupertino,
+      page: () => const GetStartedScreen(),
+    ),
     GetPage(
-        name: navBarScreen,
-        transition: Transition.cupertino,
-        page: () => const BottomNavigationScreen()),
+      name: navBarScreen,
+      transition: Transition.cupertino,
+      page: () => const BottomNavigationScreen(),
+    ),
     GetPage(
-        name: loginPage,
-        transition: Transition.noTransition,
-        page: () => const LoginScreen()),
+      name: loginPage,
+      transition: Transition.noTransition,
+      page: () => const LoginScreen(),
+    ),
     GetPage(
-        name: registrationPage,
-        transition: Transition.noTransition,
-        page: () => const RegistrationScreen()),
+      name: registrationPage,
+      transition: Transition.noTransition,
+      page: () => const RegistrationScreen(),
+    ),
     GetPage(
-        name: homePage,
-        transition: Transition.noTransition,
-        page: () => const HomeScreen()),
+      name: homePage,
+      transition: Transition.noTransition,
+      page: () => const HomeScreen(),
+    ),
     GetPage(
-        name: viewAllRestaurants,
-        transition: Transition.noTransition,
-        page: () => const ViewAllRestaurantsScreen()),
+      name: viewAllRestaurants,
+      transition: Transition.noTransition,
+      page: () => const ViewAllRestaurantsScreen(),
+    ),
     GetPage(
-        name: viewAllCuisines,
-        transition: Transition.noTransition,
-        page: () => const ViewAllCuisineScreen()),
+      name: viewAllCuisines,
+      transition: Transition.noTransition,
+      page: () => const ViewAllCuisineScreen(),
+    ),
     GetPage(
-        name: viewAllArea,
-        transition: Transition.noTransition,
-        page: () => const ViewAllAreaScreen()),
+      name: viewAllArea,
+      transition: Transition.noTransition,
+      page: () => const ViewAllAreaScreen(),
+    ),
     GetPage(
-        name: searchScreen,
-        transition: Transition.noTransition,
-        page: () => const SearchScreen()),
-/*    GetPage(
-        name: searchDetailsScreen,
-        transition: Transition.noTransition,
-        page: () => const SearchScreenDetails()),*/
+      name: searchScreen,
+      transition: Transition.noTransition,
+      page: () => const SearchScreen(),
+    ),
     GetPage(
-        name: resDetailsScreen,
-        transition: Transition.noTransition,
-        page: () {
-          var resName = Get.parameters['resName']!;
-          var resId = Get.parameters['resId']!;
-          return RestaurantDetailsScreen(
-            resName: resName,
-            resId: resId,
-          );
-        }),
+      name: resDetailsScreen,
+      transition: Transition.noTransition,
+      page: () {
+        var resName = Get.parameters['resName']!;
+        var resId = Get.parameters['resId']!;
+        return RestaurantDetailsScreen(
+          resName: resName,
+          resId: resId,
+        );
+      },
+    ),
     GetPage(
-        name: viewFullAvailability,
-        transition: Transition.noTransition,
-        page: () {
-          var resName = Get.parameters['resName']!;
-          var resId = Get.parameters['resId']!;
-          return ViewFullAvailabilityScreen(
-            resName: resName,
-            resId: resId,
-          );
-        }),
+      name: viewFullAvailability,
+      transition: Transition.noTransition,
+      page: () {
+        var resName = Get.parameters['resName']!;
+        var resId = Get.parameters['resId']!;
+        return ViewFullAvailabilityScreen(
+          resName: resName,
+          resId: resId,
+        );
+      },
+    ),
     GetPage(
-        name: seeFullMenu,
-        transition: Transition.noTransition,
-        page: () {
-          var resName = Get.parameters['resName']!;
-          var resId = Get.parameters['resId']!;
-          return SeeFullMenuScreen(
-            resName: resName,
-            resId: resId,
-          );
-        }),
+      name: seeFullMenu,
+      transition: Transition.noTransition,
+      page: () {
+        var resName = Get.parameters['resName']!;
+        var resId = Get.parameters['resId']!;
+        return SeeFullMenuScreen(
+          resName: resName,
+          resId: resId,
+        );
+      },
+    ),
     GetPage(
-        name: seeAllReviews,
-        transition: Transition.noTransition,
-        page: () {
-          var resName = Get.parameters['resName']!;
-          var resId = Get.parameters['resId']!;
-          return SeeAllReviewsScreen(
-            resName: resName,
-            resId: resId,
-          );
-        }),
+      name: seeAllReviews,
+      transition: Transition.noTransition,
+      page: () {
+        var resName = Get.parameters['resName']!;
+        var resId = Get.parameters['resId']!;
+        return SeeAllReviewsScreen(
+          resName: resName,
+          resId: resId,
+        );
+      },
+    ),
     GetPage(
-        name: bookingConfirmScreen,
-        transition: Transition.noTransition,
-        page: () {
-          var resName = Get.parameters['resName']!;
-          var resId = Get.parameters['resId']!;
-          var partySize = Get.parameters['partySize']!;
-          var reservationTime = Get.parameters['reservationTime']!;
-          return BookingConfirmScreen(
-            resName: resName,
-            resId: resId,
-            partySize: partySize,
-            reservationTime: DateTime.parse(reservationTime),
-          );
-        }),
+      name: bookingConfirmScreen,
+      transition: Transition.noTransition,
+      page: () {
+        var resName = Get.parameters['resName']!;
+        var resId = Get.parameters['resId']!;
+        var partySize = Get.parameters['partySize']!;
+        var reservationTime = Get.parameters['reservationTime']!;
+        return BookingConfirmScreen(
+          resName: resName,
+          resId: resId,
+          partySize: partySize,
+          reservationTime: DateTime.parse(reservationTime),
+        );
+      },
+    ),
     GetPage(
-        name: savedScreen,
-        transition: Transition.noTransition,
-        page: () => SavedScreen()),
+      name: savedScreen,
+      transition: Transition.noTransition,
+      page: () => SavedScreen(),
+    ),
+    GetPage(
+      name: profileScreen,
+      transition: Transition.noTransition,
+      page: () => const ProfileScreen(),
+    ),
+    GetPage(
+      name: accountSettingScreen,
+      transition: Transition.noTransition,
+      page: () => const AccountSettingsScreen(),
+    ),
+    GetPage(
+      name: historyScreen,
+      transition: Transition.noTransition,
+      page: () => const HistoryScreen(),
+    ),
   ];
 }

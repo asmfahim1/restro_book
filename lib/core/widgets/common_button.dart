@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restro_book/core/widgets/text_widget.dart';
+
 import '../utils/colors.dart';
 import '../utils/styles.dart';
 
@@ -38,22 +39,22 @@ class CommonButton extends StatelessWidget {
         ),
         backgroundColor: btnColor,
       ),
-        onPressed: onPressed,
-        child: SizedBox(
-          height: height,
-          child: Center(
-            child: TextWidget(
-              buttonTitle,
-              maxLines: 2,
-              textAlign: TextAlign.center,
-              style: TextStyles.title16.copyWith(
-                color: buttonTextColor ?? whiteColor,
-                fontSize: fontSize,
-                fontWeight: fontWeight,
-              ),
+      onPressed: onPressed,
+      child: SizedBox(
+        height: height,
+        child: Center(
+          child: TextWidget(
+            buttonTitle,
+            maxLines: 2,
+            textAlign: TextAlign.center,
+            style: TextStyles.title16.copyWith(
+              color: buttonTextColor ?? whiteColor,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
             ),
           ),
         ),
+      ),
     );
   }
 }

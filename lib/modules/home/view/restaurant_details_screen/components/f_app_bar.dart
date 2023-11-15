@@ -83,7 +83,7 @@ class FAppBar extends SliverAppBar {
       duration: const Duration(milliseconds: 300),
       child: TextWidget(
         resName,
-        style: TextStyles.title16,
+        style: TextStyles.title20,
       ),
     );
   }

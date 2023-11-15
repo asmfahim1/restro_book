@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/widgets/text_widget.dart';
+
 import '../utils/colors.dart';
 import '../utils/styles.dart';
 import 'back_button.dart';
@@ -32,7 +33,7 @@ class CommonAppbar extends StatelessWidget implements PreferredSizeWidget {
             ? const SizedBox()
             : TextWidget(
                 title!,
-                style: TextStyles.regular18.copyWith(
+                style: TextStyles.title20.copyWith(
                   color: darkGrayColor,
                 ),
               ),

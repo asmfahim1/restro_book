@@ -1,4 +1,4 @@
-//const loginBackgroundImage = 'assets/images/login_back_image.jpg';
+const profileImagePath = 'assets/icons/profile_pic.png';
 const loginBackgroundImage = 'assets/images/login_bg_1.png';
 //const loginBackgroundImage = 'assets/images/login_bg_2.png';
 //const loginBackgroundImage = 'assets/images/login_bg_3.png';

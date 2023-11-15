@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/const.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/styles.dart';
@@ -61,15 +62,22 @@ class _HomeScreenState extends State<HomeScreen>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextWidget(
-                  'Good morning, Fahim',
+                  'Good morning, Sophie',
                   style: TextStyles.title20,
                 ),
-                const CircleAvatar(
-                  backgroundColor: strokeColor,
-                  radius: 15,
-                  child: Icon(
-                    Icons.person_outline_rounded,
-                    color: darkGrayColor,
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(
+                      AppRoutes.getProfileScreen(),
+                    );
+                  },
+                  child: const CircleAvatar(
+                    backgroundColor: strokeColor,
+                    radius: 15,
+                    child: Icon(
+                      Icons.person_outline_rounded,
+                      color: darkGrayColor,
+                    ),
                   ),
                 ),
               ],
