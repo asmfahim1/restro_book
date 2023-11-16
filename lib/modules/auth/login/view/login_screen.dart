@@ -9,8 +9,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(
-        'Screen height : ${Dimensions.screenHeight} -----width: ${Dimensions.screenWidth}');
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
