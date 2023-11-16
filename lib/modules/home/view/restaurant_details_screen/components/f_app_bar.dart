@@ -130,7 +130,7 @@ class FAppBar extends SliverAppBar {
           background: Column(
             children: [
               SizedBox(
-                height: Dimensions.height100 * 2.7,
+                height: Dimensions.height100 * 2.8,
                 width: Dimensions.screenWidth,
                 child: PageView.builder(
                   itemCount: assets.length,

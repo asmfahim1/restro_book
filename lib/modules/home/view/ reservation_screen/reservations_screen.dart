@@ -77,7 +77,8 @@ class ReservationBarScreen extends StatelessWidget {
       child: SingleChildScrollView(
         child: Row(
           children: [
-            GestureDetector(
+            InkWell(
+              borderRadius: BorderRadius.circular(20),
               onTap: () {
                 showModalBottomSheet<dynamic>(
                     context: context,
@@ -93,7 +94,7 @@ class ReservationBarScreen extends StatelessWidget {
                 width: Dimensions.width35 + Dimensions.width10,
                 decoration: BoxDecoration(
                   border: Border.all(color: strokeColor),
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -169,7 +170,7 @@ class ReservationBarScreen extends StatelessWidget {
     );
   }
 
-  ///reservation category
+  ///reservation for  party size
   Widget _showDateTimeBottomSheet(HomeController controller) {
     DateTime initialDateTime = DateTime.now();
     int initialMinute = initialDateTime.minute;
@@ -177,7 +178,7 @@ class ReservationBarScreen extends StatelessWidget {
       initialMinute = initialDateTime.minute - initialDateTime.minute % 15 + 15;
     }
     return Container(
-      height: Dimensions.heightScreenHalf + Dimensions.height40,
+      height: Dimensions.heightScreenHalf * 1.26,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -258,7 +259,6 @@ class ReservationBarScreen extends StatelessWidget {
                 onDateTimeChanged: (date) {
                   final formattedDate =
                       DateFormat('E, MMM d h:mm a').format(date);
-                  print('The picked date and Time is: $formattedDate');
                   controller.dateTime = date;
                 }),
           ),

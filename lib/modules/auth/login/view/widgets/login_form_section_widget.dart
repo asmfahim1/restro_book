@@ -32,7 +32,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
     return Form(
       key: _formKey,
       child: Container(
-        height: Dimensions.screenHeight * .45,
+        height: Dimensions.screenHeight * .5,
         width: size.width,
         padding: leftRightPadding10,
         decoration: BoxDecoration(

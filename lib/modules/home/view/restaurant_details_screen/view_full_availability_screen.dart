@@ -29,16 +29,14 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
   }
 
   Widget _buildBody() {
-    return Container(
+    return SizedBox(
       height: Dimensions.screenHeight,
       width: Dimensions.screenWidth,
-      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [
           _partySizeWidget(),
           Expanded(
             child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 20),
               alignment: Alignment.center,
               child: _customDateWidget(),
             ),
@@ -108,13 +106,15 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: leftPadding15,
+          padding: const EdgeInsets.only(left: 15, top: 10),
           child: TextWidget(
             'Date',
             style: TextStyles.title20,
           ),
         ),
-        const SizedBoxHeight10(),
+        const SizedBox(
+          height: 5,
+        ),
         Obx(() {
           return TableCalendar(
             daysOfWeekStyle: DaysOfWeekStyle(
@@ -151,8 +151,8 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
                   size: 20,
                   color: Colors.black,
                 )),
-            rowHeight: Dimensions.height60,
-            daysOfWeekHeight: Dimensions.height35,
+            rowHeight: Dimensions.height45,
+            daysOfWeekHeight: Dimensions.height40,
             focusedDay: reservationController.dateTime,
             firstDay: DateTime(2023),
             lastDay: DateTime(2025),
@@ -175,7 +175,7 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
 
   Widget _timeContainer() {
     return Container(
-      height: Dimensions.height100 * 1.2,
+      height: Dimensions.height80,
       decoration: BoxDecoration(
         color: whiteColor,
         boxShadow: [
@@ -201,7 +201,7 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
           }),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(top: 28, bottom: 28),
+              padding: const EdgeInsets.only(top: 8, bottom: 8),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {

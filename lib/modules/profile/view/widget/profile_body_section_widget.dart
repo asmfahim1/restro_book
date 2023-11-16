@@ -32,7 +32,7 @@ class ProfileBodySectionWidget extends StatelessWidget {
                 ],
               ),
               const SizedBoxHeight20(),
-              Row(
+              /*Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextWidget(
@@ -61,10 +61,10 @@ class ProfileBodySectionWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              )*/
             ],
           ),
-          const SizedBoxHeight20(),
+          /*const SizedBoxHeight20(),
           const Divider(
             thickness: 1.2,
             color: Colors.black12,
@@ -111,26 +111,30 @@ class ProfileBodySectionWidget extends StatelessWidget {
               )
             ],
           ),
-          const SizedBoxHeight20(),
+          const SizedBoxHeight20(),*/
           InkWell(
             onTap: () {
               Get.toNamed(
                 AppRoutes.getAccountSetting(),
               );
             },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextWidget(
-                  'Account settings',
-                  style: TextStyles.title16,
-                ),
-                const Icon(
-                  Icons.arrow_forward_ios_outlined,
-                  size: 16,
-                ),
-              ],
-            ),
+            child: _settingAndPrivacyWidget('Account settings'),
+          ),
+          InkWell(
+            onTap: () {
+              /*Get.toNamed(
+                AppRoutes.getAccountSetting(),
+              );*/
+            },
+            child: _settingAndPrivacyWidget('Help & Support'),
+          ),
+          InkWell(
+            onTap: () {
+              /*Get.toNamed(
+                AppRoutes.getAccountSetting(),
+              );*/
+            },
+            child: _settingAndPrivacyWidget('Terms & Privacy'),
           ),
           const SizedBoxHeight20(),
           const SizedBoxHeight20(),
@@ -170,6 +174,30 @@ class ProfileBodySectionWidget extends StatelessWidget {
           title,
         ),
       ],
+    );
+  }
+
+  Widget _settingAndPrivacyWidget(String titleName) {
+    return Container(
+      height: Dimensions.height60,
+      decoration: const BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: strokeColor),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextWidget(
+            titleName,
+            style: TextStyles.title16,
+          ),
+          const Icon(
+            Icons.arrow_forward_ios_outlined,
+            size: 16,
+          ),
+        ],
+      ),
     );
   }
 }

@@ -41,12 +41,11 @@ class TitleWithListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: Dimensions.width135 * 2,
-        margin: const EdgeInsets.only(left: 15, right: 10, top: 10, bottom: 10),
+        width: Dimensions.width135 * 2.15,
+        margin: const EdgeInsets.only(left: 15, top: 10, bottom: 10),
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: const BorderRadius.all(
@@ -65,7 +64,7 @@ class TitleWithListViewWidget extends StatelessWidget {
           children: [
             Container(
               height: Dimensions.height100 + Dimensions.height60,
-              width: size.width,
+              width: Dimensions.screenWidth,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(

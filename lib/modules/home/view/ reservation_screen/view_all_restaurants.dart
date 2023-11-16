@@ -35,7 +35,7 @@ class ViewAllRestaurantsScreen extends StatelessWidget {
   Widget _appBar() {
     return Container(
       height: Dimensions.height30,
-      width: Dimensions.width135 + Dimensions.width15,
+      width: Dimensions.width180 - Dimensions.width10,
       decoration: BoxDecoration(
         border: Border.all(color: strokeColor),
         borderRadius: BorderRadius.circular(30),
@@ -105,7 +105,7 @@ class ViewAllRestaurantsScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextWidget(title, style: TextStyles.title16),
+        TextWidget(title, style: TextStyles.title20),
         Row(
           children: [
             Icon(
@@ -155,7 +155,7 @@ class ViewAllRestaurantsScreen extends StatelessWidget {
         ),
         Container(
           height: Dimensions.height100,
-          width: Dimensions.screenWidth,
+          width: Dimensions.width100 * 1.2,
           decoration: BoxDecoration(
             color: strokeColor,
             borderRadius: BorderRadius.circular(10),

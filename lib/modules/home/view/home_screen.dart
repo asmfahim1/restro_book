@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen>
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(Dimensions.screenHeight * .14875),
+        preferredSize: Size.fromHeight(Dimensions.height100 * 1.15),
         child: _topSectionWidget(),
       ),
       body: _buildBody(),
@@ -47,74 +47,69 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _topSectionWidget() {
-    return Container(
-      decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(color: strokeColor)),
-      ),
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 30),
-            height: Dimensions.screenHeight * .05,
-            width: Dimensions.screenWidth,
-            padding: leftRightPadding15,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextWidget(
-                  'Good morning, Sophie',
-                  style: TextStyles.title20,
-                ),
-                InkWell(
-                  onTap: () {
-                    Get.toNamed(
-                      AppRoutes.getProfileScreen(),
-                    );
-                  },
-                  child: const CircleAvatar(
-                    backgroundColor: strokeColor,
-                    radius: 15,
-                    child: Icon(
-                      Icons.person_outline_rounded,
-                      color: darkGrayColor,
-                    ),
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.only(top: 30),
+          height: Dimensions.screenHeight * .05,
+          width: Dimensions.screenWidth,
+          padding: leftRightPadding15,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextWidget(
+                'Good morning, Sophie',
+                style: TextStyles.title20,
+              ),
+              InkWell(
+                borderRadius: BorderRadius.circular(100),
+                onTap: () {
+                  Get.toNamed(
+                    AppRoutes.getProfileScreen(),
+                  );
+                },
+                child: const CircleAvatar(
+                  backgroundColor: strokeColor,
+                  child: Icon(
+                    Icons.person_outline_rounded,
+                    color: darkGrayColor,
                   ),
-                ),
-              ],
-            ),
-          ),
-          TabBar(
-            controller: home.tabController,
-            labelColor: primaryColor,
-            unselectedLabelColor: darkGrayColor,
-            indicatorColor: primaryColor,
-            labelPadding: const EdgeInsets.only(left: 0, right: 0),
-            tabs: [
-              Tab(
-                child: TextWidget(
-                  "Reservations",
-                  style: TextStyles.regular12
-                      .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
-                ),
-              ),
-              Tab(
-                child: TextWidget(
-                  "Experiences",
-                  style: TextStyles.regular12
-                      .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
-                ),
-              ),
-              Tab(
-                child: TextWidget(
-                  "Delivery & Takeout",
-                  style: TextStyles.regular12
-                      .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
                 ),
               ),
             ],
           ),
-        ],
-      ),
+        ),
+        TabBar(
+          controller: home.tabController,
+          labelColor: primaryColor,
+          unselectedLabelColor: darkGrayColor,
+          indicatorColor: primaryColor,
+          labelPadding: const EdgeInsets.only(left: 0, right: 0),
+          tabs: [
+            Tab(
+              child: TextWidget(
+                "Reservations",
+                style: TextStyles.regular12
+                    .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
+              ),
+            ),
+            Tab(
+              child: TextWidget(
+                "Experiences",
+                style: TextStyles.regular12
+                    .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
+              ),
+            ),
+            Tab(
+              child: TextWidget(
+                "Delivery & Takeout",
+                style: TextStyles.regular12
+                    .copyWith(fontWeight: FontWeight.bold, fontSize: 13),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 

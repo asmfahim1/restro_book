@@ -10,7 +10,7 @@ class ProfileTopSectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimensions.height100 * 2.2,
+      height: Dimensions.height100 * 2.21,
       width: Dimensions.screenWidth,
       padding: allPadding15,
       child: Column(

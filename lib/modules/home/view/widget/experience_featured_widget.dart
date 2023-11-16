@@ -18,7 +18,7 @@ class ExperienceFeaturedWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimensions.heightScreenHalf,
+      height: Dimensions.heightScreenHalf * 1.15,
       width: Dimensions.screenWidth,
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -49,6 +49,7 @@ class ExperienceFeaturedWidget extends StatelessWidget {
             child: ListView.builder(
                 itemCount: featuredRestaurantList.length,
                 scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
                 itemBuilder: (_, index) {
                   final restaurant = featuredRestaurantList[index];
                   return Container(
@@ -88,7 +89,7 @@ class ExperienceFeaturedWidget extends StatelessWidget {
                             children: [
                               TextWidget(
                                 restaurant['restaurantName'].toString(),
-                                style: TextStyles.title16
+                                style: TextStyles.title20
                                     .copyWith(color: blackColor),
                               ),
                               Row(

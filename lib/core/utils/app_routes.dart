@@ -198,12 +198,12 @@ class AppRoutes {
     GetPage(
       name: profileScreen,
       transition: Transition.noTransition,
-      page: () => const ProfileScreen(),
+      page: () => ProfileScreen(),
     ),
     GetPage(
       name: accountSettingScreen,
       transition: Transition.noTransition,
-      page: () => const AccountSettingsScreen(),
+      page: () => AccountSettingsScreen(),
     ),
     GetPage(
       name: historyScreen,
