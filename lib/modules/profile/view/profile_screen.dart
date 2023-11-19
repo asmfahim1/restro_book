@@ -36,7 +36,9 @@ class ProfileScreen extends StatelessWidget {
   }
 
   Widget _profilePictureWithTitleWidget() {
-    return const ProfileTopSectionWidget();
+    return ProfileTopSectionWidget(
+      controller: profileController,
+    );
   }
 
   Widget _yourStatsWidget() {

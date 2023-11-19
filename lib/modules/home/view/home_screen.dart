@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen>
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(Dimensions.height100 * 1.15),
+        preferredSize: Size.fromHeight(Dimensions.height100 * 1.18),
         child: _topSectionWidget(),
       ),
       body: _buildBody(),

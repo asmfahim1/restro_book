@@ -22,77 +22,79 @@ class SearchScreenAppBarWidget extends StatelessWidget
     return PreferredSize(
       preferredSize: const Size.fromHeight(56),
       child: AppBar(
+        elevation: 0,
         backgroundColor: whiteColor,
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: Padding(
-          padding: const EdgeInsets.all(8),
-          child: InkWell(
-            borderRadius: BorderRadius.circular(30),
-            onTap: () {
-              showModalBottomSheet<dynamic>(
-                  context: context,
-                  isScrollControlled: true,
-                  enableDrag: false,
-                  backgroundColor: Colors.transparent,
-                  builder: (context) {
-                    return _showDateTimeBottomSheet();
-                  });
-            },
-            child: Container(
-              height: Dimensions.height30,
-              width: Dimensions.width180 - Dimensions.width10,
-              decoration: BoxDecoration(
-                border: Border.all(color: strokeColor),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.person_outline_rounded,
-                    size: 14,
-                    color: blackColor,
-                  ),
-                  Obx(
-                    () => TextWidget(
-                      ' ${homeController.noOfMember}',
-                      style: TextStyles.regular12.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 10,
-                          color: blackColor),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Container(
-                    height: 4,
-                    width: 4,
-                    decoration: const BoxDecoration(
+        title: InkWell(
+          borderRadius: BorderRadius.circular(30),
+          onTap: () {
+            showModalBottomSheet<dynamic>(
+                context: context,
+                isScrollControlled: true,
+                enableDrag: false,
+                backgroundColor: Colors.transparent,
+                builder: (context) {
+                  return _showDateTimeBottomSheet();
+                });
+          },
+          child: Container(
+            height: Dimensions.height30,
+            width: Dimensions.width100 * 1.85,
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            decoration: BoxDecoration(
+              border: Border.all(color: strokeColor),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.person_outline_rounded,
+                  size: 14,
+                  color: blackColor,
+                ),
+                Obx(
+                  () => TextWidget(
+                    ' ${homeController.noOfMember}',
+                    style: TextStyles.regular12.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10,
                       color: blackColor,
-                      shape: BoxShape.circle,
                     ),
                   ),
-                  const SizedBox(
-                    width: 5,
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Container(
+                  height: 4,
+                  width: 4,
+                  decoration: const BoxDecoration(
+                    color: blackColor,
+                    shape: BoxShape.circle,
                   ),
-                  Obx(() {
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Flexible(
+                  child: Obx(() {
                     return TextWidget(
                       DateFormat('E, MMM d h:mm a')
                           .format(homeController.dateTime),
                       style: TextStyles.regular12.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 10,
-                          color: blackColor),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 10,
+                        color: blackColor,
+                      ),
                     );
                   }),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
-        elevation: 0,
       ),
     );
   }

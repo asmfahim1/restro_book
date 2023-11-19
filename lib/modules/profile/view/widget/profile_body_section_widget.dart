@@ -64,54 +64,6 @@ class ProfileBodySectionWidget extends StatelessWidget {
               )*/
             ],
           ),
-          /*const SizedBoxHeight20(),
-          const Divider(
-            thickness: 1.2,
-            color: Colors.black12,
-          ),
-          const Divider(
-            thickness: 1.2,
-            color: Colors.black12,
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextWidget(
-                    'Points earned',
-                    style: TextStyles.title16,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  TextWidget(
-                    '0',
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  TextWidget(
-                    'Next reward',
-                    style: TextStyles.title16,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  TextWidget(
-                    '5,000',
-                  ),
-                ],
-              )
-            ],
-          ),
-          const SizedBoxHeight20(),*/
           InkWell(
             onTap: () {
               Get.toNamed(
@@ -136,24 +88,33 @@ class ProfileBodySectionWidget extends StatelessWidget {
             },
             child: _settingAndPrivacyWidget('Terms & Privacy'),
           ),
-          const SizedBoxHeight20(),
-          const SizedBoxHeight20(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextWidget(
-                'Sign Out',
-                style: TextStyles.title20.copyWith(color: primaryColor),
+          SizedBox(
+            height: Dimensions.height100 * .5,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: InkWell(
+              onTap: () {
+                Get.offAllNamed(AppRoutes.getLoginScreen());
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextWidget(
+                    'Sign Out',
+                    style: TextStyles.title20.copyWith(color: primaryColor),
+                  ),
+                  SizedBox(
+                    width: Dimensions.width20,
+                  ),
+                  const Icon(
+                    Icons.login_outlined,
+                    size: 25,
+                    color: primaryColor,
+                  )
+                ],
               ),
-              SizedBox(
-                width: Dimensions.width20,
-              ),
-              const Icon(
-                Icons.login_outlined,
-                size: 25,
-                color: primaryColor,
-              )
-            ],
+            ),
           ),
         ],
       ),

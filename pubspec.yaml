@@ -19,6 +19,7 @@ dependencies:
   rect_getter: ^1.0.0
   bot_toast: ^4.0.4
   intl: ^0.18.0
+  image_picker: ^1.0.4
   shared_preferences: ^2.0.18
   connectivity_plus: ^3.0.3
   package_info_plus: ^3.0.3

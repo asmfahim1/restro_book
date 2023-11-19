@@ -37,10 +37,10 @@ class HistoryScreen extends StatelessWidget {
           itemBuilder: (_, index) {
             final restaurant = featuredRestaurantList[index];
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+              padding: const EdgeInsets.symmetric(vertical: 5),
               child: Card(
                 elevation: 5,
-                color: Colors.yellow,
+                color: iconPrimaryColor,
                 shadowColor: primaryColor,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
@@ -76,10 +76,20 @@ class HistoryScreen extends StatelessWidget {
         ListTile(
           title: TextWidget(
             resName,
-            style: TextStyles.title20,
+            style: TextStyles.title20.copyWith(
+              color: Colors.white,
+            ),
           ),
-          subtitle: TextWidget(restaurantAddress),
-          trailing: const Icon(Icons.favorite_outline),
+          subtitle: TextWidget(
+            restaurantAddress,
+            style: TextStyles.regular14.copyWith(
+              color: Colors.white,
+            ),
+          ),
+          trailing: const Icon(
+            Icons.bookmark_border_outlined,
+            color: Colors.white,
+          ),
         ),
         _visitInfo(Icons.person_outlined, '$member  Persons visited last time'),
         Row(
@@ -91,26 +101,36 @@ class HistoryScreen extends StatelessWidget {
             _visitInfo(Icons.access_time, time),
           ],
         ),
-        SizedBoxHeight10(),
-        Container(
+        const SizedBoxHeight10(),
+        SizedBox(
           height: Dimensions.height100 * 2,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          clipBehavior: Clip.hardEdge,
+          width: Dimensions.screenWidth,
           child: Image.asset(
             cardImage,
             fit: BoxFit.cover,
           ),
         ),
+        const SizedBoxHeight10(),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-          child: TextWidget(restBio),
+          child: TextWidget(
+            restBio,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyles.regular14.copyWith(
+              color: Colors.white,
+            ),
+          ),
         ),
         ButtonBar(
           children: [
             TextButton(
-              child: const Text('Feedback'),
+              child: Text(
+                'Feedback',
+                style: TextStyles.title16.copyWith(
+                  color: Colors.white,
+                ),
+              ),
               onPressed: () {/* ... */},
             )
           ],
@@ -127,14 +147,16 @@ class HistoryScreen extends StatelessWidget {
           Icon(
             icon,
             size: 15,
-            color: primaryColor,
+            color: Colors.white,
           ),
           const SizedBox(
             width: 5,
           ),
           TextWidget(
             info,
-            style: TextStyles.regular12,
+            style: TextStyles.regular12.copyWith(
+              color: Colors.white,
+            ),
           ),
         ],
       ),

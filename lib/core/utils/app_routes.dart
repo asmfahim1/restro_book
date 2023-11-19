@@ -109,7 +109,7 @@ class AppRoutes {
     GetPage(
       name: viewAllRestaurants,
       transition: Transition.noTransition,
-      page: () => const ViewAllRestaurantsScreen(),
+      page: () => ViewAllRestaurantsScreen(),
     ),
     GetPage(
       name: viewAllCuisines,

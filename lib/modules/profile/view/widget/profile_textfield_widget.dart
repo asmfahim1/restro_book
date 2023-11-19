@@ -25,12 +25,14 @@ class ProfileTextFieldWidget extends StatelessWidget {
       children: [
         Container(
           height: Dimensions.height45,
-          width: Dimensions.width100 * 1.15,
+          width: Dimensions.width100,
           padding: leftRightPadding10,
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
-            color: profileContainerColor,
-            borderRadius: radiusAll10,
+            border: Border.all(
+              color: strokeColor,
+            ),
+            borderRadius: BorderRadius.circular(6),
           ),
           child: TextWidget(
             title,
@@ -42,11 +44,13 @@ class ProfileTextFieldWidget extends StatelessWidget {
         ),
         Container(
           height: Dimensions.height45,
-          width: Dimensions.width100 * 2.5,
+          width: Dimensions.width100 * 2,
           padding: leftRightPadding10,
           decoration: BoxDecoration(
-            color: profileContainerColor,
-            borderRadius: radiusAll10,
+            border: Border.all(
+              color: strokeColor,
+            ),
+            borderRadius: BorderRadius.circular(6),
           ),
           child: TextFormField(
             controller: controller,

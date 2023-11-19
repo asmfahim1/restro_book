@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
@@ -91,7 +89,7 @@ class ReservationBarScreen extends StatelessWidget {
               },
               child: Container(
                 height: Dimensions.height30,
-                width: Dimensions.width35 + Dimensions.width10,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
                   border: Border.all(color: strokeColor),
                   borderRadius: BorderRadius.circular(20),
@@ -140,7 +138,7 @@ class ReservationBarScreen extends StatelessWidget {
             Obx(() {
               return Container(
                 height: Dimensions.height30,
-                width: Dimensions.screenWidth * 0.4583,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
                   border: Border.all(color: strokeColor),
                   borderRadius: BorderRadius.circular(30),
@@ -172,13 +170,13 @@ class ReservationBarScreen extends StatelessWidget {
 
   ///reservation for  party size
   Widget _showDateTimeBottomSheet(HomeController controller) {
-    DateTime initialDateTime = DateTime.now();
+    /*DateTime initialDateTime = DateTime.now();
     int initialMinute = initialDateTime.minute;
     if (initialDateTime.minute % 15 != 0) {
       initialMinute = initialDateTime.minute - initialDateTime.minute % 15 + 15;
-    }
+    }*/
     return Container(
-      height: Dimensions.heightScreenHalf * 1.26,
+      height: Dimensions.height100 * 2.5,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -190,7 +188,10 @@ class ReservationBarScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 15.0, top: 10),
+            padding: const EdgeInsets.only(
+              left: 15.0,
+              top: 20,
+            ),
             child: TextWidget(
               'Party Size',
               style: TextStyles.title16,
@@ -236,8 +237,10 @@ class ReservationBarScreen extends StatelessWidget {
                   );
                 }),
           ),
-          const SizedBoxHeight10(),
-          Padding(
+          SizedBox(
+            height: Dimensions.height40,
+          ),
+          /*Padding(
             padding: const EdgeInsets.only(left: 15.0),
             child: TextWidget(
               'Date and Time',
@@ -261,7 +264,7 @@ class ReservationBarScreen extends StatelessWidget {
                       DateFormat('E, MMM d h:mm a').format(date);
                   controller.dateTime = date;
                 }),
-          ),
+          ),*/
           _doneButton(),
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
+import 'package:restro_book/core/utils/restaurant_resources.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -30,40 +31,112 @@ class NotificationScreen extends StatelessWidget {
       width: Dimensions.screenWidth,
       padding: leftRightPadding10,
       child: ListView.builder(
-          itemCount: 10,
+          itemCount: featuredRestaurantList.length,
           physics: const BouncingScrollPhysics(),
           itemBuilder: (_, index) {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Card(
-                elevation: 5,
-                color: Colors.lightGreen,
-                shadowColor: primaryColor,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomRight: Radius.circular(20)),
-                ),
+              child: Container(
+                decoration: const BoxDecoration(
+                    border: Border(
+                        bottom: BorderSide(color: strokeColor, width: 2))),
                 clipBehavior: Clip.hardEdge,
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
                     children: [
-                      TextWidget(
-                        '🌟 Reservation Confirmed: ',
-                        style: TextStyles.title16,
+                      SizedBox(
+                        width: Dimensions.width225,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextWidget(
+                              featuredRestaurantList[index]["restaurantName"]
+                                  .toString(),
+                              style: TextStyles.title16,
+                            ),
+                            Row(
+                              children: [
+                                TextWidget(
+                                  '${featuredRestaurantList[index]["restaurantReviews"].toString()} reviews',
+                                  style: TextStyles.regular12,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Container(
+                                  height: 5,
+                                  width: 5,
+                                  decoration: const BoxDecoration(
+                                      color: Colors.black54,
+                                      shape: BoxShape.circle),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                TextWidget(
+                                  featuredRestaurantList[index]
+                                          ["restaurantPriceRang"]
+                                      .toString(),
+                                  style: TextStyles.regular12,
+                                ),
+                              ],
+                            ),
+                            TextWidget(
+                              '(Confirmed)',
+                              style: TextStyles.regular12.copyWith(
+                                color: greenColor,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      TextWidget(
-                        'We\'re delighted to confirm your reservation for Nov, 13 at 08: 45 PM for 5 persons. Your table is all set, and we can\'t wait to serve you a delightful meal.',
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          _visitInfo(Icons.calendar_today, 'Nov, 13'),
-                          _visitInfo(Icons.access_time, '08: 45 PM'),
-                        ],
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            height: Dimensions.height50,
+                            clipBehavior: Clip.hardEdge,
+                            margin: const EdgeInsets.symmetric(horizontal: 20),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.shade400,
+                                  blurRadius: 1.0,
+                                  offset: const Offset(0, 0),
+                                )
+                              ],
+                            ),
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: Dimensions.height20,
+                                  color: primaryColor,
+                                  alignment: Alignment.center,
+                                  child: TextWidget(
+                                    'Oct ${14 + index}',
+                                    style: TextStyles.regular14
+                                        .copyWith(fontWeight: FontWeight.bold)
+                                        .copyWith(color: whiteColor),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    color: whiteColor,
+                                    alignment: Alignment.center,
+                                    child: TextWidget(
+                                      '11:${index + 10} AM',
+                                      style: TextStyles.regular14.copyWith(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -71,28 +144,6 @@ class NotificationScreen extends StatelessWidget {
               ),
             );
           }),
-    );
-  }
-
-  Widget _visitInfo(IconData icon, String info) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-      child: Row(
-        children: [
-          Icon(
-            icon,
-            size: 15,
-            color: primaryColor,
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-          TextWidget(
-            info,
-            style: TextStyles.regular12,
-          ),
-        ],
-      ),
     );
   }
 }

@@ -70,6 +70,8 @@ class AccountSettingsScreen extends StatelessWidget {
               const SizedBoxHeight20(),
               _dateOfBirth(context),
               const SizedBoxHeight20(),
+              _anniversary(context),
+              const SizedBoxHeight20(),
               const DietPreferencesWidget(),
               const SizedBoxHeight20(),
               _specialRequest(),
@@ -77,38 +79,6 @@ class AccountSettingsScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _genderDropDown() {
-    return ProfileDropdownWidget(
-      title: 'Gender',
-      selectedItem: profileController.gender,
-      itemList: genders,
-      onChanged: (value) {
-        profileController.gender = value.toString();
-      },
-    );
-  }
-
-  Widget _dateOfBirth(BuildContext context) {
-    return Obx(
-      () => ProfileDatePickerWidget(
-        title: 'Date of Birth',
-        hintText: profileController.dateOfBirth.value,
-        selectedDate: profileController.dateOfBirth.value,
-        onTap: () async {
-          final selectedDate = await showDatePicker(
-            context: context,
-            initialDate: DateTime.now(),
-            firstDate: DateTime(1900),
-            lastDate: DateTime(2100),
-          );
-          if (selectedDate != null) {
-            profileController.selectDateOfBirth(selectedDate);
-          }
-        },
       ),
     );
   }
@@ -157,6 +127,59 @@ class AccountSettingsScreen extends StatelessWidget {
     return SpecialRequestField(
       hintText: 'Add special request here...',
       controller: profileController.specialRequestController,
+    );
+  }
+
+  Widget _genderDropDown() {
+    return ProfileDropdownWidget(
+      title: 'Gender',
+      selectedItem: profileController.gender,
+      itemList: genders,
+      onChanged: (value) {
+        profileController.gender = value.toString();
+      },
+    );
+  }
+
+  Widget _dateOfBirth(BuildContext context) {
+    return Obx(
+      () => ProfileDatePickerWidget(
+        title: 'Date of Birth',
+        hintText: profileController.dateOfBirth.value,
+        selectedDate: profileController.dateOfBirth.value,
+        onTap: () async {
+          final selectedDate = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(1900),
+            lastDate: DateTime(2100),
+          );
+          if (selectedDate != null) {
+            profileController.selectDateOfBirth(selectedDate);
+          }
+        },
+      ),
+    );
+  }
+
+  Widget _anniversary(BuildContext context) {
+    return Obx(
+      () => ProfileDatePickerWidget(
+        title: 'Anniversary',
+        hintText: profileController.anniversary.value,
+        selectedDate: profileController.anniversary.value,
+        onTap: () async {
+          final selectedDate = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(1900),
+            lastDate: DateTime(2100),
+          );
+          if (selectedDate != null) {
+            profileController.anniversaryDate(selectedDate);
+          }
+        },
+      ),
     );
   }
 }

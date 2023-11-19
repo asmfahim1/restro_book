@@ -81,6 +81,7 @@ class TitleWithListViewWidget extends StatelessWidget {
                       TextWidget(
                         restaurantName,
                         style: TextStyles.title16,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       bookMarkButton!,
                     ],

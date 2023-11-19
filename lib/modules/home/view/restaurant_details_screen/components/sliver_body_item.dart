@@ -52,7 +52,8 @@ class SliverBodyItems extends StatelessWidget {
                   },
                   child: Container(
                     height: Dimensions.height30,
-                    width: Dimensions.width180 - Dimensions.width10,
+                    width: Dimensions.width100 * 1.85,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     decoration: BoxDecoration(
                       border: Border.all(color: strokeColor),
                       borderRadius: BorderRadius.circular(30),
@@ -968,9 +969,7 @@ class SliverBodyItems extends StatelessWidget {
                       'The picked date and Time is: ${homeController.dateTime}');
                 }),
           ),
-          Expanded(
-            child: _doneButton(),
-          )
+          _doneButton()
         ],
       ),
     );

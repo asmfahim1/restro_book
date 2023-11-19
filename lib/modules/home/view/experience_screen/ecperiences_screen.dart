@@ -65,7 +65,7 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
               },
               child: Container(
                 height: Dimensions.height30,
-                width: Dimensions.width35 + Dimensions.width10,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
                   border: Border.all(color: strokeColor),
                   borderRadius: BorderRadius.circular(20),
@@ -111,32 +111,33 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
             SizedBox(
               width: Dimensions.width10,
             ),
-            Container(
-              height: Dimensions.height30,
-              width: Dimensions.width135 - 5,
-              decoration: BoxDecoration(
-                border: Border.all(color: strokeColor),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.location_on_outlined,
-                    size: Dimensions.iconSize15,
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  TextWidget(
-                    overflow: TextOverflow.ellipsis,
-                    'Noe Valley',
-                    style: TextStyles.regular12
-                        .copyWith(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
+            Obx(() {
+              return Container(
+                height: Dimensions.height30,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: strokeColor),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.location_on_outlined,
+                      size: Dimensions.iconSize12,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    TextWidget(
+                      overflow: TextOverflow.ellipsis,
+                      homeController.myLocation,
+                      style: TextStyles.title32.copyWith(fontSize: 11),
+                    ),
+                  ],
+                ),
+              );
+            }),
           ],
         ),
       ),

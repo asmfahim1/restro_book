@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/modules/home/controller/reservation_controller.dart';
@@ -45,7 +44,6 @@ class CategorySection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: Dimensions.height10),
         _sectionTitle(context, controller),
       ],
     );

@@ -51,7 +51,7 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 15.0, top: 10),
+          padding: const EdgeInsets.only(left: 15),
           child: TextWidget(
             'Party Size',
             style: TextStyles.title20,
@@ -111,9 +111,6 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
             'Date',
             style: TextStyles.title20,
           ),
-        ),
-        const SizedBox(
-          height: 5,
         ),
         Obx(() {
           return TableCalendar(
@@ -175,7 +172,7 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
 
   Widget _timeContainer() {
     return Container(
-      height: Dimensions.height80,
+      height: Dimensions.height100 * 1.1,
       decoration: BoxDecoration(
         color: whiteColor,
         boxShadow: [
@@ -201,7 +198,7 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
           }),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(top: 8, bottom: 8),
+              padding: const EdgeInsets.only(top: 15, bottom: 15),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {

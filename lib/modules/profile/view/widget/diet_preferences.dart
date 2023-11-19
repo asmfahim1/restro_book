@@ -15,7 +15,7 @@ class DietPreferencesWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: size.height / 22,
+          height: Dimensions.height35,
           alignment: Alignment.centerLeft,
           child: TextWidget(
             'Diet Preferences',
