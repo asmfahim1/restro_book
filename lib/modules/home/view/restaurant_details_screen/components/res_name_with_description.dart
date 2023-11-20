@@ -7,10 +7,10 @@ import 'package:restro_book/modules/home/view/restaurant_details_screen/componen
 class ResNameWithDesc extends StatelessWidget {
   const ResNameWithDesc({
     Key? key,
-    required this.title,
+    required this.map,
   }) : super(key: key);
 
-  final String title;
+  final Map<String, String> map;
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +24,11 @@ class ResNameWithDesc extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextWidget(
-            title,
+            map['resName'] ?? '',
             style: TextStyles.title20,
             overflow: TextOverflow.ellipsis,
           ),
-          const SliverHeaderData(),
+          SliverHeaderData(map: map,),
         ],
       ),
     );
