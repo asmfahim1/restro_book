@@ -10,7 +10,7 @@ import 'f_icon_button.dart';
 import 'res_name_with_description.dart';
 
 class FAppBar extends SliverAppBar {
-  final String resName;
+  final Map<String, String> map;
   final BuildContext context;
   final bool isCollapsed;
   final double expandedHeight;
@@ -23,7 +23,7 @@ class FAppBar extends SliverAppBar {
 
   const FAppBar({
     super.key,
-    required this.resName,
+    required this.map,
     required this.context,
     required this.isCollapsed,
     required this.expandedHeight,
@@ -82,7 +82,7 @@ class FAppBar extends SliverAppBar {
       opacity: isCollapsed ? 0 : 1,
       duration: const Duration(milliseconds: 300),
       child: TextWidget(
-        resName,
+        map['resName'] ?? '',
         style: TextStyles.title20,
       ),
     );
@@ -172,7 +172,7 @@ class FAppBar extends SliverAppBar {
                 ),
               ),
               ResNameWithDesc(
-                title: resName,
+                map: map,
               ),
             ],
           ),
