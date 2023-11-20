@@ -58,9 +58,24 @@ class _SearchScreenState extends State<SearchScreen> {
           final restaurants = restaurantList[index];
           return InkWell(
             onTap: () {
-              Get.toNamed(AppRoutes.getResDetailsScreen(
-                  restaurants['restaurantName']!.toString(),
-                  restaurants['restaurantID']!.toString()));
+              var map = <String, String>{};
+              map = {
+                'resName': restaurants['restaurantName'].toString(),
+                'resId': restaurants['restaurantID'].toString(),
+                'resReviews': restaurants['restaurantReviews'].toString(),
+                'resAddress': restaurants['restaurantAddress'].toString(),
+                'resPricing': restaurants['restaurantPriceRang'].toString(),
+                'resMetro': restaurants['restaurantMetro'].toString(),
+                'resCuisines': restaurants['restaurantCuisines'].toString(),
+              };
+              Get.toNamed(
+                  AppRoutes.resDetailsScreen,
+                  arguments: {
+                    'resName': restaurants['restaurantName'].toString(),
+                    'resId': restaurants['restaurantID'].toString(),
+                    'map': map,
+                  }
+              );
             },
             child: Container(
               height: Dimensions.height100 + Dimensions.height80,
