@@ -172,11 +172,11 @@ class AppRoutes {
       page: () {
         var map = Get.arguments['map']!;
         var partySize = Get.arguments['partySize']!;
-        var reservationTime = Get.arguments['reservationTime']!;
+        DateTime reservationTime = Get.arguments['reservationTime']!;
         return BookingConfirmScreen(
           map: map,
           partySize: partySize,
-          reservationTime: DateTime.parse(reservationTime),
+          reservationTime: reservationTime,
         );
       },
     ),
