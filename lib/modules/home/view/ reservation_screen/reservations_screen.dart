@@ -290,7 +290,7 @@ class ReservationBarScreen extends StatelessWidget {
     return BrowseByCuisineSectionWidget(
       title: 'Browse by cuisine',
       viewAllOnTap: () {
-        Get.toNamed(AppRoutes.getViewAllCuisineScreen());
+        Get.toNamed(AppRoutes.viewAllCuisines);
       },
     );
   }
@@ -299,7 +299,7 @@ class ReservationBarScreen extends StatelessWidget {
     return ExploreAresSectionWidget(
       title: 'Explore the area',
       viewAllOnTap: () {
-        Get.toNamed(AppRoutes.getViewAllAreaScreen());
+        Get.toNamed(AppRoutes.viewAllArea);
       },
     );
   }
