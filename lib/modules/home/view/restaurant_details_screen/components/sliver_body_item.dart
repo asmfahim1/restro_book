@@ -15,13 +15,12 @@ class SliverBodyItems extends StatelessWidget {
   final String categoryIndex;
   final Map<String, String>? map;
   final ReservationController controller;
-  SliverBodyItems(
-      {Key? key,
-      required this.categoryIndex,
-      required this.controller,
-      required this.map,
-      })
-      : super(key: key);
+  SliverBodyItems({
+    Key? key,
+    required this.categoryIndex,
+    required this.controller,
+    required this.map,
+  }) : super(key: key);
 
   final homeController = Get.find<HomeController>();
 
@@ -126,16 +125,26 @@ class SliverBodyItems extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         shrinkWrap: true, // Set this to true
                         itemBuilder: (_, index) {
+                          final time = TimeOfDay(
+                              hour: 11 + index ~/ 2, minute: (index % 2) * 30);
+                          DateTime now = DateTime.now();
+                          DateTime dateTime = DateTime(
+                            now.year,
+                            now.month,
+                            now.day,
+                            time.hour,
+                            time.minute,
+                          );
                           return GestureDetector(
                             onTap: () {
+                              controller.dateTime = dateTime;
                               showModalBottomSheet<dynamic>(
                                   context: context,
                                   isScrollControlled: true,
                                   enableDrag: false,
                                   backgroundColor: Colors.transparent,
                                   builder: (context) {
-                                    return _showSeatingOptionBottomSheet(
-                                        controller);
+                                    return _showSeatingOptionBottomSheet(controller);
                                   });
                             },
                             child: Padding(
@@ -156,7 +165,7 @@ class SliverBodyItems extends StatelessWidget {
                                       color: whiteColor,
                                     ),
                                     TextWidget(
-                                      ' 11.30 AM',
+                                      time.format(context),
                                       style: TextStyles.title32.copyWith(
                                         fontSize: 12,
                                         color: whiteColor,
@@ -221,9 +230,8 @@ class SliverBodyItems extends StatelessWidget {
               ResDetailsCommonButton(
                 buttonName: 'View full availability',
                 onTap: () {
-                  // Get.toNamed(
-                  //   AppRoutes.getViewFullAvailabilityScreen(resId, resName),
-                  // );
+                  Get.toNamed(AppRoutes.viewFullAvailability,
+                      arguments: {'map': map});
                 },
               ),
             ],
@@ -428,9 +436,10 @@ class SliverBodyItems extends StatelessWidget {
               ResDetailsCommonButton(
                 buttonName: 'See full menu',
                 onTap: () {
-                  // Get.toNamed(
-                  //   AppRoutes.getSeeFullMenuScreen(resId, resName),
-                  // );
+                  Get.toNamed(
+                    AppRoutes.seeFullMenu,
+                    arguments: {'map': map},
+                  );
                 },
               ),
             ],
@@ -724,9 +733,10 @@ class SliverBodyItems extends StatelessWidget {
                       ResDetailsCommonButton(
                         buttonName: 'See all reviews',
                         onTap: () {
-                          // Get.toNamed(
-                          //   AppRoutes.getSeeAllReviewsScreen(resId, resName),
-                          // );
+                          Get.toNamed(
+                            AppRoutes.seeAllReviews,
+                            arguments: {'map': map},
+                          );
                         },
                       ),
                     ],
@@ -1032,9 +1042,14 @@ class SliverBodyItems extends StatelessWidget {
         return InkWell(
           onTap: () {
             Get.back();
-            // Get.toNamed(AppRoutes.getBookingConfirmScreen(resId, resName,
-            //     controller.noOfMember.toString(), controller.dateTime),
-            // );
+            Get.toNamed(
+              AppRoutes.bookingConfirmScreen,
+              arguments: {
+                'map': map,
+                'partySize': controller.noOfMember.toString(),
+                'reservationTime': controller.dateTime,
+              },
+            );
           },
           child: Container(
             height: Dimensions.height50,
