@@ -23,7 +23,7 @@ class ProfileDatePickerWidget extends StatelessWidget {
       children: [
         Container(
           height: Dimensions.height45,
-          width: Dimensions.width100,
+          width: Dimensions.width100 * 1.1,
           padding: leftRightPadding10,
           alignment: Alignment.centerLeft,
           decoration: BoxDecoration(
@@ -39,23 +39,25 @@ class ProfileDatePickerWidget extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          height: Dimensions.height45,
-          width: Dimensions.width100 * 2,
-          padding: leftRightPadding10,
-          decoration: BoxDecoration(
-              border: Border.all(
-                color: strokeColor,
+        SizedBox(width: Dimensions.width10,),
+        Expanded(
+          child: Container(
+            height: Dimensions.height45,
+            padding: leftRightPadding10,
+            decoration: BoxDecoration(
+                border: Border.all(
+                  color: strokeColor,
+                ),
+                borderRadius: BorderRadius.circular(6)),
+            child: TextField(
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: hintText,
               ),
-              borderRadius: BorderRadius.circular(6)),
-          child: TextField(
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: hintText,
+              onTap: onTap,
+              readOnly: true,
+              controller: TextEditingController(text: selectedDate),
             ),
-            onTap: onTap,
-            readOnly: true,
-            controller: TextEditingController(text: selectedDate),
           ),
         ),
       ],
