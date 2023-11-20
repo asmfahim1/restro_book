@@ -13,15 +13,14 @@ import 'package:restro_book/modules/home/view/restaurant_details_screen/componen
 
 class SliverBodyItems extends StatelessWidget {
   final String categoryIndex;
-  final String resName;
-  final String resId;
+  final Map<String, String>? map;
   final ReservationController controller;
   SliverBodyItems(
       {Key? key,
       required this.categoryIndex,
       required this.controller,
-      required this.resName,
-      required this.resId})
+      required this.map,
+      })
       : super(key: key);
 
   final homeController = Get.find<HomeController>();
@@ -222,9 +221,9 @@ class SliverBodyItems extends StatelessWidget {
               ResDetailsCommonButton(
                 buttonName: 'View full availability',
                 onTap: () {
-                  Get.toNamed(
-                    AppRoutes.getViewFullAvailabilityScreen(resId, resName),
-                  );
+                  // Get.toNamed(
+                  //   AppRoutes.getViewFullAvailabilityScreen(resId, resName),
+                  // );
                 },
               ),
             ],
@@ -429,9 +428,9 @@ class SliverBodyItems extends StatelessWidget {
               ResDetailsCommonButton(
                 buttonName: 'See full menu',
                 onTap: () {
-                  Get.toNamed(
-                    AppRoutes.getSeeFullMenuScreen(resId, resName),
-                  );
+                  // Get.toNamed(
+                  //   AppRoutes.getSeeFullMenuScreen(resId, resName),
+                  // );
                 },
               ),
             ],
@@ -725,9 +724,9 @@ class SliverBodyItems extends StatelessWidget {
                       ResDetailsCommonButton(
                         buttonName: 'See all reviews',
                         onTap: () {
-                          Get.toNamed(
-                            AppRoutes.getSeeAllReviewsScreen(resId, resName),
-                          );
+                          // Get.toNamed(
+                          //   AppRoutes.getSeeAllReviewsScreen(resId, resName),
+                          // );
                         },
                       ),
                     ],
@@ -1033,8 +1032,9 @@ class SliverBodyItems extends StatelessWidget {
         return InkWell(
           onTap: () {
             Get.back();
-            Get.toNamed(AppRoutes.getBookingConfirmScreen(resId, resName,
-                controller.noOfMember.toString(), controller.dateTime));
+            // Get.toNamed(AppRoutes.getBookingConfirmScreen(resId, resName,
+            //     controller.noOfMember.toString(), controller.dateTime),
+            // );
           },
           child: Container(
             height: Dimensions.height50,
