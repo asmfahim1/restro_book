@@ -8,9 +8,8 @@ import 'package:url_launcher/url_launcher.dart' as launcher;
 import '../../../../../../core/utils/exports.dart';
 
 class SeeFullMenuScreen extends StatelessWidget {
-  final String resId;
-  final String resName;
-  SeeFullMenuScreen({Key? key, required this.resId, required this.resName})
+  final Map<String, String> map;
+  SeeFullMenuScreen({Key? key, required this.map})
       : super(key: key);
 
   final reservationController = Get.find<ReservationController>();
@@ -33,7 +32,7 @@ class SeeFullMenuScreen extends StatelessWidget {
               color: whiteColor,
             )),
         title: TextWidget(
-          resName,
+          map['resName'] ?? '',
           style: TextStyles.title20.copyWith(color: whiteColor),
         ),
       ),
