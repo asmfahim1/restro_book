@@ -8,7 +8,6 @@ import 'package:restro_book/modules/home/controller/home_controller.dart';
 import 'package:restro_book/modules/home/view/%20reservation_screen/reservations_screen.dart';
 import 'package:restro_book/modules/home/view/experience_screen/ecperiences_screen.dart';
 import 'package:restro_book/modules/home/view/takeout_screen/takeout_screen.dart';
-
 import '../../../../core/utils/colors.dart';
 import '../../../../core/widgets/text_widget.dart';
 
@@ -30,6 +29,20 @@ class _HomeScreenState extends State<HomeScreen>
     home.tabController.animateTo(0);
   }
 
+  final DateTime dateTime = DateTime.now();
+  String determineMeal() {
+    int currentHour = dateTime.hour;
+    if (currentHour >= 5 && currentHour < 12) {
+      return 'Morning';
+    } else if (currentHour >= 12 && currentHour < 16) {
+      return 'Afternoon';
+    } else if (currentHour >= 16 && currentHour < 24) {
+      return 'Evening';
+    } else {
+      return 'Unknown';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _topSectionWidget() {
+    final String mealName = determineMeal();
     return Column(
       children: [
         Container(
@@ -58,14 +72,14 @@ class _HomeScreenState extends State<HomeScreen>
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextWidget(
-                'Good morning, Sophie',
+                'Good $mealName, Sophie',
                 style: TextStyles.title20,
               ),
               InkWell(
                 borderRadius: BorderRadius.circular(100),
                 onTap: () {
                   Get.toNamed(
-                    AppRoutes.getProfileScreen(),
+                    AppRoutes.profileScreen,
                   );
                 },
                 child: const CircleAvatar(
