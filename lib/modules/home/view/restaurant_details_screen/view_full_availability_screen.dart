@@ -10,10 +10,9 @@ import 'package:restro_book/modules/home/controller/reservation_controller.dart'
 import 'package:table_calendar/table_calendar.dart';
 
 class ViewFullAvailabilityScreen extends StatelessWidget {
-  final String resId;
-  final String resName;
+  final Map<String, String> map;
   ViewFullAvailabilityScreen(
-      {Key? key, required this.resId, required this.resName})
+      {Key? key, required this.map,})
       : super(key: key);
 
   final reservationController = Get.find<ReservationController>();
@@ -216,12 +215,13 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
                     onTap: () {
                       Get.back();
                       Get.toNamed(
-                        AppRoutes.getBookingConfirmScreen(
-                          resId,
-                          resName,
-                          reservationController.noOfMember.toString(),
-                          dateTime,
-                        ),
+                          AppRoutes.bookingConfirmScreen,
+                          arguments: {
+                            'map' : map,
+                            'partySize' : reservationController.noOfMember.toString(),
+                            'reserveTime' : dateTime,
+                          }
+
                       );
                     },
                     child: Container(
