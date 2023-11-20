@@ -5,7 +5,8 @@ import 'package:restro_book/core/widgets/exports.dart';
 import '../../../../../core/utils/exports.dart';
 
 class SliverHeaderData extends StatelessWidget {
-  const SliverHeaderData({Key? key}) : super(key: key);
+  final Map<String, String> map;
+  const SliverHeaderData({Key? key, required this.map}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,20 +28,25 @@ class SliverHeaderData extends StatelessWidget {
                 },
               ),
             ),
-            Row(
-              children: [
-                const Icon(
-                  Icons.mode_comment_outlined,
-                  size: 14,
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                TextWidget(
-                  '803 reviews ',
-                  style: TextStyles.regular16,
-                ),
-              ],
+            Container(
+              width: Dimensions.screenWidth * 0.6, // Set a specific width
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.mode_comment_outlined,
+                    size: 18,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  TextWidget(
+                    '${map['resReviews']} reviews ',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyles.regular16,
+                  ),
+                ],
+              ),
             )
           ],
         ),
@@ -50,29 +56,41 @@ class SliverHeaderData extends StatelessWidget {
               children: [
                 const Icon(
                   Icons.price_change_outlined,
-                  size: 14,
+                  size: 18,
                 ),
                 const SizedBox(
                   width: 5,
                 ),
-                TextWidget(
-                  '\$50 and over ',
-                  style: TextStyles.regular16,
+                Container( // Set a specific width
+                  child: TextWidget(
+                    '${map['resPricing']}',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyles.regular16,
+                  ),
                 ),
               ],
+            ),
+            const SizedBox(
+              width: 5,
             ),
             Row(
               children: [
                 const Icon(
                   Icons.restaurant,
-                  size: 14,
+                  size: 18,
                 ),
                 const SizedBox(
                   width: 5,
                 ),
-                TextWidget(
-                  'Steakhouse ',
-                  style: TextStyles.regular16,
+                Container(
+                  width: Dimensions.screenWidth * 0.5, // Set a specific width
+                  child: TextWidget(
+                    '${map['resCuisines']}',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyles.regular16,
+                  ),
                 ),
               ],
             )
@@ -82,17 +100,22 @@ class SliverHeaderData extends StatelessWidget {
           children: [
             const Icon(
               Icons.location_on_outlined,
-              size: 14,
+              size: 18,
             ),
             const SizedBox(
               width: 5,
             ),
-            TextWidget(
-              '1 Market St, San Fransisco, CA, 941051420 ',
-              style: TextStyles.regular16,
+            Container(
+              width: Dimensions.screenWidth * 0.8, // Set a specific width
+              child: TextWidget(
+                '${map['resAddress']}',
+                style: TextStyles.regular16,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ),
             ),
           ],
-        )
+        ),
       ],
     );
   }
