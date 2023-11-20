@@ -12,14 +12,13 @@ import 'package:restro_book/modules/home/view/restaurant_details_screen/componen
 import 'package:restro_book/modules/home/view/restaurant_details_screen/components/phone_number_with_country_code_widget.dart';
 
 class BookingConfirmScreen extends StatelessWidget {
-  final String resId;
-  final String resName;
+
+  final Map<String, String> map;
   final String partySize;
   final DateTime reservationTime;
   BookingConfirmScreen(
       {Key? key,
-      required this.resName,
-      required this.resId,
+      required this.map,
       required this.partySize,
       required this.reservationTime})
       : super(key: key);
@@ -45,7 +44,7 @@ class BookingConfirmScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextWidget(
-                    resName,
+                    map['resName'] ?? '',
                     style: TextStyles.title22,
                   ),
                   const SizedBoxHeight10(),
