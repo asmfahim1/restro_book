@@ -23,7 +23,7 @@ class HappyHourWidget extends StatelessWidget {
           CommonTitleWidgetWithViewAll(
             titleOfTheList: 'Happy Hours',
             onTap: () {
-              Get.toNamed(AppRoutes.getViewAllScreen());
+              Get.toNamed(AppRoutes.viewAllRestaurants);
             },
           ),
           Expanded(
@@ -34,9 +34,24 @@ class HappyHourWidget extends StatelessWidget {
                 final restaurant = happyHoursList[index];
                 return TitleWithListViewWidget(
                   onTap: () {
-                    Get.toNamed(AppRoutes.getResDetailsScreen(
-                        restaurant['restaurantName'].toString(),
-                        '110302$restaurant'));
+                    var map = <String, String>{};
+                    map = {
+                      'resName': restaurant['restaurantName'].toString(),
+                      'resId': restaurant['restaurantID'].toString(),
+                      'resReviews': restaurant['restaurantReviews'].toString(),
+                      'resAddress': restaurant['restaurantAddress'].toString(),
+                      'resPricing': restaurant['restaurantPriceRang'].toString(),
+                      'resMetro': restaurant['restaurantMetro'].toString(),
+                      'resCuisines': restaurant['restaurantCuisines'].toString(),
+                    };
+                    Get.toNamed(
+                        AppRoutes.resDetailsScreen,
+                        arguments: {
+                          'resName': restaurant['restaurantName'].toString(),
+                          'resId': restaurant['restaurantID'].toString(),
+                          'map': map,
+                        }
+                    );
                   },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
