@@ -67,7 +67,7 @@ class ProfileBodySectionWidget extends StatelessWidget {
           InkWell(
             onTap: () {
               Get.toNamed(
-                AppRoutes.getAccountSetting(),
+                AppRoutes.accountSettingScreen,
               );
             },
             child: _settingAndPrivacyWidget('Account settings'),
