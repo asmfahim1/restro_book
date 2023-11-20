@@ -120,7 +120,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
       buttonTitle: 'Login',
       onPressed: () {
         //login method will call
-        Get.toNamed(AppRoutes.getNavBarScreen());
+        Get.toNamed(AppRoutes.navBarScreen);
       },
     );
   }
