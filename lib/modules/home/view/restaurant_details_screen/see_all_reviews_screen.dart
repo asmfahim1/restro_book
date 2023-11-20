@@ -10,9 +10,8 @@ import 'package:restro_book/modules/home/view/restaurant_details_screen/componen
 import '../../../../../../core/utils/exports.dart';
 
 class SeeAllReviewsScreen extends StatelessWidget {
-  final String resId;
-  final String resName;
-  SeeAllReviewsScreen({Key? key, required this.resId, required this.resName})
+  final Map<String, String> map;
+  SeeAllReviewsScreen({Key? key, required this.map,})
       : super(key: key);
 
   final reservationController = Get.find<ReservationController>();
@@ -227,7 +226,7 @@ class SeeAllReviewsScreen extends StatelessWidget {
 
   Widget _showSeatingOptionBottomSheet() {
     return Container(
-      height: Dimensions.heightScreenHalf * .9,
+      height: Dimensions.heightScreenHalf,
       padding: const EdgeInsets.all(15),
       decoration: const BoxDecoration(
           color: whiteColor,
