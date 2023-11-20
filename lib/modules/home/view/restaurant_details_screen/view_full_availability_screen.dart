@@ -213,13 +213,14 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
                   );
                   return GestureDetector(
                     onTap: () {
+                      print('dateTime is : $dateTime');
                       Get.back();
                       Get.toNamed(
                           AppRoutes.bookingConfirmScreen,
                           arguments: {
                             'map' : map,
                             'partySize' : reservationController.noOfMember.toString(),
-                            'reserveTime' : dateTime,
+                            'reservationTime' : dateTime,
                           }
 
                       );
