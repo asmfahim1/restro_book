@@ -43,7 +43,7 @@ class AppRoutes {
   static const accountSettingScreen = '/account_setting_page';
   static const historyScreen = '/history_page';
 
-  //best way to justify the parameter is actual indicate the specific route
+/*  //best way to justify the parameter is actual indicate the specific route
   static String getSplashPage() => splashScreen;
   static String startedScreen() => getStartedScreen;
   static String getNavBarScreen() => navBarScreen;
@@ -73,7 +73,7 @@ class AppRoutes {
   static String getSavedScreen() => savedScreen;
   static String getProfileScreen() => profileScreen;
   static String getAccountSetting() => accountSettingScreen;
-  static String getHistoryScreen() => historyScreen;
+  static String getHistoryScreen() => historyScreen;*/
 
   static List<GetPage> routes = [
     GetPage(
@@ -130,11 +130,9 @@ class AppRoutes {
       name: resDetailsScreen,
       transition: Transition.noTransition,
       page: () {
-        var resName = Get.parameters['resName']!;
-        var resId = Get.parameters['resId']!;
+        var map = Get.arguments['map']!;
         return RestaurantDetailsScreen(
-          resName: resName,
-          resId: resId,
+          map: map,
         );
       },
     ),
@@ -142,11 +140,9 @@ class AppRoutes {
       name: viewFullAvailability,
       transition: Transition.noTransition,
       page: () {
-        var resName = Get.parameters['resName']!;
-        var resId = Get.parameters['resId']!;
+        var map = Get.arguments['map']!;
         return ViewFullAvailabilityScreen(
-          resName: resName,
-          resId: resId,
+          map: map
         );
       },
     ),
@@ -154,11 +150,9 @@ class AppRoutes {
       name: seeFullMenu,
       transition: Transition.noTransition,
       page: () {
-        var resName = Get.parameters['resName']!;
-        var resId = Get.parameters['resId']!;
+        var map = Get.arguments['map']!;
         return SeeFullMenuScreen(
-          resName: resName,
-          resId: resId,
+          map: map,
         );
       },
     ),
@@ -166,11 +160,9 @@ class AppRoutes {
       name: seeAllReviews,
       transition: Transition.noTransition,
       page: () {
-        var resName = Get.parameters['resName']!;
-        var resId = Get.parameters['resId']!;
+        var map = Get.arguments['map']!;
         return SeeAllReviewsScreen(
-          resName: resName,
-          resId: resId,
+          map: map
         );
       },
     ),
@@ -178,13 +170,11 @@ class AppRoutes {
       name: bookingConfirmScreen,
       transition: Transition.noTransition,
       page: () {
-        var resName = Get.parameters['resName']!;
-        var resId = Get.parameters['resId']!;
-        var partySize = Get.parameters['partySize']!;
-        var reservationTime = Get.parameters['reservationTime']!;
+        var map = Get.arguments['map']!;
+        var partySize = Get.arguments['partySize']!;
+        var reservationTime = Get.arguments['reservationTime']!;
         return BookingConfirmScreen(
-          resName: resName,
-          resId: resId,
+          map: map,
           partySize: partySize,
           reservationTime: DateTime.parse(reservationTime),
         );
