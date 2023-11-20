@@ -6,16 +6,14 @@ import 'package:restro_book/modules/home/view/restaurant_details_screen/componen
 
 class CategorySection extends StatelessWidget {
   final int index;
-  final String resName;
-  final String resId;
+  final Map<String, String>? map;
   final ReservationController controller;
 
   const CategorySection({
     Key? key,
     required this.index,
     required this.controller,
-    required this.resName,
-    required this.resId,
+    required this.map,
   }) : super(key: key);
 
   @override
@@ -31,8 +29,7 @@ class CategorySection extends StatelessWidget {
           SliverBodyItems(
             categoryIndex: controller.listOfCategories[index],
             controller: controller,
-            resName: resName,
-            resId: resId,
+            map: map,
           ),
         ],
       ),
