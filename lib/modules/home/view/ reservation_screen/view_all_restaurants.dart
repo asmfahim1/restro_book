@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/restaurant_resources.dart';
 import 'package:restro_book/core/widgets/exports.dart';
@@ -107,21 +108,37 @@ class ViewAllRestaurantsScreen extends StatelessWidget {
   }
 
   Widget _buildBody() {
-    return Container(
+    return SizedBox(
       height: Dimensions.screenHeight,
       width: Dimensions.screenWidth,
-      padding: leftRightPadding15,
       child: ListView.builder(
           itemCount: seeAllRestaurants.length,
           physics: const BouncingScrollPhysics(),
           itemBuilder: (_, index) {
             final restaurants = seeAllRestaurants[index];
             return InkWell(
-              onTap: () {},
+              onTap: () {
+                var map = <String, String>{};
+                map = {
+                  'resName': restaurants['restaurantName'].toString(),
+                  'resId': restaurants['restaurantID'].toString(),
+                  'resReviews': restaurants['restaurantReviews'].toString(),
+                  'resAddress': restaurants['restaurantAddress'].toString(),
+                  'resPricing': restaurants['restaurantPriceRang'].toString(),
+                  'resMetro': restaurants['restaurantMetro'].toString(),
+                  'resCuisines': restaurants['restaurantCuisines'].toString(),
+                };
+                Get.toNamed(
+                    AppRoutes.resDetailsScreen,
+                    arguments: {
+                      'map': map,
+                    }
+                );
+              },
               child: Container(
                 height: Dimensions.height100 + Dimensions.height80,
+                padding: leftRightPadding15,
                 decoration: const BoxDecoration(
-                    color: Colors.white,
                     border: Border(bottom: BorderSide(color: strokeColor))),
                 child: Row(
                   children: [
