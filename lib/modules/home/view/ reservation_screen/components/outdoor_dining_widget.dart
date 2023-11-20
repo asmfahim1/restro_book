@@ -10,8 +10,9 @@ import 'package:restro_book/modules/home/view/widget/title_with_listView_widget.
 
 class OutDoorDiningWidget extends StatelessWidget {
   final HomeController homeController;
-  const OutDoorDiningWidget({Key? key, required this.homeController})
+  OutDoorDiningWidget({Key? key, required this.homeController})
       : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class OutDoorDiningWidget extends StatelessWidget {
           CommonTitleWidgetWithViewAll(
             titleOfTheList: 'Outdoor Dining',
             onTap: () {
-              Get.toNamed(AppRoutes.getViewAllScreen());
+              Get.toNamed(AppRoutes.viewAllRestaurants);
             },
           ),
           Expanded(
@@ -34,9 +35,24 @@ class OutDoorDiningWidget extends StatelessWidget {
                 final restaurant = outdoorDiningList[index];
                 return TitleWithListViewWidget(
                   onTap: () {
-                    Get.toNamed(AppRoutes.getResDetailsScreen(
-                        restaurant['restaurantName'].toString(),
-                        '110302$restaurant'));
+                    var map = <String, String>{};
+                    map = {
+                      'resName': restaurant['restaurantName'].toString(),
+                      'resId': restaurant['restaurantID'].toString(),
+                      'resReviews': restaurant['restaurantReviews'].toString(),
+                      'resAddress': restaurant['restaurantAddress'].toString(),
+                      'resPricing': restaurant['restaurantPriceRang'].toString(),
+                      'resMetro': restaurant['restaurantMetro'].toString(),
+                      'resCuisines': restaurant['restaurantCuisines'].toString(),
+                    };
+                    Get.toNamed(
+                        AppRoutes.resDetailsScreen,
+                        arguments: {
+                          'resName': restaurant['restaurantName'].toString(),
+                          'resId': restaurant['restaurantID'].toString(),
+                          'map': map,
+                        }
+                    );
                   },
                   imageUrl: restaurant['restaurantImage'].toString(),
                   restaurantName: restaurant['restaurantName'].toString(),
