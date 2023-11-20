@@ -10,10 +10,9 @@ import 'components/category_section.dart';
 import 'components/f_app_bar.dart';
 
 class RestaurantDetailsScreen extends StatefulWidget {
-  final String resName;
-  final String resId;
+  final Map<String, String>? map;
   const RestaurantDetailsScreen(
-      {Key? key, required this.resName, required this.resId})
+      {Key? key, required this.map})
       : super(key: key);
 
   @override
@@ -129,7 +128,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen>
 
   SliverAppBar buildAppBar() {
     return FAppBar(
-      resName: widget.resName,
+      map: widget.map!,
       context: context,
       scrollController: scrollController,
       expandedHeight: expandedHeight,
@@ -163,8 +162,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen>
         child: CategorySection(
           index: index,
           controller: reservationController,
-          resName: widget.resName,
-          resId: widget.resId,
+          map: widget.map,
         ),
       ),
     );
