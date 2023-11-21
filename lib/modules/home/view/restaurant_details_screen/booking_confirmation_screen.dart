@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:restro_book/core/utils/colors.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/styles.dart';
@@ -15,20 +14,23 @@ class BookingConfirmScreen extends StatelessWidget {
 
   final Map<String, String> map;
   final String partySize;
-  final DateTime reservationTime;
+  final String? date;
+  final String? time;
   BookingConfirmScreen(
       {Key? key,
       required this.map,
       required this.partySize,
-      required this.reservationTime})
+      this.date,
+      this.time,
+      })
       : super(key: key);
 
   final reservationController = Get.find<ReservationController>();
 
   @override
   Widget build(BuildContext context) {
-    String dateString = DateFormat('E, MMM d').format(reservationTime);
-    String timeString = DateFormat('h : mm a').format(reservationTime);
+    /*String dateString = DateFormat('E, MMM d').format(reservationTime);
+    String timeString = DateFormat('h : mm a').format(reservationTime);*/
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: const CommonAppbar(),
@@ -48,7 +50,7 @@ class BookingConfirmScreen extends StatelessWidget {
                     style: TextStyles.title22,
                   ),
                   const SizedBoxHeight10(),
-                  _partyDescriptionWidget(dateString, timeString),
+                  _partyDescriptionWidget(date!, time!),
                   const SizedBoxHeight20(),
                   _specialRequestWidget(reservationController),
                   const SizedBoxHeight20(),
