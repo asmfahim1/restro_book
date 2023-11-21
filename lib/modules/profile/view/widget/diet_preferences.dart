@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/core/widgets/sized_box_height_10.dart';
+import 'package:restro_book/modules/profile/controller/profile_controller.dart';
 
 class DietPreferencesWidget extends StatelessWidget {
-  const DietPreferencesWidget({
-    super.key,
+  final ProfileController profileController;
+  DietPreferencesWidget({
+    super.key, required this.profileController,
   });
+
+  final List<String> diets = [
+    'Pescatarian',
+    'Vegetarian',
+    'Vegan',
+    'No red meat',
+    'Gluten-free',
+    'Diary-free',
+    'Nut-free',
+    'Halal',
+    'Keto',
+  ];
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Container(
@@ -24,35 +38,39 @@ class DietPreferencesWidget extends StatelessWidget {
         ),
         const SizedBoxHeight10(),
         Wrap(
-          spacing: 8.0, // Horizontal spacing between items
-          runSpacing: 8.0, // Vertical spacing between rows
-          children: [
-            _dietNameWidget('Pescatarian'),
-            _dietNameWidget('Vegetarian'),
-            _dietNameWidget('Vegan'),
-            _dietNameWidget('No red meat'),
-            _dietNameWidget('Gluten-free'),
-            _dietNameWidget('Diary-free'),
-            _dietNameWidget('Nut-free'),
-            _dietNameWidget('Halal'),
-            _dietNameWidget('Keto'),
-          ],
+          spacing: 4.0,
+          runSpacing: 8.0,
+          children: diets.map((diet) {
+            return Obx((){
+              return _dietNameWidget(
+                diet: diet,
+                isSelected: profileController.selectedDiets.contains(diet),
+                onSelectedDiet: () {
+                  profileController.toggleDiet(diet);
+                },
+              );
+            });
+          }).toList(),
         ),
       ],
     );
   }
 
-  Widget _dietNameWidget(String title) {
-    return Container(
-      height: Dimensions.height10 * 2.5,
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-      decoration: BoxDecoration(
-        border: Border.all(color: strokeColor),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: TextWidget(
-        title,
-        style: TextStyles.regular12.copyWith(fontWeight: FontWeight.bold),
+  Widget _dietNameWidget({required String diet, required bool isSelected, required VoidCallback onSelectedDiet}){
+    return InkWell(
+      onTap: onSelectedDiet,
+      borderRadius: BorderRadius.circular(15),
+      child: Container(
+        height: Dimensions.height10 * 2.5,
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+        decoration: BoxDecoration(
+          border: Border.all(color: isSelected ? primaryColor : strokeColor),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: TextWidget(
+          diet,
+          style: TextStyles.regular12.copyWith(fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
