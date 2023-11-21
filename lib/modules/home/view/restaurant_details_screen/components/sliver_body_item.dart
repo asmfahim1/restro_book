@@ -1023,17 +1023,17 @@ class SliverBodyItems extends StatelessWidget {
           Expanded(
             child: Container(
               padding: leftRightPadding15,
-              child: _seatingListsWidget(controller),
+              child: _seatingListsWidget(),
             ),
           ),
-          _cancelSeatingButton(controller),
+          _cancelSeatingButton(),
         ],
       ),
     );
   }
 
   ///reservation category
-  Widget _seatingListsWidget(ReservationController controller) {
+  Widget _seatingListsWidget() {
     return ListView.builder(
       itemCount: seatingOption.length,
       shrinkWrap: true, // Set shrinkWrap to true
@@ -1041,13 +1041,18 @@ class SliverBodyItems extends StatelessWidget {
       itemBuilder: (_, index) {
         return InkWell(
           onTap: () {
+            String dateString = DateFormat('E, MMM d').format(homeController.dateTime);
+            String timeString = DateFormat('h : mm a').format(controller.dateTime);
+            print('date : $dateString');
+            print('time : $timeString');
             Get.back();
             Get.toNamed(
               AppRoutes.bookingConfirmScreen,
               arguments: {
                 'map': map,
-                'partySize': controller.noOfMember.toString(),
-                'reservationTime': controller.dateTime,
+                'partySize': homeController.noOfMember.toString(),
+                'date': dateString,
+                'time': timeString,
               },
             );
           },
@@ -1093,7 +1098,7 @@ class SliverBodyItems extends StatelessWidget {
   }
 
   ///reservation category
-  Widget _cancelSeatingButton(ReservationController controller) {
+  Widget _cancelSeatingButton() {
     return Padding(
       padding: allPadding15,
       child: InkWell(
