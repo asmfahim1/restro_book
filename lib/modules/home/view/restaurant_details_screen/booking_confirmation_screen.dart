@@ -39,7 +39,7 @@ class BookingConfirmScreen extends StatelessWidget {
         children: [
           Container(
             height: Dimensions.heightScreenHalf * 1.6,
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15,),
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
