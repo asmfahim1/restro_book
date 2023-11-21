@@ -72,7 +72,7 @@ class AccountSettingsScreen extends StatelessWidget {
               const SizedBoxHeight20(),
               _anniversary(context),
               const SizedBoxHeight20(),
-              const DietPreferencesWidget(),
+              DietPreferencesWidget(profileController: profileController,),
               const SizedBoxHeight20(),
               _specialRequest(),
               const SizedBoxHeight20(),
