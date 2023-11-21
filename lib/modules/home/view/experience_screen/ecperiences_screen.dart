@@ -145,14 +145,15 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
   }
 
   ///reservation for  party size
+    ///reservation for  party size
   Widget _showDateTimeBottomSheet() {
-    DateTime initialDateTime = DateTime.now();
+    /*DateTime initialDateTime = DateTime.now();
     int initialMinute = initialDateTime.minute;
     if (initialDateTime.minute % 15 != 0) {
       initialMinute = initialDateTime.minute - initialDateTime.minute % 15 + 15;
-    }
+    }*/
     return Container(
-      height: Dimensions.heightScreenHalf * 1.26,
+      height: Dimensions.height100 * 2.5,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -164,7 +165,10 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 15.0, top: 10),
+            padding: const EdgeInsets.only(
+              left: 15.0,
+              top: 20,
+            ),
             child: TextWidget(
               'Party Size',
               style: TextStyles.title16,
@@ -185,7 +189,7 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
                       final isSelected =
                           homeController.selectedMemberIndex == index;
                       final containerColor =
-                          isSelected ? primaryColor : strokeColor;
+                      isSelected ? primaryColor : strokeColor;
                       return GestureDetector(
                         onTap: () {
                           homeController.setSelectedMember(index);
@@ -210,8 +214,10 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
                   );
                 }),
           ),
-          const SizedBoxHeight10(),
-          Padding(
+          SizedBox(
+            height: Dimensions.height40,
+          ),
+          /*Padding(
             padding: const EdgeInsets.only(left: 15.0),
             child: TextWidget(
               'Date and Time',
@@ -233,10 +239,9 @@ class _ExperiencesBarScreenState extends State<ExperiencesBarScreen> {
                 onDateTimeChanged: (date) {
                   final formattedDate =
                       DateFormat('E, MMM d h:mm a').format(date);
-                  print('The picked date and Time is: $formattedDate');
-                  homeController.dateTime = date;
+                  controller.dateTime = date;
                 }),
-          ),
+          ),*/
           _doneButton(),
         ],
       ),
