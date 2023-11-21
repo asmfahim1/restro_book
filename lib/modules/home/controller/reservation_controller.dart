@@ -9,6 +9,7 @@ class ReservationController extends GetxController {
   final RxBool _switchActive1 = false.obs;
   final RxBool _switchActive2 = false.obs;
   final Rx<DateTime> _dateTime = DateTime.now().obs;
+  RxString selectedOccasion = ''.obs;
 
   ///booking_confirm_screen
   TextEditingController specialRequestController = TextEditingController();
@@ -64,6 +65,10 @@ class ReservationController extends GetxController {
         ),
       );
     }
+  }
+
+  void selectOccasion(String occasion) {
+    selectedOccasion.value = occasion;
   }
 
   int get noOfMember => _noOfMember.value;
