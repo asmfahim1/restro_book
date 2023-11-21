@@ -6,6 +6,7 @@ import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/core/widgets/sized_box_height_10.dart';
+import 'package:restro_book/modules/home/controller/home_controller.dart';
 import 'package:restro_book/modules/home/controller/reservation_controller.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -16,6 +17,7 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
       : super(key: key);
 
   final reservationController = Get.find<ReservationController>();
+  final homeController = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -63,18 +65,18 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
               itemCount: 20,
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
-              controller: reservationController.scrollController,
+              controller: homeController.scrollController,
               itemBuilder: (_, index) {
                 return Padding(
                   padding: const EdgeInsets.only(left: 15.0),
                   child: Obx(() {
                     final isSelected =
-                        reservationController.selectedMemberIndex == index;
+                        homeController.selectedMemberIndex == index;
                     final containerColor =
                         isSelected ? primaryColor : strokeColor;
                     return GestureDetector(
                       onTap: () {
-                        reservationController.setSelectedMember(index);
+                        homeController.setSelectedMember(index);
                       },
                       child: Container(
                         height: Dimensions.height50,
@@ -213,14 +215,16 @@ class ViewFullAvailabilityScreen extends StatelessWidget {
                   );
                   return GestureDetector(
                     onTap: () {
-                      print('dateTime is : $dateTime');
+                      String dateString = DateFormat('E, MMM d').format(reservationController.dateTime);
+                      String timeString = DateFormat('h : mm a').format(dateTime);
                       Get.back();
                       Get.toNamed(
                           AppRoutes.bookingConfirmScreen,
                           arguments: {
                             'map' : map,
-                            'partySize' : reservationController.noOfMember.toString(),
-                            'reservationTime' : dateTime,
+                            'partySize' : homeController.noOfMember.toString(),
+                            'date' : dateString,
+                            'time' : timeString,
                           }
 
                       );
