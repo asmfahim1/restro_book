@@ -39,7 +39,7 @@ class BookingConfirmScreen extends StatelessWidget {
         children: [
           Container(
             height: Dimensions.heightScreenHalf * 1.6,
-            padding: const EdgeInsets.symmetric(horizontal: 15,),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
@@ -118,7 +118,7 @@ class BookingConfirmScreen extends StatelessWidget {
   }
 
   Widget _occasionWidget() {
-    return const OccasionWidget(title: 'What\'s the occasion?');
+    return OccasionWidget(title: 'What\'s the occasion?', reservationController: reservationController,);
   }
 
   Widget _phoneWithCountryCodeWidget() {
