@@ -141,9 +141,7 @@ class AppRoutes {
       transition: Transition.noTransition,
       page: () {
         var map = Get.arguments['map']!;
-        return ViewFullAvailabilityScreen(
-          map: map
-        );
+        return ViewFullAvailabilityScreen(map: map);
       },
     ),
     GetPage(
@@ -161,9 +159,7 @@ class AppRoutes {
       transition: Transition.noTransition,
       page: () {
         var map = Get.arguments['map']!;
-        return SeeAllReviewsScreen(
-          map: map
-        );
+        return SeeAllReviewsScreen(map: map);
       },
     ),
     GetPage(
@@ -172,11 +168,13 @@ class AppRoutes {
       page: () {
         var map = Get.arguments['map']!;
         var partySize = Get.arguments['partySize']!;
-        DateTime reservationTime = Get.arguments['reservationTime']!;
+        var date = Get.arguments['date'];
+        var time = Get.arguments['time'];
         return BookingConfirmScreen(
           map: map,
           partySize: partySize,
-          reservationTime: reservationTime,
+          date: date,
+          time: time,
         );
       },
     ),
