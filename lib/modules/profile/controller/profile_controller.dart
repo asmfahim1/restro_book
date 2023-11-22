@@ -13,6 +13,7 @@ class ProfileController extends GetxController {
   final RxString anniversary = DateFormat.yMMMd().format(DateTime.now()).obs;
   RxString selectedImagePath = ''.obs;
   RxString selectedImageSize = ''.obs;
+  RxList selectedDiets = <String>[].obs;
 
   TextEditingController _firstNameController = TextEditingController();
   TextEditingController _lastNameController = TextEditingController();
@@ -86,6 +87,16 @@ class ProfileController extends GetxController {
           duration: const Duration(seconds: 2));
     }
   }
+
+  /// for account settings diet option toggling
+  void toggleDiet(String diet) {
+    if (selectedDiets.contains(diet)) {
+      selectedDiets.remove(diet);
+    } else {
+      selectedDiets.add(diet);
+    }
+  }
+
 
   String get gender => _gender.value;
   TextEditingController get firstNameController => _firstNameController;
