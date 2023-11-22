@@ -95,7 +95,7 @@ class ProfileBodySectionWidget extends StatelessWidget {
             padding: const EdgeInsets.all(15.0),
             child: InkWell(
               onTap: () {
-                Get.offAllNamed(AppRoutes.getLoginScreen());
+                Get.offAllNamed(AppRoutes.loginPage);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

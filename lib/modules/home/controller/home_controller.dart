@@ -27,18 +27,22 @@ class HomeController extends GetxController {
 
   set dateTime(DateTime value) {
     _dateTime.value = value;
+    update();
   }
 
   set myLocation(String value) {
     _myLocation.value = value;
+    update();
   }
 
   set myLatitude(String value) {
     _myLatitude.value = value;
+    update();
   }
 
   set myLongitude(String value) {
     _myLongitude.value = value;
+    update();
   }
 
   set noOfMember(int value) {

@@ -23,7 +23,6 @@ void main() async {
   runApp(const MyApp());
 }
 
-
 Future<void> initServices() async {
   await Get.putAsync(() async {
     return Dimensions(); // Initialize Dimensions class
@@ -59,7 +58,7 @@ class MyApp extends StatelessWidget {
             ),
       ),
       //home: const SplashScreen(),
-      initialRoute: AppRoutes.getSplashPage(),
+      initialRoute: AppRoutes.splashScreen,
       getPages: AppRoutes.routes,
     );
   }
