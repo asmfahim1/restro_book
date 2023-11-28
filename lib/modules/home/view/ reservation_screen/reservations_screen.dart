@@ -4,7 +4,6 @@ import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
-import 'package:restro_book/core/widgets/global_loader.dart';
 import 'package:restro_book/core/widgets/sized_box_height_10.dart';
 import 'package:restro_book/modules/home/controller/home_controller.dart';
 import 'package:restro_book/modules/home/view/%20reservation_screen/components/available_for_brunch_widget.dart';
@@ -19,54 +18,49 @@ import 'package:restro_book/modules/home/view/%20reservation_screen/components/o
 import 'package:restro_book/modules/home/view/%20reservation_screen/components/recently_viewed_widget.dart';
 
 class ReservationBarScreen extends StatelessWidget {
-  const ReservationBarScreen({Key? key}) : super(key: key);
+  final HomeController homeController;
+  const ReservationBarScreen({Key? key, required this.homeController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final homeController = Get.put(HomeController());
-    homeController.getMyLocation();
     return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Obx(() {
-        return homeController.gettingLocation.value
-            ? const GlobalLoader()
-            : Column(
-                children: [
-                  _locationTimeWidget(context, homeController),
-                  const SizedBoxHeight10(),
-                  AvailableForCurrentTimeWidget(
-                    homeController: homeController,
-                  ),
-                  const SizedBoxHeight10(),
-                  OutDoorDiningWidget(
-                    homeController: homeController,
-                  ),
-                  const SizedBoxHeight10(),
-                  NewToRestroBookingWidget(
-                    homeController: homeController,
-                  ),
-                  const SizedBoxHeight10(),
-                  FeaturedRestaurantsWidget(
-                    homeController: homeController,
-                  ),
-                  const SizedBoxHeight10(),
-                  const RecentlyViewedRestaurantsWidget(),
-                  const SizedBoxHeight10(),
-                  HappyHourWidget(
-                    homeController: homeController,
-                  ),
-                  const SizedBoxHeight10(),
-                  AvailableForBrunchWidget(
-                    homeController: homeController,
-                  ),
-                  const SizedBoxHeight10(),
-                  const GetInspiredWidget(),
-                  _browseByCuisineWidget(),
-                  _exploreAreaWidget(),
-                ],
-              );
-      }),
-    );
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            _locationTimeWidget(context, homeController),
+            const SizedBoxHeight10(),
+            AvailableForCurrentTimeWidget(
+              homeController: homeController,
+            ),
+            const SizedBoxHeight10(),
+            OutDoorDiningWidget(
+              homeController: homeController,
+            ),
+            const SizedBoxHeight10(),
+            NewToRestroBookingWidget(
+              homeController: homeController,
+            ),
+            const SizedBoxHeight10(),
+            FeaturedRestaurantsWidget(
+              homeController: homeController,
+            ),
+            const SizedBoxHeight10(),
+            const RecentlyViewedRestaurantsWidget(),
+            const SizedBoxHeight10(),
+            HappyHourWidget(
+              homeController: homeController,
+            ),
+            const SizedBoxHeight10(),
+            AvailableForBrunchWidget(
+              homeController: homeController,
+            ),
+            const SizedBoxHeight10(),
+            const GetInspiredWidget(),
+            _browseByCuisineWidget(),
+            _exploreAreaWidget(),
+          ],
+        ));
   }
 
   Widget _locationTimeWidget(BuildContext context, HomeController controller) {

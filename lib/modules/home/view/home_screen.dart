@@ -4,10 +4,12 @@ import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/const.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/styles.dart';
+import 'package:restro_book/core/widgets/global_loader.dart';
 import 'package:restro_book/modules/home/controller/home_controller.dart';
 import 'package:restro_book/modules/home/view/%20reservation_screen/reservations_screen.dart';
 import 'package:restro_book/modules/home/view/experience_screen/ecperiences_screen.dart';
 import 'package:restro_book/modules/home/view/takeout_screen/takeout_screen.dart';
+
 import '../../../../core/utils/colors.dart';
 import '../../../../core/widgets/text_widget.dart';
 
@@ -25,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
+    home.getMyLocation();
     home.tabController = TabController(length: 3, vsync: this);
     home.tabController.animateTo(0);
   }
@@ -128,14 +131,20 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _bodySectionWidget() {
-    return TabBarView(
-      physics: const NeverScrollableScrollPhysics(),
-      controller: home.tabController,
-      children: const [
-        ReservationBarScreen(),
-        ExperiencesBarScreen(),
-        TakeoutBarScreen(),
-      ],
-    );
+    return Obx(() {
+      return home.gettingLocation.value
+          ? const Center(child: GlobalLoader())
+          : TabBarView(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: home.tabController,
+              children: [
+                ReservationBarScreen(
+                  homeController: home,
+                ),
+                const ExperiencesBarScreen(),
+                const TakeoutBarScreen(),
+              ],
+            );
+    });
   }
 }
