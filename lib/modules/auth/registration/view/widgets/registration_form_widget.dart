@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
-import 'package:restro_book/core/widgets/sized_box_height_10.dart';
+import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/modules/auth/registration/controller/registration_controller.dart';
-
-import '../../../../../core/widgets/common_button.dart';
-import '../../../../../core/widgets/common_text_field_widget.dart';
-import '../../../../../core/widgets/sized_box_height_20.dart';
 
 class RegistrationFormSectionWidget extends StatefulWidget {
   const RegistrationFormSectionWidget({Key? key}) : super(key: key);
@@ -22,13 +17,15 @@ class _RegistrationFormSectionWidgetState
     extends State<RegistrationFormSectionWidget> {
   final regiController = Get.put(RegistrationController());
   final _formKey = GlobalKey<FormState>();
+  final FocusNode _emailFocus = FocusNode();
+  final FocusNode _phoneNumFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
   @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
       child: Container(
-        height: Dimensions.heightScreenHalf ,
+        height: Dimensions.screenHeight * .645,
         width: Dimensions.screenWidth,
         padding: leftRightPadding10,
         decoration: BoxDecoration(
@@ -43,7 +40,6 @@ class _RegistrationFormSectionWidgetState
             SizedBox(
               height: Dimensions.height15,
             ),
-            const SizedBoxHeight20(),
             _registrationButton(),
           ],
         ),
@@ -60,19 +56,19 @@ class _RegistrationFormSectionWidgetState
           validator: Validator().nullFieldValidate,
           controller: regiController.userName,
           onFieldSubmitted: (v) {
-            FocusScope.of(context).requestFocus(_passwordFocus);
+            FocusScope.of(context).requestFocus(_emailFocus);
           },
         ),
-        const SizedBoxHeight10(),
+        const SizedBoxHeight20(),
         CommonTextField(
           hintText: 'Email address',
           validator: Validator().nullFieldValidate,
           controller: regiController.email,
           onFieldSubmitted: (v) {
-            FocusScope.of(context).requestFocus(_passwordFocus);
+            FocusScope.of(context).requestFocus(_phoneNumFocus);
           },
         ),
-        const SizedBoxHeight10(),
+        const SizedBoxHeight20(),
         CommonTextField(
           hintText: 'Phone number',
           validator: Validator().nullFieldValidate,
@@ -81,7 +77,7 @@ class _RegistrationFormSectionWidgetState
             FocusScope.of(context).requestFocus(_passwordFocus);
           },
         ),
-        const SizedBoxHeight10(),
+        const SizedBoxHeight20(),
         Obx(() {
           return CommonTextField(
             validator: Validator().nullFieldValidate,
@@ -91,6 +87,9 @@ class _RegistrationFormSectionWidgetState
             obSecure: !regiController.passwordVisible,
             onFieldSubmitted: (v) {
               //login method will call
+              if (_formKey.currentState!.validate()) {
+                regiController.registrationMethod();
+              }
             },
             suffixIcon: IconButton(
               color: blackColor,
@@ -114,8 +113,9 @@ class _RegistrationFormSectionWidgetState
       width: Dimensions.width225,
       buttonTitle: 'Registration',
       onPressed: () {
-        //login method will call
-        Get.offAllNamed(AppRoutes.loginPage);
+        if (_formKey.currentState!.validate()) {
+          regiController.registrationMethod();
+        }
       },
     );
   }

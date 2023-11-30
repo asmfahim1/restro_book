@@ -32,7 +32,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
     return Form(
       key: _formKey,
       child: Container(
-        height: Dimensions.screenHeight * .5,
+        height: Dimensions.screenHeight * .52,
         width: size.width,
         padding: leftRightPadding10,
         decoration: BoxDecoration(
@@ -43,12 +43,11 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBoxHeight20(),
             _textFields(),
             SizedBox(
               height: Dimensions.height15,
             ),
-            const SizedBoxHeight20(),
+            const SizedBoxHeight10(),
             _loginButton(),
             const SizedBoxHeight20(),
             _socialLogin(),
@@ -87,7 +86,7 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
             FocusScope.of(context).requestFocus(_passwordFocus);
           },
         ),
-        const SizedBoxHeight20(),
+        const SizedBoxHeight10(),
         Obx(() {
           return CommonTextField(
             validator: Validator().nullFieldValidate,
@@ -97,6 +96,9 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
             obSecure: !login.passwordVisible,
             onFieldSubmitted: (v) {
               //login method will call
+              if (_formKey.currentState!.validate()) {
+                login.loginMethod();
+              }
             },
             suffixIcon: IconButton(
               color: blackColor,
@@ -120,7 +122,9 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
       buttonTitle: 'Login',
       onPressed: () {
         //login method will call
-        Get.toNamed(AppRoutes.navBarScreen);
+        if (_formKey.currentState!.validate()) {
+          login.loginMethod();
+        }
       },
     );
   }

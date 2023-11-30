@@ -1,9 +1,9 @@
 class Urls {
   ///base url
-  static String get baseUrl => '';
+  static String get baseUrl => 'http://restapi.adequateshop.com/api/';
 
-  static String loginUrl = '';
-  static String registerUrl = '';
+  static String loginUrl = 'authaccount/login';
+  static String registerUrl = 'authaccount/registration';
   static String signUpVerificationUrl = '';
   static String resendVerificationCode = '';
   static String verifyPasswordUrl = '';

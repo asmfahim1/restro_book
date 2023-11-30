@@ -38,7 +38,7 @@ class DialogUtils {
     );
   }
 
-  static void showErrorDialog({
+  static void showMessageDialogue({
     String title = "Oops Error",
     String description = "Something went wrong ",
   }) {
@@ -79,7 +79,12 @@ class DialogUtils {
       messageTitle,
       messageBody,
       icon: const Icon(Icons.person, color: Colors.white),
-      snackPosition: SnackPosition.BOTTOM,
+      borderWidth: 1.5,
+      borderColor: Colors.black54,
+      colorText: Colors.white,
+      backgroundColor: greenColor,
+      duration: const Duration(seconds: 1),
+      snackPosition: SnackPosition.TOP,
     );
   }
 }
