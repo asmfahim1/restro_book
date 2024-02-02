@@ -5,6 +5,7 @@ import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/widgets/exports.dart';
 import 'package:restro_book/core/widgets/sized_box_height_10.dart';
+import 'package:restro_book/modules/auth/login/controller/login_controller.dart';
 
 class ProfileBodySectionWidget extends StatelessWidget {
   const ProfileBodySectionWidget({super.key});
@@ -95,7 +96,10 @@ class ProfileBodySectionWidget extends StatelessWidget {
             padding: const EdgeInsets.all(15.0),
             child: InkWell(
               onTap: () {
-                Get.offAllNamed(AppRoutes.loginPage);
+                if (Get.find<LoginController>().userLoggedIn()) {
+                  Get.find<LoginController>().clearSharedData();
+                  Get.offAllNamed(AppRoutes.loginPage);
+                }
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

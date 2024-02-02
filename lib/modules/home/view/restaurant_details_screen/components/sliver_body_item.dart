@@ -144,7 +144,8 @@ class SliverBodyItems extends StatelessWidget {
                                   enableDrag: false,
                                   backgroundColor: Colors.transparent,
                                   builder: (context) {
-                                    return _showSeatingOptionBottomSheet(controller);
+                                    return _showSeatingOptionBottomSheet(
+                                        controller);
                                   });
                             },
                             child: Padding(
@@ -1041,10 +1042,10 @@ class SliverBodyItems extends StatelessWidget {
       itemBuilder: (_, index) {
         return InkWell(
           onTap: () {
-            String dateString = DateFormat('E, MMM d').format(homeController.dateTime);
-            String timeString = DateFormat('h : mm a').format(controller.dateTime);
-            print('date : $dateString');
-            print('time : $timeString');
+            String dateString =
+                DateFormat('E, MMM d').format(homeController.dateTime);
+            String timeString =
+                DateFormat('h : mm a').format(controller.dateTime);
             Get.back();
             Get.toNamed(
               AppRoutes.bookingConfirmScreen,

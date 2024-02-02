@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:restro_book/core/utils/dimensions.dart';
 import 'package:restro_book/core/utils/exports.dart';
@@ -21,7 +22,9 @@ class DialogUtils {
                   width: Dimensions.width20,
                 ),
                 const Center(
-                  child: CircularProgressIndicator.adaptive(),
+                  child: SpinKitCircle(
+                    color: primaryColor,
+                  ),
                 ),
                 SizedBox(
                   width: Dimensions.width20,
@@ -83,7 +86,7 @@ class DialogUtils {
       borderColor: Colors.black54,
       colorText: Colors.white,
       backgroundColor: greenColor,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 3),
       snackPosition: SnackPosition.TOP,
     );
   }

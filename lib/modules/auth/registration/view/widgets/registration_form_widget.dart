@@ -15,7 +15,7 @@ class RegistrationFormSectionWidget extends StatefulWidget {
 
 class _RegistrationFormSectionWidgetState
     extends State<RegistrationFormSectionWidget> {
-  final regiController = Get.put(RegistrationController());
+  final regiController = Get.find<RegistrationController>();
   final _formKey = GlobalKey<FormState>();
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _phoneNumFocus = FocusNode();

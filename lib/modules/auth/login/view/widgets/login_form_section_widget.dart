@@ -23,7 +23,7 @@ class LoginFormSectionWidget extends StatefulWidget {
 }
 
 class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
-  final login = Get.put(LoginController());
+  final login = Get.find<LoginController>();
   final _formKey = GlobalKey<FormState>();
   final FocusNode _passwordFocus = FocusNode();
   @override
@@ -59,8 +59,10 @@ class _LoginFormSectionWidgetState extends State<LoginFormSectionWidget> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextWidget('Don\'t have an account?',
-                      style: TextStyles.title16.copyWith(color: whiteColor)),
+                  TextWidget(
+                    'Don\'t have an account?',
+                    style: TextStyles.title16,
+                  ),
                   TextWidget(
                     'Sign Up',
                     style: TextStyles.title16.copyWith(color: primaryColor),

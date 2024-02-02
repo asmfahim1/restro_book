@@ -48,13 +48,15 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: whiteColor,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(Dimensions.height100 * 1.18),
-        child: _topSectionWidget(),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: whiteColor,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(Dimensions.height100 * 1.18),
+          child: _topSectionWidget(),
+        ),
+        body: _buildBody(),
       ),
-      body: _buildBody(),
     );
   }
 
@@ -68,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen>
       children: [
         Container(
           margin: const EdgeInsets.only(top: 30),
-          height: Dimensions.screenHeight * .05,
+          height: Dimensions.screenHeight * .048,
           width: Dimensions.screenWidth,
           padding: leftRightPadding15,
           child: Row(

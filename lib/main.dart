@@ -8,6 +8,7 @@ import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/colors.dart';
 
 import 'core/utils/app_version.dart';
+import 'core/utils/dependencies.dart' as dep;
 import 'core/utils/dimensions.dart';
 import 'core/utils/pref_helper.dart';
 
@@ -27,6 +28,7 @@ Future<void> initServices() async {
   await Get.putAsync(() async {
     return Dimensions(); // Initialize Dimensions class
   });
+  await dep.init();
   await PrefHelper.init();
   await AppVersion.getVersion();
 }
@@ -57,7 +59,6 @@ class MyApp extends StatelessWidget {
               secondary: secondaryColor,
             ),
       ),
-      //home: const SplashScreen(),
       initialRoute: AppRoutes.splashScreen,
       getPages: AppRoutes.routes,
     );

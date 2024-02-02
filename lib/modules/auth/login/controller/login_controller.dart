@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restro_book/constant/constant_key.dart';
-import 'package:restro_book/core/utils/api_client.dart';
 import 'package:restro_book/core/utils/app_routes.dart';
 import 'package:restro_book/core/utils/dialogue_utils.dart';
 import 'package:restro_book/core/utils/extensions.dart';
-import 'package:restro_book/core/utils/pref_helper.dart';
-import 'package:restro_book/core/utils/urls.dart';
 import 'package:restro_book/modules/auth/login/model/login_response_model.dart';
+import 'package:restro_book/modules/auth/login/repo/login_repo.dart';
 
 class LoginController extends GetxController {
-  final apiClient = ApiClient();
+  LoginRepo? loginRepo;
+  LoginController({this.loginRepo});
+
   final TextEditingController name = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
@@ -28,18 +27,17 @@ class LoginController extends GetxController {
       final map = <String, dynamic>{};
       map["email"] = email.text.trim();
       map["password"] = password.text.trim();
-      //map["examType"] = examType;
-      Response response = await ApiClient().postData(Urls.loginUrl, map);
+      Response response = await loginRepo!.login(map);
       if (response.statusCode == 200) {
         responseModel = LoginResponseModel.fromJson(response.body);
         if (responseModel!.data == null) {
-          print('-------------- not null');
+          print('-------------- null');
           closeLoading();
           DialogUtils.showMessageDialogue(
               title: 'Warning', description: '${responseModel!.message}');
         } else {
-          print('-------------- null ');
-          _setToken(responseModel!);
+          print('--------------not null ');
+          await loginRepo!.saveUserToken(responseModel!.data!.token.toString());
           closeLoading();
           Get.offAllNamed(AppRoutes.navBarScreen);
         }
@@ -55,17 +53,13 @@ class LoginController extends GetxController {
     }
   }
 
-  void _setToken(LoginResponseModel responseModel) async {
-    apiClient.token = responseModel.data?.token;
-    apiClient.updateHeader(responseModel.data!.token.toString());
-    await PrefHelper.setString(
-      AppConstant.TOKEN.key,
-      responseModel.data?.token ?? "",
-    );
-    await PrefHelper.setString(
-      AppConstant.USER_ID.key,
-      responseModel.data?.token ?? "",
-    );
+  //ise user logged in
+  bool userLoggedIn() {
+    return loginRepo!.userLoggedIn();
+  }
+
+  bool clearSharedData() {
+    return loginRepo!.clearSharedData();
   }
 
   void closeLoading() {

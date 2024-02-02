@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:restro_book/core/utils/app_routes.dart';
-import 'package:restro_book/core/utils/const_key.dart';
 import 'package:restro_book/core/utils/dialogue_utils.dart';
-import 'package:restro_book/core/utils/exports.dart';
 import 'package:restro_book/core/utils/extensions.dart';
-import 'package:restro_book/core/utils/pref_helper.dart';
 import 'package:restro_book/modules/auth/registration/model/registration_response_model.dart';
+import 'package:restro_book/modules/auth/registration/repo/registration_repo.dart';
 
 class RegistrationController extends GetxController {
-  final apiClient = ApiClient();
+  RegistrationRepo? registrationRepo;
+  RegistrationController({this.registrationRepo});
+
   final TextEditingController userName = TextEditingController();
   final TextEditingController phone = TextEditingController();
   final TextEditingController email = TextEditingController();
@@ -30,7 +30,7 @@ class RegistrationController extends GetxController {
       map["email"] = email.text.trim();
       map["password"] = password.text.trim();
       //map["examType"] = examType;
-      Response response = await ApiClient().postData(Urls.registerUrl, map);
+      Response response = await registrationRepo!.registration(map);
       if (response.statusCode == 200) {
         responseModel = RegistrationResponseModel.fromJson(response.body);
         if (responseModel!.data == null) {
@@ -62,19 +62,6 @@ class RegistrationController extends GetxController {
 
   void closeLoading() {
     Get.back();
-  }
-
-  void _setToken(RegistrationResponseModel responseModel) async {
-    apiClient.token = responseModel.data?.token;
-    apiClient.updateHeader(responseModel.data!.token.toString());
-    await PrefHelper.setString(
-      AppConstant.TOKEN.key,
-      responseModel.data?.token ?? "",
-    );
-    await PrefHelper.setString(
-      AppConstant.USER_ID.key,
-      responseModel.data?.token ?? "",
-    );
   }
 
   bool get passwordVisible => _passwordVisible.value;

@@ -43,38 +43,6 @@ class AppRoutes {
   static const accountSettingScreen = '/account_setting_page';
   static const historyScreen = '/history_page';
 
-/*  //best way to justify the parameter is actual indicate the specific route
-  static String getSplashPage() => splashScreen;
-  static String startedScreen() => getStartedScreen;
-  static String getNavBarScreen() => navBarScreen;
-  static String getLoginScreen() => loginPage;
-  static String getRegistrationScreen() => loginPage;
-  static String getHomeScreen() => homePage;
-  static String getResDetailsScreen(String resName, String resId) =>
-      '$resDetailsScreen?resName=$resName&resId=$resId';
-  static String getViewFullAvailabilityScreen(String resId, String resName) =>
-      '$viewFullAvailability?resId=$resId&resName=$resName';
-  static String getSeeFullMenuScreen(String resId, String resName) =>
-      '$seeFullMenu?resId=$resId&resName=$resName';
-  static String getSeeAllReviewsScreen(String resId, String resName) =>
-      '$seeAllReviews?resId=$resId&resName=$resName';
-  static String getSearchScreen() => searchScreen;
-  // static String getSearchDetailsScreen() => searchDetailsScreen;
-  static String getBookingConfirmScreen(
-    String resId,
-    String resName,
-    String partySize,
-    DateTime reservationTime,
-  ) =>
-      '$bookingConfirmScreen?resId=$resId&resName=$resName&partySize=$partySize&reservationTime=$reservationTime';
-  static String getViewAllScreen() => viewAllRestaurants;
-  static String getViewAllCuisineScreen() => viewAllCuisines;
-  static String getViewAllAreaScreen() => viewAllArea;
-  static String getSavedScreen() => savedScreen;
-  static String getProfileScreen() => profileScreen;
-  static String getAccountSetting() => accountSettingScreen;
-  static String getHistoryScreen() => historyScreen;*/
-
   static List<GetPage> routes = [
     GetPage(
       name: splashScreen,

@@ -191,15 +191,10 @@ class SearchScreenAppBarWidget extends StatelessWidget
                 onDateTimeChanged: (date) {
                   final formattedDate =
                       DateFormat('E, MMM d h:mm a').format(date);
-                  print('The picked date and Time is: $formattedDate');
                   homeController.dateTime = date;
-                  print(
-                      'The picked date and Time is: ${homeController.dateTime}');
                 }),
           ),
-          Expanded(
-            child: _doneButton(),
-          )
+          _doneButton()
         ],
       ),
     );
