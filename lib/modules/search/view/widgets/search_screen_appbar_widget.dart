@@ -189,8 +189,6 @@ class SearchScreenAppBarWidget extends StatelessWidget
                 minuteInterval: 15,
                 mode: CupertinoDatePickerMode.dateAndTime,
                 onDateTimeChanged: (date) {
-                  final formattedDate =
-                      DateFormat('E, MMM d h:mm a').format(date);
                   homeController.dateTime = date;
                 }),
           ),

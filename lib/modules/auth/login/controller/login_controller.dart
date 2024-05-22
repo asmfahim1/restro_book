@@ -31,25 +31,24 @@ class LoginController extends GetxController {
       if (response.statusCode == 200) {
         responseModel = LoginResponseModel.fromJson(response.body);
         if (responseModel!.data == null) {
-          print('-------------- null');
           closeLoading();
           DialogUtils.showMessageDialogue(
               title: 'Warning', description: '${responseModel!.message}');
         } else {
-          print('--------------not null ');
           await loginRepo!.saveUserToken(responseModel!.data!.token.toString());
           closeLoading();
           Get.offAllNamed(AppRoutes.navBarScreen);
         }
       } else {
-        print('--------------other statuscode: ${response.statusCode}');
+        //print('--------------other statuscode: ${response.statusCode}');
         closeLoading();
         DialogUtils.showMessageDialogue();
       }
     } catch (e) {
-      print('--------------');
+      //print('--------------');
       closeLoading();
       "There is an error occured while login request is processing: $e".log();
+      rethrow;
     }
   }
 
