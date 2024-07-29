@@ -28,6 +28,7 @@ class LoginController extends GetxController {
       map["email"] = email.text.trim();
       map["password"] = password.text.trim();
       Response response = await loginRepo!.login(map);
+      print('========================${response.body}');
       if (response.statusCode == 200) {
         responseModel = LoginResponseModel.fromJson(response.body);
         if (responseModel!.data == null) {
